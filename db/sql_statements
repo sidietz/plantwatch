@@ -1,0 +1,34 @@
+Table 1:
+blocks:
+
+CREATE TABLE blocks(
+    KraftwerkID TEXT,
+    BlockID TEXT NOT NULL PRIMARY KEY,
+    company TEXT,
+    blockname TEXT,
+    initialop INTEGER,
+    state TEXT,
+    energysource Text,
+    netpower REAL
+);
+
+CREATE TABLE addresses(
+    BlockID TEXT NOT NULL PRIMARY KEY,
+    PLZ TEXT,
+    place INTEGER,
+    street TEXT,
+    federalstate TEXT,
+    blockinfo Text,
+    FOREIGN KEY (BlockID) REFERENCES blocks(BlockID) ON DELETE CASCADE
+);
+
+.mode csv
+.import blocks_3_nh.csv blocks
+.import stammdaten_nh.csv addresses
+q
+
+Blocks:
+KraftwerkID, BlockID, Blockname, Inbetriebname, Status, Energieträger, Nettoleistung
+
+Address:
+BlockID, PLZ, Ort, Straße, Bundesland, Blockname

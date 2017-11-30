@@ -1,0 +1,219 @@
+KraftwerkID;BlockID;Unternehmen;Kraftwerksname;PLZ;Ort;Straße und Hausnummer;Bundesland;Blockname;"Inbetriebnahme
+(Jahr)";Status;Energieträger;"Vergütungsfähig nach EEG
+(ja/nein)";"Wärmeauskopplung (KWK)
+(ja/nein)";Netto-Nennleistung in MW;Bezeichnung Verknüpfungspunkt (Schaltanlage) mit dem Stromnetz der Allgemeinen Versorgung gemäß Netzbetreiber;Netz- oder Umspannebene des Anschlusses in kV;Name Stromnetzbetreiber
+06-05-100-0248923;BNA1401a;RWE Power AG;BoA 2;41517;Grevenbroich;Energiestraße 101;Nordrhein-Westfalen;Neurath F;2012;in Betrieb;Braunkohle;nein;nein;1060.0;Rommerskirchen;380;Amprion GmbH
+06-05-100-0248923;BNA1401b;RWE Power AG;BoA 3;41517;Grevenbroich;Energiestraße 101;Nordrhein-Westfalen;Neurath G;2012;in Betrieb;Braunkohle;nein;nein;1060.0;Rommerskirchen;380;Amprion GmbH
+14-80-00009560000;BNA0115;Vattenfall Europe Generation AG;Lippendorf;4007;Böhlen;Werkstraße;Sachsen;R;2000;in Betrieb;Braunkohle;Nein;Ja;875.0;Pulgar;380;50Hertz Transmission GmbH
+14-80-00009560000;BNA0116;EnBW Energie Baden-Württemberg AG;Braunkohlekraftwerk Lippendorf;4564;Böhlen;Werkstraße;Sachsen;LIP S;1999;in Betrieb;Braunkohle;Nein;Ja;875.0;Pulgar;380;50Hertz Transmission GmbH
+06-05-700-0105516;BNA0793;Uniper Kraftwerke GmbH ;Heyden;32469;Petershagen;;Nordrhein-Westfalen;4;1987;in Betrieb;Steinkohle;Nein;Nein;875.0;Ovenstädt;380;TenneT TSO GmbH 
+14-70-46630660001;BNA0124;Vattenfall Europe Generation AG;Boxberg;2945;Boxberg;Kraftwerksstraße;Sachsen;Q;2000;in Betrieb;Braunkohle;Nein;Ja;857.0;Bärwalde;380;50Hertz Transmission GmbH
+06-08-2948214;BNA0646b;Grosskraftwerk Mannheim AG;GKM ;68199;Mannheim;Marguerrestraße 1;Baden-Württemberg;Block 9;2015;in Betrieb;Steinkohle;Nein;Ja;843.0;220 kV Schaltfelder GKM ;220;Transnet BW GmbH
+06-08-2797933;BNA0518b;EnBW Energie Baden-Württemberg AG;Rheinhafen-Dampfkraftwerk;76189;Karlsruhe;Fettweisstraße 42;Baden-Württemberg;RDK 8;2014;in Betrieb;Steinkohle;Nein;Ja;842.0;Daxlanden;380;Transnet BW GmbH
+06-02-BERZ003800;BNA1558;Vattenfall Kraftwerk Moorburg GmbH;Moorburg B;21079;Hamburg;;Hamburg;B;2015;in Betrieb;Steinkohle;Nein;Nein;800.0;;380;50Hertz Transmission GmbH
+06-02-BERZ003800;BNA1673;Vattenfall Kraftwerk Moorburg GmbH;Moorburg A;21079;Hamburg;Moorburger Schanze 2;Hamburg;Moorburg A;2015;in Betrieb;Steinkohle;Nein;;800.0;;380;
+06-05-500-0338944;BNA0493;RWE Generation SE;Ibbenbüren;49479;Ibbenbüren;;Nordrhein-Westfalen;B;1985;in Betrieb;Steinkohle;Nein;Ja;794.0;Westerkappeln;380;Amprion GmbH
+06-08-1020129;BNA0434;EnBW Energie Baden-Württemberg AG;Heizkraftwerk Heilbronn;74076;Heilbronn;Lichtenbergerstraße 23;Baden-Württemberg;HLB 7;1985;in Betrieb;Steinkohle;Nein;Ja;778.0;Großgartach;380;Transnet BW GmbH
+06-05-900-0079017;BNA0413b;RWE Generation SE;Westfalen;59071;Hamm-Uentrop;;Nordrhein-Westfalen;D;2014;Sonderfall;Steinkohle;Nein;Nein;765.0;Uentrop;380;Amprion GmbH
+06-05-900-0079017;BNA0413c;RWE Generation SE;Westfalen;59071;Hamm-Uentrop;;Nordrhein-Westfalen;E;2014;in Betrieb;Steinkohle;Nein;Nein;764.0;Uentrop;380;Amprion GmbH
+03-09-09281566110;BNA1061;Uniper Kraftwerke GmbH ;Wilhelmshaven;26386;Wilhelmshaven;;Niedersachsen;1;1976;in Betrieb;Steinkohle;Nein;Nein;757.0;Maade;220;TenneT TSO GmbH 
+12-40716440000;BNA0914;Vattenfall Europe Generation AG;Schwarze Pumpe;3130;Spremberg;"An der alten
+Ziegelei 1";Brandenburg;A;1997;in Betrieb;Braunkohle;Nein;Ja;750.0;Graustein;380;50Hertz Transmission GmbH
+12-40716440000;BNA0915;Vattenfall Europe Generation AG;Schwarze Pumpe;3131;Spremberg;An der alten Ziegelei 1;Brandenburg;B;1998;in Betrieb;Braunkohle;Nein;Ja;750.0;Graustein;380;50Hertz Transmission GmbH
+06-05-900-9141660;BNA1508;Trianel Kohlekraftwerk Lünen GmbH & Co. KG;Trianel Kohlekraftwerk Lünen;44536;Lünen;Frydagstr. 40;Nordrhein-Westfalen;;2013;in Betrieb;Steinkohle;Nein;Ja;746.0;UA Lippe;380;Amprion GmbH
+03-09-09000237910;BNA1674;ENGIE Deutschland AG;Kraftwerk Wilhelmshaven;26386;Wilhelmshaven;Niedersachsendamm;Niedersachsen;Kraftwerk Wilhelmshaven;2015;in Betrieb;Steinkohle;Nein;Nein;731.0;Maade;380;TenneT TSO GmbH
+06-10-00100999;BNA0093;STEAG GmbH;Kraftwerk Bexbach;66450;Bexbach;Grubenstraße;Saarland;BEX;1983;in Betrieb;Steinkohle;Nein;Nein;726.0;Mittelbexbach;380;Amprion GmbH
+06-05-100-0365906;BNA0216b;Steag GmbH;KW Walsum;47180;Duisburg;Dr. Wilhelm-Roelen-Str.129;Nordrhein-Westfalen;Walsum 10;2013;in Betrieb;Steinkohle;Nein;Ja;725.0;SA-Walsum;380;Amprion GmbH
+06-05-900-0205103;BNA0067;RWE Generation SE;Bergkamen;59192;Bergkamen;;Nordrhein-Westfalen;A;1981;in Betrieb;Steinkohle;Nein;Ja;717.0;Gersteinwerk;380;Amprion GmbH
+06-05-100-0431554;BNA0991;Kraftwerk Voerde beschränkt haftende OHG;KW Voerde;46562;Voerde;Frankfurter Str 430;Nordrhein-Westfalen;Block A;1982;in Betrieb;Steinkohle;Nein;Nein;695.0;UA Möllen;380;Amprion GmbH
+06-05-100-0431554;BNA0992;Kraftwerk Voerde beschränkt haftende OHG;KW Voerde;46563;Voerde;Frankfurter Str 430;Nordrhein-Westfalen;Block B;1985;in Betrieb;Steinkohle;Nein;Nein;695.0;UA Möllen;380;Amprion GmbH
+;BNA0464;Stadtwerke Hannover AG;KWM;31249;Hohenhameln OT Mehrum;;Niedersachsen;Block3;1979;in Betrieb;Steinkohle;Nein;Nein;690.0;UW-Mehrum;220;TenneT TSO GmbH 
+06-05-500-0342658;BNA0335;Uniper Kraftwerke GmbH ;Scholven;45896;Gelsenkirchen;;Nordrhein-Westfalen;F;1979;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;Nein;676.0;Scholven;380;Amprion GmbH
+06-10-00101003;BNA0820;Saar GmbH;Weiher;66287;Quierschied;Holzer Straße;Saarland;Weiher III;1976;in Betrieb;Steinkohle;Nein;ja;655.6;Uchtelfangen;220;Amprion GmbH
+06-05-300-0326774;BNA0707;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;H;1974;in Betrieb;Braunkohle;Nein;Nein;648.0;Rommerskirchen;380;Amprion GmbH
+14-70-46630660001;BNA1404;Vattenfall Europe Generation AG;Boxberg;2943;Boxberg;Kraftwerkstraße ;Sachsen;R;2012;in Betrieb;Braunkohle;Nein;Nein;640.0;UW Bärwalde;380;50Hertz Transmission GmbH
+06-05-300-0877384;BNA1027;RWE Power AG;Weisweiler;52249;Eschweiler-Weisweiler;;Nordrhein-Westfalen;G;1974;in Betrieb;Braunkohle;Nein;Ja;636.0;Oberzier;380;Amprion GmbH
+06-05-300-0877384;BNA1028;RWE Power AG;Weisweiler;52249;Eschweiler-Weisweiler;;Nordrhein-Westfalen;H;1975;in Betrieb;Braunkohle;Nein;Ja;636.0;Oberzier;380;Amprion GmbH
+06-05-300-0326774;BNA0709;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;K;2002;in Betrieb;Braunkohle;Nein;Nein;632.0;Rommerskirchen;380;Amprion GmbH
+06-05-300-0326774;BNA0708;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;G;1974;in Betrieb;Braunkohle;Nein;Ja;628.0;Rommerskirchen;380;Amprion GmbH
+06-05-900-0865327;BNA1046a;RWE Generation SE;Gersteinwerk;59368;Werne;;Nordrhein-Westfalen;K2;1984;in Betrieb;Steinkohle;Nein;Nein;620.0;Gersteinwerk;380;Amprion GmbH
+06-05-100-0248923;BNA0699;RWE Power AG;Neurath;41517;Grevenbroich-Neurath;;Nordrhein-Westfalen;D;1975;in Betrieb;Braunkohle;Nein;Ja;607.0;Opladen;380;Amprion GmbH
+06-05-100-0248923;BNA0700;RWE Power AG;Neurath;41517;Grevenbroich-Neurath;;Nordrhein-Westfalen;E;1976;in Betrieb;Braunkohle;Nein;Ja;604.0;Rommerskirchen;380;Amprion GmbH
+13-30-1010101;BNA0849;EnBW Energie Baden-Württemberg AG;KNG Kraftwerk Rostock;18147;Rostock;Am Kühlturm 1;Mecklenburg-Vorpommern;Rostock;1994;in Betrieb;Steinkohle;Nein;Ja;514.0;Bentwisch;380;50Hertz Transmission GmbH
+06-00176010435;BNA0377;Uniper Kraftwerke GmbH ;Staudinger;63538;Großkrotzenburg;;Hessen;5;1992;in Betrieb;Steinkohle;Nein;Ja;510.0;Großkrotzenburg;380;TenneT TSO GmbH 
+06-08-2797933;BNA0518a;EnBW Energie Baden-Württemberg AG;Rheinhafen-Dampfkraftwerk;76189;Karlsruhe;Fettweisstraße 42;Baden-Württemberg;RDK 7;1985;in Betrieb;Steinkohle;Nein;Ja;505.0;Daxlanden;380;Transnet BW GmbH
+06-09-100-0003-0003;BNA1093;ENGIE Deutschland AG;Zolling;85406;Zolling;Leininger Str. 1;Bayern;Zolling Block 5;1986;in Betrieb;Steinkohle;Nein;Ja;472.0;Feld 1 / LS 275;220;TenneT TSO GmbH 
+14-70-46630660001;BNA0122;Vattenfall Europe Generation AG;Boxberg;2943;Boxberg;Kraftwerksstraße;Sachsen;N;1979;in Betrieb;Braunkohle;Nein;Ja;465.0;Bärwalde;380;50Hertz Transmission GmbH
+14-70-46630660001;BNA0123;Vattenfall Europe Generation AG;Boxberg;2944;Boxberg;Kraftwerksstraße;Sachsen;P;1980;in Betrieb;Braunkohle;Nein;Ja;465.0;Bärwalde;380;50Hertz Transmission GmbH
+12-40710010000;BNA0785;Vattenfall Europe Generation AG;KW Jänschwalde;3185;Peitz;Kraftwerksstraße;Brandenburg;A;1981;in Betrieb;Braunkohle;Nein;Ja;465.0;Preilack;380;50Hertz Transmission GmbH
+12-40710010000;BNA0786;Vattenfall Europe Generation AG;KW Jänschwalde;3185;Peitz;Kraftwerksstraße;Brandenburg;B;1982;in Betrieb;Braunkohle;Nein;Ja;465.0;Preilack;380;50Hertz Transmission GmbH
+12-40710010000;BNA0787;Vattenfall Europe Generation AG;KW Jänschwalde;3185;Peitz;Kraftwerksstraße;Brandenburg;C;1984;in Betrieb;Braunkohle;Nein;Ja;465.0;Preilack;380;50Hertz Transmission GmbH
+12-40710010000;BNA0788;Vattenfall Europe Generation AG;KW Jänschwalde;3185;Peitz;Kraftwerksstraße;Brandenburg;D;1985;in Betrieb;Braunkohle;Nein;Ja;465.0;Preilack;380;50Hertz Transmission GmbH
+12-40710010000;BNA0789;Vattenfall Europe Generation AG;KW Jänschwalde;3185;Peitz;Kraftwerksstraße;Brandenburg;E;1987;in Betrieb;Braunkohle;Nein;Ja;465.0;Preilack;380;50Hertz Transmission GmbH
+12-40710010000;BNA0790;Vattenfall Europe Generation AG;KW Jänschwalde;3185;Peitz;Kraftwerksstraße;Brandenburg;F;1989;in Betrieb;Braunkohle;Nein;Ja;465.0;Preilack;380;50Hertz Transmission GmbH
+12358;BNA0878;Uniper Kraftwerke GmbH ;Schkopau;6258;Schkopau;;Sachsen-Anhalt;A;1996;in Betrieb;Braunkohle;Nein;Ja;450.0;Bad Lauchstedt;380;50Hertz Transmission GmbH
+12358;BNA0879;Uniper Kraftwerke GmbH ;Schkopau;6258;Schkopau;;Sachsen-Anhalt;B;1996;in Betrieb;Braunkohle;Nein;Ja;450.0;Bad Lauchstedt;380;50Hertz Transmission GmbH/DB Energie GmbH
+06-05-900-0327252;BNA0450;Steag GmbH;KW Herne;44655;Herne;Hertener Str. 16;Nordrhein-Westfalen;Herne 4;1989;in Betrieb;Steinkohle;Nein;Ja;449.0;220 kV Schaltanlage Bochum;220;Amprion GmbH
+06-08-2948214;BNA0646a;Grosskraftwerk Mannheim AG;GKM ;68199;Mannheim;Marguerrestraße 1;Baden-Württemberg;Block 8;1993;in Betrieb;Steinkohle;Nein;Ja;435.0;"Transnet BW (220kV) Einspeisepunkt 220 kV Neckarau und 220 kV Altlußheim,
+Pfalzwerke Netzgesellschaft 220 kV Mutterstadt (Rhein N, Rhein S), 110 kV Mutterstadt Waldmühle N, Waldmühle S
+Netrion diverse 110 kV und 10 kV Anschlüsse";220/110/10;Transnet BW, Pfalzwerke Netzgesellschaft, Netrion, DB Energie GmbH
+06-08-1741292;BNA0020;EnBW Energie Baden-Württemberg AG;Heizkraftwerk Altbach/Deizisau;73776;Altbach;Industriestraße 11;Baden-Württemberg;ALT HKW 1;1985;in Betrieb;Steinkohle;Nein;Ja;433.0;Altbach;380;Transnet BW GmbH
+06-08-2948214;BNA0645;Grosskraftwerk Mannheim AG;GKM ;68199;Mannheim;Marguerrestraße 1;Baden-Württemberg;Block 7;1982;in Betrieb;Steinkohle;Nein;Ja;425.0;"Transnet BW (220kV) Einspeisepunkt 220 kV Neckarau und 220 kV Altlußheim,
+Pfalzwerke Netzgesellschaft 220 kV Mutterstadt (Rhein N, Rhein S), 110 kV Mutterstadt Waldmühle N, Waldmühle S
+Netrion diverse 110 kV und 10 kV Anschlüsse";220/110/10;Transnet BW, Pfalzwerke Netzgesellschaft, Netrion, DB Energie GmbH
+06-05-100-0365906;BNA0216a;Steag GmbH;KW Walsum;47180;Duisburg;Dr. Wilhelm-Roelen-Str.129;Nordrhein-Westfalen;Walsum 9;1988;in Betrieb;Steinkohle;Nein;Ja;370.0;220 kV Schaltanlage Walsum;220;Amprion GmbH
+;BNA0439;Helmstedter Revier GmbH;Buschhaus;38350;Helmstedt;;Niedersachsen;D;1985;Sicherheitsbereitschaft;Braunkohle;Nein;Nein;352.0;Helmstedt;380;TenneT TSO GmbH 
+06-04-11/2039669/2/0;BNA0147;ENGIE Deutschland AG;Farge;28777;Bremen;Wilhelmshavener Str. 6;Bremen;Farge;1969;in Betrieb;Steinkohle;Nein;Nein;350.0;Farge - FA1;220;TenneT TSO GmbH 
+06-05-500-0342658;BNA0331;Uniper Kraftwerke GmbH ;Scholven;45896;Gelsenkirchen;;Nordrhein-Westfalen;C;1969;in Betrieb;Steinkohle;Nein;Ja;345.0;Scholven;220;Amprion GmbH
+06-05-500-0342658;BNA0332;Uniper Kraftwerke GmbH ;Scholven;45896;Gelsenkirchen;;Nordrhein-Westfalen;B;1968;in Betrieb;Steinkohle;Nein;Ja;345.0;Scholven;220;Amprion GmbH
+;BNA0203;Uniper Kraftwerke GmbH ;Knepper;44357;Dortmund;;Nordrhein-Westfalen;C;1971;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;Ja;345.0;Pöppinghausen;380;Amprion GmbH
+06-05-500-0342658;BNA0333;Uniper Kraftwerke GmbH ;Scholven;45896;Gelsenkirchen;;Nordrhein-Westfalen;D;1970;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;Ja;345.0;Scholven;220;Amprion GmbH
+06-05-500-0342658;BNA0334;Uniper Kraftwerke GmbH ;Scholven;45896;Gelsenkirchen;;Nordrhein-Westfalen;E;1971;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;Ja;345.0;Scholven;220;Amprion GmbH
+06-08-1741292;BNA0019;EnBW Energie Baden-Württemberg AG;Heizkraftwerk Altbach/Deizisau;73776;Altbach;Industriestraße 11;Baden-Württemberg;ALT HKW 2 (DT Solobetrieb);1997;in Betrieb;Steinkohle;Nein;Ja;336.0;Altbach;380;Transnet BW GmbH
+06-09-100-0088-0001;BNA0969b;SWM Services GmbH;Nord 2;85774;Unterföhring;;Bayern;2;1991;in Betrieb;Steinkohle;Nein;Ja;332.7;HUW Föhring;110;SWM Infrastruktur GmbH
+06-05-900-0884101;BNA0619;Steag GmbH;KW Lünen;44537;Lünen;Moltkestr. 215;Nordrhein-Westfalen;Lünen 7;1969;in Betrieb;Steinkohle;Nein;Ja;324.0;220 kV Schaltanlage Elmenhorst;220;Amprion GmbH/DB Energie GmbH
+01-50-02000283604;BNA0526;Gemeinschaftskraftwerk Kiel GmbH;Gemeinschaftskraftwerk Kiel;24149;Kiel;;Schleswig-Holstein;;1970;in Betrieb;Steinkohle;Nein;Ja;323.0;Umspannwerk Hasselfelde;220;TenneT TSO GmbH 
+06-05-100-0853075;BNA0990;Steag GmbH;KW West;46562;Voerde;Frankfurter Str. 430;Nordrhein-Westfalen;West 1;1971;in Betrieb;Steinkohle;Nein;Nein;322.0;220 kV Schaltanlage Möllen;220;Amprion GmbH
+06-05-300-0877384;BNA1025;RWE Power AG;Weisweiler;52249;Eschweiler-Weisweiler;;Nordrhein-Westfalen;E;1965;in Betrieb;Braunkohle;Nein;Nein;321.0;Zukunft;110;Westnetz GmbH
+06-05-300-0877384;BNA1026;RWE Power AG;Weisweiler;52249;Eschweiler-Weisweiler;;Nordrhein-Westfalen;F;1967;in Betrieb;Braunkohle;Nein;Nein;321.0;Oberzier;380;Amprion GmbH
+06-05-100-0853075;BNA0989;Steag GmbH;KW West;46563;Voerde;Frankfurter Str. 430;Nordrhein-Westfalen;West 2;1971;in Betrieb;Steinkohle;Nein;Nein;318.0;220 kV Schaltanlage Möllen;220;Amprion GmbH
+06-05-900-0045033;BNA1037;Mark-E AG;Kraftwerk Werdohl-Elverlingsen;58791;Werdohl;;Nordrhein-Westfalen;E4;1982;in Betrieb;Steinkohle;Nein;;310.0;U205;220;Enervie AssetNetWork GmbH 
+;BNA0813;Uniper Kraftwerke GmbH ;Kraftwerk Veltheim;32457;Porta Westfalica;;Nordrhein-Westfalen;3;1970;Endgültig Stillgelegt 2015 (mit StA);Steinkohle;Nein;Nein;303.0;UW - Veltheim;220;Netz Veltheim GmbH
+06-04-11/2001178/8/0;BNA0146;swb Erzeugung GmbH & Co. KG;KW Hafen;28237;Bremen;Otavistr. 7-9;Bremen;Block 6;1979;in Betrieb;Steinkohle;Nein;Ja;300.0;DE0072032823700000000000000232558;110;Wesernetz Bremen GmbH
+06-05-300-0326774;BNA0706;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;F;1971;in Betrieb;Braunkohle;Nein;Nein;299.0;Opladen;220;Amprion GmbH
+06-05-300-0326774;BNA0705;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;D;1968;in Betrieb;Braunkohle;Nein;Nein;297.0;Brauweiler;220;Amprion GmbH
+06-05-300-0326774;BNA0712;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;C;1965;in Betrieb;Braunkohle;Nein;Nein;295.0;Brauweiler;220;Amprion GmbH
+06-05-300-0326774;BNA0713;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;E;1970;in Betrieb;Braunkohle;Nein;Nein;295.0;Opladen;220;Amprion GmbH
+06-05-100-0248923;BNA0696;RWE Power AG;Neurath;41517;Grevenbroich-Neurath;;Nordrhein-Westfalen;A;1972;in Betrieb;Braunkohle;Nein;Nein;294.0;Osterath;220;Amprion GmbH
+06-05-100-0248923;BNA0697;RWE Power AG;Neurath;41517;Grevenbroich-Neurath;;Nordrhein-Westfalen;B;1972;in Betrieb;Braunkohle;Nein;Nein;294.0;Opladen;380;Amprion GmbH
+06-00176010435;BNA0376;Uniper Kraftwerke GmbH ;Staudinger;63538;Großkrotzenburg;;Hessen;3;1970;Endgültig Stillgelegt 2012 (ohne StA);Steinkohle;Nein;Nein;293.0;Großkrotzenburg;380;TenneT TSO GmbH 
+06-05-100-0248923;BNA0698;RWE Power AG;Neurath;41517;Grevenbroich-Neurath;;Nordrhein-Westfalen;C;1973;in Betrieb;Braunkohle;Nein;Nein;292.0;Opladen;380;Amprion GmbH
+06-05-100-0081105;BNA0313;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;P;1966;in Betrieb;Braunkohle;Nein;Ja;284.0;Gohrpunkt;220;Amprion GmbH
+06-05-900-0079017;BNA0413a;RWE Generation SE;Westfalen;59071;Hamm-Uentrop;;Nordrhein-Westfalen;C;1969;Endgültig Stillgelegt 2016 (mit StA);Steinkohle;Nein;Nein;284.0;Lippborg;110;Westnetz GmbH
+06-10-0075248;BNA0252;Gemeinschaft nach Bruchteilen der Saarstahl AG (SAG) und Saarschmiede GmbH Freiformschmiede (SSF);Kraftwerk Ensdorf;66806;Ensdorf;Kurt Kessler Str. 1;Saarland;Block 3;2001;in Betrieb;Steinkohle;Nein;Nein;283.0;Schaltanlage Ensdorf;110;VSE Verteilnetz GmbH
+06-11-01-1105609;BNA0086;Vattenfall Europe Wärme AG;Reuter West;13599;Berlin;Großer Spreering 5;Berlin;Reuter West D;1987;in Betrieb;Steinkohle;Nein;Ja;282.0;Reuter;380;50Hertz Transmission GmbH
+06-11-01-1105609;BNA0087;Vattenfall Europe Wärme AG;Reuter West;13599;Berlin;Großer Spreering 5;Berlin;Reuter West E;1988;in Betrieb;Steinkohle;Nein;Ja;282.0;Reuter;380;50Hertz Transmission GmbH
+06-05-900-0327252;BNA0449;Steag GmbH;KW Herne;44654;Herne;Hertener Str. 16;Nordrhein-Westfalen;Herne 3;1966;in Betrieb;Steinkohle;Nein;Ja;280.0;220 kV Schaltanlage Eiberg;220;Amprion GmbH
+06-05-100-0081105;BNA0314;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;Q;1970;in Betrieb;Braunkohle;Nein;Nein;278.0;Norf;220;Amprion GmbH
+06-08-2948214;BNA0644;Grosskraftwerk Mannheim AG;GKM ;68199;Mannheim;Marguerrestraße 1;Baden-Württemberg;Block 6;2005;in Betrieb;Steinkohle;Nein;Ja;255.0;"Transnet BW (220kV) Einspeisepunkt 220 kV Neckarau und 220 kV Altlußheim,
+Pfalzwerke Netzgesellschaft 220 kV Mutterstadt (Rhein N, Rhein S), 110 kV Mutterstadt Waldmühle N, Waldmühle S
+Netrion diverse 110 kV und 10 kV Anschlüsse";220/110/10;Transnet BW, Pfalzwerke Netzgesellschaft, Netrion, DB Energie GmbH
+06-00176010435;BNA0375;Uniper Kraftwerke GmbH ;Staudinger;63538;Großkrotzenburg;;Hessen;1;1965;Endgültig Stillgelegt 2013 (ohne StA);Steinkohle;Nein;Ja;249.0;Großkrotzenburg;220;TenneT TSO GmbH 
+06-10-00101000;BNA0999;Saar GmbH;Heizkraftwerk;66333;Völklingen-Fenne;Saarbrücker Straße 135-137;Saarland;HKV;1989;in Betrieb;Steinkohle;Nein;ja;211.0;Fenne;110;VSE Verteilnetz GmbH
+06-08-2948214;BNA0642;Grosskraftwerk Mannheim AG;GKM ;68199;Mannheim;Marguerrestraße 1;Baden-Württemberg;Block 3;1966;Endgültig Stillgelegt 2015 (mit StA);Steinkohle;Nein;Ja;202.5;"Transnet BW (220kV) Einspeisepunkt 220 kV Neckarau und 220 kV Altlußheim,
+Pfalzwerke Netzgesellschaft 220 kV Mutterstadt (Rhein N, Rhein S), 110 kV Mutterstadt Waldmühle N, Waldmühle S
+Netrion diverse 110 kV und 10 kV Anschlüsse";220/110/10;Transnet BW, Pfalzwerke Netzgesellschaft, Netrion, DB Energie GmbH
+06-08-2948214;BNA0643;Grosskraftwerk Mannheim AG;GKM ;68199;Mannheim;Marguerrestraße 1;Baden-Württemberg;Block 4;1970;Endgültig Stillgelegt 2015 (mit StA);Steinkohle;Nein;Ja;202.5;"Transnet BW (220kV) Einspeisepunkt 220 kV Neckarau und 220 kV Altlußheim,
+Pfalzwerke Netzgesellschaft 220 kV Mutterstadt (Rhein N, Rhein S), 110 kV Mutterstadt Waldmühle N, Waldmühle S
+Netrion diverse 110 kV und 10 kV Anschlüsse";220/110/10;Transnet BW, Pfalzwerke Netzgesellschaft, Netrion, DB Energie GmbH
+06-02-B10132A001;BNA0402;Vattenfall Europe Wärme Aktiengesellschaft;Tiefstack;22113;Hamburg;Andreas-Meyer-Straße 8;Hamburg;Tiefstack;1993;in Betrieb;Steinkohle;Nein;Ja;194.0;Tiefstack;110;Stromnetz Hamburg GmbH
+06-05-900-0045033;BNA1035;Mark-E AG;Kraftwerk Werdohl-Elverlingsen;58791;Werdohl;;Nordrhein-Westfalen;E3;1971;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;;186.0;U 104;110;Enervie AssetNetWork GmbH 
+06-10-00101000;BNA0998;Saar GmbH;Modellkraftwerk;66333;Völklingen-Fenne;Saarbrücker Straße 135-137;Saarland;MKV;1982;in Betrieb;Steinkohle;Nein;ja;179.0;Fenne;110;VSE Verteilnetz GmbH
+06-11-01-1105501;BNA0081;Vattenfall Europe Wärme Aktiengesellschaft;Klingenberg;10317;Berlin;Köpenicker Chaussee 42 - 45 ;Berlin;Klingenberg;1981;in Betrieb;Braunkohle;Nein;Ja;164.0;Klingenberg;110;Stromnetz Berlin GmbH
+06-05-900-0079017;BNA0414;RWE Generation SE;Westfalen;59071;Hamm-Uentrop;;Nordrhein-Westfalen;A;1963;Endgültig Stillgelegt 2011 (ohne StA);Steinkohle;Nein;Nein;152.0;Lippborg;110;Westnetz GmbH
+06-05-900-0079017;BNA0415;RWE Generation SE;Westfalen;59071;Hamm-Uentrop;;Nordrhein-Westfalen;B;1963;Endgültig Stillgelegt 2011 (ohne StA);Steinkohle;Nein;Nein;152.0;Lippborg;110;Westnetz GmbH
+06-05-900-0884101;BNA0618;Steag GmbH;KW Lünen;44536;Lünen;Moltkestr. 215;Nordrhein-Westfalen;Lünen 6;1962;in Betrieb;Steinkohle;Nein;Nein;149.0;110 kV Schaltanlage Lünen;110;Westnetz GmbH
+;BNA1006;EnBW Energie Baden-Württemberg AG;Kraftwerk Walheim;74399;Walheim;Mühlstraße;Baden-Württemberg;WAL 2;1967;Gesetzlich an Stilllegung gehindert;Steinkohle;Nein;Nein;148.0;Walheim;110;Netze BW GmbH
+;BNA1076a;Volkswagen AG;HKW West;38436;Wolfsburg;;Niedersachsen;Block 1;1985;in Betrieb;Steinkohle;Nein;Ja;138.5;UW Wolfsburg;110;VW Kraftwerk GmbH
+;BNA1076b;Volkswagen AG;HKW West;38436;Wolfsburg;;Niedersachsen;Block 2;1985;in Betrieb;Steinkohle;Nein;Ja;138.5;UW Wolfsburg;110;VW Kraftwerk GmbH
+06-05-100-0081105;BNA0310;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;M;1962;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;138.0;Frimmersdorf;110;Westnetz GmbH
+01-50-56050192711;BNA0404;Vattenfall Europe Wärme AG;Wedel;22880;Wedel;Tinsdaler Weg 146;Schleswig-Holstein;Wedel 1;1961;in Betrieb;Steinkohle;Nein;Ja;137.0;Wedel;110;Stromnetz Hamburg GmbH
+03-06-06060316030;BNA0420;Stadtwerke Hannover AG;GKH;30419;Hannover;;Niedersachsen;Block1;1989;in Betrieb;Steinkohle;Nein;Ja;136.0;UW-Stöcken;110;enercity Netzgesellschaft mbH 
+03-06-06060316030;BNA0421;Stadtwerke Hannover AG;GKH;30419;Hannover;;Niedersachsen;Block2;1989;in Betrieb;Steinkohle;Nein;Ja;136.0;UW-Stöcken;110;enercity Netzgesellschaft mbH 
+06-05-100-0081105;BNA0308;RWE Power AG;Frimmersdorf;41517;Frimmersdorf;;Nordrhein-Westfalen;K;1962;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;136.0;Opladen;380;Amprion GmbH
+06-05-300-0877384;BNA1022;RWE Power AG;Weisweiler;52249;Eschweiler-Weisweiler;;Nordrhein-Westfalen;D;1959;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;135.0;Oberzier;380;Amprion GmbH
+06-05-100-0081105;BNA0309;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;N;1964;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;135.0;Gohrpunkt;220;Amprion GmbH
+06-05-100-0229264;BNA0212;Stadtwerke Duisburg AG;HKW II/B;47053;Duisburg;Zirkelstraße;Nordrhein-Westfalen;HKW II/B;1965;Endgültig Stillgelegt 2012 (ohne StA);Steinkohle;Nein;Ja;133.0;UW HKW II;110;Netze Duisburg GmbH
+06-05-100-0081105;BNA0312;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;O;1964;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;133.0;Rommerskirchen;220;Amprion GmbH
+06-05-900-0327252;BNA0447;Steag GmbH;KW Herne;44653;Herne;Hertener Str. 16;Nordrhein-Westfalen;Herne 2;1963;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;Nein;133.0;220 kV Schaltanlage Eiberg;220;Amprion GmbH
+06-05-100-0081105;BNA0306;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;F;1960;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;132.0;Osterath;220;Amprion GmbH
+;BNA0448;Uniper Kraftwerke GmbH ;Shamrock;44652;Herne;;Nordrhein-Westfalen;;1957;Endgültig Stillgelegt 2013 (ohne StA);Steinkohle;Nein;Ja;132.0;Gelsenkirchen;110;Amprion GmbH
+06-05-100-0081105;BNA0311;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;L;1962;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;131.0;Frimmersdorf;110;Westnetz GmbH
+06-05-100-0081105;BNA0303;RWE Power AG;Frimmersdorf;41517;Frimmersdorf;;Nordrhein-Westfalen;D;1957;Endgültig Stillgelegt 2011 (ohne StA);Braunkohle;Nein;Nein;130.0;Frimmersdorf;110;Westnetz GmbH
+06-05-100-0081105;BNA0305;RWE Power AG;Frimmersdorf;41517;Grevenbroich-Frimmersdorf;;Nordrhein-Westfalen;E;1959;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;130.0;Osterath;220;Amprion GmbH
+06-05-100-0081105;BNA0302;RWE Power AG;Frimmersdorf;41517;Frimmersdorf;;Nordrhein-Westfalen;C;1957;Endgültig Stillgelegt 2011 (ohne StA);Braunkohle;Nein;Nein;129.0;Frimmersdorf;110;Westnetz GmbH
+06-05-100-0365906;BNA0215;Steag GmbH;KW Walsum;47179;Duisburg;Dr. Wilhelm-Roelen-Str.129;Nordrhein-Westfalen;Walsum 7;1959;Endgültig Stillgelegt 2014 (mit StA);Steinkohle;Nein;Nein;129.0;220 kV Schaltanlage Walsum;220;Amprion GmbH
+06-05-100-0081105;BNA0307;RWE Power AG;Frimmersdorf;41517;Frimmersdorf;;Nordrhein-Westfalen;I;1960;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Nein;128.0;Opladen;380;Amprion GmbH
+06-04-11/2001178/8/0;BNA0145;swb Erzeugung GmbH & Co. KG;KW Hafen;28237;Bremen;Otavistr. 7-9;Bremen;Block 5;1968;Vorläufig Stillgelegt (mit StA);Steinkohle;Nein;Ja;127.0;DE0072032825900000000000000232559;110;Wesernetz Bremen GmbH
+06-05-300-0326774;BNA0710;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;B;1963;Vorläufig Stillgelegt (ohne StA);Braunkohle;Nein;Nein;125.0;Brauweiler;220;Amprion GmbH
+06-05-300-0326774;BNA0711;RWE Power AG;Niederaußem;50129;Bergheim;;Nordrhein-Westfalen;A;1963;Vorläufig Stillgelegt (ohne StA);Braunkohle;Nein;Nein;125.0;Brauweiler;220;Amprion GmbH
+06-08-1020129;BNA0432;EnBW Energie Baden-Württemberg AG;Heizkraftwerk Heilbronn;74076;Heilbronn;Lichtenbergerstraße 23;Baden-Württemberg;HLB 5;1965;Gesetzlich an Stilllegung gehindert;Steinkohle;Nein;Ja;125.0;Heilbronn;110;Netze BW GmbH
+06-08-1020129;BNA0433;EnBW Energie Baden-Württemberg AG;Heizkraftwerk Heilbronn;74076;Heilbronn;Lichtenbergerstraße 23;Baden-Württemberg;HLB 6;1966;Gesetzlich an Stilllegung gehindert;Steinkohle;Nein;Ja;125.0;Heilbronn;110;Netze BW GmbH
+06-11-01-1105602;BNA0082;Vattenfall Europe Wärme Aktiengesellschaft;Reuter;13599;Berlin;Otternbuchtstr. 11;Berlin;Reuter C;1969;in Betrieb;Steinkohle;Nein;Ja;124.0;Reuter;110;Stromnetz Berlin GmbH
+06-05-100-0081105;BNA0304;RWE Power AG;Frimmersdorf;41517;Frimmersdorf;;Nordrhein-Westfalen;G;1960;Endgültig Stillgelegt 2011 (ohne StA);Braunkohle;Nein;Nein;124.0;Rommerskirchen;220;Amprion GmbH
+01-50-56050192711;BNA0403;Vattenfall Europe Wärme AG;Wedel;22880;Wedel;Tinsdaler Weg 146;Schleswig-Holstein;Wedel 2;1962;in Betrieb;Steinkohle;Nein;Ja;123.0;Wedel;110;Stromnetz Hamburg GmbH
+06-05-300-0877384;BNA1021;RWE Power AG;Weisweiler;52249;Eschweiler-Weisweiler;;Nordrhein-Westfalen;C;1955;Endgültig Stillgelegt 2012 (ohne StA);Braunkohle;Nein;Ja;123.0;Oberzier;380;Amprion GmbH
+06-04-11/2001178/8/0;BNA0144;swb Erzeugung GmbH & Co. KG;KW Hastedt;28207;Bremen;Hastedter Osterdeich 255;Bremen;Block 15;1989;in Betrieb;Steinkohle;Nein;Ja;119.0;DE0072032820700000000000000232557;110;Wesernetz Bremen GmbH
+1;BNA0189;Uniper Kraftwerke GmbH ;Datteln;45711;Datteln;;Nordrhein-Westfalen;3;1969;Endgültig Stillgelegt 2013 (ohne StA);Steinkohle;Nein;Nein;113.0;Datteln;110;DB Energie GmbH
+06-05-100-0081105;BNA0292;RWE Power AG;Frechen/Wachtberg;50226;Frechen;;Nordrhein-Westfalen;Frechen/Wachtberg;1959;in Betrieb;Braunkohle;Nein;Ja;110.0;Frechen;110;Westnetz GmbH
+06-05-100-9021016;BNA0557b;Currenta GmbH & Co. OHG;Kraftwerk N 230;47812;Krefeld-Uerdingen;CHEMPARK, Geb. N 230;Nordrhein-Westfalen;;1971;in Betrieb;Steinkohle;Nein;Ja;110.0;;25;CURRENTA
+06-10-0075248;BNA0253;VSE AG, Kraftwerk Ensdorf;Kraftwerk Ensdorf;66806;Ensdorf;Kurt-Kessler-Str.;Saarland;Block 1;1963;in Betrieb;Steinkohle;Nein;Ja;106.0;"Schaltanlage Ensdorf (UA-Ensdorf); DE 0001816680600000000000000580138";220;Amprion GmbH
+06-05-300-9046797;BNA0600b;Currenta GmbH & Co. OHG;G-Kraftwerk;51368;Leverkusen;CHEMPARK, Geb. G 22;Nordrhein-Westfalen;;1962;in Betrieb;Steinkohle;Nein;Ja;103.0;;25;CURRENTA
+;BNA1005;EnBW Energie Baden-Württemberg AG;Kraftwerk Walheim;74399;Walheim;Mühlstraße;Baden-Württemberg;WAL 1;1964;Gesetzlich an Stilllegung gehindert;Steinkohle;Nein;Nein;96.0;Walheim;110;Netze BW GmbH
+06-05-100-0031758;BNA0211;Stadtwerke Duisburg AG;HKW I;47053;Duisburg;Zirkelstraße;Nordrhein-Westfalen;ZAWSF;1985;in Betrieb;Steinkohle;Nein;Ja;95.0;UW HKW I;110;Netze Duisburg GmbH
+1;BNA0187;Uniper Kraftwerke GmbH ;Datteln;45711;Datteln;;Nordrhein-Westfalen;1;1964;Endgültig Stillgelegt 2013 (ohne StA);Steinkohle;Nein;Ja;95.0;Datteln;110;DB Energie GmbH
+1;BNA0188;Uniper Kraftwerke GmbH ;Datteln;45711;Datteln;;Nordrhein-Westfalen;2;1964;Endgültig Stillgelegt 2013 (ohne StA);Steinkohle;Nein;Ja;95.0;Datteln;110;DB Energie GmbH
+;BNA0812;Gemeinschaftskraftwerk Veltheim GmbH;Kraftwerk Veltheim;32457;Porta Westfalica;;Nordrhein-Westfalen;2;1965;Endgültig Stillgelegt 2012 (ohne StA);Steinkohle;Nein;Nein;93.0;UW - Veltheim;110;Netz Veltheim GmbH
+14-60-48821410003;BNA0179;eins energie in sachsen GmbH & Co. KG;HKW Chemnitz  Nord II;9116;Chemnitz;;Sachsen;Block C;1990;in Betrieb;Braunkohle;Nein;Ja;90.8;UW Chemnitz Mitte;110;inetz GmbH
+06-11-01-1105604;BNA0085a;Vattenfall Europe Wärme Aktiengesellschaft;Moabit;13353;Berlin;Friedrich-Krause-Ufer 10- 15;Berlin;Moabit A;1990;in Betrieb;Steinkohle;Nein;Ja;89.0;Moabit;110;Stromnetz Berlin GmbH
+06-05-100-0030723;BNA1084;WSW Energie & Wasser AG;HKW Elberfeld ;42117;Wuppertal;;Nordrhein-Westfalen;Block 3;1989;in Betrieb;Steinkohle;Nein;Ja;85.0;;110;WSW Netz GmbH 
+;BNA0834;Solvay Chemicals GmbH;Solvay Kraftwerk Rheinberg;47495;Rheinberg;;Nordrhein-Westfalen;;1975;in Betrieb;Steinkohle;Nein;ja;79.0;Umspannwerk Ossenberg 110 kV;25;Solvay Chemicals GmbH
+06-05-300-0923949;BNA0543;RheinEnergie AG;HKW Merkenich;50769;Köln;;Nordrhein-Westfalen;Block 6;2010;in Betrieb;Braunkohle;Nein;Ja;75.3;UW Merkenich;110;Rheinische NETZGesellschaft mbH 
+12-40520430000;BNA0183;HKW Heizkraftwerksgesellschaft Cottbus mbH;HKW Cottbus;3052;Cottbus;;Brandenburg;1;1999;in Betrieb;Braunkohle;Nein;Ja;74.0;SWC / NA 1 und NA 2;110;Mitteldeutsche Netzgesellschaft Strom mbH
+;BNA0336;Uniper Kraftwerke GmbH ;FWK Buer;45896;Gelsenkirchen;;Nordrhein-Westfalen;;1985;in Betrieb;Steinkohle;Nein;Ja;70.0;Scholven;35;Amprion GmbH
+;BNA0196;Mitteldeutsche Braunkohlengesellschaft mbH;Deuben;6682;Teuchern;;Sachsen-Anhalt;;1936;in Betrieb;Braunkohle;Nein;Ja;67.0;Schaltanlage Zwenkau;110;Mitteldeutsche Netzgesellschaft Strom mbH
+;BNA0498;Infraserv GmbH & Co. Höchst KG;Heizkraftwerk;65926;Industriepark Höchst;;Hessen;Block B;1989;in Betrieb;Steinkohle;Nein;Ja;66.0;FWH O/W;10;Infraserv GmbH & Co. Höchst KG
+06-05-800-0203946;BNA0489;RWE Power AG;Goldenberg;50354;Hürth;;Nordrhein-Westfalen;E;1992;Endgültig Stillgelegt 2015 (mit StA);Braunkohle;Nein;Ja;66.0;Knapsack;110;Westnetz GmbH
+06-00464010412;BNA0289b;Mainova AG;HKW West;60627;Frankfurt am Main;Gutleutstraße 231;Hessen;Block 2;1989;in Betrieb;Steinkohle;Nein;Ja;61.5;UW Gutleutstraße;110;NRM Netzdienste Rhein-Main GmbH
+06-00464010412;BNA0290;Mainova AG;HKW West;60627;Frankfurt am Main;Gutleutstraße 231;Hessen;Block 3;1989;in Betrieb;Steinkohle;Nein;Ja;61.5;UW Gutleutstraße;110;NRM Netzdienste Rhein-Main GmbH
+;BNA1075a;Volkswagen AG;HKW Nord;38436;Wolfsburg;;Niedersachsen;Generator A;2000;in Betrieb;Steinkohle;Nein;Ja;61.5;UW West;50;VW Kraftwerk GmbH
+;BNA1075b;Volkswagen AG;HKW Nord;38436;Wolfsburg;;Niedersachsen;Generator B;2000;in Betrieb;Steinkohle;Nein;Ja;61.5;UW Ost;50;VW Kraftwerk GmbH
+;BNA0661;Evonik Degussa GmbH;Kraftwerk II;45772;Marl;Paul-Baumann-Str. 1;Nordrhein-Westfalen;Block 3;1966;in Betrieb;Steinkohle;Nein;Ja;60.4;;110;Evonik Degussa GmbH
+;BNA0662a;Evonik Degussa GmbH;Kraftwerk I ;45772;Marl;Paul-Baumann-Str. 1;Nordrhein-Westfalen;Block 5 ;1983;in Betrieb;Steinkohle;Nein;Ja;60.2;;110;Evonik Degussa GmbH
+;BNA0680;Mitteldeutsche Braunkohlengesellschaft mbH;Mumsdorf;4613;Mumsdorf;;Sachsen-Anhalt;;1968;Endgültig Stillgelegt 2013 (mit StA);Braunkohle;Nein;Ja;60.0;Schaltanlage Phönix Mumsdorf;110;Mitteldeutsche Netzgesellschaft Strom mbH
+14-60-48821410003;BNA0177;eins energie in sachsen GmbH & Co. KG;HKW Chemnitz  Nord II;9115;Chemnitz;;Sachsen;Block B;1988;in Betrieb;Braunkohle;Nein;Ja;56.8;UW Chemnitz Glösa;110;inetz GmbH
+;BNA0660;Evonik Degussa GmbH;Kraftwerk I  ;45772;Marl;Paul-Baumann-Str. 1;Nordrhein-Westfalen;Block 4 ;1971;in Betrieb;Steinkohle;Nein;Ja;55.3;;110;Evonik Degussa GmbH
+;BNA0491;RWE Power AG;Ville/Berrenrath;50354;Hürth;;Nordrhein-Westfalen;Ville/Berrenrath;1991;in Betrieb;Braunkohle;Nein;Ja;55.0;Berrenrath;110;Westnetz GmbH
+06-00059010413;BNA0758;Energieversorgung Offenbach AG;Heizkraftwerk Offenbach;63067;Offenbach;;Hessen;;1990;in Betrieb;Steinkohle;Nein;ja;54.0;Andréstraße;110;Netrion GmbH
+;BNA0861b;Energie SaarLorLux AG;HKW Römerbrücke;66121;Saarbrücken;;Saarland;Kohleanlage;1988;in Betrieb;Steinkohle;Nein;Ja;50.0;UW Römerbrücke;110;"Stadtwerke Saarbrücken AG /
+VSE Verteilnetz GmbH"
+12110;BNA0194;Kraftwerk Dessau GmbH;Kraftwerk Dessau;6842;Dessau-Roßlau;;Sachsen-Anhalt;;1996;in Betrieb;Braunkohle;Nein;ja;49.0;KWD;15;Dessauer Stromversorgung GmbH
+12-30532000000;BNA0284;Stadtwerke Frankfurt (Oder) GmbH;Heizkraftwerk FFO;15236;Frankfurt Oder;;Brandenburg;Block1-GuD-EK;1997;in Betrieb;Braunkohle;Nein;Ja;45.0;"Zelle 3 und 13 Schaltanlage ""Am Hohen Feld 4""";20;Netzgesellschaft Frankfurt (Oder) mbH
+;BNA1486;ROMONTA GmbH;Grubenheizkraftwerk;6317;Seegebiet Mansfelder Land;Chausseestraße 1;Sachsen-Anhalt;;1979;in Betrieb;Braunkohle;Nein;Ja;45.0;SF6-Schaltanlage Amsdorf Braunkohle;110;Mitteldeutsche Netzgesellschaft Strom mbH
+;BNA0935;EnBW Energie Baden-Württemberg AG;Restmüll-Heizkraftwerk Stuttgart-Münster;70376;Stuttgart;Voltastraße 45;Baden-Württemberg;MÜN DT12;1982;in Betrieb;Steinkohle;Nein;Ja;45.0;Münster;110;Netze BW GmbH
+;BNA0936;EnBW Energie Baden-Württemberg AG;Restmüll-Heizkraftwerk Stuttgart-Münster;70376;Stuttgart;Voltastraße 45;Baden-Württemberg;MÜN DT15;1984;in Betrieb;Steinkohle;Nein;Ja;45.0;Münster;110;Netze BW GmbH
+06-05-800-0203946;BNA0490b;RWE Power AG;Goldenberg;50354;Hürth;;Nordrhein-Westfalen;F;1993;Endgültig Stillgelegt 2015 (mit StA);Braunkohle;Nein;Ja;45.0;Knapsack;110;Westnetz GmbH
+03-01-01010157480;BNA0138;Braunschweiger Versorgungs-AG & Co. KG;HKW-Mitte;38106;Braunschweig;;Niedersachsen;Block 1 ;1984;in Betrieb;Steinkohle;Nein;Ja;43.3;UW Hasenwinkel;110;Braunschweiger Netz GmbH
+06-05-800-0203946;BNA0490a;RWE Power AG;Goldenberg;50354;Hürth;;Nordrhein-Westfalen;F;1993;Sonderfall;Braunkohle;Nein;Ja;40.0;Knapsack;110;Westnetz GmbH
+;BNA1500;Nordzucker AG, Werk Uelzen;Werk Uelzen;29525;Uelzen;An der Zuckerfabrik 1;Niedersachsen;;"vor 1945 /
+letzte Änderung 1990";Sonderfall;Steinkohle;Nein;Ja;40.0;;20;Celle-Uelzen Netz GmbH
+01-50-01000004838;BNA0273;Stadtwerke Flensburg GmbH;Heizkraftwerk FL;24939;Flensburg;Batteriestr. 48;Schleswig-Holstein;Block 8;1982;Endgültig Stillgelegt 2016 (mit StA);Steinkohle;Nein;ja;35.0;SW Flensburg GmbH;60;Stadtwerke Flensburg GmbH 
+06-14600010611;BNA0523;Städtische Werke Energie + Wärme GmbH;FKK;34134;Kassel;;Hessen;;1988;in Betrieb;Braunkohle;Nein;Ja;33.5;DE00033234134000KFWFKK10000199995;110;Avacon AG
+01-50-01000004838;BNA0272;Stadtwerke Flensburg GmbH;Heizkraftwerk FL;24939;Flensburg;Batteriestr. 48;Schleswig-Holstein;Block 9;1985;in Betrieb;Steinkohle;Nein;ja;33.0;SW Flensburg GmbH;60;Stadtwerke Flensburg GmbH 
+;BNA1002;Mitteldeutsche Braunkohlengesellschaft mbH;Wählitz;6679;Wählitz;;Sachsen-Anhalt;;1994;in Betrieb;Braunkohle;Nein;Ja;31.0;Schaltanlage Zwenkau;110;Mitteldeutsche Netzgesellschaft Strom mbH
+01-50-01000004838;BNA0271;Stadtwerke Flensburg GmbH;Heizkraftwerk FL;24939;Flensburg;Batteriestr. 48;Schleswig-Holstein;Block 10;1988;in Betrieb;Steinkohle;Nein;ja;29.0;SW Flensburg GmbH;60;Stadtwerke Flensburg GmbH 
+;BNA0011;Papierfabrik Albbruck GmbH;Papierfabrik Albbruck;79774;Albbruck;;Baden-Württemberg;;2009;Endgültig Stillgelegt 2012 (ohne StA);Steinkohle;Nein;Ja;28.0;Albbruck;110;ED Netze GmbH
+;;Nicht-EEG-Anlagen < 10 MW;;;;;ohne Zuordnung;;;in Betrieb;Braunkohle;Nein;;27.6;;;
+;BNA1451;Sachtleben Chemie GmbH;HKW Sachtleben;47198;Duisburg;Dr.-Rudolf-Sachtleben-Str. 4;Nordrhein-Westfalen;;1962;in Betrieb;Braunkohle;Nein;Ja;27.5;Homberg;10, 25;Netze Duisburg GmbH
+01-50-01000004838;BNA0270;Stadtwerke Flensburg GmbH;Heizkraftwerk FL;24939;Flensburg;Batteriestr. 48;Schleswig-Holstein;Block 11;1992;in Betrieb;Steinkohle;Nein;ja;27.0;SW Flensburg GmbH;60;Stadtwerke Flensburg GmbH 
+06-08-3042693;BNA0801;Heizkraftwerk Pforzheim GmbH;Heizkraftwerk Pforzheim GmbH;75175;Pforzheim;Hohwiesenweg 15;Baden-Württemberg;Wirbelschichtblock;1990;in Betrieb;Steinkohle;Nein;Ja;26.9;Hohwiesenweg;110;Stadtwerke Pforzheim GmbH und Co. KG
+06-05-100-9021016;BNA0557a;Currenta GmbH & Co. OHG;Kraftwerk L 57;47812;Krefeld-Uerdingen;CHEMPARK, Geb. L 57;Nordrhein-Westfalen;;1957;in Betrieb;Steinkohle;Nein;Ja;26.0;;25;CURRENTA
+;BNA0926b;Sappi Stockstadt GmbH;Heizkraftwerk der Sappi Stockstadt GmbH;63811;Stockstadt;Obernburger Straße 1-9;Bayern;Konventionelles Sammelschienenkraftwerk;1969;in Betrieb;Steinkohle;Nein;Ja;24.8;"Primär Kundenanlage zur betrieblichen Eigenversorgung
+; Verbindung mit Netz der allgemeinen Versorgung über Trafo 11 (110/20kV)";110;Westnetz GmbH
+;BNA1164;Pfeifer & Langen Kommanditgesellschaft;P&L Werk Jülich;52428;Jülich;Dürenerstr. 20;Nordrhein-Westfalen;Kessel 5;2004;in Betrieb;Braunkohle;Nein;ja;24.6;;10;Stadtwerke Jülich GmbH
+01-50-01000004838;BNA0274;Stadtwerke Flensburg GmbH;Heizkraftwerk FL;24939;Flensburg;Batteriestr. 48;Schleswig-Holstein;Block 7;1978;Endgültig Stillgelegt 2016 (mit StA);Steinkohle;Nein;ja;23.0;SW Flensburg GmbH;60;Stadtwerke Flensburg GmbH 
+;BNA0934;EnBW Energie Baden-Württemberg AG;Heizkraftwerk Stuttgart-Gaisburg;70376;Stuttgart;Langwiesenweg 23;Baden-Württemberg;GAI DT 14 neu;2009;in Betrieb;Steinkohle;Nein;Ja;22.6;Gaisburg;110;Netze BW GmbH
+;BNA1405a;Fernwärme Ulm GmbH;Heizkraftwerk Magirusstraße;89077;Ulm;Magirusstr. 21;Baden-Württemberg;;1978;in Betrieb;Steinkohle;Nein;Ja;20.7;SWU 1, SWU 2;10;Stadtwerke Ulm/Neu-Ulm Netze GmbH 
+;BNA1185;Pfeifer & Langen Kommanditgesellschaft;P&L Werk Könnern;6420;Könnern;An den Sieben Stücken;Sachsen-Anhalt;Kessel 1 und 2;1993;in Betrieb;Braunkohle;Nein;ja;20.3;JK Ø 3;20;Mitteldeutsche Netzgesellschaft Strom mbH
+;BNA1467;Koehler SE;;77704;Oberkirch;Hauptstraße 2-4;Baden-Württemberg;;1986;in Betrieb;Steinkohle;Nein;Ja;20.0;;20;Stadtwerke Oberkirch GmbH
+;BNA1097;Smurfit Kappa Zülpich Papier GmbH;Kohlekraftwerk;53909;Zülpich;Bessenicher Weg;Nordrhein-Westfalen;K06;1978;in Betrieb;Braunkohle;Nein;Ja;19.5;Viktor Rolf;20;Westnetz GmbH
+;BNA1331;Reno De Medici Arnsberg GmbH;Reno De Medici;59821;Arnsberg;Hellefelderstr. 51;Nordrhein-Westfalen;HD - Kraftwerk;1923;in Betrieb;Steinkohle;Nein;ja;19.0;DE00018144139;30 auf 6;Westnetz GmbH
+;BNA1400a;Südzucker AG Mannheim/Ochsenfurt, Werk Zeitz;EZ1;6712;Zeitz;Albrechtstr. 54;Sachsen-Anhalt;WSK;1993;in Betrieb;Braunkohle;Nein;Ja;18.5;MCk0268;15;Mitteldeutsche Netzgesellschaft Strom mbH
+;BNA1461;CropEnergies Bioethanol GmbH Zeitz;;6712;Zeitz;Albrechtstr. 54;Sachsen-Anhalt;;2005;in Betrieb;Braunkohle;Nein;Ja;17.5;;10;Mitteldeutsche Netzgesellschaft Strom mbH
+06-09-500-0112-0001;BNA0261b;Erlanger Stadtwerke AG;HKW Erlangen;91052;Erlangen; Äußere Bruckerstr. 33;Bayern;K6 DT2;1980;in Betrieb;Steinkohle;Nein;Ja;17.4;UW Mitte;20;Erlanger Stadtwerke AG
+;;Nicht-EEG-Anlagen < 10 MW;;;;;ohne Zuordnung;;;in Betrieb;Steinkohle;Nein;;16.8;;;
+06-05-300-0326774;BNA0714;RWE Power AG;Fortuna Nord;50129;Bergheim;;Nordrhein-Westfalen;Fortuna Nord;1984;in Betrieb;Braunkohle;Nein;Ja;15.0;Auenheim;110;Westnetz GmbH
+;BNA1141;Pfeifer & Langen Kommanditgesellschaft;P&L Werk Euskirchen;53879;Euskirchen;Bonner Strasse 2;Nordrhein-Westfalen;Kessel 4 / 6;1970 / 1981 / 2013;in Betrieb;Braunkohle;Nein;Ja;14.5;;11;Westnetz GmbH
+07-05-8030815;BNA0510b;SWK - Stadtwerke Kaiserslautern;HKW Karcherstr.;67655;Kaiserslautern;;Rheinland-Pfalz;20;1996;in Betrieb;Steinkohle;Nein;Ja;13.4;UW1;20;SWK Stadtwerke Kaiserslautern Versorgungs-AG
+;BNA1293a;Martinswerk GmbH;Kraftwerk;50127;Bergheim;Kölner Straße 110;Nordrhein-Westfalen;K1/TG1;1995;Vorläufig Stillgelegt (ohne StA);Braunkohle;Nein;ja;10.0;Station Martinswerk;20;Westnetz GmbH
+;BNA1293b;Martinswerk GmbH;Kraftwerk;50127;Bergheim;Kölner Straße 110;Nordrhein-Westfalen;K2/TG2;1995;in Betrieb;Braunkohle;Nein;Ja;10.0;Station Martinswerk;20;Westnetz GmbH

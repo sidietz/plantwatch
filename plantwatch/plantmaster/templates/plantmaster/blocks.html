@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PlantMaster</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>   <script src="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link href="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.js"></script>
+</head>
+<body>
+<div id="slider"></div>
+<span style="display:block; height: 5em;"></span>
+<div>
+    <input name="energysource" id="gas" type="checkbox"  {{ checked.0 }} style="display:inline-block; margin-right:10px;">Gas</input>
+    <span style="width: 1em; height: 1em; display:inline-block; background-color: #c3e6cb"></span>
+    </div>
+<div>
+    <input name="energysource" id="coal" type="checkbox" {{ checked.1 }} style="display:inline-block; margin-right:10px;">Steinkohle</input>
+    <span style="width: 1em; height: 1em; display:inline-block; background-color: #f5c6cb "></span>
+        </div>
+<div>
+    <input name="energysource" id="lignite" type="checkbox" {{ checked.2 }} style="display:inline-block; margin-right:10px;" >Braunkohle</input>
+    <span style="width: 1em; height: 1em; display:inline-block; background-color: #ffeeba"></span>
+</div>
+
+{% if block_list %}
+
+{% if power %}
+    <p>Gesamtleistung: {{ power | floatformat:2}} MW</p>
+    <p>Anzahl Kraftwerke: {{ count }}</p>
+{% endif %}
+<table class="table">
+    <tr>
+    {% for header in header_list %}
+    <th> {{ header }}</th>
+    {% endfor %}
+    </tr>
+
+    {% for block in block_list %}
+        {% if block.energysource == "Steinkohle" %}
+        <tr class="table table-danger">
+        <td><a href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
+        <td> {{ block.blockname }} </td>
+        <td> {{ block.initialop }} </td>
+        <td> {{ block.state }} </td>
+        <td> {{ block.netpower }} </td>
+        </tr>
+        {% elif block.energysource == "Braunkohle" %}
+            <tr class="table table-warning">
+        <td><a href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
+        <td> {{ block.blockname }} </td>
+        <td> {{ block.initialop }} </td>
+        <td> {{ block.state }} </td>
+        <td> {{ block.netpower }} </td>
+        </tr>
+        {% elif block.energysource == "Erdgas" %}
+        <tr class="table table-success">
+        <td><a href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
+        <td> {{ block.blockname }} </td>
+        <td> {{ block.initialop }} </td>
+        <td> {{ block.state }} </td>
+        <td> {{ block.netpower }} </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+
+</table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+<script>
+let checkedBoxes = document.querySelectorAll('input[name=energysource]');
+let g = $("#gas");
+let c = $("#coal");
+let l = $("#lignite");
+
+function getBoxes() {
+    checkedBoxes = document.querySelectorAll('input[name=energysource]');
+    console.log("codegeneration");
+    let code = 0; // catch case if user set every checkbox to zero
+    let lookup = {gas: 1, coal: 2, lignite: 6};
+    for (let elem of checkedBoxes) {
+        let checked = elem.checked;
+        if (checked) {
+            code += lookup[elem.id];
+        }
+    }
+    console.log(code);
+    if (code === 0) {
+        code = 9;
+    }
+    return code;
+}
+
+function handleBoxes() {
+    let url = getUrl();
+    window.location.href = url;
+}
+
+g.change(function() {
+    handleBoxes();
+});
+
+c.change(function() {
+    handleBoxes();
+});
+
+l.change(function() {
+    handleBoxes();
+});
+
+function getSlider(){
+    let values = slider.noUiSlider.get();
+    let low = Math.round(values[0]);
+    let up = Math.round(values[1]);
+    return low + "-" + up;
+}
+
+function getUrl() {
+    let base = window.location.href;
+    let base_l = base.split("/");
+
+    let url = "";
+    base_l.pop();
+    let parent = base_l.pop();
+    console.log(base_l);
+    if (parent === "blocks") {
+        url += "./"
+    } else if (parent === "plantmaster") {
+        url += "blocks"
+    } else {
+        url += "../"
+    }
+
+    url += getSlider();
+    url += "-" + getBoxes();
+    console.log(url);
+    return url;
+}
+
+console.log(document.getElementById('slider'));
+let range = document.getElementById('slider');
+noUiSlider.create(range, {
+    start: [{{ lower }}, {{ upper }}], // Handle start position
+    step: 5, // Slider moves in increments of '10'
+    margin: 0, // Handles must be more than '20' apart
+    connect: true, // Display a colored bar between the handles
+
+    orientation: 'horizontal', // Orient the slider vertically
+    //behaviour: 'tap-drag', // Move handle on tap, bar is draggable
+    range: { // Slider can select '0' to '100'
+        'min': 1960,
+        'max': 2020
+    },
+    pips: { // Show a scale with the slider
+        mode: 'steps',
+        density: 10
+    }
+});
+
+range.noUiSlider.on('change', function(handle ) {
+        if ( handle ) {
+            console.log("now in handling uislider");
+            let url = getUrl();
+            console.log(url);
+            window.location.href = url;
+        }
+    });
+</script>
+</body>
+</html>
+

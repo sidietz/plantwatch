@@ -1,0 +1,9 @@
+Blocks:
+KraftwerkID, BlockID, Unternehmen, Kraftwerksname, Inbetriebname, Status, Energieträger, Nettoleistung
+
+Address:
+BlockID, PLZ, Ort, Straße, Bundesland, Blockname
+
+
+Kraftwerke:
+(kommt später?)

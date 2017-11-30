@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PlantMaster</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>   <script src="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.min.css" rel="stylesheet">
+</head>
+<body>
+<script src="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.js"></script>
+<div>
+    <p>Basic UI Elements</p>
+</div>
+<div id="slider"></div>
+{% if block_list %}
+
+<table class="table">
+    <tr>
+    {% for header in header_list %}
+    <th> {{ header }}</th>
+    {% endfor %}
+    </tr>
+
+    {% for block in block_list %}
+        {% if block.energysource == "Steinkohle" %}
+        <tr class="table table-danger">
+        <td><a href="{{ block.blockid }}/">{{ block.blockid }} </a></td>
+        <td> {{ block.blockname }} </td>
+        <td> {{ block.initialop }} </td>
+        <td> {{ block.state }} </td>
+        <td> {{ block.netpower }} </td>
+        </tr>
+        {% elif block.energysource == "Braunkohle" %}
+            <tr class="table table-warning">
+        <td><a href="{{ block.blockid }}/">{{ block.blockid }} </a></td>
+        <td> {{ block.blockname }} </td>
+        <td> {{ block.initialop }} </td>
+        <td> {{ block.state }} </td>
+        <td> {{ block.netpower }} </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+
+</table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% if power %}
+    <p>Gesamtleistung: {{ power }} MW</p>
+{% endif %}
+
+<script>
+console.log(document.getElementById('range'))
+var range = document.getElementById('range')[0];
+console.log(document.getElementById('range'))
+noUiSlider.create(range, {
+    start: [ 20, 80 ], // Handle start position
+    step: 10, // Slider moves in increments of '10'
+    margin: 20, // Handles must be more than '20' apart
+    connect: true, // Display a colored bar between the handles
+    direction: 'rtl', // Put '0' at the bottom of the slider
+    orientation: 'vertical', // Orient the slider vertically
+    behaviour: 'tap-drag', // Move handle on tap, bar is draggable
+    range: { // Slider can select '0' to '100'
+        'min': 0,
+        'max': 100
+    },
+    pips: { // Show a scale with the slider
+        mode: 'steps',
+        density: 2
+    }
+});
+range.noUiSlider.on('update', function( values, handle ) {
+    if ( handle ) {
+        valueInput.value = values[handle];
+    } else {
+        valueSpan.innerHTML = values[handle];
+    }
+});
+
+// When the input changes, set the slider value
+valueInput.addEventListener('change', function(){
+    range.noUiSlider.set([null, this.value]);
+});
+</script>
+
+
+</body>
+
+</html>
+
