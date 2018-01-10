@@ -1,72 +1,3 @@
-{% extends "plantmaster/base.html" %}
-{%  load static %}
-
-{% block head %}
-<link href="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.min.css" rel="stylesheet">
-<script src="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.js"></script>
-
-
-{% endblock %}
-
-
-{% block content %}
-<div id="slider"></div>
-<span class="hspace"></span>
-<div>
-    <span id="gascolor" class="aspace"></span>
-<input name="energysource" title="gas" class="gas" id="gas" type="checkbox" {{ checked.0 }}> Gas
-    </div>
-<div>
-
-    <span id="coalcolor" class="aspace"></span>
-<input name="energysource" title="coal" class="coal" id="coal" type="checkbox" {{ checked.1 }}> Steinkohle
-        </div>
-<div>
-
-    <span id="lignitecolor" class="aspace"></span>
-<input name="energysource" title="coal" class="lignite" id="lignite" type="checkbox" {{ checked.2 }}> Braunkohle
-</div>
-
-{% if block_list %}
-
-{% if power %}
-    <p> Gesamtleistung: {{ power | floatformat:2}} MW </p>
-    <p> Anzahl Kraftwerke: {{ count }} </p>
-{% endif %}
-<table class="table">
-    <tr>
-    {% for header in header_list %}
-    <th> {{ header }}</th>
-    {% endfor %}
-    </tr>
-
-    {% for block in block_list %}
-        {% if block.energysource == "Steinkohle" %}
-        <tr class="table table-danger">
-        {% elif block.energysource == "Braunkohle" %}
-            <tr class="table table-warning">
-        {% elif block.energysource == "Erdgas" %}
-        <tr class="table table-success">
-        {%  else %}
-        <tr class="table table-active">
-        {% endif %}
-        <td><a href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
-        <td> {{ block.blockname }} </td>
-        <td> {{ block.initialop }} </td>
-        <td> {{ block.state }} </td>
-        <td> {{ block.federalstate }}</td>
-        <td> {{ block.netpower }} </td>
-        </tr>
-    {% endfor %}
-
-</table>
-{% else %}
-    <p>Keine Kraftwerke gefunden.</p>
-{% endif %}
-{% endblock %}
-
-
-{% block js %}
 let checkedBoxes = document.querySelectorAll('input[name=energysource]');
 let g = $("#gas");
 let c = $("#coal");
@@ -125,7 +56,7 @@ function getUrl() {
     if (parent === "blocks") {
         url += "./"
     } else if (parent === "plantmaster") {
-        url += "blocks/"
+        url += "blocks"
     } else {
         url += "../"
     }
@@ -163,5 +94,3 @@ range.noUiSlider.on('change', function(handle ) {
             window.location.href = url;
         }
     });
-{% endblock %}
-

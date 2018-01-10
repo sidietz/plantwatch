@@ -1,9 +1,23 @@
 Blocks:
-KraftwerkID, BlockID, Unternehmen, Kraftwerksname, Inbetriebname, Status, Energieträger, Nettoleistung
+PlantID, BlockID, company, blockname, federalstate, initialop, state, energysource, netpower
 
 Address:
-BlockID, PLZ, Ort, Straße, Bundesland, Blockname
+BlockID, PLZ, place, street, streetnumber, federalstate, 
+
+Plants:
+PlantID, BlockID, company, plantname, 
+
+Pollution:
+PlantID, year, pollutant, amount, 
+
+
+
+Pollutatants:
+CO2, CO, Feinstaub, Hg, NOx, N2O, SOx,  ...
 
 
 Kraftwerke:
 (kommt später?)
+
+
+

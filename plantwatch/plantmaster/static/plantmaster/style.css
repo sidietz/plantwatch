@@ -26,3 +26,15 @@ input[name=energysource] {
     display:block;
     height: 5em;
 }
+
+#menu ul{
+  list-style: none;
+}
+#menu li{
+  display: inline;
+}
+
+body {
+    padding-left: 1em;
+    width: 99%;
+}

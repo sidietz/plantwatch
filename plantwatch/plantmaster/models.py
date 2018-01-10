@@ -15,6 +15,7 @@ class Blocks(models.Model):
     blockname = models.TextField(blank=True, null=True)
     initialop = models.IntegerField(blank=True, null=True)
     state = models.TextField(blank=True, null=True)
+    federalstate = models.TextField()
     energysource = models.TextField(blank=True, null=True)
     netpower = models.FloatField(blank=True, null=True)
     class Meta:
@@ -27,7 +28,7 @@ class Addresses(models.Model):
     plz = models.TextField(db_column='PLZ', blank=True, null=True)  # Field name made lowercase.
     place = models.IntegerField(blank=True, null=True)
     street = models.TextField(blank=True, null=True)
-    state = models.TextField(db_column='federalstate', blank=True, null=True)
+    federalstate = models.TextField(db_column='federalstate', blank=True, null=True)
     blockinfo = models.TextField(blank=True, null=True)
     class Meta:
         managed = False

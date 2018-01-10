@@ -1,3 +1,4 @@
+KraftwerkID,BlockID,Unternehmen,Kraftwerksname,Bundesland,Inbetriebnahme,Status,Energieträger,Nettoleistung
 06-05-100-0248923,BNA1401a,RWE Power AG,BoA 2,Nordrhein-Westfalen,2012,in Betrieb,Braunkohle,1060.0
 06-05-100-0248923,BNA1401b,RWE Power AG,BoA 3,Nordrhein-Westfalen,2012,in Betrieb,Braunkohle,1060.0
 ,BNA0606,RWE Generation SE,Emsland,Niedersachsen,2010,in Betrieb,Erdgas,887.0
