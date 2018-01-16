@@ -16,20 +16,7 @@
     </form>
 <div id="slider"></div>
 <span class="hspace"></span>
-<div>
-    <span id="gascolor" class="aspace"></span>
-<input name="energysource" title="gas" class="gas" id="gas" type="checkbox" {{ checked.0 }}> Gas
-    </div>
-<div>
 
-    <span id="coalcolor" class="aspace"></span>
-<input name="energysource" title="coal" class="coal" id="coal" type="checkbox" {{ checked.1 }}> Steinkohle
-        </div>
-<div>
-
-    <span id="lignitecolor" class="aspace"></span>
-<input name="energysource" title="coal" class="lignite" id="lignite" type="checkbox" {{ checked.2 }}> Braunkohle
-</div>
     {% if sources_dict %}
         <table class="table table-striped">
         <tr>
@@ -91,41 +78,6 @@ let g = $("#gas");
 let c = $("#coal");
 let l = $("#lignite");
 
-function getBoxes() {
-    checkedBoxes = document.querySelectorAll('input[name=energysource]');
-    console.log("codegeneration");
-    let code = 0; // catch case if user set every checkbox to zero
-    let lookup = {gas: 1, coal: 2, lignite: 6};
-    for (let elem of checkedBoxes) {
-        let checked = elem.checked;
-        if (checked) {
-            code += lookup[elem.id];
-        }
-    }
-    console.log(code);
-    if (code === 0) {
-        code = 9;
-    }
-    return code;
-}
-
-function handleBoxes() {
-    let url = getUrl();
-    window.location.href = url;
-}
-
-g.change(function() {
-    handleBoxes();
-});
-
-c.change(function() {
-    handleBoxes();
-});
-
-l.change(function() {
-    handleBoxes();
-});
-
 function getSlider(){
     let values = slider.noUiSlider.get();
     let low = Math.round(values[0]);
@@ -156,7 +108,6 @@ function getUrl() {
     }
 
     url += getSlider();
-    url += "-" + getBoxes();
     console.log(url);
     return url;
 }

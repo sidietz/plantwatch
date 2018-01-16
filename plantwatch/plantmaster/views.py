@@ -44,32 +44,6 @@ def filter_queryset(queryset, filtered, afilter):
     return new_queryset
 
 
-def get_queries_2(code):
-    return []
-
-
-def get_queries(code):
-    queries_l = ["", "Erdgas", "Steinkohle", "", "", "", "Braunkohle"]
-    queries = []
-    k = 0
-    offset_counter = 0
-    checked = []
-    for i in [6, 2, 1]:
-        tmp = code - i
-        if tmp >= 0:
-            checked.insert(0, "checked")
-            queries.append(queries_l[i])
-            code -= i
-        else:
-            checked.insert(0, " ")
-            k += 1
-    while k > 0:
-        queries.insert(offset_counter, queries[0])
-        offset_counter += 1
-        k -= 1
-    return checked, queries
-
-
 def index(request):
     return HttpResponse("test")
 
@@ -91,7 +65,7 @@ def forge_sources_dict(block_list):
 
 
 # @csrf_exempt
-def blocks(request, lower=1960, upper=2020, code=123):
+def blocks(request, lower=1960, upper=2020):
 
     # if request.method == 'POST':
     #    form =
@@ -127,10 +101,7 @@ def blocks(request, lower=1960, upper=2020, code=123):
     if not search_power:
         search_power = SOURCES_LIST
 
-    # print(form2.fields.choices)
-    # print(form2.fields)
-    # print(code)
-    # checked, queries = get_queries(code)
+
     print(SOURCES_LIST)
     print(search_power)
     queries = search_power

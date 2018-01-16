@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.blocks, name='index'),
     path('impressum', views.impressum, name="impressum"),
     path('blocks/', views.blocks, name='blocks'),
-    path('blocks/<int:lower>-<int:upper>-<int:code>/', views.blocks, name='blocks'),
+    path('blocks/<int:lower>-<int:upper>/', views.blocks, name='blocks'),
     path('block/<blockid>/', views.block, name='block'),
     path('plants/', views.plants, name="plants")
 ]
