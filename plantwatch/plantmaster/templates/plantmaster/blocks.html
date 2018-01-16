@@ -4,12 +4,16 @@
 {% block head %}
 <link href="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.min.css" rel="stylesheet">
 <script src="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.js"></script>
-
-
 {% endblock %}
 
-
 {% block content %}
+    <form action="." method="post" id="form1">
+        {% csrf_token %}
+        {{ form.simple_radiobox }}
+        {{ form.simple_checkbox }}
+        {{ form.power_checkbox }}
+    <input type="submit" value="ändere Anfrage">
+    </form>
 <div id="slider"></div>
 <span class="hspace"></span>
 <div>
@@ -26,13 +30,26 @@
     <span id="lignitecolor" class="aspace"></span>
 <input name="energysource" title="coal" class="lignite" id="lignite" type="checkbox" {{ checked.2 }}> Braunkohle
 </div>
+    {% if sources_dict %}
+        <table class="table table-striped">
+        <tr>
+    {% for header1 in sources_header %}
+    <th> {{ header1 }}</th>
+    {% endfor %}
+    </tr>
+            {% for key, value_list in sources_dict.items %}
+                <tr>
+                    <td> {{ key}} </td>
+                    {% for value in value_list %}
+                    <td> {{ value}} </td>
+                        {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 
 {% if block_list %}
 
-{% if power %}
-    <p> Gesamtleistung: {{ power | floatformat:2}} MW </p>
-    <p> Anzahl Kraftwerke: {{ count }} </p>
-{% endif %}
 <table class="table">
     <tr>
     {% for header in header_list %}
@@ -47,6 +64,8 @@
             <tr class="table table-warning">
         {% elif block.energysource == "Erdgas" %}
         <tr class="table table-success">
+        {% elif block.energysource == "Kernenergie" %}
+            <tr class="table table-secondary">
         {%  else %}
         <tr class="table table-active">
         {% endif %}
@@ -121,13 +140,19 @@ function getUrl() {
     let url = "";
     base_l.pop();
     let parent = base_l.pop();
-    console.log(base_l);
+    //console.log(base_l);
+    //console.log("parent");
+    //console.log(parent);
+    //console.log(window.document.location.hostname);
     if (parent === "blocks") {
         url += "./"
     } else if (parent === "plantmaster") {
         url += "blocks/"
+    } else if (parent.includes(window.document.location.hostname)) {
+        url += "plantmaster/blocks/"
     } else {
         url += "../"
+        //url += "plantmaster/blocks/"
     }
 
     url += getSlider();
