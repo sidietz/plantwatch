@@ -1,16 +1,8 @@
 Table 1:
 blocks:
 
-CREATE TABLE blocks(
-    KraftwerkID TEXT,
-    BlockID TEXT NOT NULL PRIMARY KEY,
-    company TEXT,
-    blockname TEXT,
-    initialop INTEGER,
-    state TEXT,
-    energysource Text,
-    netpower REAL
-);
+CREATE TABLE blocks(    KraftwerkID TEXT,    BlockID TEXT NOT NULL PRIMARY KEY,    company TEXT,    blockname TEXT, federalstate TEXT,    initialop INTEGER,    state TEXT,     energysource Text,    netpower REAL);
+
 
 CREATE TABLE addresses(
     BlockID TEXT NOT NULL PRIMARY KEY,
@@ -21,6 +13,11 @@ CREATE TABLE addresses(
     blockinfo Text,
     FOREIGN KEY (BlockID) REFERENCES blocks(BlockID) ON DELETE CASCADE
 );
+
+CREATE TABLE plants(
+
+);
+
 
 .mode csv
 .import blocks_3_nh.csv blocks

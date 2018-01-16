@@ -1,373 +1,382 @@
-06-05-100-0248923,BNA1401a,RWE Power AG,BoA 2,2012,in Betrieb,Braunkohle,1060.0
-06-05-100-0248923,BNA1401b,RWE Power AG,BoA 3,2012,in Betrieb,Braunkohle,1060.0
-,BNA0606,RWE Generation SE,Emsland,2010,in Betrieb,Erdgas,887.0
-14-80-00009560000,BNA0116,EnBW Energie Baden-Württemberg AG,Braunkohlekraftwerk Lippendorf,1999,in Betrieb,Braunkohle,875.0
-14-80-00009560000,BNA0115,Vattenfall Europe Generation AG,Lippendorf,2000,in Betrieb,Braunkohle,875.0
-06-05-700-0105516,BNA0793,Uniper Kraftwerke GmbH ,Heyden,1987,in Betrieb,Steinkohle,875.0
-14-70-46630660001,BNA0124,Vattenfall Europe Generation AG,Boxberg,2000,in Betrieb,Braunkohle,857.0
-,BNA0994,Gemeinschaftskraftwerk Irsching GmbH,Gemeinschaftskraftwerk Irsching ,2010,Gesetzlich an Stilllegung gehindert,Erdgas,846.0
-06-08-2948214,BNA0646b,Grosskraftwerk Mannheim AG,GKM ,2015,in Betrieb,Steinkohle,843.0
-06-08-2797933,BNA0518b,EnBW Energie Baden-Württemberg AG,Rheinhafen-Dampfkraftwerk,2014,in Betrieb,Steinkohle,842.0
-06-02-BERZ003800,BNA1558,Vattenfall Kraftwerk Moorburg GmbH,Moorburg B,2015,in Betrieb,Steinkohle,800.0
-06-02-BERZ003800,BNA1673,Vattenfall Kraftwerk Moorburg GmbH,Moorburg A,2015,in Betrieb,Steinkohle,800.0
-,BNA0548a,Statkraft Markets GmbH,Knapsack Gas I,2006,in Betrieb,Erdgas,800.0
-06-08-1020129,BNA0434,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Heilbronn,1985,in Betrieb,Steinkohle,778.0
-06-05-900-0079017,BNA0413b,RWE Generation SE,Westfalen,2014,Sonderfall,Steinkohle,765.0
-06-05-900-0079017,BNA0413c,RWE Generation SE,Westfalen,2014,in Betrieb,Steinkohle,764.0
-03-09-09281566110,BNA1061,Uniper Kraftwerke GmbH ,Wilhelmshaven,1976,in Betrieb,Steinkohle,757.0
-12-40716440000,BNA0915,Vattenfall Europe Generation AG,Schwarze Pumpe,1998,in Betrieb,Braunkohle,750.0
-12-40716440000,BNA0914,Vattenfall Europe Generation AG,Schwarze Pumpe,1997,in Betrieb,Braunkohle,750.0
-06-05-900-9141660,BNA1508,Trianel Kohlekraftwerk Lünen GmbH & Co. KG,Trianel Kohlekraftwerk Lünen,2013,in Betrieb,Steinkohle,746.0
-03-09-09000237910,BNA1674,ENGIE Deutschland AG,Kraftwerk Wilhelmshaven,2015,in Betrieb,Steinkohle,731.0
-06-10-00100999,BNA0093,STEAG GmbH,Kraftwerk Bexbach,1983,in Betrieb,Steinkohle,726.0
-06-05-100-0365906,BNA0216b,Steag GmbH,KW Walsum,2013,in Betrieb,Steinkohle,725.0
-06-05-900-0205103,BNA0067,RWE Generation SE,Bergkamen,1981,in Betrieb,Steinkohle,717.0
-06-05-100-0431554,BNA0992,Kraftwerk Voerde beschränkt haftende OHG,KW Voerde,1985,in Betrieb,Steinkohle,695.0
-06-05-100-0431554,BNA0991,Kraftwerk Voerde beschränkt haftende OHG,KW Voerde,1982,in Betrieb,Steinkohle,695.0
-,BNA0464,Stadtwerke Hannover AG,KWM,1979,in Betrieb,Steinkohle,690.0
-06-05-500-0342658,BNA0335,Uniper Kraftwerke GmbH ,Scholven,1979,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,676.0
-06-10-00101003,BNA0820,Saar GmbH,Weiher,1976,in Betrieb,Steinkohle,655.6
-06-05-300-0326774,BNA0707,RWE Power AG,Niederaußem,1974,in Betrieb,Braunkohle,648.0
-14-70-46630660001,BNA1404,Vattenfall Europe Generation AG,Boxberg,2012,in Betrieb,Braunkohle,640.0
-06-05-300-0326774,BNA0709,RWE Power AG,Niederaußem,2002,in Betrieb,Braunkohle,632.0
-06-05-300-0326774,BNA0708,RWE Power AG,Niederaußem,1974,in Betrieb,Braunkohle,628.0
-,BNA0374,Uniper Kraftwerke GmbH ,Staudinger,1977,Gesetzlich an Stilllegung gehindert,Erdgas,622.0
-06-05-900-0865327,BNA1046a,RWE Generation SE,Gersteinwerk,1984,in Betrieb,Steinkohle,620.0
-06-05-100-0248923,BNA0699,RWE Power AG,Neurath,1975,in Betrieb,Braunkohle,607.0
-06-05-100-0248923,BNA0700,RWE Power AG,Neurath,1976,in Betrieb,Braunkohle,604.0
-,BNA1817,Stadtwerke Düsseldorf AG,GuD,2016,in Betrieb,Erdgas,595.0
+,BNA0263,E.ON Kernkraft GmbH,Isar 2,Bayern,1988,in Betrieb,Kernenergie,1410.0
+,BNA0157,E.ON Kernkraft GmbH,Brokdorf,Schleswig-Holstein,1986,in Betrieb,Kernenergie,1410.0
+,BNA0802,EnBW Energie Baden-Württemberg AG,Kernkraftwerk Philippsburg 2,Baden-Württemberg,1985,in Betrieb,Kernenergie,1402.0
+,BNA0251,E.ON Kernkraft GmbH,Grohnde,Niedersachsen,1985,in Betrieb,Kernenergie,1360.0
+,BNA0607,Kernkraftwerke Lippe-Ems GmbH (KLE),Kernkraftwerk Emsland,Niedersachsen,1988,in Betrieb,Kernenergie,1336.0
+,BNA0686,EnBW Energie Baden-Württemberg AG,Gemeinschaftskernkraftwerk Neckarwestheim II,Baden-Württemberg,1989,in Betrieb,Kernenergie,1310.0
+,BNA0382,Kernkraftwerk Gundremmingen GmbH (KGG),Kernkraft Gundremmingen ,Bayern,1984,in Betrieb,Kernenergie,1288.0
+,BNA0381,E.ON Kernkraft GmbH,Kernkraft Gundremmingen ,Bayern,1984,in Betrieb,Kernenergie,1284.0
+,BNA0355,E.ON Kernkraft GmbH,Grafenrheinfeld,Bayern,1982,Endgültig Stillgelegt 2015 (mit StA),Kernenergie,1275.0
+06-05-100-0248923,BNA1401b,RWE Power AG,BoA 3,Nordrhein-Westfalen,2012,in Betrieb,Braunkohle,1060.0
+06-05-100-0248923,BNA1401a,RWE Power AG,BoA 2,Nordrhein-Westfalen,2012,in Betrieb,Braunkohle,1060.0
+,BNA0606,RWE Generation SE,Emsland,Niedersachsen,2010,in Betrieb,Erdgas,887.0
+06-05-700-0105516,BNA0793,Uniper Kraftwerke GmbH ,Heyden,Nordrhein-Westfalen,1987,in Betrieb,Steinkohle,875.0
+14-80-00009560000,BNA0116,EnBW Energie Baden-Württemberg AG,Braunkohlekraftwerk Lippendorf,Sachsen,1999,in Betrieb,Braunkohle,875.0
+14-80-00009560000,BNA0115,Vattenfall Europe Generation AG,Lippendorf,Sachsen,2000,in Betrieb,Braunkohle,875.0
+14-70-46630660001,BNA0124,Vattenfall Europe Generation AG,Boxberg,Sachsen,2000,in Betrieb,Braunkohle,857.0
+,BNA0994,Gemeinschaftskraftwerk Irsching GmbH,Gemeinschaftskraftwerk Irsching ,Bayern,2010,Gesetzlich an Stilllegung gehindert,Erdgas,846.0
+06-08-2948214,BNA0646b,Grosskraftwerk Mannheim AG,GKM ,Baden-Württemberg,2015,in Betrieb,Steinkohle,843.0
+06-08-2797933,BNA0518b,EnBW Energie Baden-Württemberg AG,Rheinhafen-Dampfkraftwerk,Baden-Württemberg,2014,in Betrieb,Steinkohle,842.0
+,BNA0548a,Statkraft Markets GmbH,Knapsack Gas I,Nordrhein-Westfalen,2006,in Betrieb,Erdgas,800.0
+06-02-BERZ003800,BNA1558,Vattenfall Kraftwerk Moorburg GmbH,Moorburg B,Hamburg,2015,in Betrieb,Steinkohle,800.0
+06-02-BERZ003800,BNA1673,Vattenfall Kraftwerk Moorburg GmbH,Moorburg A,Hamburg,2015,in Betrieb,Steinkohle,800.0
+06-08-1020129,BNA0434,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Heilbronn,Baden-Württemberg,1985,in Betrieb,Steinkohle,778.0
+06-05-900-0079017,BNA0413b,RWE Generation SE,Westfalen,Nordrhein-Westfalen,2014,Sonderfall,Steinkohle,765.0
+06-05-900-0079017,BNA0413c,RWE Generation SE,Westfalen,Nordrhein-Westfalen,2014,in Betrieb,Steinkohle,764.0
+03-09-09281566110,BNA1061,Uniper Kraftwerke GmbH ,Wilhelmshaven,Niedersachsen,1976,in Betrieb,Steinkohle,757.0
+12-40716440000,BNA0914,Vattenfall Europe Generation AG,Schwarze Pumpe,Brandenburg,1997,in Betrieb,Braunkohle,750.0
+12-40716440000,BNA0915,Vattenfall Europe Generation AG,Schwarze Pumpe,Brandenburg,1998,in Betrieb,Braunkohle,750.0
+06-05-900-9141660,BNA1508,Trianel Kohlekraftwerk Lünen GmbH & Co. KG,Trianel Kohlekraftwerk Lünen,Nordrhein-Westfalen,2013,in Betrieb,Steinkohle,746.0
+03-09-09000237910,BNA1674,ENGIE Deutschland AG,Kraftwerk Wilhelmshaven,Niedersachsen,2015,in Betrieb,Steinkohle,731.0
+06-10-00100999,BNA0093,STEAG GmbH,Kraftwerk Bexbach,Saarland,1983,in Betrieb,Steinkohle,726.0
+06-05-100-0365906,BNA0216b,Steag GmbH,KW Walsum,Nordrhein-Westfalen,2013,in Betrieb,Steinkohle,725.0
+06-05-900-0205103,BNA0067,RWE Generation SE,Bergkamen,Nordrhein-Westfalen,1981,in Betrieb,Steinkohle,717.0
+06-05-100-0431554,BNA0992,Kraftwerk Voerde beschränkt haftende OHG,KW Voerde,Nordrhein-Westfalen,1985,in Betrieb,Steinkohle,695.0
+06-05-100-0431554,BNA0991,Kraftwerk Voerde beschränkt haftende OHG,KW Voerde,Nordrhein-Westfalen,1982,in Betrieb,Steinkohle,695.0
+,BNA0464,Stadtwerke Hannover AG,KWM,Niedersachsen,1979,in Betrieb,Steinkohle,690.0
+06-05-500-0342658,BNA0335,Uniper Kraftwerke GmbH ,Scholven,Nordrhein-Westfalen,1979,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,676.0
+06-10-00101003,BNA0820,Saar GmbH,Weiher,Saarland,1976,in Betrieb,Steinkohle,655.6
+06-05-300-0326774,BNA0707,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1974,in Betrieb,Braunkohle,648.0
+14-70-46630660001,BNA1404,Vattenfall Europe Generation AG,Boxberg,Sachsen,2012,in Betrieb,Braunkohle,640.0
+06-05-300-0326774,BNA0709,RWE Power AG,Niederaußem,Nordrhein-Westfalen,2002,in Betrieb,Braunkohle,632.0
+06-05-300-0326774,BNA0708,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1974,in Betrieb,Braunkohle,628.0
+,BNA0374,Uniper Kraftwerke GmbH ,Staudinger,Hessen,1977,Gesetzlich an Stilllegung gehindert,Erdgas,622.0
+06-05-900-0865327,BNA1046a,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1984,in Betrieb,Steinkohle,620.0
+06-05-100-0248923,BNA0699,RWE Power AG,Neurath,Nordrhein-Westfalen,1975,in Betrieb,Braunkohle,607.0
+06-05-100-0248923,BNA0700,RWE Power AG,Neurath,Nordrhein-Westfalen,1976,in Betrieb,Braunkohle,604.0
+,BNA1817,Stadtwerke Düsseldorf AG,GuD,Nordrhein-Westfalen,2016,in Betrieb,Erdgas,595.0
 ,BNA0995,Uniper Kraftwerke GmbH ,"Ulrich Hartmann
-(Irsching)",2011,Gesetzlich an Stilllegung gehindert,Erdgas,545.0
-13-30-1010101,BNA0849,EnBW Energie Baden-Württemberg AG,KNG Kraftwerk Rostock,1994,in Betrieb,Steinkohle,514.0
-06-00176010435,BNA0377,Uniper Kraftwerke GmbH ,Staudinger,1992,in Betrieb,Steinkohle,510.0
-06-08-2797933,BNA0518a,EnBW Energie Baden-Württemberg AG,Rheinhafen-Dampfkraftwerk,1985,in Betrieb,Steinkohle,505.0
-,BNA0614b,BASF SE,Kraftwerk Mitte,2005,in Betrieb,Erdgas,490.0
-12-40710010000,BNA0788,Vattenfall Europe Generation AG,KW Jänschwalde,1985,in Betrieb,Braunkohle,465.0
-12-40710010000,BNA0787,Vattenfall Europe Generation AG,KW Jänschwalde,1984,in Betrieb,Braunkohle,465.0
-14-70-46630660001,BNA0122,Vattenfall Europe Generation AG,Boxberg,1979,in Betrieb,Braunkohle,465.0
-12-40710010000,BNA0789,Vattenfall Europe Generation AG,KW Jänschwalde,1987,in Betrieb,Braunkohle,465.0
-12-40710010000,BNA0785,Vattenfall Europe Generation AG,KW Jänschwalde,1981,in Betrieb,Braunkohle,465.0
-12-40710010000,BNA0786,Vattenfall Europe Generation AG,KW Jänschwalde,1982,in Betrieb,Braunkohle,465.0
-14-70-46630660001,BNA0123,Vattenfall Europe Generation AG,Boxberg,1980,in Betrieb,Braunkohle,465.0
-12-40710010000,BNA0790,Vattenfall Europe Generation AG,KW Jänschwalde,1989,in Betrieb,Braunkohle,465.0
-,BNA1818,RheinEnergie AG,Niehl 3,2016,in Betrieb,Erdgas,459.9
-12358,BNA0879,Uniper Kraftwerke GmbH ,Schkopau,1996,in Betrieb,Braunkohle,450.0
-12358,BNA0878,Uniper Kraftwerke GmbH ,Schkopau,1996,in Betrieb,Braunkohle,450.0
-06-05-900-0327252,BNA0450,Steag GmbH,KW Herne,1989,in Betrieb,Steinkohle,449.0
-,BNA1820,Gemeinschaftskraftwerk Bremen GmbH und Co. KG,KW Mittelsbüren,2016,in Betrieb,Erdgas,444.5
-,BNA0073,Vattenfall Europe Wärme AG,Mitte,1996,in Betrieb,Erdgas,444.0
-06-08-2948214,BNA0646a,Grosskraftwerk Mannheim AG,GKM ,1993,in Betrieb,Steinkohle,435.0
-,BNA0626,Kraftwerke Mainz-Wiesbaden AG,Kraftwerk Mainz,2001,in Betrieb,Erdgas,434.2
-06-08-1741292,BNA0020,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Altbach/Deizisau,1985,in Betrieb,Steinkohle,433.0
-,BNA0245b,Statkraft Markets GmbH,Emden Gas,1973,Vorläufig Stillgelegt (ohne StA),Erdgas,433.0
-,BNA0574b,Statkraft Markets GmbH,Landesbergen Gas,1973,Vorläufig Stillgelegt (mit StA),Erdgas,431.0
-,BNA0548b,Statkraft Markets GmbH,Knapsack Gas II,2013,in Betrieb,Erdgas,430.0
-06-08-2948214,BNA0645,Grosskraftwerk Mannheim AG,GKM ,1982,in Betrieb,Steinkohle,425.0
-,BNA0411,Trianel Gaskraftwerk Hamm GmbH & Co. KG ,Trianel Gaskraftwerk ,2008,in Betrieb,Erdgas,420.9
-,BNA0410,Trianel Gaskraftwerk Hamm GmbH & Co. KG ,Trianel Gaskraftwerk ,2008,in Betrieb,Erdgas,417.1
-,BNA0442,Mark-E AG / Statkraft Markets GmbH,Cuno Heizkraftwerk Herdecke,2007,in Betrieb,Erdgas,417.0
-,BNA0545,RheinEnergie AG,HKW Niehl 2,2005,in Betrieb,Erdgas,413.0
-,BNA0615,BASF SE,Kraftwerk Süd,1997,in Betrieb,Erdgas,390.0
-06-05-100-0365906,BNA0216a,Steag GmbH,KW Walsum,1988,in Betrieb,Steinkohle,370.0
-,BNA0604,RWE Generation SE,Emsland,1973,in Betrieb,Erdgas,359.0
-,BNA0605,RWE Generation SE,Emsland,1974,in Betrieb,Erdgas,359.0
-,BNA1045,RWE Generation SE,Gersteinwerk,1973,Vorläufig Stillgelegt (mit StA),Erdgas,355.0
-,BNA1043,RWE Generation SE,Gersteinwerk,1973,Vorläufig Stillgelegt (mit StA),Erdgas,355.0
-,BNA1044,RWE Generation SE,Gersteinwerk,1973,Vorläufig Stillgelegt (mit StA),Erdgas,355.0
-,BNA0514,EnBW Energie Baden-Württemberg AG,Rheinhafen-Dampfkraftwerk,1998,in Betrieb,Erdgas,353.0
-,BNA0439,Helmstedter Revier GmbH,Buschhaus,1985,Sicherheitsbereitschaft,Braunkohle,352.0
-06-05-500-0342658,BNA0331,Uniper Kraftwerke GmbH ,Scholven,1969,in Betrieb,Steinkohle,345.0
-,BNA0203,Uniper Kraftwerke GmbH ,Knepper,1971,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,345.0
-06-05-500-0342658,BNA0334,Uniper Kraftwerke GmbH ,Scholven,1971,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,345.0
-06-05-500-0342658,BNA0333,Uniper Kraftwerke GmbH ,Scholven,1970,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,345.0
-06-05-500-0342658,BNA0332,Uniper Kraftwerke GmbH ,Scholven,1968,in Betrieb,Steinkohle,345.0
-06-08-1741292,BNA0019,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Altbach/Deizisau,1997,in Betrieb,Steinkohle,336.0
-,BNA0627,Kraftwerke Mainz-Wiesbaden AG,Kraftwerk Mainz,1977,Gesetzlich an Stilllegung gehindert,Erdgas,335.0
-06-05-900-0884101,BNA0619,Steag GmbH,KW Lünen,1969,in Betrieb,Steinkohle,324.0
-01-50-02000283604,BNA0526,Gemeinschaftskraftwerk Kiel GmbH,Gemeinschaftskraftwerk Kiel,1970,in Betrieb,Steinkohle,323.0
-06-05-100-0853075,BNA0990,Steag GmbH,KW West,1971,in Betrieb,Steinkohle,322.0
-,BNA0239,Uniper Kraftwerke GmbH ,Huntorf,1978,in Betrieb,Erdgas,321.0
-06-05-100-0853075,BNA0989,Steag GmbH,KW West,1971,in Betrieb,Steinkohle,318.0
-06-04-11/2001178/8/0,BNA0146,swb Erzeugung GmbH & Co. KG,KW Hafen,1979,in Betrieb,Steinkohle,300.0
-06-05-300-0326774,BNA0706,RWE Power AG,Niederaußem,1971,in Betrieb,Braunkohle,299.0
-06-05-300-0326774,BNA0705,RWE Power AG,Niederaußem,1968,in Betrieb,Braunkohle,297.0
-06-05-300-0326774,BNA0712,RWE Power AG,Niederaußem,1965,in Betrieb,Braunkohle,295.0
-06-05-300-0326774,BNA0713,RWE Power AG,Niederaußem,1970,in Betrieb,Braunkohle,295.0
-06-05-100-0248923,BNA0696,RWE Power AG,Neurath,1972,in Betrieb,Braunkohle,294.0
-06-05-100-0248923,BNA0697,RWE Power AG,Neurath,1972,in Betrieb,Braunkohle,294.0
-,BNA0221c,Stadtwerke Düsseldorf AG,Gasblock,1976,in Betrieb,Erdgas,293.0
-06-00176010435,BNA0376,Uniper Kraftwerke GmbH ,Staudinger,1970,Endgültig Stillgelegt 2012 (ohne StA),Steinkohle,293.0
-06-05-100-0248923,BNA0698,RWE Power AG,Neurath,1973,in Betrieb,Braunkohle,292.0
-06-10-0075248,BNA0252,Gemeinschaft nach Bruchteilen der Saarstahl AG (SAG) und Saarschmiede GmbH Freiformschmiede (SSF),Kraftwerk Ensdorf,2001,in Betrieb,Steinkohle,283.0
-06-11-01-1105609,BNA0087,Vattenfall Europe Wärme AG,Reuter West,1988,in Betrieb,Steinkohle,282.0
-06-11-01-1105609,BNA0086,Vattenfall Europe Wärme AG,Reuter West,1987,in Betrieb,Steinkohle,282.0
-06-05-900-0327252,BNA0449,Steag GmbH,KW Herne,1966,in Betrieb,Steinkohle,280.0
-,BNA1024,RWE Power AG,Weisweiler,2006,Vorläufig Stillgelegt (ohne StA),Erdgas,272.0
-,BNA1023,RWE Power AG,Weisweiler,2006,Vorläufig Stillgelegt (ohne StA),Erdgas,272.0
-06-08-2948214,BNA0644,Grosskraftwerk Mannheim AG,GKM ,2005,in Betrieb,Steinkohle,255.0
-06-00176010435,BNA0375,Uniper Kraftwerke GmbH ,Staudinger,1965,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,249.0
-,BNA0418,Stadtwerke Hannover AG,GKL,1998 / 2013,in Betrieb,Erdgas,230.0
-,BNA0389,Mark-E AG,Heizkraftwerk Hagen-Kabel,1980,Vorläufig Stillgelegt (mit StA),Erdgas,230.0
-06-10-00101000,BNA0999,Saar GmbH,Heizkraftwerk,1989,in Betrieb,Steinkohle,211.0
-06-08-2948214,BNA0642,Grosskraftwerk Mannheim AG,GKM ,1966,Endgültig Stillgelegt 2015 (mit StA),Steinkohle,202.5
-06-08-2948214,BNA0643,Grosskraftwerk Mannheim AG,GKM ,1970,Endgültig Stillgelegt 2015 (mit StA),Steinkohle,202.5
-06-02-B10132A001,BNA0402,Vattenfall Europe Wärme Aktiengesellschaft,Tiefstack,1993,in Betrieb,Steinkohle,194.0
-06-05-900-0045033,BNA1035,Mark-E AG,Kraftwerk Werdohl-Elverlingsen,1971,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,186.0
-06-10-00101000,BNA0998,Saar GmbH,Modellkraftwerk,1982,in Betrieb,Steinkohle,179.0
-,BNA0130,Uniper Kraftwerke GmbH ,Kirchmöser,1994,in Betrieb,Erdgas,160.0
-,BNA0140,swb Erzeugung GmbH & Co. KG,KW Hastedt,1972,Vorläufig Stillgelegt (mit StA),Erdgas,155.0
-06-05-900-0079017,BNA0415,RWE Generation SE,Westfalen,1963,Endgültig Stillgelegt 2011 (ohne StA),Steinkohle,152.0
-06-05-900-0079017,BNA0414,RWE Generation SE,Westfalen,1963,Endgültig Stillgelegt 2011 (ohne StA),Steinkohle,152.0
-06-05-900-0884101,BNA0618,Steag GmbH,KW Lünen,1962,in Betrieb,Steinkohle,149.0
-,BNA1006,EnBW Energie Baden-Württemberg AG,Kraftwerk Walheim,1967,Gesetzlich an Stilllegung gehindert,Steinkohle,148.0
-,BNA0076,Vattenfall Europe Wärme AG,Lichterfelde,1974,in Betrieb,Erdgas,144.0
-,BNA0080,Vattenfall Europe Wärme AG,Lichterfelde,1973,Endgültig Stillgelegt 2016 (mit StA),Erdgas,144.0
-,BNA0075,Vattenfall Europe Wärme AG,Lichterfelde,1972,in Betrieb,Erdgas,144.0
-,BNA1076b,Volkswagen AG,HKW West,1985,in Betrieb,Steinkohle,138.5
-,BNA1076a,Volkswagen AG,HKW West,1985,in Betrieb,Steinkohle,138.5
-06-05-100-0081105,BNA0310,RWE Power AG,Frimmersdorf,1962,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,138.0
-01-50-56050192711,BNA0404,Vattenfall Europe Wärme AG,Wedel,1961,in Betrieb,Steinkohle,137.0
-03-06-06060316030,BNA0420,Stadtwerke Hannover AG,GKH,1989,in Betrieb,Steinkohle,136.0
-06-05-100-0081105,BNA0308,RWE Power AG,Frimmersdorf,1962,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,136.0
-03-06-06060316030,BNA0421,Stadtwerke Hannover AG,GKH,1989,in Betrieb,Steinkohle,136.0
-06-05-300-0877384,BNA1022,RWE Power AG,Weisweiler,1959,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,135.0
-06-05-100-0081105,BNA0309,RWE Power AG,Frimmersdorf,1964,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,135.0
-06-05-100-0081105,BNA0312,RWE Power AG,Frimmersdorf,1964,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,133.0
-06-05-900-0327252,BNA0447,Steag GmbH,KW Herne,1963,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,133.0
-,BNA0448,Uniper Kraftwerke GmbH ,Shamrock,1957,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,132.0
-06-05-100-0081105,BNA0306,RWE Power AG,Frimmersdorf,1960,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,132.0
-06-05-100-0081105,BNA0311,RWE Power AG,Frimmersdorf,1962,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,131.0
-06-05-100-0081105,BNA0303,RWE Power AG,Frimmersdorf,1957,Endgültig Stillgelegt 2011 (ohne StA),Braunkohle,130.0
-06-05-100-0081105,BNA0305,RWE Power AG,Frimmersdorf,1959,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,130.0
-06-05-100-0365906,BNA0215,Steag GmbH,KW Walsum,1959,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,129.0
-06-05-100-0081105,BNA0302,RWE Power AG,Frimmersdorf,1957,Endgültig Stillgelegt 2011 (ohne StA),Braunkohle,129.0
-06-05-100-0081105,BNA0307,RWE Power AG,Frimmersdorf,1960,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,128.0
-,BNA0684c,SWM Services GmbH,Süd DT60,2004,in Betrieb,Erdgas,127.6
-,BNA0400,Vattenfall Europe Wärme Aktiengesellschaft,GuD Tiefstack,2009,in Betrieb,Erdgas,127.0
-06-04-11/2001178/8/0,BNA0145,swb Erzeugung GmbH & Co. KG,KW Hafen,1968,Vorläufig Stillgelegt (mit StA),Steinkohle,127.0
-06-05-300-0326774,BNA0711,RWE Power AG,Niederaußem,1963,Vorläufig Stillgelegt (ohne StA),Braunkohle,125.0
-06-08-1020129,BNA0433,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Heilbronn,1966,Gesetzlich an Stilllegung gehindert,Steinkohle,125.0
-06-08-1020129,BNA0432,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Heilbronn,1965,Gesetzlich an Stilllegung gehindert,Steinkohle,125.0
-06-05-300-0326774,BNA0710,RWE Power AG,Niederaußem,1963,Vorläufig Stillgelegt (ohne StA),Braunkohle,125.0
-,BNA0684a,SWM Services GmbH,Süd GT 61,2004,in Betrieb,Erdgas,124.9
-06-05-100-0081105,BNA0304,RWE Power AG,Frimmersdorf,1960,Endgültig Stillgelegt 2011 (ohne StA),Braunkohle,124.0
-,BNA0684b,SWM Services GmbH,Süd GT 62,2004,in Betrieb,Erdgas,123.9
-06-05-300-0877384,BNA1021,RWE Power AG,Weisweiler,1955,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,123.0
-01-50-56050192711,BNA0403,Vattenfall Europe Wärme AG,Wedel,1962,in Betrieb,Steinkohle,123.0
-,BNA0922,KWG-Kraftwerksgesellschaft Staßfurt mbH,GuD-Ikw Staßfurt,1996,in Betrieb,Erdgas,123.0
-,BNA0172a,Wacker Chemie AG,Dampfkraftwerk BGH - O1,2001,in Betrieb,Erdgas,120.0
-06-04-11/2001178/8/0,BNA0144,swb Erzeugung GmbH & Co. KG,KW Hastedt,1989,in Betrieb,Steinkohle,119.0
-,BNA0602,RWE Generation SE,Emsland,2011,in Betrieb,Erdgas,116.0
-,BNA0603,RWE Generation SE,Emsland,2011,in Betrieb,Erdgas,116.0
-1,BNA0189,Uniper Kraftwerke GmbH ,Datteln,1969,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,113.0
-,BNA0857,Adam Opel AG,GuD-Anlage Rüsselsheim,1999,in Betrieb,Erdgas,112.1
-,BNA1046b,RWE Generation SE,Gersteinwerk,1984,in Betrieb,Erdgas,112.0
-,BNA0546,RheinEnergie AG,HKW Merkenich,2004,in Betrieb,Erdgas,108.0
-,BNA0848,Stadtwerke Rostock AG,GuD Marienehe,1996,in Betrieb,Erdgas,108.0
-06-10-0075248,BNA0253,"VSE AG, Kraftwerk Ensdorf",Kraftwerk Ensdorf,1963,in Betrieb,Steinkohle,106.0
-,BNA0105,envia THERM GmbH,GuD Bitterfeld,2000,in Betrieb,Erdgas,106.0
-,BNA0419,Stadtwerke Hannover AG,KWH,1975,Vorläufig Stillgelegt (mit StA),Erdgas,102.0
-,BNA0220,Stadtwerke Düsseldorf AG,GuD,2000,in Betrieb,Erdgas,100.0
-,BNA0286,Mainova AG,HKW West,1994,in Betrieb,Erdgas,99.0
-,BNA0805,Daimler AG / UPM GmbH,Kraftwerk Plattling,2010,in Betrieb,Erdgas,97.9
-,BNA0683c,SWM Services GmbH,Süd GT2,1980,in Betrieb,Erdgas,97.9
-,BNA0683b,SWM Services GmbH,Süd GT3,1980,in Betrieb,Erdgas,97.9
-,BNA0392a,EVH GmbH,HKW Halle Trotha,2005,in Betrieb,Erdgas,97.0
-,BNA0497,Infraserv GmbH & Co. Höchst KG,ADS-Anlage,2012,in Betrieb,Erdgas,96.5
-,BNA1005,EnBW Energie Baden-Württemberg AG,Kraftwerk Walheim,1964,Gesetzlich an Stilllegung gehindert,Steinkohle,96.0
-1,BNA0187,Uniper Kraftwerke GmbH ,Datteln,1964,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,95.0
-1,BNA0188,Uniper Kraftwerke GmbH ,Datteln,1964,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,95.0
-,BNA1487,Entega AG,GTKW Darmstadt,2013,Gesetzlich an Stilllegung gehindert,Erdgas,94.6
-,BNA0812,Gemeinschaftskraftwerk Veltheim GmbH,Kraftwerk Veltheim,1965,Endgültig Stillgelegt 2012 (ohne StA),Steinkohle,93.0
-,BNA0499,Infraserv GmbH & Co. Höchst KG,Heizkraftwerk,2003,in Betrieb,Erdgas,86.0
-06-05-100-0030723,BNA1084,WSW Energie & Wasser AG,HKW Elberfeld ,1989,in Betrieb,Steinkohle,85.0
-,BNA1082,WSW Energie & Wasser AG,HKW Barmen,2005,in Betrieb,Erdgas,82.0
-,BNA1248a,UPM GmbH,UPM Schongau,1969,Gesetzlich an Stilllegung gehindert,Erdgas,82.0
-,BNA0814,Energie und Wasser Potsdam GmbH,HKW Potsdam-Süd,1996,in Betrieb,Erdgas,81.8
-,BNA0682,SWM Services GmbH,Freimann GT 2,1975,Endgültig Stillgelegt 2015 (mit StA),Erdgas,80.0
-,BNA0681,SWM Services GmbH,Freimann GT 1,1975,Endgültig Stillgelegt 2015 (mit StA),Erdgas,80.0
-,BNA0683a,SWM Services GmbH,Süd DT1,1980,in Betrieb,Erdgas,79.7
-,BNA0059b,Volkswagen AG,"GuD Baunatal, VW Werksgelände",2013,in Betrieb,Erdgas,78.0
-,BNA0659,Evonik Degussa GmbH,Kraftwerk III,1974,in Betrieb,Erdgas,77.6
-,BNA0256a,SWE Energie GmbH,HKW Erfurt-Ost,2000,in Betrieb,Erdgas,76.5
-06-05-300-0923949,BNA0543,RheinEnergie AG,HKW Merkenich,2010,in Betrieb,Braunkohle,75.3
-,BNA0742,N-ERGIE AG,HKW Sandreuth,2005,in Betrieb,Erdgas,75.0
-,BNA0743,N-ERGIE AG,HKW Sandreuth,2005,in Betrieb,Erdgas,75.0
-,BNA1819,Stadtwerke Flensburg GmbH,Heizkraftwerk FL,2016,in Betrieb,Erdgas,75.0
-,BNA0343,Energieversorgung Gera GmbH,Heizkraftwerk Gera-Nord,1996,in Betrieb,Erdgas,74.0
-,BNA0336,Uniper Kraftwerke GmbH ,FWK Buer,1985,in Betrieb,Steinkohle,70.0
-,BNA0285,Mainova AG,HKW Niederrad,2005,in Betrieb,Erdgas,70.0
-,BNA0196,Mitteldeutsche Braunkohlengesellschaft mbH,Deuben,1936,in Betrieb,Braunkohle,67.0
-,BNA0221b,Stadtwerke Düsseldorf AG,GT,1974,in Betrieb,Erdgas,66.7
-06-05-800-0203946,BNA0489,RWE Power AG,Goldenberg,1992,Endgültig Stillgelegt 2015 (mit StA),Braunkohle,66.0
-,BNA0088a,Solvay Chemicals GmbH,Industriekraftwerk Bernburg (IKB),1994,in Betrieb,Erdgas,66.0
-,BNA1509,BP Europa SE,BP Werk Lingen,1996,in Betrieb,Erdgas,66.0
-,BNA1248b,UPM GmbH,HKW3 UPM Schongau,2015,in Betrieb,Erdgas,65.0
-,BNA0015,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Altbach/Deizisau,1997,in Betrieb,Erdgas,65.0
-,BNA0221a,Stadtwerke Düsseldorf AG,GT,1974,in Betrieb,Erdgas,64.7
-,BNA0755b,Kraftwerk Obernburg GmbH,Obernburg,1995,in Betrieb,Erdgas,64.0
-,BNA0658,Evonik Degussa GmbH,Kraftwerk III,1973,in Betrieb,Erdgas,61.1
-,BNA1676,Evonik Degussa GmbH,Kraftwerk IV,2016,In Betrieb,Erdgas,60.6
-,BNA0661,Evonik Degussa GmbH,Kraftwerk II,1966,in Betrieb,Steinkohle,60.4
-,BNA0293,Solvay Acetow GmbH,GuD Anlage WVK,1998,in Betrieb,Erdgas,60.1
-,BNA0680,Mitteldeutsche Braunkohlengesellschaft mbH,Mumsdorf,1968,Endgültig Stillgelegt 2013 (mit StA),Braunkohle,60.0
-,BNA1335a,Papier- u. Kartonfabrik Varel GmbH & Co. KG,PKV Kraftwerk,1989,in Betrieb,Erdgas,58.1
-,BNA0243,Palm Power GmbH & Co. KG,HKW Eltmann,2008,in Betrieb,Erdgas,57.0
-,BNA0574a,Statkraft Markets GmbH,Landesbergen Gas,1973,in Betrieb,Erdgas,56.0
-,BNA1040,RWE Generation SE,Gersteinwerk,1973,in Betrieb,Erdgas,55.0
-,BNA0933,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Stuttgart-Gaisburg,1973,Endgültig Stillgelegt 2014 (ohne StA),Erdgas,55.0
-,BNA0099,Uniper Kraftwerke GmbH ,Gasturbinenkraftwerk Bielefeld Ummeln,1975,Endgültig Stillgelegt 2015 (mit StA),Erdgas,55.0
-,BNA1041,RWE Generation SE,Gersteinwerk,1973,in Betrieb,Erdgas,55.0
-,BNA1042,RWE Generation SE,Gersteinwerk,1973,in Betrieb,Erdgas,55.0
-,BNA1039,RWE Generation SE,Gersteinwerk,1973,in Betrieb,Erdgas,55.0
-,BNA0392b,Heizkraftwerk Halle-Trotha GmbH,HKW Halle Trotha,2013,in Betrieb,Erdgas,54.0
-,BNA0592,InfraLeuna GmbH,GuD Leuna,1998,in Betrieb,Erdgas,52.0
-,BNA1089,K+S AG,Zielitz,1996,in Betrieb,Erdgas,52.0
-,BNA0245a,Statkraft Markets GmbH,Emden Gas,1973,in Betrieb,Erdgas,52.0
-,BNA0913,Alpiq Spreetal GmbH,GuD Anlage Spreetal,2009,Endgültig Stillgelegt 2012 (ohne StA),Erdgas,50.0
-,BNA0172b,Wacker Chemie AG,,1977,in Betrieb,Erdgas,50.0
-,BNA0861b,Energie SaarLorLux AG,HKW Römerbrücke,1988,in Betrieb,Steinkohle,50.0
-,BNA0521,Städtische Werke Energie + Wärme GmbH,Kombi-HKW,1987,in Betrieb,Erdgas,50.0
-,BNA0174,InfraServ GmbH & Co. Gendorf KG,Industriepark Werk Gendorf,2002,in Betrieb,Erdgas,47.5
-06-05-800-0203946,BNA0490b,RWE Power AG,Goldenberg,1993,Endgültig Stillgelegt 2015 (mit StA),Braunkohle,45.0
-,BNA1486,ROMONTA GmbH,Grubenheizkraftwerk,1979,in Betrieb,Braunkohle,45.0
-,BNA1088,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,2005,in Betrieb,Erdgas,44.5
-,BNA0111,Stadtwerke Bochum Holding GmbH,HKW Hiltrop,2014,in Betrieb,Erdgas,44.0
-,BNA0614a,BASF SE,KW Mitte,1992,Sonderfall,Erdgas,43.0
-,BNA1523a,Moritz J. Weig GmbH & Co KG,Gemeinschaftskraftwerk Weig,1992,in Betrieb,Erdgas,42.0
-,BNA1074,envia THERM GmbH,Spitzenlastkraftwerk Wolfen,1997,in Betrieb,Erdgas,40.0
-06-05-800-0203946,BNA0490a,RWE Power AG,Goldenberg,1993,Sonderfall,Braunkohle,40.0
-,BNA0361,KGW - Kraftwerk Grenzach-Wyhlen GmbH,Kraftwerk Grenzach-Wyhlen,2004,in Betrieb,Erdgas,40.0
-,BNA1500,"Nordzucker AG, Werk Uelzen",Werk Uelzen,"vor 1945 /
+(Irsching)",Bayern,2011,Gesetzlich an Stilllegung gehindert,Erdgas,545.0
+13-30-1010101,BNA0849,EnBW Energie Baden-Württemberg AG,KNG Kraftwerk Rostock,Mecklenburg-Vorpommern,1994,in Betrieb,Steinkohle,514.0
+06-00176010435,BNA0377,Uniper Kraftwerke GmbH ,Staudinger,Hessen,1992,in Betrieb,Steinkohle,510.0
+06-08-2797933,BNA0518a,EnBW Energie Baden-Württemberg AG,Rheinhafen-Dampfkraftwerk,Baden-Württemberg,1985,in Betrieb,Steinkohle,505.0
+,BNA0614b,BASF SE,Kraftwerk Mitte,Rheinland-Pfalz,2005,in Betrieb,Erdgas,490.0
+12-40710010000,BNA0790,Vattenfall Europe Generation AG,KW Jänschwalde,Brandenburg,1989,in Betrieb,Braunkohle,465.0
+12-40710010000,BNA0789,Vattenfall Europe Generation AG,KW Jänschwalde,Brandenburg,1987,in Betrieb,Braunkohle,465.0
+12-40710010000,BNA0788,Vattenfall Europe Generation AG,KW Jänschwalde,Brandenburg,1985,in Betrieb,Braunkohle,465.0
+12-40710010000,BNA0787,Vattenfall Europe Generation AG,KW Jänschwalde,Brandenburg,1984,in Betrieb,Braunkohle,465.0
+12-40710010000,BNA0786,Vattenfall Europe Generation AG,KW Jänschwalde,Brandenburg,1982,in Betrieb,Braunkohle,465.0
+12-40710010000,BNA0785,Vattenfall Europe Generation AG,KW Jänschwalde,Brandenburg,1981,in Betrieb,Braunkohle,465.0
+14-70-46630660001,BNA0123,Vattenfall Europe Generation AG,Boxberg,Sachsen,1980,in Betrieb,Braunkohle,465.0
+14-70-46630660001,BNA0122,Vattenfall Europe Generation AG,Boxberg,Sachsen,1979,in Betrieb,Braunkohle,465.0
+,BNA1818,RheinEnergie AG,Niehl 3,Nordrhein-Westfalen,2016,in Betrieb,Erdgas,459.9
+12358,BNA0879,Uniper Kraftwerke GmbH ,Schkopau,Sachsen-Anhalt,1996,in Betrieb,Braunkohle,450.0
+12358,BNA0878,Uniper Kraftwerke GmbH ,Schkopau,Sachsen-Anhalt,1996,in Betrieb,Braunkohle,450.0
+06-05-900-0327252,BNA0450,Steag GmbH,KW Herne,Nordrhein-Westfalen,1989,in Betrieb,Steinkohle,449.0
+,BNA1820,Gemeinschaftskraftwerk Bremen GmbH und Co. KG,KW Mittelsbüren,Bremen,2016,in Betrieb,Erdgas,444.5
+,BNA0073,Vattenfall Europe Wärme AG,Mitte,Berlin,1996,in Betrieb,Erdgas,444.0
+06-08-2948214,BNA0646a,Grosskraftwerk Mannheim AG,GKM ,Baden-Württemberg,1993,in Betrieb,Steinkohle,435.0
+,BNA0626,Kraftwerke Mainz-Wiesbaden AG,Kraftwerk Mainz,Rheinland-Pfalz,2001,in Betrieb,Erdgas,434.2
+,BNA0245b,Statkraft Markets GmbH,Emden Gas,Niedersachsen,1973,Vorläufig Stillgelegt (ohne StA),Erdgas,433.0
+06-08-1741292,BNA0020,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Altbach/Deizisau,Baden-Württemberg,1985,in Betrieb,Steinkohle,433.0
+,BNA0574b,Statkraft Markets GmbH,Landesbergen Gas,Niedersachsen,1973,Vorläufig Stillgelegt (mit StA),Erdgas,431.0
+,BNA0548b,Statkraft Markets GmbH,Knapsack Gas II,Nordrhein-Westfalen,2013,in Betrieb,Erdgas,430.0
+06-08-2948214,BNA0645,Grosskraftwerk Mannheim AG,GKM ,Baden-Württemberg,1982,in Betrieb,Steinkohle,425.0
+,BNA0411,Trianel Gaskraftwerk Hamm GmbH & Co. KG ,Trianel Gaskraftwerk ,Nordrhein-Westfalen,2008,in Betrieb,Erdgas,420.9
+,BNA0410,Trianel Gaskraftwerk Hamm GmbH & Co. KG ,Trianel Gaskraftwerk ,Nordrhein-Westfalen,2008,in Betrieb,Erdgas,417.1
+,BNA0442,Mark-E AG / Statkraft Markets GmbH,Cuno Heizkraftwerk Herdecke,Nordrhein-Westfalen,2007,in Betrieb,Erdgas,417.0
+,BNA0545,RheinEnergie AG,HKW Niehl 2,Nordrhein-Westfalen,2005,in Betrieb,Erdgas,413.0
+,BNA0615,BASF SE,Kraftwerk Süd,Rheinland-Pfalz,1997,in Betrieb,Erdgas,390.0
+06-05-100-0365906,BNA0216a,Steag GmbH,KW Walsum,Nordrhein-Westfalen,1988,in Betrieb,Steinkohle,370.0
+,BNA0605,RWE Generation SE,Emsland,Niedersachsen,1974,in Betrieb,Erdgas,359.0
+,BNA0604,RWE Generation SE,Emsland,Niedersachsen,1973,in Betrieb,Erdgas,359.0
+,BNA1043,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,Vorläufig Stillgelegt (mit StA),Erdgas,355.0
+,BNA1044,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,Vorläufig Stillgelegt (mit StA),Erdgas,355.0
+,BNA1045,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,Vorläufig Stillgelegt (mit StA),Erdgas,355.0
+,BNA0514,EnBW Energie Baden-Württemberg AG,Rheinhafen-Dampfkraftwerk,Baden-Württemberg,1998,in Betrieb,Erdgas,353.0
+,BNA0439,Helmstedter Revier GmbH,Buschhaus,Niedersachsen,1985,Sicherheitsbereitschaft,Braunkohle,352.0
+06-05-500-0342658,BNA0331,Uniper Kraftwerke GmbH ,Scholven,Nordrhein-Westfalen,1969,in Betrieb,Steinkohle,345.0
+06-05-500-0342658,BNA0332,Uniper Kraftwerke GmbH ,Scholven,Nordrhein-Westfalen,1968,in Betrieb,Steinkohle,345.0
+06-05-500-0342658,BNA0334,Uniper Kraftwerke GmbH ,Scholven,Nordrhein-Westfalen,1971,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,345.0
+,BNA0203,Uniper Kraftwerke GmbH ,Knepper,Nordrhein-Westfalen,1971,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,345.0
+06-05-500-0342658,BNA0333,Uniper Kraftwerke GmbH ,Scholven,Nordrhein-Westfalen,1970,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,345.0
+06-08-1741292,BNA0019,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Altbach/Deizisau,Baden-Württemberg,1997,in Betrieb,Steinkohle,336.0
+,BNA0627,Kraftwerke Mainz-Wiesbaden AG,Kraftwerk Mainz,Rheinland-Pfalz,1977,Gesetzlich an Stilllegung gehindert,Erdgas,335.0
+06-05-900-0884101,BNA0619,Steag GmbH,KW Lünen,Nordrhein-Westfalen,1969,in Betrieb,Steinkohle,324.0
+01-50-02000283604,BNA0526,Gemeinschaftskraftwerk Kiel GmbH,Gemeinschaftskraftwerk Kiel,Schleswig-Holstein,1970,in Betrieb,Steinkohle,323.0
+06-05-100-0853075,BNA0990,Steag GmbH,KW West,Nordrhein-Westfalen,1971,in Betrieb,Steinkohle,322.0
+,BNA0239,Uniper Kraftwerke GmbH ,Huntorf,Niedersachsen,1978,in Betrieb,Erdgas,321.0
+06-05-100-0853075,BNA0989,Steag GmbH,KW West,Nordrhein-Westfalen,1971,in Betrieb,Steinkohle,318.0
+06-04-11/2001178/8/0,BNA0146,swb Erzeugung GmbH & Co. KG,KW Hafen,Bremen,1979,in Betrieb,Steinkohle,300.0
+06-05-300-0326774,BNA0706,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1971,in Betrieb,Braunkohle,299.0
+06-05-300-0326774,BNA0705,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1968,in Betrieb,Braunkohle,297.0
+06-05-300-0326774,BNA0712,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1965,in Betrieb,Braunkohle,295.0
+06-05-300-0326774,BNA0713,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1970,in Betrieb,Braunkohle,295.0
+06-05-100-0248923,BNA0696,RWE Power AG,Neurath,Nordrhein-Westfalen,1972,in Betrieb,Braunkohle,294.0
+06-05-100-0248923,BNA0697,RWE Power AG,Neurath,Nordrhein-Westfalen,1972,in Betrieb,Braunkohle,294.0
+06-00176010435,BNA0376,Uniper Kraftwerke GmbH ,Staudinger,Hessen,1970,Endgültig Stillgelegt 2012 (ohne StA),Steinkohle,293.0
+,BNA0221c,Stadtwerke Düsseldorf AG,Gasblock,Nordrhein-Westfalen,1976,in Betrieb,Erdgas,293.0
+06-05-100-0248923,BNA0698,RWE Power AG,Neurath,Nordrhein-Westfalen,1973,in Betrieb,Braunkohle,292.0
+06-10-0075248,BNA0252,Gemeinschaft nach Bruchteilen der Saarstahl AG (SAG) und Saarschmiede GmbH Freiformschmiede (SSF),Kraftwerk Ensdorf,Saarland,2001,in Betrieb,Steinkohle,283.0
+06-11-01-1105609,BNA0086,Vattenfall Europe Wärme AG,Reuter West,Berlin,1987,in Betrieb,Steinkohle,282.0
+06-11-01-1105609,BNA0087,Vattenfall Europe Wärme AG,Reuter West,Berlin,1988,in Betrieb,Steinkohle,282.0
+06-05-900-0327252,BNA0449,Steag GmbH,KW Herne,Nordrhein-Westfalen,1966,in Betrieb,Steinkohle,280.0
+,BNA1024,RWE Power AG,Weisweiler,Nordrhein-Westfalen,2006,Vorläufig Stillgelegt (ohne StA),Erdgas,272.0
+,BNA1023,RWE Power AG,Weisweiler,Nordrhein-Westfalen,2006,Vorläufig Stillgelegt (ohne StA),Erdgas,272.0
+06-08-2948214,BNA0644,Grosskraftwerk Mannheim AG,GKM ,Baden-Württemberg,2005,in Betrieb,Steinkohle,255.0
+06-00176010435,BNA0375,Uniper Kraftwerke GmbH ,Staudinger,Hessen,1965,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,249.0
+,BNA0389,Mark-E AG,Heizkraftwerk Hagen-Kabel,Nordrhein-Westfalen,1980,Vorläufig Stillgelegt (mit StA),Erdgas,230.0
+,BNA0418,Stadtwerke Hannover AG,GKL,Niedersachsen,1998 / 2013,in Betrieb,Erdgas,230.0
+06-10-00101000,BNA0999,Saar GmbH,Heizkraftwerk,Saarland,1989,in Betrieb,Steinkohle,211.0
+06-08-2948214,BNA0642,Grosskraftwerk Mannheim AG,GKM ,Baden-Württemberg,1966,Endgültig Stillgelegt 2015 (mit StA),Steinkohle,202.5
+06-08-2948214,BNA0643,Grosskraftwerk Mannheim AG,GKM ,Baden-Württemberg,1970,Endgültig Stillgelegt 2015 (mit StA),Steinkohle,202.5
+06-02-B10132A001,BNA0402,Vattenfall Europe Wärme Aktiengesellschaft,Tiefstack,Hamburg,1993,in Betrieb,Steinkohle,194.0
+06-05-900-0045033,BNA1035,Mark-E AG,Kraftwerk Werdohl-Elverlingsen,Nordrhein-Westfalen,1971,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,186.0
+06-10-00101000,BNA0998,Saar GmbH,Modellkraftwerk,Saarland,1982,in Betrieb,Steinkohle,179.0
+,BNA0130,Uniper Kraftwerke GmbH ,Kirchmöser,Brandenburg,1994,in Betrieb,Erdgas,160.0
+,BNA0140,swb Erzeugung GmbH & Co. KG,KW Hastedt,Bremen,1972,Vorläufig Stillgelegt (mit StA),Erdgas,155.0
+06-05-900-0079017,BNA0414,RWE Generation SE,Westfalen,Nordrhein-Westfalen,1963,Endgültig Stillgelegt 2011 (ohne StA),Steinkohle,152.0
+06-05-900-0079017,BNA0415,RWE Generation SE,Westfalen,Nordrhein-Westfalen,1963,Endgültig Stillgelegt 2011 (ohne StA),Steinkohle,152.0
+06-05-900-0884101,BNA0618,Steag GmbH,KW Lünen,Nordrhein-Westfalen,1962,in Betrieb,Steinkohle,149.0
+,BNA1006,EnBW Energie Baden-Württemberg AG,Kraftwerk Walheim,Baden-Württemberg,1967,Gesetzlich an Stilllegung gehindert,Steinkohle,148.0
+,BNA0080,Vattenfall Europe Wärme AG,Lichterfelde,Berlin,1973,Endgültig Stillgelegt 2016 (mit StA),Erdgas,144.0
+,BNA0075,Vattenfall Europe Wärme AG,Lichterfelde,Berlin,1972,in Betrieb,Erdgas,144.0
+,BNA0076,Vattenfall Europe Wärme AG,Lichterfelde,Berlin,1974,in Betrieb,Erdgas,144.0
+,BNA1076a,Volkswagen AG,HKW West,Niedersachsen,1985,in Betrieb,Steinkohle,138.5
+,BNA1076b,Volkswagen AG,HKW West,Niedersachsen,1985,in Betrieb,Steinkohle,138.5
+06-05-100-0081105,BNA0310,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1962,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,138.0
+01-50-56050192711,BNA0404,Vattenfall Europe Wärme AG,Wedel,Schleswig-Holstein,1961,in Betrieb,Steinkohle,137.0
+03-06-06060316030,BNA0420,Stadtwerke Hannover AG,GKH,Niedersachsen,1989,in Betrieb,Steinkohle,136.0
+03-06-06060316030,BNA0421,Stadtwerke Hannover AG,GKH,Niedersachsen,1989,in Betrieb,Steinkohle,136.0
+06-05-100-0081105,BNA0308,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1962,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,136.0
+06-05-300-0877384,BNA1022,RWE Power AG,Weisweiler,Nordrhein-Westfalen,1959,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,135.0
+06-05-100-0081105,BNA0309,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1964,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,135.0
+06-05-100-0081105,BNA0312,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1964,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,133.0
+06-05-900-0327252,BNA0447,Steag GmbH,KW Herne,Nordrhein-Westfalen,1963,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,133.0
+06-05-100-0081105,BNA0306,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1960,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,132.0
+,BNA0448,Uniper Kraftwerke GmbH ,Shamrock,Nordrhein-Westfalen,1957,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,132.0
+06-05-100-0081105,BNA0311,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1962,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,131.0
+06-05-100-0081105,BNA0305,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1959,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,130.0
+06-05-100-0081105,BNA0303,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1957,Endgültig Stillgelegt 2011 (ohne StA),Braunkohle,130.0
+06-05-100-0081105,BNA0302,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1957,Endgültig Stillgelegt 2011 (ohne StA),Braunkohle,129.0
+06-05-100-0365906,BNA0215,Steag GmbH,KW Walsum,Nordrhein-Westfalen,1959,Endgültig Stillgelegt 2014 (mit StA),Steinkohle,129.0
+06-05-100-0081105,BNA0307,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1960,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,128.0
+,BNA0684c,SWM Services GmbH,Süd DT60,Bayern,2004,in Betrieb,Erdgas,127.6
+06-04-11/2001178/8/0,BNA0145,swb Erzeugung GmbH & Co. KG,KW Hafen,Bremen,1968,Vorläufig Stillgelegt (mit StA),Steinkohle,127.0
+,BNA0400,Vattenfall Europe Wärme Aktiengesellschaft,GuD Tiefstack,Hamburg,2009,in Betrieb,Erdgas,127.0
+06-05-300-0326774,BNA0711,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1963,Vorläufig Stillgelegt (ohne StA),Braunkohle,125.0
+06-08-1020129,BNA0432,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Heilbronn,Baden-Württemberg,1965,Gesetzlich an Stilllegung gehindert,Steinkohle,125.0
+06-08-1020129,BNA0433,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Heilbronn,Baden-Württemberg,1966,Gesetzlich an Stilllegung gehindert,Steinkohle,125.0
+06-05-300-0326774,BNA0710,RWE Power AG,Niederaußem,Nordrhein-Westfalen,1963,Vorläufig Stillgelegt (ohne StA),Braunkohle,125.0
+,BNA0684a,SWM Services GmbH,Süd GT 61,Bayern,2004,in Betrieb,Erdgas,124.9
+06-05-100-0081105,BNA0304,RWE Power AG,Frimmersdorf,Nordrhein-Westfalen,1960,Endgültig Stillgelegt 2011 (ohne StA),Braunkohle,124.0
+,BNA0684b,SWM Services GmbH,Süd GT 62,Bayern,2004,in Betrieb,Erdgas,123.9
+01-50-56050192711,BNA0403,Vattenfall Europe Wärme AG,Wedel,Schleswig-Holstein,1962,in Betrieb,Steinkohle,123.0
+06-05-300-0877384,BNA1021,RWE Power AG,Weisweiler,Nordrhein-Westfalen,1955,Endgültig Stillgelegt 2012 (ohne StA),Braunkohle,123.0
+,BNA0922,KWG-Kraftwerksgesellschaft Staßfurt mbH,GuD-Ikw Staßfurt,Sachsen-Anhalt,1996,in Betrieb,Erdgas,123.0
+,BNA0172a,Wacker Chemie AG,Dampfkraftwerk BGH - O1,Bayern,2001,in Betrieb,Erdgas,120.0
+06-04-11/2001178/8/0,BNA0144,swb Erzeugung GmbH & Co. KG,KW Hastedt,Bremen,1989,in Betrieb,Steinkohle,119.0
+,BNA0603,RWE Generation SE,Emsland,Niedersachsen,2011,in Betrieb,Erdgas,116.0
+,BNA0602,RWE Generation SE,Emsland,Niedersachsen,2011,in Betrieb,Erdgas,116.0
+1,BNA0189,Uniper Kraftwerke GmbH ,Datteln,Nordrhein-Westfalen,1969,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,113.0
+,BNA0857,Adam Opel AG,GuD-Anlage Rüsselsheim,Hessen,1999,in Betrieb,Erdgas,112.1
+,BNA1046b,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1984,in Betrieb,Erdgas,112.0
+,BNA0848,Stadtwerke Rostock AG,GuD Marienehe,Mecklenburg-Vorpommern,1996,in Betrieb,Erdgas,108.0
+,BNA0546,RheinEnergie AG,HKW Merkenich,Nordrhein-Westfalen,2004,in Betrieb,Erdgas,108.0
+,BNA0105,envia THERM GmbH,GuD Bitterfeld,Sachsen-Anhalt,2000,in Betrieb,Erdgas,106.0
+06-10-0075248,BNA0253,"VSE AG, Kraftwerk Ensdorf",Kraftwerk Ensdorf,Saarland,1963,in Betrieb,Steinkohle,106.0
+,BNA0419,Stadtwerke Hannover AG,KWH,Niedersachsen,1975,Vorläufig Stillgelegt (mit StA),Erdgas,102.0
+,BNA0220,Stadtwerke Düsseldorf AG,GuD,Nordrhein-Westfalen,2000,in Betrieb,Erdgas,100.0
+,BNA0286,Mainova AG,HKW West,Hessen,1994,in Betrieb,Erdgas,99.0
+,BNA0683b,SWM Services GmbH,Süd GT3,Bayern,1980,in Betrieb,Erdgas,97.9
+,BNA0683c,SWM Services GmbH,Süd GT2,Bayern,1980,in Betrieb,Erdgas,97.9
+,BNA0805,Daimler AG / UPM GmbH,Kraftwerk Plattling,Bayern,2010,in Betrieb,Erdgas,97.9
+,BNA0392a,EVH GmbH,HKW Halle Trotha,Sachsen-Anhalt,2005,in Betrieb,Erdgas,97.0
+,BNA0497,Infraserv GmbH & Co. Höchst KG,ADS-Anlage,Hessen,2012,in Betrieb,Erdgas,96.5
+,BNA1005,EnBW Energie Baden-Württemberg AG,Kraftwerk Walheim,Baden-Württemberg,1964,Gesetzlich an Stilllegung gehindert,Steinkohle,96.0
+1,BNA0188,Uniper Kraftwerke GmbH ,Datteln,Nordrhein-Westfalen,1964,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,95.0
+1,BNA0187,Uniper Kraftwerke GmbH ,Datteln,Nordrhein-Westfalen,1964,Endgültig Stillgelegt 2013 (ohne StA),Steinkohle,95.0
+,BNA1487,Entega AG,GTKW Darmstadt,Hessen,2013,Gesetzlich an Stilllegung gehindert,Erdgas,94.6
+,BNA0812,Gemeinschaftskraftwerk Veltheim GmbH,Kraftwerk Veltheim,Nordrhein-Westfalen,1965,Endgültig Stillgelegt 2012 (ohne StA),Steinkohle,93.0
+,BNA0499,Infraserv GmbH & Co. Höchst KG,Heizkraftwerk,Hessen,2003,in Betrieb,Erdgas,86.0
+06-05-100-0030723,BNA1084,WSW Energie & Wasser AG,HKW Elberfeld ,Nordrhein-Westfalen,1989,in Betrieb,Steinkohle,85.0
+,BNA1082,WSW Energie & Wasser AG,HKW Barmen,Nordrhein-Westfalen,2005,in Betrieb,Erdgas,82.0
+,BNA1248a,UPM GmbH,UPM Schongau,Bayern,1969,Gesetzlich an Stilllegung gehindert,Erdgas,82.0
+,BNA0814,Energie und Wasser Potsdam GmbH,HKW Potsdam-Süd,Brandenburg,1996,in Betrieb,Erdgas,81.8
+,BNA0681,SWM Services GmbH,Freimann GT 1,Bayern,1975,Endgültig Stillgelegt 2015 (mit StA),Erdgas,80.0
+,BNA0682,SWM Services GmbH,Freimann GT 2,Bayern,1975,Endgültig Stillgelegt 2015 (mit StA),Erdgas,80.0
+,BNA0683a,SWM Services GmbH,Süd DT1,Bayern,1980,in Betrieb,Erdgas,79.7
+,BNA0059b,Volkswagen AG,"GuD Baunatal, VW Werksgelände",Hessen,2013,in Betrieb,Erdgas,78.0
+,BNA0659,Evonik Degussa GmbH,Kraftwerk III,Nordrhein-Westfalen,1974,in Betrieb,Erdgas,77.6
+,BNA0256a,SWE Energie GmbH,HKW Erfurt-Ost,Thüringen,2000,in Betrieb,Erdgas,76.5
+06-05-300-0923949,BNA0543,RheinEnergie AG,HKW Merkenich,Nordrhein-Westfalen,2010,in Betrieb,Braunkohle,75.3
+,BNA0743,N-ERGIE AG,HKW Sandreuth,Bayern,2005,in Betrieb,Erdgas,75.0
+,BNA0742,N-ERGIE AG,HKW Sandreuth,Bayern,2005,in Betrieb,Erdgas,75.0
+,BNA1819,Stadtwerke Flensburg GmbH,Heizkraftwerk FL,Schleswig-Holstein,2016,in Betrieb,Erdgas,75.0
+,BNA0343,Energieversorgung Gera GmbH,Heizkraftwerk Gera-Nord,Thüringen,1996,in Betrieb,Erdgas,74.0
+,BNA0285,Mainova AG,HKW Niederrad,Hessen,2005,in Betrieb,Erdgas,70.0
+,BNA0336,Uniper Kraftwerke GmbH ,FWK Buer,Nordrhein-Westfalen,1985,in Betrieb,Steinkohle,70.0
+,BNA0196,Mitteldeutsche Braunkohlengesellschaft mbH,Deuben,Sachsen-Anhalt,1936,in Betrieb,Braunkohle,67.0
+,BNA0221b,Stadtwerke Düsseldorf AG,GT,Nordrhein-Westfalen,1974,in Betrieb,Erdgas,66.7
+,BNA1509,BP Europa SE,BP Werk Lingen,Niedersachsen,1996,in Betrieb,Erdgas,66.0
+06-05-800-0203946,BNA0489,RWE Power AG,Goldenberg,Nordrhein-Westfalen,1992,Endgültig Stillgelegt 2015 (mit StA),Braunkohle,66.0
+,BNA0088a,Solvay Chemicals GmbH,Industriekraftwerk Bernburg (IKB),Sachsen-Anhalt,1994,in Betrieb,Erdgas,66.0
+,BNA1248b,UPM GmbH,HKW3 UPM Schongau,Bayern,2015,in Betrieb,Erdgas,65.0
+,BNA0015,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Altbach/Deizisau,Baden-Württemberg,1997,in Betrieb,Erdgas,65.0
+,BNA0221a,Stadtwerke Düsseldorf AG,GT,Nordrhein-Westfalen,1974,in Betrieb,Erdgas,64.7
+,BNA0755b,Kraftwerk Obernburg GmbH,Obernburg,Bayern,1995,in Betrieb,Erdgas,64.0
+,BNA0658,Evonik Degussa GmbH,Kraftwerk III,Nordrhein-Westfalen,1973,in Betrieb,Erdgas,61.1
+,BNA1676,Evonik Degussa GmbH,Kraftwerk IV,Nordrhein-Westfalen,2016,In Betrieb,Erdgas,60.6
+,BNA0661,Evonik Degussa GmbH,Kraftwerk II,Nordrhein-Westfalen,1966,in Betrieb,Steinkohle,60.4
+,BNA0293,Solvay Acetow GmbH,GuD Anlage WVK,Baden-Württemberg,1998,in Betrieb,Erdgas,60.1
+,BNA0680,Mitteldeutsche Braunkohlengesellschaft mbH,Mumsdorf,Sachsen-Anhalt,1968,Endgültig Stillgelegt 2013 (mit StA),Braunkohle,60.0
+,BNA1335a,Papier- u. Kartonfabrik Varel GmbH & Co. KG,PKV Kraftwerk,Niedersachsen,1989,in Betrieb,Erdgas,58.1
+,BNA0243,Palm Power GmbH & Co. KG,HKW Eltmann,Bayern,2008,in Betrieb,Erdgas,57.0
+,BNA0574a,Statkraft Markets GmbH,Landesbergen Gas,Niedersachsen,1973,in Betrieb,Erdgas,56.0
+,BNA0099,Uniper Kraftwerke GmbH ,Gasturbinenkraftwerk Bielefeld Ummeln,Nordrhein-Westfalen,1975,Endgültig Stillgelegt 2015 (mit StA),Erdgas,55.0
+,BNA1040,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,in Betrieb,Erdgas,55.0
+,BNA1039,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,in Betrieb,Erdgas,55.0
+,BNA1042,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,in Betrieb,Erdgas,55.0
+,BNA0933,EnBW Energie Baden-Württemberg AG,Heizkraftwerk Stuttgart-Gaisburg,Baden-Württemberg,1973,Endgültig Stillgelegt 2014 (ohne StA),Erdgas,55.0
+,BNA1041,RWE Generation SE,Gersteinwerk,Nordrhein-Westfalen,1973,in Betrieb,Erdgas,55.0
+,BNA0392b,Heizkraftwerk Halle-Trotha GmbH,HKW Halle Trotha,Sachsen-Anhalt,2013,in Betrieb,Erdgas,54.0
+,BNA1089,K+S AG,Zielitz,Sachsen-Anhalt,1996,in Betrieb,Erdgas,52.0
+,BNA0245a,Statkraft Markets GmbH,Emden Gas,Niedersachsen,1973,in Betrieb,Erdgas,52.0
+,BNA0592,InfraLeuna GmbH,GuD Leuna,Sachsen-Anhalt,1998,in Betrieb,Erdgas,52.0
+,BNA0521,Städtische Werke Energie + Wärme GmbH,Kombi-HKW,Hessen,1987,in Betrieb,Erdgas,50.0
+,BNA0172b,Wacker Chemie AG,,Bayern,1977,in Betrieb,Erdgas,50.0
+,BNA0861b,Energie SaarLorLux AG,HKW Römerbrücke,Saarland,1988,in Betrieb,Steinkohle,50.0
+,BNA0913,Alpiq Spreetal GmbH,GuD Anlage Spreetal,Sachsen,2009,Endgültig Stillgelegt 2012 (ohne StA),Erdgas,50.0
+,BNA0174,InfraServ GmbH & Co. Gendorf KG,Industriepark Werk Gendorf,Bayern,2002,in Betrieb,Erdgas,47.5
+,BNA1486,ROMONTA GmbH,Grubenheizkraftwerk,Sachsen-Anhalt,1979,in Betrieb,Braunkohle,45.0
+06-05-800-0203946,BNA0490b,RWE Power AG,Goldenberg,Nordrhein-Westfalen,1993,Endgültig Stillgelegt 2015 (mit StA),Braunkohle,45.0
+,BNA1088,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,Bayern,2005,in Betrieb,Erdgas,44.5
+,BNA0111,Stadtwerke Bochum Holding GmbH,HKW Hiltrop,Nordrhein-Westfalen,2014,in Betrieb,Erdgas,44.0
+,BNA0614a,BASF SE,KW Mitte,Rheinland-Pfalz,1992,Sonderfall,Erdgas,43.0
+,BNA1523a,Moritz J. Weig GmbH & Co KG,Gemeinschaftskraftwerk Weig,Rheinland-Pfalz,1992,in Betrieb,Erdgas,42.0
+,BNA1500,"Nordzucker AG, Werk Uelzen",Werk Uelzen,Niedersachsen,"vor 1945 /
 letzte Änderung 1990",Sonderfall,Steinkohle,40.0
-,BNA1464,ZF Friedrichshafen AG,Gas- u. Dampfturbinenanlage Südraum,2012,in Betrieb,Erdgas,38.6
-,BNA1531,Industriekraftwerk Greifswald GmbH,Industriekraftwerk Greifswald,2014,in Betrieb,Erdgas,37.7
-,BNA0734,Vattenfall Europe Generation AG,Thyrow,1989,Gesetzlich an Stilllegung gehindert,Erdgas,37.5
-,BNA0008,Vattenfall Europe Generation AG,Ahrensfelde,1990,in Betrieb,Erdgas,37.5
-,BNA0737,Vattenfall Europe Generation AG,Thyrow,1989,Endgültig Stillgelegt 2016 (mit StA),Erdgas,37.5
-,BNA0735,Vattenfall Europe Generation AG,Thyrow,1989,Endgültig Stillgelegt 2016 (mit StA),Erdgas,37.5
-,BNA0736,Vattenfall Europe Generation AG,Thyrow,1989,Endgültig Stillgelegt 2016 (mit StA),Erdgas,37.5
-,BNA0100,Stadtwerke Bielefeld GmbH,GuD Kraftwerk Hillegossen,2005,in Betrieb,Erdgas,37.5
-,BNA0007,Vattenfall Europe Generation AG,Ahrensfelde,1990,in Betrieb,Erdgas,37.5
-,BNA0006,Vattenfall Europe Generation AG,Ahrensfelde,1990,in Betrieb,Erdgas,37.5
-,BNA0005,Vattenfall Europe Generation AG,Ahrensfelde,1990,in Betrieb,Erdgas,37.5
-,BNA0595,InfraLeuna GmbH,ILK-GuD,1994,in Betrieb,Erdgas,37.0
-,BNA0741,Vattenfall Europe Generation AG,Thyrow,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
-,BNA0740,Vattenfall Europe Generation AG,Thyrow,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
-,BNA0739,Vattenfall Europe Generation AG,Thyrow,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
-,BNA0738,Vattenfall Europe Generation AG,Thyrow,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
-,BNA0755a,Kraftwerk Obernburg GmbH,Obernburg,1920,in Betrieb,Erdgas,36.0
-,BNA0129,Stadtwerke Brandenburg an der Havel GmbH,HKW,1997,in Betrieb,Erdgas,36.0
-,BNA1556,Sachsenmilch Leppersdorf GmbH,,2014,in Betrieb,Erdgas,36.0
-01-50-01000004838,BNA0273,Stadtwerke Flensburg GmbH,Heizkraftwerk FL,1982,Endgültig Stillgelegt 2016 (mit StA),Steinkohle,35.0
-,BNA0594,InfraLeuna GmbH/TOTAL Raffinerie Mitteldeutschland GmbH,ILK-GuD,1994,in Betrieb,Erdgas,35.0
-,BNA0593,InfraLeuna GmbH,ILK-GuD,1994,in Betrieb,Erdgas,35.0
-,BNA0544,RheinEnergie AG,HKW Südstadt,1994,in Betrieb,Erdgas,35.0
-,BNA0804a,K+S AG,Hattorf,1962,in Betrieb,Erdgas,35.0
-,BNA1396,Energieversorgungscenter Dresden-Wilschdorf GmbH & Co. KG,EVC / GLOBALFOUNDRIES,1998,in Betrieb,Erdgas,34.3
-,BNA1271,K+S AG,Unterbreizbach,1965,in Betrieb,Erdgas,33.6
-,BNA0256b,SWE Energie GmbH,HKW Erfurt-Ost,2014,in Betrieb,Erdgas,32.6
-,BNA1002,Mitteldeutsche Braunkohlengesellschaft mbH,Wählitz,1994,in Betrieb,Braunkohle,31.0
-,BNA1437,Aluminium Oxid Stade GmbH,KWK AOS GmbH,2012,in Betrieb,Erdgas,30.7
-,BNA1498,"Nordzucker AG, Werk Nordstemmen",Werk Nordstemmen,"vor 1945 /
+,BNA1074,envia THERM GmbH,Spitzenlastkraftwerk Wolfen,Sachsen-Anhalt,1997,in Betrieb,Erdgas,40.0
+06-05-800-0203946,BNA0490a,RWE Power AG,Goldenberg,Nordrhein-Westfalen,1993,Sonderfall,Braunkohle,40.0
+,BNA0361,KGW - Kraftwerk Grenzach-Wyhlen GmbH,Kraftwerk Grenzach-Wyhlen,Baden-Württemberg,2004,in Betrieb,Erdgas,40.0
+,BNA1464,ZF Friedrichshafen AG,Gas- u. Dampfturbinenanlage Südraum,Saarland,2012,in Betrieb,Erdgas,38.6
+,BNA1531,Industriekraftwerk Greifswald GmbH,Industriekraftwerk Greifswald,Mecklenburg-Vorpommern,2014,in Betrieb,Erdgas,37.7
+,BNA0737,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1989,Endgültig Stillgelegt 2016 (mit StA),Erdgas,37.5
+,BNA0100,Stadtwerke Bielefeld GmbH,GuD Kraftwerk Hillegossen,Nordrhein-Westfalen,2005,in Betrieb,Erdgas,37.5
+,BNA0007,Vattenfall Europe Generation AG,Ahrensfelde,Brandenburg,1990,in Betrieb,Erdgas,37.5
+,BNA0736,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1989,Endgültig Stillgelegt 2016 (mit StA),Erdgas,37.5
+,BNA0735,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1989,Endgültig Stillgelegt 2016 (mit StA),Erdgas,37.5
+,BNA0005,Vattenfall Europe Generation AG,Ahrensfelde,Brandenburg,1990,in Betrieb,Erdgas,37.5
+,BNA0006,Vattenfall Europe Generation AG,Ahrensfelde,Brandenburg,1990,in Betrieb,Erdgas,37.5
+,BNA0734,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1989,Gesetzlich an Stilllegung gehindert,Erdgas,37.5
+,BNA0008,Vattenfall Europe Generation AG,Ahrensfelde,Brandenburg,1990,in Betrieb,Erdgas,37.5
+,BNA0595,InfraLeuna GmbH,ILK-GuD,Sachsen-Anhalt,1994,in Betrieb,Erdgas,37.0
+,BNA0738,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
+,BNA0739,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
+,BNA0740,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
+,BNA0741,Vattenfall Europe Generation AG,Thyrow,Brandenburg,1987,Gesetzlich an Stilllegung gehindert,Erdgas,36.5
+,BNA0129,Stadtwerke Brandenburg an der Havel GmbH,HKW,Brandenburg,1997,in Betrieb,Erdgas,36.0
+,BNA0755a,Kraftwerk Obernburg GmbH,Obernburg,Bayern,1920,in Betrieb,Erdgas,36.0
+,BNA1556,Sachsenmilch Leppersdorf GmbH,,Sachsen,2014,in Betrieb,Erdgas,36.0
+,BNA0804a,K+S AG,Hattorf,Hessen,1962,in Betrieb,Erdgas,35.0
+,BNA0544,RheinEnergie AG,HKW Südstadt,Nordrhein-Westfalen,1994,in Betrieb,Erdgas,35.0
+,BNA0594,InfraLeuna GmbH/TOTAL Raffinerie Mitteldeutschland GmbH,ILK-GuD,Sachsen-Anhalt,1994,in Betrieb,Erdgas,35.0
+,BNA0593,InfraLeuna GmbH,ILK-GuD,Sachsen-Anhalt,1994,in Betrieb,Erdgas,35.0
+01-50-01000004838,BNA0273,Stadtwerke Flensburg GmbH,Heizkraftwerk FL,Schleswig-Holstein,1982,Endgültig Stillgelegt 2016 (mit StA),Steinkohle,35.0
+,BNA1396,Energieversorgungscenter Dresden-Wilschdorf GmbH & Co. KG,EVC / GLOBALFOUNDRIES,Sachsen,1998,in Betrieb,Erdgas,34.3
+,BNA1271,K+S AG,Unterbreizbach,Thüringen,1965,in Betrieb,Erdgas,33.6
+,BNA0256b,SWE Energie GmbH,HKW Erfurt-Ost,Thüringen,2014,in Betrieb,Erdgas,32.6
+,BNA1002,Mitteldeutsche Braunkohlengesellschaft mbH,Wählitz,Sachsen-Anhalt,1994,in Betrieb,Braunkohle,31.0
+,BNA1437,Aluminium Oxid Stade GmbH,KWK AOS GmbH,Niedersachsen,2012,in Betrieb,Erdgas,30.7
+,BNA1498,"Nordzucker AG, Werk Nordstemmen",Werk Nordstemmen,Niedersachsen,"vor 1945 /
 letzte Änderung 1953",Sonderfall,Erdgas,30.6
-,BNA1810,Exxon Mobil Production Deutschland GmbH,,2014,in Betrieb,Erdgas,30.2
-,BNA1516,Südzucker AG Mannheim/Ochsenfurt,HKW 1 Werk Offstein,1992,in Betrieb,Erdgas,30.0
-,BNA1087,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,2009,in Betrieb,Erdgas,29.5
-,BNA1103,UPM GmbH,UPM Augsburg,1966,Gesetzlich an Stilllegung gehindert,Erdgas,29.0
-,BNA0033,Stadtwerke Augsburg Energie GmbH,Gasturbine,2004,in Betrieb,Erdgas,28.8
-,BNA1337a,DS Smith Paper Deutschland GmbH,Heizkraftwerk,,Endgültig Stillgelegt 2012 (ohne StA),Erdgas,27.0
-,BNA0600a,Currenta GmbH & Co. OHG,X-Kraftwerk,1981,in Betrieb,Erdgas,27.0
-,BNA1492a,Papierfabrik Adolf Jass Schwarza GmbH,Kraftwerk 3,1990,in Betrieb,Erdgas,26.2
-,BNA0202,RWE Generation SE,Dortmund,2004,in Betrieb,Erdgas,26.0
-,BNA0556a,Cargill Deutschland GmbH,KWK-Anlage Krefeld DT,2005,in Betrieb,Erdgas,25.8
-,BNA0702,Bayernoil Raffineriegesellschaft mbH,Cogeneration,1996,Sonderfall,Erdgas,25.4
-,BNA1056,InfraServ GmbH & Co. Wiesbaden KG,Wi-Biebrich,2003 / 2006,in Betrieb,Erdgas,25.0
-,BNA1086,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,1993,in Betrieb,Erdgas,25.0
-,BNA1164,Pfeifer & Langen Kommanditgesellschaft,P&L Werk Jülich,2004,in Betrieb,Braunkohle,24.6
-,BNA0753,Energieversorgung Oberhausen AG,HKW 2,1995,in Betrieb,Erdgas,24.5
-,BNA1328,HBB Heizkraftwerk Bauernfeind Betreibergesellschaft mbh,HBB,2001,in Betrieb,Erdgas,24.0
-,BNA0752,Energieversorgung Oberhausen AG,HKW 1,1972,in Betrieb,Erdgas,23.1
-01-50-01000004838,BNA0274,Stadtwerke Flensburg GmbH,Heizkraftwerk FL,1978,Endgültig Stillgelegt 2016 (mit StA),Steinkohle,23.0
-,BNA1085,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,1971,in Betrieb,Erdgas,23.0
-,BNA0401,ADM Hamburg Aktiengesellschaft,Heizkraftwerk,1992,in Betrieb,Erdgas,22.5
-,BNA1524,Dow Wolff Cellulosics GmbH,Heizkraftwerk Bomlitz,1912,in Betrieb,Erdgas,22.1
-,BNA0386,Mohn Media Mohndruck GmbH,Energiezentrum Mohn Media,1994,in Betrieb,Erdgas,22.0
-,BNA0261a,Erlanger Stadtwerke AG,HKW Erlangen,2005,in Betrieb,Erdgas,21.6
-,BNA0110,RWE Generation SE,Bochum,2004,in Betrieb,Erdgas,20.7
-,BNA0012b,Sappi Alfeld GmbH,Werkskraftwerk Sappi Alfeld,1947,in Betrieb,Erdgas,20.0
-,BNA1467,Koehler SE,,1986,in Betrieb,Steinkohle,20.0
-,BNA1097,Smurfit Kappa Zülpich Papier GmbH,Kohlekraftwerk,1978,in Betrieb,Braunkohle,19.5
-,BNA1463,Smurfit Kappa Herzberger Papierfabrik GmbH,,1978,in Betrieb,Erdgas,19.5
-,BNA1331,Reno De Medici Arnsberg GmbH,Reno De Medici,1923,in Betrieb,Steinkohle,19.0
-,BNA1285,K+S AG,Sigmundshall,1974,in Betrieb,Erdgas,19.0
-,BNA1406,FS-Karton GmbH,FS-Karton,1992,in Betrieb,Erdgas,18.9
-,BNA1402,Delkeskamp Verpackungswerke GmbH,Heizkraftwerk zur Papierfabrik,1995,in Betrieb,Erdgas,18.1
-,BNA0051,Cargill Deutschland GmbH,KWK-Anlage Barby,2013,in Betrieb,Erdgas,17.8
-,BNA0804b,K+S AG,Hattorf,2013,in Betrieb,Erdgas,17.3
-,BNA1200,Energie- und Medienversorgung Sandhofer Straße GmbH & Co. KG,GuD-Kraftwerk,2005,in Betrieb,Erdgas,17.2
-,BNA1678,Flughafen München GmbH,Energiezentrale 2016,2015,in Betrieb,Erdgas,17.2
-,BNA1671,Kronos Titan GmbH,,2014,in Betrieb,Erdgas,17.1
-,BNA1503,Daimler AG,BHKW H.120,2012,in Betrieb,Erdgas,16.9
-,BNA1408,Evonik Degussa GmbH,Heizkraftwerk Evonik Rheinfelden,1980,in Betrieb,Erdgas,16.0
-,BNA1183,RheinEnergie AG,HKW Merheim,2001,in Betrieb,Erdgas,15.8
-,BNA1499,"Nordzucker AG, Werk Clauen",Werk Clauen,"vor 1945 /
+,BNA1810,Exxon Mobil Production Deutschland GmbH,,Niedersachsen,2014,in Betrieb,Erdgas,30.2
+,BNA1516,Südzucker AG Mannheim/Ochsenfurt,HKW 1 Werk Offstein,Rheinland-Pfalz,1992,in Betrieb,Erdgas,30.0
+,BNA1087,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,Bayern,2009,in Betrieb,Erdgas,29.5
+,BNA1103,UPM GmbH,UPM Augsburg,Bayern,1966,Gesetzlich an Stilllegung gehindert,Erdgas,29.0
+,BNA0033,Stadtwerke Augsburg Energie GmbH,Gasturbine,Bayern,2004,in Betrieb,Erdgas,28.8
+,BNA0600a,Currenta GmbH & Co. OHG,X-Kraftwerk,Nordrhein-Westfalen,1981,in Betrieb,Erdgas,27.0
+,BNA1337a,DS Smith Paper Deutschland GmbH,Heizkraftwerk,Bayern,,Endgültig Stillgelegt 2012 (ohne StA),Erdgas,27.0
+,BNA1492a,Papierfabrik Adolf Jass Schwarza GmbH,Kraftwerk 3,Hessen,1990,in Betrieb,Erdgas,26.2
+,BNA0202,RWE Generation SE,Dortmund,Nordrhein-Westfalen,2004,in Betrieb,Erdgas,26.0
+,BNA0556a,Cargill Deutschland GmbH,KWK-Anlage Krefeld DT,Nordrhein-Westfalen,2005,in Betrieb,Erdgas,25.8
+,BNA0702,Bayernoil Raffineriegesellschaft mbH,Cogeneration,Bayern,1996,Sonderfall,Erdgas,25.4
+,BNA1056,InfraServ GmbH & Co. Wiesbaden KG,Wi-Biebrich,Hessen,2003 / 2006,in Betrieb,Erdgas,25.0
+,BNA1086,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,Bayern,1993,in Betrieb,Erdgas,25.0
+,BNA1164,Pfeifer & Langen Kommanditgesellschaft,P&L Werk Jülich,Nordrhein-Westfalen,2004,in Betrieb,Braunkohle,24.6
+,BNA0753,Energieversorgung Oberhausen AG,HKW 2,Nordrhein-Westfalen,1995,in Betrieb,Erdgas,24.5
+,BNA1328,HBB Heizkraftwerk Bauernfeind Betreibergesellschaft mbh,HBB,Bayern,2001,in Betrieb,Erdgas,24.0
+,BNA0752,Energieversorgung Oberhausen AG,HKW 1,Nordrhein-Westfalen,1972,in Betrieb,Erdgas,23.1
+,BNA1085,Heizkraftwerk Würzburg GmbH,Heizkraftwerke an der Friedensbrücke,Bayern,1971,in Betrieb,Erdgas,23.0
+01-50-01000004838,BNA0274,Stadtwerke Flensburg GmbH,Heizkraftwerk FL,Schleswig-Holstein,1978,Endgültig Stillgelegt 2016 (mit StA),Steinkohle,23.0
+,BNA0401,ADM Hamburg Aktiengesellschaft,Heizkraftwerk,Hamburg,1992,in Betrieb,Erdgas,22.5
+,BNA1524,Dow Wolff Cellulosics GmbH,Heizkraftwerk Bomlitz,Niedersachsen,1912,in Betrieb,Erdgas,22.1
+,BNA0386,Mohn Media Mohndruck GmbH,Energiezentrum Mohn Media,Nordrhein-Westfalen,1994,in Betrieb,Erdgas,22.0
+,BNA0261a,Erlanger Stadtwerke AG,HKW Erlangen,Bayern,2005,in Betrieb,Erdgas,21.6
+,BNA0110,RWE Generation SE,Bochum,Nordrhein-Westfalen,2004,in Betrieb,Erdgas,20.7
+,BNA1467,Koehler SE,,Baden-Württemberg,1986,in Betrieb,Steinkohle,20.0
+,BNA0012b,Sappi Alfeld GmbH,Werkskraftwerk Sappi Alfeld,Niedersachsen,1947,in Betrieb,Erdgas,20.0
+,BNA1097,Smurfit Kappa Zülpich Papier GmbH,Kohlekraftwerk,Nordrhein-Westfalen,1978,in Betrieb,Braunkohle,19.5
+,BNA1463,Smurfit Kappa Herzberger Papierfabrik GmbH,,Niedersachsen,1978,in Betrieb,Erdgas,19.5
+,BNA1331,Reno De Medici Arnsberg GmbH,Reno De Medici,Nordrhein-Westfalen,1923,in Betrieb,Steinkohle,19.0
+,BNA1285,K+S AG,Sigmundshall,Niedersachsen,1974,in Betrieb,Erdgas,19.0
+,BNA1406,FS-Karton GmbH,FS-Karton,Nordrhein-Westfalen,1992,in Betrieb,Erdgas,18.9
+,BNA1402,Delkeskamp Verpackungswerke GmbH,Heizkraftwerk zur Papierfabrik,Niedersachsen,1995,in Betrieb,Erdgas,18.1
+,BNA0051,Cargill Deutschland GmbH,KWK-Anlage Barby,Sachsen-Anhalt,2013,in Betrieb,Erdgas,17.8
+,BNA0804b,K+S AG,Hattorf,Hessen,2013,in Betrieb,Erdgas,17.3
+,BNA1200,Energie- und Medienversorgung Sandhofer Straße GmbH & Co. KG,GuD-Kraftwerk,Baden-Württemberg,2005,in Betrieb,Erdgas,17.2
+,BNA1678,Flughafen München GmbH,Energiezentrale 2016,Bayern,2015,in Betrieb,Erdgas,17.2
+,BNA1671,Kronos Titan GmbH,,Niedersachsen,2014,in Betrieb,Erdgas,17.1
+,BNA1503,Daimler AG,BHKW H.120,Nordrhein-Westfalen,2012,in Betrieb,Erdgas,16.9
+,BNA1408,Evonik Degussa GmbH,Heizkraftwerk Evonik Rheinfelden,Baden-Württemberg,1980,in Betrieb,Erdgas,16.0
+,BNA1499,"Nordzucker AG, Werk Clauen",Werk Clauen,Niedersachsen,"vor 1945 /
 letzte Änderung 2000",Sonderfall,Erdgas,15.8
-,BNA1182,RheinEnergie AG,HKW Merkenich,1965,in Betrieb,Erdgas,15.5
-,BNA1094,Smurfit Kappa Zülpich Papier GmbH,Gaskraftwerk,1966,in Betrieb,Erdgas,15.1
-,BNA1238,Molkerei MEGGLE Wasserburg GmbH & Co. KG,Kraftwerk Meggle,2000,in Betrieb,Erdgas,15.1
-06-05-300-0326774,BNA0714,RWE Power AG,Fortuna Nord,1984,in Betrieb,Braunkohle,15.0
-,BNA1334,CR3-Kaffeeveredelung M. Hermsen GmbH,KWK-Anlage,1993 und 2002,in Betrieb,Erdgas,14.8
-,BNA0118,Energie- und Wasserversorgung Bonn/Rhein-Sieg GmbH,Heizkraftwerk Süd,1969,Endgültig Stillgelegt 2012 (ohne StA),Erdgas,14.4
-,BNA0556b,Cargill Deutschland GmbH,KWK-Anlage Krefeld VM,1995,in Betrieb,Erdgas,14.0
-,BNA1131,Metsä Tissue GmbH Werk Düren,"MT, Düren",2011,in Betrieb,Erdgas,14.0
-,BNA1407,Schoeller Technocell GmbH & Co. KG,STW,2007,in Betrieb,Erdgas,13.5
-,BNA0156b,Egger Kraftwerk Brilon GmbH,Egger Kraftwerk Briilon,1996,in Betrieb,Erdgas,13.5
-,BNA1151,RWE Energiedienstleistungen GmbH,KWKK Heidelberg,2002,in Betrieb,Erdgas,13.5
-,BNA0957,Stadtwerke Tübingen GmbH,BHKW Obere Viehweide,2000,in Betrieb,Erdgas,13.4
-,BNA1541,Freiberger Erdgas GmbH,HKW Freiberg,2013,in Betrieb,Erdgas,13.4
-07-05-8030815,BNA0510b,SWK - Stadtwerke Kaiserslautern,HKW Karcherstr.,1996,in Betrieb,Steinkohle,13.4
-,BNA1465b,DS Smith Paper Deutschland GmbH,Gaskraftwerk,1975,Sonderfall,Erdgas,13.2
-,BNA1528,Stadtwerke Kempen GmbH,,1990,in Betrieb,Erdgas,13.2
-,BNA1504,Daimler AG,BHKW,2013,in Betrieb,Erdgas,13.0
-,BNA1450,DREWSEN SPEZIALPAPIERE GmbH & Co.KG,GUD-Anlage DREWSEN,2000,in Betrieb,Erdgas,13.0
-,BNA1557,Volkswagen Sachsen GmbH ,,2014,in Betrieb,Erdgas,12.9
-,BNA1193,Stadtwerke Lemgo GmbH,HKW-West,2001,in Betrieb,Erdgas,12.8
-,BNA1502,SWK ENERGIE GmbH,Heizkraftwerk Krefeld,1990 / 2013,in Betrieb,Erdgas,12.6
-,BNA1196a,MVV Energie AG,BHKW Ludwigshafen,2008,in Betrieb,Erdgas,12.5
-,BNA0059a,Volkswagen AG,HKW Kassel,1961,Endgültig Stillgelegt 2013 (ohne StA),Erdgas,12.2
-,BNA1196b,MVV Energie AG,Industriekraftwerk Ludwigshafen,2003,in Betrieb,Erdgas,12.0
-,BNA1284,Grace GmbH & Co. KG ,Co-Generation,1991,in Betrieb,Erdgas,11.5
-,BNA1403,GDF SUEZ E&P DEUTSCHLAND GMBH,Steinitz,1995,in Betrieb,Erdgas,11.4
+,BNA1183,RheinEnergie AG,HKW Merheim,Nordrhein-Westfalen,2001,in Betrieb,Erdgas,15.8
+,BNA1182,RheinEnergie AG,HKW Merkenich,Nordrhein-Westfalen,1965,in Betrieb,Erdgas,15.5
+,BNA1094,Smurfit Kappa Zülpich Papier GmbH,Gaskraftwerk,Nordrhein-Westfalen,1966,in Betrieb,Erdgas,15.1
+,BNA1238,Molkerei MEGGLE Wasserburg GmbH & Co. KG,Kraftwerk Meggle,Bayern,2000,in Betrieb,Erdgas,15.1
+06-05-300-0326774,BNA0714,RWE Power AG,Fortuna Nord,Nordrhein-Westfalen,1984,in Betrieb,Braunkohle,15.0
+,BNA1334,CR3-Kaffeeveredelung M. Hermsen GmbH,KWK-Anlage,Bremen,1993 und 2002,in Betrieb,Erdgas,14.8
+,BNA0118,Energie- und Wasserversorgung Bonn/Rhein-Sieg GmbH,Heizkraftwerk Süd,Nordrhein-Westfalen,1969,Endgültig Stillgelegt 2012 (ohne StA),Erdgas,14.4
+,BNA0556b,Cargill Deutschland GmbH,KWK-Anlage Krefeld VM,Nordrhein-Westfalen,1995,in Betrieb,Erdgas,14.0
+,BNA1131,Metsä Tissue GmbH Werk Düren,"MT, Düren",Nordrhein-Westfalen,2011,in Betrieb,Erdgas,14.0
+,BNA0156b,Egger Kraftwerk Brilon GmbH,Egger Kraftwerk Briilon,Nordrhein-Westfalen,1996,in Betrieb,Erdgas,13.5
+,BNA1151,RWE Energiedienstleistungen GmbH,KWKK Heidelberg,Baden-Württemberg,2002,in Betrieb,Erdgas,13.5
+,BNA1407,Schoeller Technocell GmbH & Co. KG,STW,Sachsen,2007,in Betrieb,Erdgas,13.5
+,BNA0957,Stadtwerke Tübingen GmbH,BHKW Obere Viehweide,Baden-Württemberg,2000,in Betrieb,Erdgas,13.4
+,BNA1541,Freiberger Erdgas GmbH,HKW Freiberg,Sachsen,2013,in Betrieb,Erdgas,13.4
+07-05-8030815,BNA0510b,SWK - Stadtwerke Kaiserslautern,HKW Karcherstr.,Rheinland-Pfalz,1996,in Betrieb,Steinkohle,13.4
+,BNA1465b,DS Smith Paper Deutschland GmbH,Gaskraftwerk,Hessen,1975,Sonderfall,Erdgas,13.2
+,BNA1528,Stadtwerke Kempen GmbH,,Nordrhein-Westfalen,1990,in Betrieb,Erdgas,13.2
+,BNA1450,DREWSEN SPEZIALPAPIERE GmbH & Co.KG,GUD-Anlage DREWSEN,Niedersachsen,2000,in Betrieb,Erdgas,13.0
+,BNA1504,Daimler AG,BHKW,Rheinland-Pfalz,2013,in Betrieb,Erdgas,13.0
+,BNA1557,Volkswagen Sachsen GmbH ,,Sachsen,2014,in Betrieb,Erdgas,12.9
+,BNA1193,Stadtwerke Lemgo GmbH,HKW-West,Nordrhein-Westfalen,2001,in Betrieb,Erdgas,12.8
+,BNA1502,SWK ENERGIE GmbH,Heizkraftwerk Krefeld,Nordrhein-Westfalen,1990 / 2013,in Betrieb,Erdgas,12.6
+,BNA1196a,MVV Energie AG,BHKW Ludwigshafen,Rheinland-Pfalz,2008,in Betrieb,Erdgas,12.5
+,BNA0059a,Volkswagen AG,HKW Kassel,Hessen,1961,Endgültig Stillgelegt 2013 (ohne StA),Erdgas,12.2
+,BNA1196b,MVV Energie AG,Industriekraftwerk Ludwigshafen,Rheinland-Pfalz,2003,in Betrieb,Erdgas,12.0
+,BNA1284,Grace GmbH & Co. KG ,Co-Generation,Rheinland-Pfalz,1991,in Betrieb,Erdgas,11.5
+,BNA1403,GDF SUEZ E&P DEUTSCHLAND GMBH,Steinitz,Sachsen-Anhalt,1995,in Betrieb,Erdgas,11.4
 ,BNA1117,"Industriekraftwerk Breuberg GmbH /
-Pirelli Deutschland GmbH",Industriekraftwerk Breuberg,1999,in Betrieb,Erdgas,11.4
-,BNA1658,Stadtwerke Lemgo GmbH,HKW-Mitte,1980,in Betrieb,Erdgas,11.3
-,BNA1327a,Flughafen München GmbH,Energiezentrale 1992,1992,Sonderfall,Erdgas,11.1
-,BNA0255,SWE Energie GmbH,HKW Iderhoffstraße,1996,in Betrieb,Erdgas,11.0
+Pirelli Deutschland GmbH",Industriekraftwerk Breuberg,Hessen,1999,in Betrieb,Erdgas,11.4
+,BNA1658,Stadtwerke Lemgo GmbH,HKW-Mitte,Nordrhein-Westfalen,1980,in Betrieb,Erdgas,11.3
+,BNA1327a,Flughafen München GmbH,Energiezentrale 1992,Bayern,1992,Sonderfall,Erdgas,11.1
+,BNA0255,SWE Energie GmbH,HKW Iderhoffstraße,Thüringen,1996,in Betrieb,Erdgas,11.0
 ,BNA1507,"Michelin Reifenwerke AG & Co. KGaA 
-Standort Bad Kreuznach",,2006,in Betrieb,Erdgas,10.7
-,BNA1677,Volkswagen AG,BHKW Braunschweig,2015,In Betrieb,Erdgas,10.4
-,BNA1138,Stadtwerke Erkrath GmbH,BHKW an Klinkerweg,2000,in Betrieb,Erdgas,10.2
-,BNA1293a,Martinswerk GmbH,Kraftwerk,1995,Vorläufig Stillgelegt (ohne StA),Braunkohle,10.0
-,BNA1293b,Martinswerk GmbH,Kraftwerk,1995,in Betrieb,Braunkohle,10.0
-,BNA0842a,Stadtwerke Rosenheim GmbH & Co. KG,Gasmotore,2011,in Betrieb,Erdgas,9.8
-,BNA0832,FairEnergie GmbH,BHKW-Hauffstraße,2011,in Betrieb,Erdgas,9.8
+Standort Bad Kreuznach",,Rheinland-Pfalz,2006,in Betrieb,Erdgas,10.7
+,BNA1677,Volkswagen AG,BHKW Braunschweig,Niedersachsen,2015,In Betrieb,Erdgas,10.4
+,BNA1138,Stadtwerke Erkrath GmbH,BHKW an Klinkerweg,Nordrhein-Westfalen,2000,in Betrieb,Erdgas,10.2
+,BNA1293b,Martinswerk GmbH,Kraftwerk,Nordrhein-Westfalen,1995,in Betrieb,Braunkohle,10.0
+,BNA1293a,Martinswerk GmbH,Kraftwerk,Nordrhein-Westfalen,1995,Vorläufig Stillgelegt (ohne StA),Braunkohle,10.0
+,BNA0832,FairEnergie GmbH,BHKW-Hauffstraße,Baden-Württemberg,2011,in Betrieb,Erdgas,9.8
+,BNA0842a,Stadtwerke Rosenheim GmbH & Co. KG,Gasmotore,Bayern,2011,in Betrieb,Erdgas,9.8
 ,BNA1511a,"Papierfabrik Schoellershammer 
-Heinrich August Schoeller Söhne GmbH & Co. KG",Kessel 4,1983,in Betrieb,Braunkohle,9.3
-,BNA0842b,Stadtwerke Rosenheim GmbH & Co. KG,Gasmotor 4,2013,in Betrieb,Erdgas,9.2
-,BNA0922a,KWG-Kraftwerksgesellschaft Staßfurt mbH,GuD-Ikw Staßfurt,1996,Endgültig Stillgelegt 2015 (ohne StA),Erdgas,9.0
-,BNA1492b,Papierfabrik Adolf Jass Schwarza GmbH,Kraftwerk 2,2012,in Betrieb,Erdgas,8.0
-,BNA1327b,Flughafen München GmbH,Erweiterung Energiezentrale 2003,2003,in Betrieb,Erdgas,7.4
-,BNA0261c,Erlanger Stadtwerke AG,HKW Erlangen,2014,in Betrieb,Erdgas,6.7
-,BNA1127,GHD Bayernwerk Natur GmbH & Co. KG,GHD,1998,in Betrieb,Erdgas,6.7
-,BNA1128,GHD Bayernwerk Natur GmbH & Co. KG,GHD,1998,in Betrieb,Erdgas,6.7
-,BNA1444c,Prinovis Ltd. & Co. KG,GT3 ,1994,in Betrieb,Erdgas,5.1
-,BNA1444d,Prinovis Ltd. & Co. KG,GT4 ,1995,in Betrieb,Erdgas,5.1
-,BNA0843,Stadtwerke Rosenheim GmbH & Co. KG,Gasmotor 5,2012,in Betrieb,Erdgas,4.3
-,BNA1444b,Prinovis Ltd. & Co. KG,GT2 ,1993,in Betrieb,Erdgas,4.2
-,BNA1444a,Prinovis Ltd. & Co. KG,GT1 ,1993,in Betrieb,Erdgas,4.2
-,BNA0232c,Sappi Ehingen GmbH,Werkskraftwerk Sappi Ehingen,1976,in Betrieb,Erdgas,4.0
-,BNA1293c,Martinswerk GmbH,Kraftwerk,1995,Vorläufig Stillgelegt (ohne StA),Erdgas,3.0
+Heinrich August Schoeller Söhne GmbH & Co. KG",Kessel 4,Nordrhein-Westfalen,1983,in Betrieb,Braunkohle,9.3
+,BNA0842b,Stadtwerke Rosenheim GmbH & Co. KG,Gasmotor 4,Bayern,2013,in Betrieb,Erdgas,9.2
+,BNA0922a,KWG-Kraftwerksgesellschaft Staßfurt mbH,GuD-Ikw Staßfurt,Sachsen-Anhalt,1996,Endgültig Stillgelegt 2015 (ohne StA),Erdgas,9.0
+,BNA1492b,Papierfabrik Adolf Jass Schwarza GmbH,Kraftwerk 2,Hessen,2012,in Betrieb,Erdgas,8.0
+,BNA1327b,Flughafen München GmbH,Erweiterung Energiezentrale 2003,Bayern,2003,in Betrieb,Erdgas,7.4
+,BNA1127,GHD Bayernwerk Natur GmbH & Co. KG,GHD,Bayern,1998,in Betrieb,Erdgas,6.7
+,BNA1128,GHD Bayernwerk Natur GmbH & Co. KG,GHD,Bayern,1998,in Betrieb,Erdgas,6.7
+,BNA0261c,Erlanger Stadtwerke AG,HKW Erlangen,Bayern,2014,in Betrieb,Erdgas,6.7
+,BNA1444c,Prinovis Ltd. & Co. KG,GT3 ,Bayern,1994,in Betrieb,Erdgas,5.1
+,BNA1444d,Prinovis Ltd. & Co. KG,GT4 ,Bayern,1995,in Betrieb,Erdgas,5.1
+,BNA0843,Stadtwerke Rosenheim GmbH & Co. KG,Gasmotor 5,Bayern,2012,in Betrieb,Erdgas,4.3
+,BNA1444b,Prinovis Ltd. & Co. KG,GT2 ,Bayern,1993,in Betrieb,Erdgas,4.2
+,BNA1444a,Prinovis Ltd. & Co. KG,GT1 ,Bayern,1993,in Betrieb,Erdgas,4.2
+,BNA0232c,Sappi Ehingen GmbH,Werkskraftwerk Sappi Ehingen,Baden-Württemberg,1976,in Betrieb,Erdgas,4.0
+,BNA1293c,Martinswerk GmbH,Kraftwerk,Nordrhein-Westfalen,1995,Vorläufig Stillgelegt (ohne StA),Erdgas,3.0
 ,BNA1511b,"Papierfabrik Schoellershammer 
-Heinrich August Schoeller Söhne GmbH & Co. KG",Kessel 2,1967,in Betrieb,Erdgas,2.9
-,BNA1335b,Papier- u. Kartonfabrik Varel GmbH & Co. KG,PKV Kraftwerk,1968,in Betrieb,Erdgas,0.5
+Heinrich August Schoeller Söhne GmbH & Co. KG",Kessel 2,Nordrhein-Westfalen,1967,in Betrieb,Erdgas,2.9
+,BNA1335b,Papier- u. Kartonfabrik Varel GmbH & Co. KG,PKV Kraftwerk,Niedersachsen,1968,in Betrieb,Erdgas,0.5

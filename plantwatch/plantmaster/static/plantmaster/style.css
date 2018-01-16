@@ -1,0 +1,40 @@
+input[name=energysource] {
+    display: inline-block;
+    margin-right:10px;
+    background-color: #f5c6cb;
+}
+
+.aspace {
+    width: 1em;
+    height: 1em;
+    display:inline-block;
+}
+
+#gascolor {
+    background-color: #c3e6cb;
+}
+
+#coalcolor {
+    background-color: #f5c6cb;
+}
+
+#lignitecolor {
+    background-color: #ffeeba;
+}
+
+.hspace {
+    display:block;
+    height: 5em;
+}
+
+#menu ul{
+  list-style: none;
+}
+#menu li{
+  display: inline;
+}
+
+body {
+    padding-left: 1em;
+    width: 99%;
+}
