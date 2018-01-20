@@ -6,6 +6,7 @@ from .models import Addresses
 from django.db.models import Sum
 from django.shortcuts import render
 from django.db.models import Q
+from django.forms.models import model_to_dict
 from .forms import * # SimpleCheckboxForm, SimpleRadioboxForm
 from django.views.decorators.csrf import csrf_exempt
 
@@ -64,6 +65,9 @@ def forge_sources_dict(block_list):
     return sources_dict
 
 
+def create_low_up(lowup):
+    return lowup.split(';')
+
 # @csrf_exempt
 def blocks(request, lower=1960, upper=2020):
 
@@ -72,6 +76,7 @@ def blocks(request, lower=1960, upper=2020):
     sort_criteria = "netpower"
     search_federalstate = []
     search_power = []
+    # slider1 = "1960;2020"
     print(search_federalstate)
     if request.method == 'POST':
         form = BlocksForm(request.POST)
@@ -80,6 +85,8 @@ def blocks(request, lower=1960, upper=2020):
         sort_criteria = request.POST.get('simple_radiobox', "netpower")
         search_federalstate = request.POST.getlist('simple_checkbox', [])
         search_power = request.POST.getlist('power_checkbox', [])
+        # slider1 = request.POST.get('slider1')
+
         # print("Success")
         # render(request, 'index.html', context)
     else:
@@ -92,12 +99,21 @@ def blocks(request, lower=1960, upper=2020):
 
     print("search federalstate")
     print(search_federalstate)
-    form.fields['simple_checkbox'].choices = list(zip(FEDERAL_STATES, FEDERAL_STATES))
-    form.fields['simple_checkbox'].initial = search_federalstate# or FEDERAL_STATES
+
     form.fields['simple_radiobox'].choices = SORT_CRITERIA
     form.fields['simple_radiobox'].initial = sort_criteria or SORT_CRITERIA
-    form.fields['power_checkbox'].initial = search_power or SOURCES_LIST
+    form.fields['simple_radiobox'].label = "Sortiere nach:"
+
+    form.fields['simple_checkbox'].choices = list(zip(FEDERAL_STATES, FEDERAL_STATES))
+    form.fields['simple_checkbox'].initial = search_federalstate  # or FEDERAL_STATES
+    form.fields['simple_checkbox'].label = "Filtere nach Bundesland:"
+
     form.fields['power_checkbox'].choices = list(zip(SOURCES_LIST, SOURCES_LIST))
+    form.fields['power_checkbox'].initial = search_power or SOURCES_LIST
+    form.fields['power_checkbox'].label = "Filtere nach Energieträger:"
+    #form.fields['slider1'].initial = "1960,2020"
+    # lower, upper = create_low_up(slider1)
+
     if not search_power:
         search_power = SOURCES_LIST
 
@@ -130,6 +146,13 @@ def blocks(request, lower=1960, upper=2020):
     sources_dict = forge_sources_dict(block_list)
     print(sources_dict)
 
+    # space
+    block_list = block_list[::1]
+    block_tmp_dict = list(map(model_to_dict, block_list))
+    print(block_tmp_dict)
+    block_dict = create_block_dict(block_tmp_dict)
+    print(block_list)
+    #print(block_list[0].id)
     header_list = ['BlockId', 'Name', 'Inbetriebnahme', 'Status', 'Bundesland', 'Nennleistung']
     # template = loader.get_template('plantmaster/blocks.html')
     sources_header = ["Energieträger", "Anzahl", "Nennleistung"]
@@ -138,7 +161,7 @@ def blocks(request, lower=1960, upper=2020):
         'upper': upper,
         'lower': lower,
         'form': form,
-        'block_list': block_list,
+        'block_dict': block_dict,
         'sources_dict': sources_dict,
         'sources_header': sources_header
     }
@@ -147,6 +170,23 @@ def blocks(request, lower=1960, upper=2020):
     # print(context)
     # print(context)
     return render(request, 'plantmaster/blocks.html', context)
+
+
+def create_block_dict(block_tmp_dict):
+    block_dict = {}
+    value_list = ["blockname", "initialop", "state", "federalstate", "netpower"]
+    for entry in block_tmp_dict:
+        # print(entry)
+        # print(type(entry))
+        # print(entry.items())
+        key = (entry["energysource"], entry["blockid"])
+        value = []
+        for element in value_list:
+            value.append(entry[element])
+        block_dict[key] = value
+    print(block_dict)
+    return block_dict
+
 
 
 def block(request, blockid):

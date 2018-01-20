@@ -28,7 +28,8 @@ class BlocksForm(forms.Form):
     simple_radiobox = forms.ChoiceField(widget=forms.RadioSelect)
     simple_checkbox = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
     power_checkbox = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
-    slider = forms.HiddenInput()
+    slider1 = forms.TextInput
+    slider2 = forms.HiddenInput
 
 #class MyModelForm(ModelForm):
 #    model = MyModel#

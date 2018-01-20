@@ -8,25 +8,59 @@
 
 {% block content %}
     <form action="." method="post" id="form1">
+    <div id="accordion">
+
         {% csrf_token %}
-        {{ form.simple_radiobox }}
-        {{ form.simple_checkbox }}
-        {{ form.power_checkbox }}
-    <input type="submit" value="ändere Anfrage">
+            {% for field in form %}
+                <div class="card">
+                    <div class="card-header" id="heading{{ forloop.counter0 }}">
+                        <h5 class="mb-0">
+                            <button type=button class="btn btn-outline-primary" data-toggle="collapse" data-target="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter0 }}">
+                                {{ field.label }}
+                            </button>
+                        </h5>
+                    </div>
+                <div id="collapse{{ forloop.counter0 }}" class="collapse" aria-labelledby="heading{{ forloop.counter0 }}" data-parent="#accordion">
+      <div class="card-body">
+          {{ field }}
+      </div>
+    </div>
+
+</div>
+
+
+        {% endfor %}
+
+</div>
+
+    <input type="submit" class="btn btn-success" value="ändere Anfrage">
     </form>
 <div id="slider"></div>
 <span class="hspace"></span>
 
     {% if sources_dict %}
-        <table class="table table-striped">
+        <table class="table">
+        <thead>
         <tr>
     {% for header1 in sources_header %}
     <th> {{ header1 }}</th>
     {% endfor %}
     </tr>
+        </thead>
             {% for key, value_list in sources_dict.items %}
+
+                {% if key == "Steinkohle" %}
+        <tr class="table table-danger">
+        {% elif key == "Braunkohle" %}
+            <tr class="table table-warning">
+        {% elif key == "Erdgas" %}
+        <tr class="table table-success">
+        {% elif key == "Kernenergie" %}
+            <tr class="table table-secondary">
+                {% else %}
                 <tr>
-                    <td> {{ key}} </td>
+                {% endif %}
+                    <th> {{ key}} </th>
                     {% for value in value_list %}
                     <td> {{ value}} </td>
                         {% endfor %}
@@ -35,7 +69,7 @@
         </table>
     {% endif %}
 
-{% if block_list %}
+{% if block_dict %}
 
 <table class="table">
     <tr>
@@ -44,40 +78,31 @@
     {% endfor %}
     </tr>
 
-    {% for block in block_list %}
-        {% if block.energysource == "Steinkohle" %}
+    {% for key, block_list in block_dict.items %}
+        {% if key.0 == "Steinkohle" %}
         <tr class="table table-danger">
-        {% elif block.energysource == "Braunkohle" %}
+        {% elif key.0 == "Braunkohle" %}
             <tr class="table table-warning">
-        {% elif block.energysource == "Erdgas" %}
+        {% elif key.0 == "Erdgas" %}
         <tr class="table table-success">
-        {% elif block.energysource == "Kernenergie" %}
+        {% elif key.0 == "Kernenergie" %}
             <tr class="table table-secondary">
-        {%  else %}
-        <tr class="table table-active">
         {% endif %}
-        <td><a href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
-        <td> {{ block.blockname }} </td>
-        <td> {{ block.initialop }} </td>
-        <td> {{ block.state }} </td>
-        <td> {{ block.federalstate }}</td>
-        <td> {{ block.netpower }} </td>
+        <th><a href="{% url 'block' key.1 %}">{{ key.1 }} </a></th>
+    {% for value in block_list %}
+                    <td> {{ value}} </td>
+                        {% endfor %}
         </tr>
     {% endfor %}
 
 </table>
 {% else %}
-    <p>Keine Kraftwerke gefunden.</p>
+    <p>Keine Blöcke gefunden.</p>
 {% endif %}
 {% endblock %}
 
 
 {% block js %}
-let checkedBoxes = document.querySelectorAll('input[name=energysource]');
-let g = $("#gas");
-let c = $("#coal");
-let l = $("#lignite");
-
 function getSlider(){
     let values = slider.noUiSlider.get();
     let low = Math.round(values[0]);
