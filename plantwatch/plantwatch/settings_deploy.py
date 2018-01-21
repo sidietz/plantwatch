@@ -25,9 +25,11 @@ with open('/home/oberam/etc/secret_key.txt') as f:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ["oberam.uber.space", "oberamsystems.com", "*"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "oberam.uber.space", "oberamsystems.com"]
+CSRF_TRUSTED_ORIGINS = ["localhost", "127.0.0.1", 'oberam.uber.space', 'oberamsystems.com']
 
 
 # Application definition
