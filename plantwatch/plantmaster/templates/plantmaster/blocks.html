@@ -20,23 +20,21 @@
                             </button>
                         </h5>
                     </div>
-                <div id="collapse{{ forloop.counter0 }}" class="collapse" aria-labelledby="heading{{ forloop.counter0 }}" data-parent="#accordion">
-      <div class="card-body">
-          {{ field }}
-      </div>
+                    <div id="collapse{{ forloop.counter0 }}" class="collapse" aria-labelledby="heading{{ forloop.counter0 }}" data-parent="#accordion">
+                        <div class="card-body">
+                            {{ field }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    <div id="slider1"></div>
+    <span class="hspace"></span>
     </div>
-
-</div>
-
-
-        {% endfor %}
-
-</div>
-
     <input type="submit" class="btn btn-success" value="ändere Anfrage">
     </form>
-<div id="slider"></div>
-<span class="hspace"></span>
+
+
+
 
     {% if sources_dict %}
         <table class="table">
@@ -104,42 +102,15 @@
 
 {% block js %}
 function getSlider(){
-    let values = slider.noUiSlider.get();
+    let values = slider1.noUiSlider.get();
     let low = Math.round(values[0]);
     let up = Math.round(values[1]);
-    return low + "-" + up;
+    return low + ";" + up;
 }
 
-function getUrl() {
-    let base = window.location.href;
-    let base_l = base.split("/");
-
-    let url = "";
-    base_l.pop();
-    let parent = base_l.pop();
-    //console.log(base_l);
-    //console.log("parent");
-    //console.log(parent);
-    //console.log(window.document.location.hostname);
-    if (parent === "blocks") {
-        url += "./"
-    } else if (parent === "plantmaster") {
-        url += "blocks/"
-    } else if (parent.includes(window.document.location.hostname)) {
-        url += "plantmaster/blocks/"
-    } else {
-        url += "../"
-        //url += "plantmaster/blocks/"
-    }
-
-    url += getSlider();
-    console.log(url);
-    return url;
-}
-
-console.log(document.getElementById('slider'));
-let range = document.getElementById('slider');
-noUiSlider.create(range, {
+console.log(document.getElementById('slider1'));
+let slider1 = document.getElementById('slider1');
+noUiSlider.create(slider1, {
     start: [{{ lower }}, {{ upper }}], // Handle start position
     step: 5, // Slider moves in increments of '10'
     margin: 5, // Handles must be more than '20' apart
@@ -156,13 +127,13 @@ noUiSlider.create(range, {
     }
 });
 
-range.noUiSlider.on('change', function(handle ) {
+slider1.noUiSlider.on('change', function(handle ) {
         if ( handle ) {
             console.log("now in handling uislider");
-            let url = getUrl();
-            console.log(url);
-            window.location.href = url;
-        }
+            let lowup = getSlider();
+            console.log(lowup);
+    document.getElementById("id_slider1").value = lowup;
+    }
     });
 {% endblock %}
 

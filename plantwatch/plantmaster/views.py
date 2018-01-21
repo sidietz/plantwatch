@@ -7,7 +7,7 @@ from django.db.models import Sum
 from django.shortcuts import render
 from django.db.models import Q
 from django.forms.models import model_to_dict
-from .forms import * # SimpleCheckboxForm, SimpleRadioboxForm
+from .forms import *  # SimpleCheckboxForm, SimpleRadioboxForm
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -68,15 +68,18 @@ def forge_sources_dict(block_list):
 def create_low_up(lowup):
     return lowup.split(';')
 
+
 # @csrf_exempt
-def blocks(request, lower=1960, upper=2020):
+def blocks(request):
 
     # if request.method == 'POST':
     #    form =
     sort_criteria = "netpower"
+    sort_method = "-"
     search_federalstate = []
     search_power = []
-    # slider1 = "1960;2020"
+    search_state = []
+    slider1 = "1960;2020"
     print(search_federalstate)
     if request.method == 'POST':
         form = BlocksForm(request.POST)
@@ -85,7 +88,8 @@ def blocks(request, lower=1960, upper=2020):
         sort_criteria = request.POST.get('simple_radiobox', "netpower")
         search_federalstate = request.POST.getlist('simple_checkbox', [])
         search_power = request.POST.getlist('power_checkbox', [])
-        # slider1 = request.POST.get('slider1')
+        slider1 = request.POST.get('slider1', "1960;2020")
+        sort_method = request.POST.get('sort_method', '-')
 
         # print("Success")
         # render(request, 'index.html', context)
@@ -101,8 +105,12 @@ def blocks(request, lower=1960, upper=2020):
     print(search_federalstate)
 
     form.fields['simple_radiobox'].choices = SORT_CRITERIA
-    form.fields['simple_radiobox'].initial = sort_criteria or SORT_CRITERIA
+    form.fields['simple_radiobox'].initial = sort_criteria or "netpower"
     form.fields['simple_radiobox'].label = "Sortiere nach:"
+
+    form.fields['sort_method'].choices = [('-', 'absteigend'), ('', 'aufsteigend')]
+    form.fields['sort_method'].initial = sort_method or sort_method
+    form.fields['sort_method'].label = "aufsteigend oder absteigend?"
 
     form.fields['simple_checkbox'].choices = list(zip(FEDERAL_STATES, FEDERAL_STATES))
     form.fields['simple_checkbox'].initial = search_federalstate  # or FEDERAL_STATES
@@ -111,19 +119,28 @@ def blocks(request, lower=1960, upper=2020):
     form.fields['power_checkbox'].choices = list(zip(SOURCES_LIST, SOURCES_LIST))
     form.fields['power_checkbox'].initial = search_power or SOURCES_LIST
     form.fields['power_checkbox'].label = "Filtere nach Energieträger:"
-    #form.fields['slider1'].initial = "1960,2020"
-    # lower, upper = create_low_up(slider1)
+    form.fields['slider1'].initial = "1960;2020"
+    form.fields['slider1'].label = "Filtere nach Zeitraum"
+    lower, upper = create_low_up(slider1)
 
     if not search_power:
         search_power = SOURCES_LIST
 
-
+    """
+    
+    states = Blocks.objects.values("state")
+    states_l = list(map(lambda x: list(x.values())[0], states))
+    states_r = list(set(states_l))
+    states_r.sort()
+    """
+    # feds_r = list(feds_set)
+    # print(list(feds))
     print(SOURCES_LIST)
     print(search_power)
     queries = search_power
     print(queries)
     states = ["in Betrieb", "Sonderfall", "Gesetzlich an Stilllegung gehindert"]
-    block_list = Blocks.objects.order_by('-' + sort_criteria)
+    block_list = Blocks.objects.order_by(sort_method + sort_criteria)
     print(block_list)
     # feds = Blocks.objects.values("federalstate")
     # print(feds)
@@ -163,7 +180,8 @@ def blocks(request, lower=1960, upper=2020):
         'form': form,
         'block_dict': block_dict,
         'sources_dict': sources_dict,
-        'sources_header': sources_header
+        'sources_header': sources_header,
+        'range': range(2),
     }
     # options=[('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')]
     # context['form1'] = form1
