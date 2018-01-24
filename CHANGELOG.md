@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+## [0.0.9d] - 2017-01-24
+### Added
+- option to search by operating state.
+- option to search by chp.
+
+### Changed
+- plants fired by more than one energy source are now contained as well.
+
+### Fixed
+- search did not contain all plants.
+
 ## [0.0.9c] - 2017-01-21
 ### Added
 - CHANGELOG

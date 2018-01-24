@@ -25,10 +25,12 @@ class SimpleCheckboxForm(forms.Form):
 
 
 class BlocksForm(forms.Form):
-    simple_radiobox = forms.ChoiceField(widget=forms.RadioSelect)
+    sort_by = forms.ChoiceField(widget=forms.RadioSelect)
     sort_method = forms.ChoiceField(widget=forms.RadioSelect)
-    simple_checkbox = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
-    power_checkbox = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
+    select_federalstate = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
+    select_powersource = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
+    select_chp = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
+    select_opstate = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
     slider1 = forms.CharField(widget=forms.HiddenInput)
 
 
