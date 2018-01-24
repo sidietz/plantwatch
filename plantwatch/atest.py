@@ -9,7 +9,7 @@ from django.db import models
 
 
 class Addresses(models.Model):
-    blockid = models.OneToOneField(db_column='BlockID', primary_key=True, unique=True, to="Blocks", on_delete="cascade")  # Field name made lowercase.
+    blockid = models.ForeignKey('Blocks', models.DO_NOTHING, db_column='BlockID', unique=True)  # Field name made lowercase.
     federalstate = models.TextField(blank=True, null=True)
     place = models.TextField(blank=True, null=True)
     plz = models.IntegerField(db_column='PLZ', blank=True, null=True)  # Field name made lowercase.
@@ -22,7 +22,7 @@ class Addresses(models.Model):
 
 class Blocks(models.Model):
     kraftwerkid = models.TextField(db_column='KraftwerkID', blank=True, null=True)  # Field name made lowercase.
-    blockid = models.TextField(db_column='BlockID', unique=True, primary_key=True)  # Field name made lowercase.
+    blockid = models.TextField(db_column='BlockID', unique=True)  # Field name made lowercase.
     blockname = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
