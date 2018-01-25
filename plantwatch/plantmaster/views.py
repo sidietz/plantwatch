@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.forms.models import model_to_dict
 from .forms import *  # SimpleCheckboxForm, SimpleRadioboxForm
 from django.views.decorators.csrf import csrf_exempt
+from functools import reduce
 
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
@@ -28,16 +29,9 @@ def filter_and(queryset, filtered, filters):
 
 
 def filter_or(queryset, filtered, filters):
-    query_text = "queryset.all().filter("
-    for afilter in filters:
-        query_text += "Q("
-        query_text += "**" + str({filtered: afilter})
-        query_text += ") | "
-
-    query_text = query_text[:-3]
-    query_text += ")"
-    # print(query_text)
-    queryset = eval(query_text)
+    # Thanks to https://stackoverflow.com/questions/852414/how-to-dynamically-compose-an-or-query-filter-in-django
+    query = reduce(lambda q, value: q | Q(**{filtered: value}), filters, Q())
+    queryset = queryset.all().filter(query)
     return queryset
 
 
