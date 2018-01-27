@@ -6,13 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.0.9e] - 2017-01-25
 ### Added
-- deploy script to toggle settings.py
+- deploy script to toggle settings.py.
 
 ### Changed
-- eval() part has been rewritten
+- eval() part has been rewritten.
+### Removed
+- every use of eval() has been removed.
 
 ### Security
-- vulnerability to eval() threats fixed
+- vulnerability to eval() threats fixed.
 
 ## [0.0.9d] - 2017-01-24
 ### Added
