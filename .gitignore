@@ -3,3 +3,5 @@
 .ipynb_checkpoints
 .git
 .directory
+*.pyc
+plantwatch/plantmaster/__pycache__/*.pyc

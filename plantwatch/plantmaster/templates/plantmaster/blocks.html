@@ -71,9 +71,9 @@
 
 <table class="table">
     <tr>
-    {% for header in header_list %}
-    <th> {{ header }}</th>
-    {% endfor %}
+        {% for header in header_list %}
+            <th> {{ header }}</th>
+        {% endfor %}
     </tr>
 
     {% for key, block_list in block_dict.items %}
@@ -86,13 +86,17 @@
         {% elif key.0 == "Kernenergie" %}
             <tr class="table table-secondary">
         {% endif %}
-        <th><a href="{% url 'block' key.1 %}">{{ key.1 }} </a></th>
+        {% if not key.2 %}
+            <td> </td>
+        {% else %}
+            <td><a class="btn btn-outline-secondary" href="{% url 'plant' key.2 %}">{{ key.2 }} </a></td>
+        {% endif %}
+        <th><a class="btn btn-outline-secondary" href="{% url 'block' key.1 %}">{{ key.1 }} </a></th>
     {% for value in block_list %}
-                    <td> {{ value}} </td>
-                        {% endfor %}
+        <td> {{ value}} </td>
+    {% endfor %}
         </tr>
     {% endfor %}
-
 </table>
 {% else %}
     <p>Keine Blöcke gefunden.</p>
