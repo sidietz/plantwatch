@@ -13,6 +13,6 @@
 {% else %}
     <p>Keine Daten vorhanden.</p>
 {% endif %}
-<button type="button" onclick="window.history.back()" class="btn" style="display:inline-block; margin-right:10px;">Zurück</button>
-<button type="button" class="btn disabled" style="display:inline-block;" disabled>Kraftwerk</button>
+<button type="button" onclick="window.history.back()" class="btn btn-primary" style="display:inline-block; margin-right:10px;">Zurück</button>
+    <a class="button btn btn-primary" href="{% url 'plant' plant_id %}">Kraftwerk </a>
 {% endblock %}

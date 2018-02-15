@@ -4,15 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.0.9e] - 2017-01-25
+## [0.0.10] - 2017-02-15
 ### Added
-- deploy script to toggle settings.py
+- plants
+- README
 
 ### Changed
-- eval() part has been rewritten
+- blocks overview now shows the annual total production of the selected plants.
+- blocks allows the user to switch not only to the detailed block, but to the plant as well. 
+
+### Fixed
+- some ui and ui consistency improvements
+- some localization improvements
+
+## [0.0.9e] - 2017-01-25
+### Added
+- deploy script to toggle settings.py.
+
+### Changed
+- eval() part has been rewritten.
+
+### Removed
+- every use of eval() has been removed.
 
 ### Security
-- vulnerability to eval() threats fixed
+- vulnerability to eval() threats fixed.
 
 ## [0.0.9d] - 2017-01-24
 ### Added
