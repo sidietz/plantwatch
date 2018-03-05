@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from .models import Blocks, Plants, Addresses
-from django.db.models import Sum, Min, F
-from django.shortcuts import render
+from .models import Blocks, Plants
+from django.db.models import Sum, Min
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from django.forms.models import model_to_dict
 from .forms import BlocksForm
@@ -181,7 +181,10 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
     for entry in block_tmp_dict:
         key = []
         for a_key in key_list:
-            key.append(entry[a_key])
+            key_entry = entry[a_key]
+            #if a_key == "plantid" and not key_entry:
+            #    key_entry = Blocks.objects.get(pl)
+            key.append(key_entry)
         value = []
         for element in value_list:
             value.append(entry[element])
@@ -190,18 +193,25 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
 
 
 def block(request, blockid):
-    address = Addresses.objects.get(blockid=blockid)
-    block = Blocks.objects.get(blockid=blockid)
+    block = get_object_or_404(Blocks, blockid=blockid)
+    error = False
+    address = block.blockid
+
     try:
         plant_id = block.plantid.plantid
     except Plants.DoesNotExist:
-        plant_id = None
+        plant_id = block.plantid_id
+        if not plant_id:
+            plant_id = None
+            error = True
+
     data_list = [plant_id, block.blockname, address.plz, address.place, address.street, address.federalstate, block.netpower]
 
     header_list = ['PlantID', 'Name', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
     context = {
         'data_list': zip(header_list, data_list),
         'plant_id': plant_id,
+        'error': error
     }
     return render(request, "plantmaster/block.html", context)
 
@@ -225,14 +235,9 @@ def plants_2(request):
     if sort_criteria == "initialop":
         plant_list = Plants.objects.annotate(initialop=Min('ablockstest__initialop'))
         plant_list = plant_list.order_by(sort_method + 'initialop')
-        #.filter(blocks_set__initialop=F('initialop'))\
-        #plant_list = Plants.objects.annotate(initialop=Plants.blocks_set.objects.all().Min('initialop')) \
-        #                   .order_by(sort_method + 'initialop')
-        # plant_list = Plants.objects.annotate(initialop=Min('plantid__initialop')) \
-            #                   .order_by(sort_method + 'initialop')
     else:
         plant_list = Plants.objects.order_by(sort_method + sort_criteria)
-    print(search_opstate)
+
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
     plant_list = create_block_list(plant_list, filter_dict)
 
@@ -284,10 +289,14 @@ def create_plant_dict(blocks_tmp_dict):
 
 
 def plant(request, plantid):
+    error = False
+    if plantid is None:
+        error = True
+        # raise Http404
     try:
-        if plantid == "07-05-8785447":
-            plantid = "07-05-8290552" # just another issue in the dataset.
         plant = Plants.objects.get(plantid=plantid)
+        if not plant:
+            raise Plants.DoesNotExist
         blocks = plant.ablockstest.all()
         blocks_list = blocks.order_by("initialop" + "")
         plantname = plant.plantname
@@ -296,7 +305,7 @@ def plant(request, plantid):
         tp = plant.totalpower
     except Plants.DoesNotExist:
         try:
-            blocks = Blocks.objects.get(plantid=plantid)
+            blocks = get_object_or_404(Blocks, plantid=plantid)
             plantname = blocks.blockname
             block_count = 1
             le = blocks.initialop
@@ -309,6 +318,7 @@ def plant(request, plantid):
             block_count = len(blocks_list)
             le = 1990
             tp = 500
+
 
     blocks_tmp_dict = list(map(model_to_dict, blocks_list))
     value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
