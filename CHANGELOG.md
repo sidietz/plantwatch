@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.0.11a] - 2018-03-05
+### Fixed
+- release critcal bugs
+- catch any database errors and deliver 404 errors
+- fix inconsisties and errors related to one plant having exactly one block or blocks which do not have a plant at all
+
 ## [0.0.11] - 2018-03-05
 ### Added
 - landscape config
