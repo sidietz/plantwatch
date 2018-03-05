@@ -91,7 +91,13 @@
         {% else %}
             <td><a class="btn btn-outline-secondary" href="{% url 'plant' key.2 %}">{{ key.2 }} </a></td>
         {% endif %}
-        <th><a class="btn btn-outline-secondary" href="{% url 'block' key.1 %}">{{ key.1 }} </a></th>
+        {% if not key.1 %}
+            <td> </td>
+        {% elif key.1 == key.2 %}
+        {% else %}
+            <th><a class="btn btn-outline-secondary" href="{% url 'block' key.1 %}">{{ key.1 }} </a></th>
+        {% endif %}
+
     {% for value in block_list %}
         <td> {{ value}} </td>
     {% endfor %}
@@ -122,8 +128,8 @@ noUiSlider.create(slider1, {
     orientation: 'horizontal', // Orient the slider vertically
     //behaviour: 'tap-drag', // Move handle on tap, bar is draggable
     range: { // Slider can select '0' to '100'
-        'min': 1960,
-        'max': 2020
+        'min': {{ lower }},
+        'max': {{ upper }}
     },
     pips: { // Show a scale with the slider
         mode: 'steps',

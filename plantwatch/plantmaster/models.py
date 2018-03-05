@@ -38,7 +38,7 @@ class Plants(models.Model):
 
 
 class Blocks(models.Model):
-    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='KraftwerkID', blank=True, null=True)  # Field name made lowercase.
+    plantid = models.ForeignKey(Plants, on_delete='cascade', db_column='KraftwerkID', blank=True, null=True, related_name="ablockstest")  # Field name made lowercase.
     blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='BlockID', unique=True, primary_key=True)  # Field name made lowercase.
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)

@@ -1,21 +1,21 @@
 BNA1401a,Nordrhein-Westfalen,Grevenbroich,41517,Energiestraße 101
 BNA1401b,Nordrhein-Westfalen,Grevenbroich,41517,Energiestraße 101
-BNA0115,Sachsen,Böhlen,4007,Werkstraße
-BNA0116,Sachsen,Böhlen,4564,Werkstraße
+BNA0115,Sachsen,Böhlen,04007,Werkstraße
+BNA0116,Sachsen,Böhlen,04564,Werkstraße
 BNA0793,Nordrhein-Westfalen,Petershagen,32469,
-BNA0124,Sachsen,Boxberg,2945,Kraftwerksstraße
+BNA0124,Sachsen,Boxberg,02943,Am Kraftwerk 1
 BNA0646b,Baden-Württemberg,Mannheim,68199,Marguerrestraße 1
 BNA0518b,Baden-Württemberg,Karlsruhe,76189,Fettweisstraße 42
-BNA1558,Hamburg,Hamburg,21079,
+BNA1558,Hamburg,Hamburg,21079,Moorburger Schanze 2
 BNA1673,Hamburg,Hamburg,21079,Moorburger Schanze 2
 BNA0493,Nordrhein-Westfalen,Ibbenbüren,49479,
 BNA0434,Baden-Württemberg,Heilbronn,74076,Lichtenbergerstraße 23
 BNA0413b,Nordrhein-Westfalen,Hamm-Uentrop,59071,
 BNA0413c,Nordrhein-Westfalen,Hamm-Uentrop,59071,
 BNA1061,Niedersachsen,Wilhelmshaven,26386,
-BNA0914,Brandenburg,Spremberg,3130,"An der alten
+BNA0914,Brandenburg,Spremberg,03130,"An der alten
 Ziegelei 1"
-BNA0915,Brandenburg,Spremberg,3131,An der alten Ziegelei 1
+BNA0915,Brandenburg,Spremberg,03130,An der alten Ziegelei 1
 BNA1508,Nordrhein-Westfalen,Lünen,44536,Frydagstr. 40
 BNA1674,Niedersachsen,Wilhelmshaven,26386,Niedersachsendamm
 BNA0093,Saarland,Bexbach,66450,Grubenstraße
@@ -26,7 +26,7 @@ BNA0992,Nordrhein-Westfalen,Voerde,46563,Frankfurter Str 430
 BNA0335,Nordrhein-Westfalen,Gelsenkirchen,45896,
 BNA0820,Saarland,Quierschied,66287,Holzer Straße
 BNA0707,Nordrhein-Westfalen,Bergheim,50129,
-BNA1404,Sachsen,Boxberg,2943,Kraftwerkstraße 
+BNA1404,Sachsen,Boxberg,02943,Am Kraftwerk 1
 BNA1027,Nordrhein-Westfalen,Eschweiler-Weisweiler,52249,
 BNA1028,Nordrhein-Westfalen,Eschweiler-Weisweiler,52249,
 BNA0709,Nordrhein-Westfalen,Bergheim,50129,
@@ -34,19 +34,14 @@ BNA0708,Nordrhein-Westfalen,Bergheim,50129,
 BNA1039,Nordrhein-Westfalen,Werne,59368,
 BNA1039,Nordrhein-Westfalen,Werne,59368,
 BNA1040,Nordrhein-Westfalen,Werne,59368,
-BNA1040,Nordrhein-Westfalen,Werne,59368,
-BNA1041,Nordrhein-Westfalen,Werne,59368,
 BNA1041,Nordrhein-Westfalen,Werne,59368,
 BNA1042,Nordrhein-Westfalen,Werne,59368,
-BNA1042,Nordrhein-Westfalen,Werne,59368,
-BNA1043,Nordrhein-Westfalen,Werne,59368,
 BNA1043,Nordrhein-Westfalen,Werne,59368,
 BNA1044,Nordrhein-Westfalen,Werne,59368,
-BNA1044,Nordrhein-Westfalen,Werne,59368,
-BNA1045,Nordrhein-Westfalen,Werne,59368,
 BNA1045,Nordrhein-Westfalen,Werne,59368,
 BNA1046a,Nordrhein-Westfalen,Werne,59368,
 BNA1046a,Nordrhein-Westfalen,Werne,59368,
+BNA1046b,Nordrhein-Westfalen,Werne,59368,
 BNA0699,Nordrhein-Westfalen,Grevenbroich-Neurath,41517,
 BNA0700,Nordrhein-Westfalen,Grevenbroich-Neurath,41517,
 BNA0849,Mecklenburg-Vorpommern,Rostock,18147,Am Kühlturm 1
@@ -54,16 +49,16 @@ BNA0377,Hessen,Großkrotzenburg,63538,
 BNA0377,Hessen,Großkrotzenburg,63538,
 BNA0518a,Baden-Württemberg,Karlsruhe,76189,Fettweisstraße 42
 BNA1093,Bayern,Zolling,85406,Leininger Str. 1
-BNA0122,Sachsen,Boxberg,2943,Kraftwerksstraße
-BNA0123,Sachsen,Boxberg,2944,Kraftwerksstraße
-BNA0785,Brandenburg,Peitz,3185,Kraftwerksstraße
-BNA0786,Brandenburg,Peitz,3185,Kraftwerksstraße
-BNA0787,Brandenburg,Peitz,3185,Kraftwerksstraße
-BNA0788,Brandenburg,Peitz,3185,Kraftwerksstraße
-BNA0789,Brandenburg,Peitz,3185,Kraftwerksstraße
-BNA0790,Brandenburg,Peitz,3185,Kraftwerksstraße
-BNA0878,Sachsen-Anhalt,Schkopau,6258,
-BNA0879,Sachsen-Anhalt,Schkopau,6258,
+BNA0122,Sachsen,Boxberg,02943,Am Kraftwerk 1
+BNA0123,Sachsen,Boxberg,02943,Am Kraftwerk 1
+BNA0785,Brandenburg,Peitz,03185,Kraftwerksstraße
+BNA0786,Brandenburg,Peitz,03185,Kraftwerksstraße
+BNA0787,Brandenburg,Peitz,03185,Kraftwerksstraße
+BNA0788,Brandenburg,Peitz,03185,Kraftwerksstraße
+BNA0789,Brandenburg,Peitz,03185,Kraftwerksstraße
+BNA0790,Brandenburg,Peitz,03185,Kraftwerksstraße
+BNA0878,Sachsen-Anhalt,Schkopau,06258,
+BNA0879,Sachsen-Anhalt,Schkopau,06258,
 BNA0450,Nordrhein-Westfalen,Herne,44655,Hertener Str. 16
 BNA0646a,Baden-Württemberg,Mannheim,68199,Marguerrestraße 1
 BNA0020,Baden-Württemberg,Altbach,73776,Industriestraße 11
@@ -149,7 +144,6 @@ BNA0403,Schleswig-Holstein,Wedel,22880,Tinsdaler Weg 146
 BNA1021,Nordrhein-Westfalen,Eschweiler-Weisweiler,52249,
 BNA0144,Bremen,Bremen,28207,Hastedter Osterdeich 255
 BNA0189,Nordrhein-Westfalen,Datteln,45711,
-BNA0292,Nordrhein-Westfalen,Frechen,50226,
 BNA0557b,Nordrhein-Westfalen,Krefeld-Uerdingen,47812,"CHEMPARK, Geb. N 230"
 BNA0253,Saarland,Ensdorf,66806,Kurt-Kessler-Str.
 BNA0600b,Nordrhein-Westfalen,Leverkusen,51368,"CHEMPARK, Geb. G 22"
@@ -160,13 +154,13 @@ BNA0188,Nordrhein-Westfalen,Datteln,45711,
 BNA0179,Sachsen,Chemnitz,9116,
 BNA0085a,Berlin,Berlin,13353,Friedrich-Krause-Ufer 10- 15
 BNA1084,Nordrhein-Westfalen,Wuppertal,42117,
-BNA0183,Brandenburg,Cottbus,3052,
+BNA0183,Brandenburg,Cottbus,03052,
 BNA0489,Nordrhein-Westfalen,Hürth,50354,
 BNA0289b,Hessen,Frankfurt am Main,60627,Gutleutstraße 231
 BNA0290,Hessen,Frankfurt am Main,60627,Gutleutstraße 231
 BNA0177,Sachsen,Chemnitz,9115,
 BNA0758,Hessen,Offenbach,63067,
-BNA0194,Sachsen-Anhalt,Dessau-Roßlau,6842,
+BNA0194,Sachsen-Anhalt,Dessau-Roßlau,06842,
 BNA0284,Brandenburg,Frankfurt Oder,15236,
 BNA0490b,Nordrhein-Westfalen,Hürth,50354,
 BNA0138,Niedersachsen,Braunschweig,38106,
@@ -187,7 +181,6 @@ BNA0557a,Nordrhein-Westfalen,Krefeld-Uerdingen,47812,"CHEMPARK, Geb. L 57"
 BNA0274,Schleswig-Holstein,Flensburg,24939,Batteriestr. 48
 BNA0274,Schleswig-Holstein,Flensburg,24939,Batteriestr. 48
 BNA0261b,Bayern,Erlangen,91052, Äußere Bruckerstr. 33
-BNA0714,Nordrhein-Westfalen,Bergheim,50129,
 BNA0510b,Rheinland-Pfalz,Kaiserslautern,67655,
 BNA0510b,Rheinland-Pfalz,Kaiserslautern,67655,
 BNA0681,Bayern,München,80807,
@@ -198,7 +191,6 @@ BNA0683c,Bayern,München,81371,
 BNA0684a,Bayern,München,81371,
 BNA0684b,Bayern,München,81371,
 BNA0684c,Bayern,München,81371,
-BNA0993,Bayern,Vohburg,85088,
 BNA0994,Bayern,Vohburg,85088,
 BNA0995,Bayern,Vohburg,85088,
 BNA0243,Bayern,Eltmann,97483,Industriestraße 23
@@ -226,7 +218,7 @@ BNA1405a,Baden-Württemberg,Ulm,89077,Magirusstr. 21
 BNA1097,Nordrhein-Westfalen,Zülpich,53909,Bessenicher Weg
 BNA0464,Niedersachsen,Hohenhameln OT Mehrum,31249,
 BNA1499,Niedersachsen,Hohenhameln,31249,Zuckerfabrik 3
-BNA1486,Sachsen-Anhalt,Seegebiet Mansfelder Land,6317,Chausseestraße 1
+BNA1486,Sachsen-Anhalt,Seegebiet Mansfelder Land,06317,Chausseestraße 1
 BNA0935,Baden-Württemberg,Stuttgart,70376,Voltastraße 45
 BNA0936,Baden-Württemberg,Stuttgart,70376,Voltastraße 45
 BNA1511a,Nordrhein-Westfalen,Düren,52355,Kreuzauer Str. 18
@@ -244,9 +236,9 @@ BNA0497,Hessen,Industriepark Höchst,65926,
 BNA0498,Hessen,Industriepark Höchst,65926,
 BNA0499,Hessen,Industriepark Höchst,65926,
 BNA0491,Nordrhein-Westfalen,Hürth,50354,
-BNA1400a,Sachsen-Anhalt,Zeitz,6712,Albrechtstr. 54
-BNA1461,Sachsen-Anhalt,Zeitz,6712,Albrechtstr. 54
-BNA1002,Sachsen-Anhalt,Wählitz,6679,
+BNA1400a,Sachsen-Anhalt,Zeitz,06712,Albrechtstr. 54
+BNA1461,Sachsen-Anhalt,Zeitz,06712,Albrechtstr. 54
+BNA1002,Sachsen-Anhalt,Wählitz,06679,
 BNA1293a,Nordrhein-Westfalen,Bergheim,50127,Kölner Straße 110
 BNA1293b,Nordrhein-Westfalen,Bergheim,50127,Kölner Straße 110
 BNA1293c,Nordrhein-Westfalen,Bergheim,50127,Kölner Straße 110
@@ -293,18 +285,13 @@ BNA1817,Nordrhein-Westfalen,Düsseldorf,40221,Auf der Lausward 75
 BNA0074,Berlin,Berlin,10589,Am Spreebord 5
 BNA1465b,Hessen,Witzenhausen,37213,Kasseler Landstr. 23
 BNA0374,Hessen,Großkrotzenburg,63538,
-BNA0626,Rheinland-Pfalz,Mainz,55120,
-BNA0626,Rheinland-Pfalz,Mainz,55120,
-BNA0627,Rheinland-Pfalz,Mainz,55120,
-BNA0627,Rheinland-Pfalz,Mainz,55120,
 BNA0172a,Bayern,Burghausen,84489,Johannes-Hess Straße 24
 BNA0172a,Bayern,Burghausen,84489,Johannes-Hess Straße 24
-BNA0172b,Bayern,Burghausen,84489,
-BNA0172b,Bayern,Burghausen,84489,
+BNA0172b,Bayern,Burghausen,84489,Johannes-Hess Straße 24
+BNA0172b,Bayern,Burghausen,84489,Johannes-Hess Straße 24
 BNA0799,Baden-Württemberg,Pforzheim,75175,Hohwiesenweg 15
 BNA0800,Baden-Württemberg,Pforzheim,75175,Hohwiesenweg 15
 BNA0600a,Nordrhein-Westfalen,Leverkusen,51368,"CHEMPARK, Geb. X 50"
-BNA1046b,Nordrhein-Westfalen,Werne,59368,
 BNA0514,Baden-Württemberg,Karlsruhe,76189,Fettweisstraße 42
 BNA0515,Baden-Württemberg,Karlsruhe,76189,
 BNA0178,Sachsen,Chemnitz,9114,
@@ -325,24 +312,18 @@ BNA0008,Brandenburg,Ahrensfelde,16356,Lindenberger Weg
 BNA1492a,Hessen,Fulda,36039,Hermann-Muth-Str. 6
 BNA1492b,Hessen,Fulda,36039,Hermann-Muth-Str. 6
 BNA1284,Rheinland-Pfalz,Worms,67547,In der Hollerhecke 1
-BNA0614a,Rheinland-Pfalz,Ludwigshafen,67056,A 855
-BNA0614a,Rheinland-Pfalz,Ludwigshafen,67056,A 855
-BNA0614b,Rheinland-Pfalz,Ludwigshafen,67056,A 800
-BNA0614b,Rheinland-Pfalz,Ludwigshafen,67056,A 800
-BNA0615,Rheinland-Pfalz,Ludwigshafen,67056,C 200
-BNA0615,Rheinland-Pfalz,Ludwigshafen,67056,C 200
 BNA1523a,Rheinland-Pfalz,Mayen,56727,Polcher Str. 113
 BNA1516,Rheinland-Pfalz,Obrigheim,67283,Wormser Straße 11
 BNA0401,Hamburg,Hamburg,21107,Nippoldstr. 117
-BNA0233,Sachsen,Eilenburg,4838,Am Schanzberg 1
+BNA0233,Sachsen,Eilenburg,04838,Am Schanzberg 1
 BNA0130,Brandenburg,Brandenburg,14774,
-BNA0893,Brandenburg,Schwarzheide,1987,Schipkauer Str.1
-BNA0088a,Sachsen-Anhalt,Bernburg,6406,
+BNA0893,Brandenburg,Schwarzheide,01987,Schipkauer Str.1
+BNA0088a,Sachsen-Anhalt,Bernburg,06406,
 BNA0896,Mecklenburg-Vorpommern,Schwerin,19061,
-BNA0592,Sachsen-Anhalt,Leuna,6237,
-BNA0593,Sachsen-Anhalt,Leuna,6237,
-BNA0594,Sachsen-Anhalt,Leuna,6237,
-BNA0595,Sachsen-Anhalt,Leuna,6237,
+BNA0592,Sachsen-Anhalt,Leuna,06237,
+BNA0593,Sachsen-Anhalt,Leuna,06237,
+BNA0594,Sachsen-Anhalt,Leuna,06237,
+BNA0595,Sachsen-Anhalt,Leuna,06237,
 BNA0544,Nordrhein-Westfalen,Köln,50677,
 BNA1506,Sachsen-Anhalt,Klein Wanzleben,39164,Magdeburger Landstraße 1 bis 5
 BNA0753,Nordrhein-Westfalen,Oberhausen,46147,
@@ -350,23 +331,28 @@ BNA1332,Nordrhein-Westfalen,Moers,47443,Römerstr. 733
 BNA0556a,Nordrhein-Westfalen,Krefeld,47809,Düsseldorfer Str. 191
 BNA0556b,Nordrhein-Westfalen,Krefeld,47809,Düsseldorfer Str. 191
 BNA0073,Berlin,Berlin,10179,Köpenicker Straße 60
-BNA0588,Sachsen,Leipzig,4105,
+BNA0588,Sachsen,Leipzig,04105,
 BNA0922,Sachsen-Anhalt,Staßfurt,39418,Athenslebener Weg 57
 BNA0922a,Sachsen-Anhalt,Staßfurt,39418,Athenslebener Weg 57
 BNA0848,Mecklenburg-Vorpommern,Rostock,18069,
-BNA0343,Thüringen,Gera,7546,Siemensstraße 45
+BNA0343,Thüringen,Gera,07546,Siemensstraße 45
 BNA1509,Niedersachsen,Lingen,49808,Raffineriestrasse
 BNA1089,Sachsen-Anhalt,Zielitz,39326,
 BNA1279,Nordrhein-Westfalen,Wesseling,50389,
 BNA0156b,Nordrhein-Westfalen,Brilon ,59929,Im Kissen 19
+BNA0614a,Rheinland-Pfalz,Ludwigshafen,67056,A 855
+BNA0614b,Rheinland-Pfalz,Ludwigshafen,67056,A 800
+BNA0615,Rheinland-Pfalz,Ludwigshafen,67056,C 200
 BNA0688,Mecklenburg-Vorpommern,Neubrandenburg,17034,
 BNA0293,Baden-Württemberg,Freiburg,79108,
-BNA1396,Sachsen,Moritzburg,1468,"Boxdorf, Ringstr. 3"
+BNA1396,Sachsen,Moritzburg,01468,"Boxdorf, Ringstr. 3"
 BNA1487,Hessen,Darmstadt,64293,Frankfurter Str. 100
 BNA1125,Hessen,Darmstadt ,64293,Frankfurter Str. 250
-BNA0105,Sachsen-Anhalt,Bitterfeld,6749,
+BNA0105,Sachsen-Anhalt,Bitterfeld,06749,
 BNA0256a,Thüringen,Erfurt,99087,
 BNA0256b,Thüringen,Erfurt,99087,
+BNA0626,Rheinland-Pfalz,Mainz,55120,
+BNA0627,Rheinland-Pfalz,Mainz,55120,
 BNA1315,Baden-Württemberg,Freiburg,79106,Hartmannstrasse 1
 BNA1328,Bayern,Raubling,83064,Rosenheimer Str. 37
 BNA0174,Bayern,Burgkirchen,84508,
@@ -374,8 +360,8 @@ BNA0361,Baden-Württemberg,Grenzach-Wyhlen,79639,
 BNA0110,Nordrhein-Westfalen,Bochum,44799,
 BNA0545,Nordrhein-Westfalen,Köln,50735,
 BNA1818,Nordrhein-Westfalen,Köln,50735,
-BNA0392a,Sachsen-Anhalt,Halle,6130,
-BNA0392b,Sachsen-Anhalt,Halle,6130,
+BNA0392a,Sachsen-Anhalt,Halle,06130,Dieselstraße 141
+BNA0392b,Sachsen-Anhalt,Halle,06130,Brachwitzer Straße 23
 BNA1082,Nordrhein-Westfalen,Wuppertal,42275,
 BNA1200,Baden-Württemberg,Mannheim,68305,
 BNA0548a,Nordrhein-Westfalen,Hürth-Knapsack,50351,
@@ -390,7 +376,6 @@ BNA0603,Niedersachsen,Lingen,49811,
 BNA0604,Niedersachsen,Lingen,49811,
 BNA0605,Niedersachsen,Lingen,49811,
 BNA0606,Niedersachsen,Lingen,49811,
-BNA0607,Niedersachsen,Lingen,49811,
 BNA0842a,Bayern,Rosenheim,83022,Färberstraße 47
 BNA0842b,Bayern,Rosenheim,83022,Färberstraße 47
 BNA0918a,Niedersachsen,Stade,21683,Bützflethersand
@@ -401,8 +386,8 @@ BNA0059a,Hessen,Baunatal,34225,
 BNA0059b,Hessen,Baunatal,34225,
 BNA1337a,Bayern,Aschaffenburg,63741,Weichertstr. 7
 BNA1337e,Bayern,Aschaffenburg,63741,Weichertstr. 7
-BNA1541,Sachsen,Freiberg,9599,
-BNA1556,Sachsen,Leppersdorf,1454,An den Breiten
+BNA1541,Sachsen,Freiberg,09599,
+BNA1556,Sachsen,Leppersdorf,01454,An den Breiten
 BNA1671,Niedersachsen,Bremerhaven,26954,
 BNA1334,Bremen,Bremen,28237,Waterbergstraße 14
 BNA1820,Bremen,Bremen,28237,
@@ -416,6 +401,7 @@ BNA1104,Bayern,Augsburg ,86152,Franziskanergasse 9
 BNA1507,Rheinland-Pfalz,Bad Kreuznach,55543,Michelinstr. 1
 BNA1105,Thüringen,Bad Salzungen,36433,
 BNA0051,Sachsen-Anhalt,Barby,39249,Monplaisirstr. 22
+BNA0714,Nordrhein-Westfalen,Bergheim,50129,
 BNA0100,Nordrhein-Westfalen,Bielefeld,33697,
 BNA0111,Nordrhein-Westfalen,Bochum,44805,
 BNA1524,Niedersachsen,Bomlitz,29699,"Industriepark Walsrode, 
@@ -424,11 +410,10 @@ BNA0129,Brandenburg,Brandenburg,14772,
 BNA0135,Niedersachsen,Braunschweig,38106,
 BNA0136,Niedersachsen,Braunschweig,38106,
 BNA0137,Niedersachsen,Braunschweig,38112,
-BNA0140,Bremen,Bremen,28207,Hastedter Osterdeich 255
 BNA1117,Hessen,Breuberg,64747,Höchster Str. 48-60
 BNA0157,Schleswig-Holstein,Brokdorf,25576,
-BNA1120,Nordrhein-Westfalen,Castrop-Rauxel,44579,Kekulestraße 30
 BNA1121,Nordrhein-Westfalen,Castrop-Rauxel,44579,Kekulestraße 30
+BNA1120,Nordrhein-Westfalen,Castrop-Rauxel,44579,Kekulestraße 30
 BNA1127,Bayern,Dingolfing,84130,Landshuter Straße 56
 BNA1128,Bayern,Dingolfing,84130,Landshuter Straße 56
 BNA0199,Nordrhein-Westfalen,Dormagen,41539,
@@ -448,9 +433,9 @@ BNA1024,Nordrhein-Westfalen,Eschweiler-Weisweiler,52249,
 BNA0263,Bayern,Essenbach,84051,
 BNA1141,Nordrhein-Westfalen,Euskirchen,53879,Bonner Strasse 2
 BNA0286,Hessen,Frankfurt am Main,60627,Gutleutstraße 231
+BNA0292,Nordrhein-Westfalen,Frechen,50226,
 BNA0354,Niedersachsen,Göttingen,37075,Rudolf-Diesel-Straße 1
 BNA0360,Mecklenburg-Vorpommern,Greifswald,17489,
-BNA0381,Bayern,Gundremmingen,89355,
 BNA0382,Bayern,Gundremmingen,89355,
 BNA0386,Nordrhein-Westfalen,Gütersloh,33334,Carl Bertelsmann Straße 161
 BNA0389,Nordrhein-Westfalen,Hagen,58099,
@@ -458,27 +443,28 @@ BNA0418,Niedersachsen,Hannover,30169,
 BNA0419,Niedersachsen,Hannover,30419,
 BNA1810,Niedersachsen,Hannover,30659,Riethorst 12
 BNA1151,Baden-Württemberg,Heidelberg,69120,Neuenheimer Feld 530
-BNA1292a,Baden-Württemberg,Heidenheim,89522,Alexanderstr. 8
 BNA1292b,Baden-Württemberg,Heidenheim,89522,Alexanderstr. 8
 BNA0439,Niedersachsen,Helmstedt,38350,
 BNA1463,Niedersachsen,Herzberg,37412,Andreasberger Str. 1
-BNA0504,Thüringen,Jena,7749,
+BNA0504,Thüringen,Jena,07749,
 BNA1164,Nordrhein-Westfalen,Jülich,52428,Dürenerstr. 20
 BNA1165,Nordrhein-Westfalen,Kalkar,47546,Reeser Str 280-300
 BNA1528,Nordrhein-Westfalen,Kempen,47906,
 BNA0527,Schleswig-Holstein,Kiel,24116,
 BNA0531,Nordrhein-Westfalen,Kirchlengern,32278,
 BNA1183,Nordrhein-Westfalen,Köln,51109,
-BNA1185,Sachsen-Anhalt,Könnern,6420,An den Sieben Stücken
+BNA1185,Sachsen-Anhalt,Könnern,06420,An den Sieben Stücken
 BNA1502,Nordrhein-Westfalen,Krefeld,47804,
-BNA1329,Sachsen,Kriebstein,9648,Bauhofstr. 1
+BNA1329,Sachsen,Kriebstein,09648,Bauhofstr. 1
 BNA1450,Niedersachsen,Lachendorf,29331,Georg-Drewsen-Weg 2
 BNA1187,Nordrhein-Westfalen,Lage,32791,Heidensche Str. 70
 BNA1658,Nordrhein-Westfalen,Lemgo,32657,Bruchweg 24
 BNA1193,Nordrhein-Westfalen,Lemgo ,32657,Liemer Weg 71
+BNA0607,Niedersachsen,Lingen,49811,
 BNA1531,Mecklenburg-Vorpommern,Lubmin,17509,
 BNA1196a,Rheinland-Pfalz,Ludwigshafen,67065,Giulinistraße 2
 BNA1196b,Rheinland-Pfalz,Ludwigshafen,67065,Giulinistr. 2
+BNA1866,Sachsen,Moritzburg,01468,
 BNA1327a,Bayern,München,85326,nicht öffentlicher Bereich (Btl. 145.01)
 BNA1327b,Bayern,München,85326,nicht öffentlicher Bereich (Btl. 145.01)
 BNA1678,Bayern,München,85326,
@@ -499,16 +485,19 @@ BNA1225,Bayern,Peißenberg,82380,
 BNA1226,Bayern,Peißenberg,82380,
 BNA0802,Baden-Württemberg,Philippsburg,76661,Rheinschanzinsel
 BNA0814,Brandenburg,Potsdam,14478,
+BNA1861,Bayern,Regensburg,93055,Herbert-Quandt-Allee
+BNA1862,Bayern,Regensburg,93055,Herbert-Quandt-Allee
 BNA1238,Bayern,Reitmehring,83512,Megglestraße 6 - 12
 BNA0832,Baden-Württemberg,Reutlingen,72762,Hauffstraße 89 m
 BNA0834,Nordrhein-Westfalen,Rheinberg,47495,
 BNA1408,Baden-Württemberg,Rheinfelden,79618,Untere Kanalstraße 3
 BNA0843,Bayern,Rosenheim,83026,Oberaustraße 12
-BNA0856,Thüringen,Rudolstadt,7407,
+BNA0856,Thüringen,Rudolstadt,07407,
 BNA0857,Hessen,Rüsselheim,65429,
 BNA1464,Saarland,Saarbrücken,66117,Untertürkheimer Straße 5
 BNA0897,Mecklenburg-Vorpommern,Schwerin,19057,
 BNA1260,Baden-Württemberg,Sindelfingen,71059,
+BNA1863,Saarland,St. Wendel,66606,Frankfurter Straße 6-8
 BNA1403,Sachsen-Anhalt,Steinitz,29416,Bobbenmärsche 11 
 BNA1489,Sachsen-Anhalt,Stendal,39576,Schillerstraße
 BNA1333a,Baden-Württemberg,Stuttgart,70569,Pfaffenwaldring 8
@@ -518,19 +507,21 @@ BNA1264,Thüringen,Suhl,98528,Fröhliche-Mann-Straße 2
 BNA0196,Sachsen-Anhalt,Teuchern,6682,
 BNA0957,Baden-Württemberg,Tübingen,72072,
 BNA1500,Niedersachsen,Uelzen,29525,An der Zuckerfabrik 1
-BNA1407,Sachsen,Weißenborn,9600,Fabrikstraße 1
+BNA1407,Sachsen,Weißenborn,09600,Fabrikstraße 1
 BNA1056,Hessen,Wiesbaden,65203,
 BNA1504,Rheinland-Pfalz,Woerth,76742,Daimler Str. 1
-BNA1074,Sachsen-Anhalt,Wolfen,6766,
+BNA1074,Sachsen-Anhalt,Wolfen,06766,
 BNA1285,Niedersachsen,Wunstorf,31515,
 BNA1094,Nordrhein-Westfalen,Zülpich,53910,Bessenicher Weg
-BNA1557,Sachsen,Zwickau,8056,Glauchauer Str. 40
+BNA1557,Sachsen,Zwickau,08056,Glauchauer Str. 40
+BNA1859,Saarland,Saarlouis,66740,
+BNA1868,Hessen,Frankfurt am Main,60486,Solmsstraße 38
 BNA0118,Nordrhein-Westfalen,Bonn,53121,
 BNA0212,Nordrhein-Westfalen,Duisburg,47053,Zirkelstraße
 BNA0812,Nordrhein-Westfalen,Porta Westfalica,32457,
 BNA0011,Baden-Württemberg,Albbruck,79774,
-BNA0913,Sachsen,Spreetal,2979,Südstraße
-BNA0680,Sachsen-Anhalt,Mumsdorf,4613,
+BNA0913,Sachsen,Spreetal,02979,Südstraße
+BNA0680,Sachsen-Anhalt,Mumsdorf,04613,
 BNA0448,Nordrhein-Westfalen,Herne,44652,
 BNA1275,Baden-Württemberg,Weinheim,69469,Höhnerweg 2-4
 BNA1276,Baden-Württemberg,Weinheim,69469,Höhnerweg 2-4
@@ -540,3 +531,5 @@ BNA0355,Bayern,Grafenrheinfeld,97506,
 BNA0813,Nordrhein-Westfalen,Porta Westfalica,32457,
 BNA0810,Nordrhein-Westfalen,Porta Westfalica,32457,
 BNA0811,Nordrhein-Westfalen,Porta Westfalica,32457,
+BNA0140,Bremen,Bremen,28207,Hastedter Osterdeich 255
+BNA0381,Bayern,Gundremmingen,89355,
