@@ -1,5 +1,5 @@
 # plantwatch
-[![Code Health](https://landscape.io/github/oberam-eng/oberam-eng/master/landscape.png)](https://landscape.io/github/oberam-eng/plantwatch/master)
+[![Code Health](https://landscape.io/github/oberam-eng/plantwatch/master/landscape.svg?style=flat-square)](https://landscape.io/github/oberam-eng/plantwatch/master)
 
 ## What is plantwatch?
 
