@@ -9,10 +9,10 @@ from django.db import models
 
 
 class Addresses(models.Model):
-    blockid = models.TextField(unique=True, primary_key=True)
+    blockid = models.TextField(unique=True)
     federalstate = models.TextField(blank=True, null=True)
     place = models.TextField(blank=True, null=True)
-    plz = models.IntegerField(blank=True, null=True)  # Field name made lowercase.
+    plz = models.IntegerField(db_column='PLZ', blank=True, null=True)  # Field name made lowercase.
     street = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -22,8 +22,7 @@ class Addresses(models.Model):
 
 class Blocks(models.Model):
     plantid = models.TextField(blank=True, null=True)
-    #plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
-    blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
+    blockid = models.ForeignKey(Addresses, models.DO_NOTHING, db_column='blockid', unique=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
     initialop = models.IntegerField(blank=True, null=True)
@@ -39,9 +38,8 @@ class Blocks(models.Model):
         db_table = 'blocks'
 
 
-
 class Plants(models.Model):
-    plantid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='plantid', unique=True, primary_key=True)
+    plantid = models.ForeignKey(Blocks, models.DO_NOTHING, db_column='plantid', unique=True)
     plantname = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
