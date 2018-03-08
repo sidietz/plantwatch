@@ -1,43 +1,43 @@
 {% extends "plantmaster/base.html" %}
-{%  load static %}
 
 {% block head %}
 <link href="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.min.css" rel="stylesheet">
+<link href="../../../plantmaster/static/plantmaster/style.css" rel="stylesheet">
 <script src="//cdn.bootcss.com/noUiSlider/10.0.0/nouislider.js"></script>
 {% endblock %}
 
 {% block content %}
     <form action="." method="post" id="form1">
     <div id="accordion">
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-        {% csrf_token %}
             {% for field in form %}
                 <div class="card">
-                    <div class="card-header" id="heading{{ forloop.counter0 }}">
+                    <div class="card-header" id="heading{{ loop.index }}">
                         <h5 class="mb-0">
-                            <button type=button class="btn btn-outline-primary" data-toggle="collapse" data-target="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter0 }}">
+                            <button type=button class="btn btn-outline-primary" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapse{{ loop.index }}">
                                 {{ field.label }}
                             </button>
                         </h5>
                     </div>
-                    <div id="collapse{{ forloop.counter0 }}" class="collapse" aria-labelledby="heading{{ forloop.counter0 }}" data-parent="#accordion">
+                    <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordion">
                         <div class="card-body">
                             {{ field }}
                         </div>
                     </div>
                 </div>
             {% endfor %}
-    <div id="slider1"></div>
-    <span class="hspace"></span>
+    <div  style="margin-right: 1em; margin-left: 1em; width: 98%;" id="slider1"></div>
+    <span class="hspace" style="display:block; height: 5em;"></span>
     </div>
-    <input type="submit" class="btn btn-success" value="ändere Anfrage">
+    <input type="submit" class="btn btn-success" value="ändere Anfrage" >
     </form>
 
 
 
 
     {% if sources_dict %}
-        <table class="table">
+        <table class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
     {% for header1 in sources_header %}
@@ -45,19 +45,9 @@
     {% endfor %}
     </tr>
         </thead>
-            {% for key, value_list in sources_dict.items %}
+            {% for key, value_list in sources_dict.items() %}
 
-                {% if key == "Steinkohle" %}
-        <tr class="table table-danger">
-        {% elif key == "Braunkohle" %}
-            <tr class="table table-warning">
-        {% elif key == "Erdgas" %}
-        <tr class="table table-success">
-        {% elif key == "Kernenergie" %}
-            <tr class="table table-secondary">
-                {% else %}
-                <tr>
-                {% endif %}
+        <tr class="table {{ plant_mapper[key] }}">
                     <th> {{ key}} </th>
                     {% for value in value_list %}
                     <td> {{ value}} </td>
@@ -69,14 +59,14 @@
 
 {% if block_dict %}
 
-<table class="table">
+<table class="table table-bordered table-hover table-striped table-sm">
     <tr>
         {% for header in header_list %}
             <th> {{ header }}</th>
         {% endfor %}
     </tr>
 
-    {% for key, block_list in block_dict.items %}
+    {% for key, block_list in block_dict.items() %}
         {% if key.0 == "Steinkohle" %}
         <tr class="table table-danger">
         {% elif key.0 == "Braunkohle" %}
@@ -86,16 +76,14 @@
         {% elif key.0 == "Kernenergie" %}
             <tr class="table table-secondary">
         {% endif %}
-        {% if not key.2 %}
+        {% if not key.2 %} {# blocks, don't show link to plant, if it does not exist #}
             <td> </td>
         {% else %}
-            <td><a class="btn btn-outline-secondary" href="{% url 'plant' key.2 %}">{{ key.2 }} </a></td>
+            <td><a class="btn btn-outline-secondary" href="{{ url('plant',  args=[key.2]) }}">{{ key.2 }} </a></td>
         {% endif %}
-        {% if not key.1 %}
-            <td> </td>
-        {% elif key.1 == key.2 %}
+        {% if key.1 == key.2 %} {# key1 equals key2, so we are in plants: don't show link to block, as it would not make sense #}
         {% else %}
-            <th><a class="btn btn-outline-secondary" href="{% url 'block' key.1 %}">{{ key.1 }} </a></th>
+            <th><a class="btn btn-outline-secondary" href="{{ url('block', args=[key.1]) }}">{{ key.1 }} </a></th>
         {% endif %}
 
     {% for value in block_list %}
@@ -128,8 +116,8 @@ noUiSlider.create(slider1, {
     orientation: 'horizontal', // Orient the slider vertically
     //behaviour: 'tap-drag', // Move handle on tap, bar is draggable
     range: { // Slider can select '0' to '100'
-        'min': {{ lower }},
-        'max': {{ upper }}
+        'min': 1950,
+        'max': 2020
     },
     pips: { // Show a scale with the slider
         mode: 'steps',

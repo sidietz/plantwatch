@@ -16,10 +16,12 @@ SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie"]
 SORT_CRITERIA_BLOCKS = ([('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "initialop")
 SORT_CRITERIA_PLANTS = ([('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "initialop")
 OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
+DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall']
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"), ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700}
 SLIDER_1 = "1950;2020"
+PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-secondary"}
 
 
 def filter_and(queryset, filtered, filters):
@@ -42,7 +44,7 @@ def filter_queryset(queryset, filtered, afilter):
 
 
 def forge_sources_dict(block_list, power_type):
-    # print(power_type)
+
     sources_dict = {}
     whole_power = 0
     factors = []
@@ -50,14 +52,13 @@ def forge_sources_dict(block_list, power_type):
         tmp = filter_or(block_list, "energysource", [source])
         factor = SOURCES_DICT[source]
         factors.append(factor)
-        # print(tmp)
         raw_power = tmp.all().aggregate(Sum(power_type))[power_type+'__sum'] or 0
         power = round(raw_power, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
         whole_power += anual_power
         count = tmp.all().count()
         sources_dict[source] = [count, power, anual_power, factor]
-    power = block_list.all().aggregate(Sum(power_type))[power_type+'__sum'] or 0
+    power = block_list.all().aggregate(Sum(power_type))[power_type+'__sum'] or 1
     power = round(power, 2)
     count = block_list.all().count()
     whole_power = round(whole_power, 2)
@@ -71,13 +72,11 @@ def create_low_up(lowup):
 
 def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS):
     slider1 = SLIDER_1
-    # sort_criteria = "initialop"
-    # sort_criteria = "totalpower"
     sort_criteria = SORT_CRITERIA[1]
     sort_method = ""
     search_federalstate = []
     search_power = []
-    search_opstate = []
+    search_opstate = DEFAULT_OPSTATES
     search_chp = []
 
     if request.method == 'POST':
@@ -85,14 +84,13 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS):
         sort_criteria = request.POST.get('sort_by', SORT_CRITERIA[1])
         search_federalstate = request.POST.getlist('select_federalstate', [])
         search_power = request.POST.getlist('select_powersource', [])
-        search_opstate = request.POST.getlist('select_opstate', [])
+        search_opstate = request.POST.getlist('select_opstate', DEFAULT_OPSTATES)
         search_chp = request.POST.getlist('select_chp', [])
         slider1 = request.POST.get('slider1', SLIDER_1)
         sort_method = request.POST.get('sort_method', sort_method)
     else:
         form = BlocksForm()
 
-    # SORT_CRITERIA.append(("totalpower", "totalpower"))
     form.fields['sort_by'].choices = SORT_CRITERIA[0]
     form.fields['sort_by'].initial = sort_criteria or SORT_CRITERIA[1]
     form.fields['sort_by'].label = "Sortiere nach:"
@@ -170,6 +168,7 @@ def blocks(request):
         'block_dict': block_dict,
         'sources_dict': sources_dict,
         'sources_header': sources_header,
+        'plant_mapper': PLANT_COLOR_MAPPING,
         'range': range(2),
     }
     return render(request, 'plantmaster/blocks.html', context)
@@ -181,10 +180,7 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
     for entry in block_tmp_dict:
         key = []
         for a_key in key_list:
-            key_entry = entry[a_key]
-            #if a_key == "plantid" and not key_entry:
-            #    key_entry = Blocks.objects.get(pl)
-            key.append(key_entry)
+            key.append(entry[a_key])
         value = []
         for element in value_list:
             value.append(entry[element])
@@ -194,19 +190,12 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
 
 def block(request, blockid):
     block = get_object_or_404(Blocks, blockid=blockid)
-    error = False
-    address = block.blockid
 
-    try:
-        plant_id = block.plantid.plantid
-    except Plants.DoesNotExist:
-        plant_id = block.plantid_id
-        if not plant_id:
-            plant_id = None
-            error = True
+    address = block.blockid
+    plant_id = block.plantid
+    error = True if not plant_id else False
 
     data_list = [plant_id, block.blockname, address.plz, address.place, address.street, address.federalstate, block.netpower]
-
     header_list = ['PlantID', 'Name', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
     context = {
         'data_list': zip(header_list, data_list),
@@ -223,43 +212,27 @@ def impressum(request):
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider1 = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS)
     lower, upper = create_low_up(slider1)
-
-    # print(Plants.__dict__)
-    # print(Plants.blocks_set.__dict__)
-    # print(Plants.objects.blocks_set)
-    # print(Plants.blocks_set)
-    # atest = Plants.blocks_set()
-    # print(atest)
-    # print(Plants.blocks_set())
-
-    if sort_criteria == "initialop":
-        plant_list = Plants.objects.annotate(initialop=Min('ablockstest__initialop'))
-        plant_list = plant_list.order_by(sort_method + 'initialop')
-    else:
-        plant_list = Plants.objects.order_by(sort_method + sort_criteria)
+    plant_list = Plants.objects.all().filter(latestexpanded__range=(lower, upper)).order_by(sort_method + sort_criteria)
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
+    block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
+    block_list = create_block_list(block_list, filter_dict)
     plant_list = create_block_list(plant_list, filter_dict)
 
-    # plant_list = plant_list.filter(initialop__range=(lower, upper))
-
-    sources_dict = forge_sources_dict(plant_list, "totalpower")
-
+    sources_dict = forge_sources_dict(block_list, "netpower")
 
     plant_list = plant_list[::1]
     plant_tmp_dict = list(map(model_to_dict, plant_list))
     plant_tmp_list = []
-    # initialop = 0
+
     for plant_dict_entry in plant_tmp_dict:
         plant_list_entry = plant_dict_entry
         plantid = plant_dict_entry["plantid"]
         blocks_list = Blocks.objects.all().filter(plantid=plantid)
-        # blocks_list = blocks_list.order_by("initialop")
         initialop = blocks_list.all().aggregate(Min('initialop'))['initialop__min']
         plant_list_entry["initialop"] = initialop
         plant_tmp_list.append(plant_list_entry)
 
-    print(plant_tmp_dict)
     value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower"]
     key_list = ["energysource", "plantid", "plantid"]
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
@@ -271,6 +244,7 @@ def plants_2(request):
         'upper': upper,
         'lower': lower,
         'form': form,
+        'plant_mapper': PLANT_COLOR_MAPPING,
         'block_dict': block_dict,
         'sources_dict': sources_dict,
         'sources_header': sources_header,
@@ -289,36 +263,14 @@ def create_plant_dict(blocks_tmp_dict):
 
 
 def plant(request, plantid):
-    error = False
-    if plantid is None:
-        error = True
-        # raise Http404
-    try:
-        plant = Plants.objects.get(plantid=plantid)
-        if not plant:
-            raise Plants.DoesNotExist
-        blocks = plant.ablockstest.all()
-        blocks_list = blocks.order_by("initialop" + "")
-        plantname = plant.plantname
-        block_count = plant.blockcount
-        le = plant.latestexpanded
-        tp = plant.totalpower
-    except Plants.DoesNotExist:
-        try:
-            blocks = get_object_or_404(Blocks, plantid=plantid)
-            plantname = blocks.blockname
-            block_count = 1
-            le = blocks.initialop
-            tp = blocks.netpower
-            blocks_list = [blocks]
-        except Blocks.DoesNotExist:
-            blocks = Blocks.objects.filter(plantid=plantid).all()
-            plantname = blocks.first().blockname
-            blocks_list = blocks.order_by("initialop" + "")
-            block_count = len(blocks_list)
-            le = 1990
-            tp = 500
 
+    plant = get_object_or_404(Plants, plantid=plantid)
+    blocks = Blocks.objects.filter(plantid=plantid)
+    blocks_list = blocks.order_by("initialop" + "")
+    plantname = plant.plantname
+    block_count = plant.blockcount
+    le = plant.latestexpanded
+    tp = plant.totalpower
 
     blocks_tmp_dict = list(map(model_to_dict, blocks_list))
     value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "netpower"]

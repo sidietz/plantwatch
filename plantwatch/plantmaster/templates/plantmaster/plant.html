@@ -2,7 +2,7 @@
 {% block content %}
 
 {% if data_list %}
-<table class="table table-striped">
+<table class="table table-bordered table-hover table-striped table-sm">
     {% for key, value in data_list %}
     <tr>
         <th> {{ key}} </th>
@@ -14,7 +14,7 @@
     <p>Keine Daten vorhanden.</p>
 {% endif %}
     {% csrf_token %}
-    <table class="table">
+    <table class="table table-bordered table-hover table-striped table-sm">
         {% for header in header_list %}
             <th> {{ header }}</th>
         {% endfor %}

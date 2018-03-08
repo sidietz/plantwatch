@@ -1,91 +1,172 @@
-01-50-01000004838,Heizkraftwerk FL,Schleswig-Holstein,Erdgas,2016,369.0,in Betrieb,11,BNA1819,Stadtwerke Flensburg GmbH
-06-05-500-0875741,Kraftwerk IV,Nordrhein-Westfalen,Erdgas,2016,375.2,in Betrieb,6,BNA1676,Evonik Degussa GmbH
-06-05-300-0370387,Niehl 3,Nordrhein-Westfalen,Erdgas,2016,872.9,in Betrieb,2,BNA1818,RheinEnergie AG
-06-05-100-0167182,GuD,Nordrhein-Westfalen,Erdgas,2016,1119.4,in Betrieb,5,BNA1817,Stadtwerke Düsseldorf AG
-06-04-11_2001178_8_2,KW Mittelsbüren,Bremen,Erdgas,2016,713.3,in Betrieb,4,BNA1820,Gemeinschaftskraftwerk Bremen GmbH und Co. KG
-06-09-190-0036-0002,HKW3 UPM Schongau,Bayern,Erdgas,2015,129.0,in Betrieb,2,BNA1248b,UPM GmbH
-03-01-01241117210,BHKW Braunschweig,Niedersachsen,Erdgas,2015,410.4,in Betrieb,5,BNA1677,Volkswagen AG
-06-08-2948214,GKM ,Baden-Württemberg,Steinkohle,2015,2363.0,in Betrieb,6,BNA0646b,Grosskraftwerk Mannheim AG
-06-02-BERZ003800,Moorburg A,Hamburg,Steinkohle,2015,1600.0,in Betrieb,2,BNA1673,Vattenfall GmbH
-16-30-30400102003,HKW Erfurt-Ost,Thüringen,Erdgas,2014,109.1,in Betrieb,2,BNA0256b,SWE Energie GmbH
-06-09-500-0112-0001,HKW Erlangen,Bayern,Erdgas,2014,45.7,in Betrieb,3,BNA0261c,Erlanger Stadtwerke AG
-06-05-900-0079017,Westfalen,Nordrhein-Westfalen,Steinkohle,2014,2116.7,stillgelegt,5,BNA0413b,RWE AG
-03-03-03030273580,Dow Stade,Niedersachsen,Erdgas,2014,363.0,in Betrieb,2,BNA0918b,Dow Deutschland Anlagengesellschaft mbH
-06-08-2797933,Rheinhafen-Dampfkraftwerk,Baden-Württemberg,Steinkohle,2014,1741.0,in Betrieb,4,BNA0518b,EnBW AG
-06-04-11_2001178_8_0,KW Hastedt,Bremen,Steinkohle,2014,549.0,in Betrieb,3,BNA0144,swb Erzeugung GmbH & Co. KG
-12305,HKW Halle Trotha,Sachsen-Anhalt,Erdgas,2013,151.0,in Betrieb,2,BNA0392b,Heizkraftwerk Halle-Trotha GmbH
-06-09-661-0020-0001,GuD-Anlage,Bayern,Erdgas,2013,74.0,in Betrieb,2,BNA1337e,DS Smith Paper Deutschland GmbH
-06-05-300-9046030,Knapsack Gas II,Nordrhein-Westfalen,Erdgas,2013,1230.0,in Betrieb,2,BNA0548b,Statkraft Markets GmbH
-06-05-100-0365906,KW Walsum,Nordrhein-Westfalen,Steinkohle,2013,1224.0,in Betrieb,3,BNA0216b,STEAG-EVN Walsum 10 Kraftwerksgesellsellschaft mbH
-06-26200010633,"GuD Baunatal, VW Werksgelände",Hessen,Erdgas,2013,90.2,in Betrieb,2,BNA0059b,Volkswagen AG
-06-00004310411,GTKW Darmstadt,Hessen,Erdgas,2013,104.6,Netzreserve,2,BNA1487,Entega AG
-06-90031210632,Hattorf,Hessen,Erdgas,2013,52.3,in Betrieb,2,BNA0804b,K+S AG
-06-09-100-0020-0001,Gasmotor 4,Bayern,Erdgas,2013,19.0,in Betrieb,2,BNA0842b,Stadtwerke Rosenheim GmbH & Co. KG
-14-70-46630660001,Boxberg,Sachsen,Braunkohle,2012,2427.0,in Betrieb,4,BNA1404,Lausitz Energie Kraftwerke AG
-06-05-100-0248923,BoA 2,Nordrhein-Westfalen,Braunkohle,2012,4211.0,in Betrieb,7,BNA1401a,RWE AG
-06-00453010412,ADS-Anlage,Hessen,Erdgas,2012,248.5,in Betrieb,3,BNA0497,Infraserv GmbH & Co. Höchst KG
-06-76400010631,Kraftwerk 2,Hessen,Erdgas,2012,34.2,in Betrieb,2,BNA1492b,Papierfabrik Adolf Jass Schwarza GmbH
+03-09-09000237910,Kraftwerk Wilhelmshaven,Niedersachsen,Steinkohle,Nein,2015,2015,731.0,in Betrieb,1,ENGIE Deutschland AG
+06-02-BERZ003800,Moorburg A,Hamburg,Steinkohle,Ja,2015,2015,1600.0,in Betrieb,2,Vattenfall GmbH
+14-70-51322590000,,Sachsen,Erdgas,Ja,2014,2014,36.0,in Betrieb,1,Sachsenmilch Leppersdorf GmbH
+03-09-09261732970,,Niedersachsen,Erdgas,Ja,2014,2014,17.1,in Betrieb,1,Kronos Titan GmbH
+06-05-900-9141660,Trianel Kohlekraftwerk Lünen,Nordrhein-Westfalen,Steinkohle,Ja,2013,2013,735.0,in Betrieb,1,Trianel Kohlekraftwerk Lünen GmbH & Co. KG
+06-09-661-0020-0001,Heizkraftwerk,Bayern,Erdgas,Ja,2013,2013,74.0,in Betrieb,2,DS Smith Paper Deutschland GmbH
+06-05-300-0838652,Heizkraftwerk Karlstraße,Nordrhein-Westfalen,Erdgas,Ja,2013,2013,95.0,in Betrieb,1,Energie- und Wasserversorgung Bonn/Rhein-Sieg GmbH
+14-20-60319980000,HKW Freiberg,Sachsen,Erdgas,Ja,2013,2013,13.4,in Betrieb,1,Freiberger Erdgas GmbH
+03-03-03267770260,KWK AOS GmbH,Niedersachsen,Erdgas,Ja,2012,2012,30.7,in Betrieb,1,Aluminium Oxid Stade GmbH
+06-09-100-0020-0001,Gasmotor 4,Bayern,Erdgas,Ja,2013,2011,19.0,in Betrieb,2,Stadtwerke Rosenheim GmbH & Co. KG
+06-09-271-0260-0001,Kraftwerk Plattling,Bayern,Erdgas,Ja,2010,2010,97.9,in Betrieb,1,Daimler AG
 06-09-100-0001-0002,"Ulrich Hartmann
-(Irsching)",Bayern,Erdgas,2011,1407.0,Netzreserve,2,BNA0995,Uniper SE
-06-10-0075248,Kraftwerk Ensdorf,Saarland,Steinkohle,2011,389.0,in Betrieb,2,BNA0252,Gemeinschaft nach Bruchteilen der Saarstahl AG (SAG) und Saarschmiede GmbH Freiformschmiede (SSF)
-03-10-10257673950,Emsland,Niedersachsen,Erdgas,2011,1837.0,in Betrieb,5,BNA0602,RWE AG
-06-05-300-0923949,HKW Merkenich,Nordrhein-Westfalen,Braunkohle,2010,198.8,in Betrieb,3,BNA0543,RheinEnergie AG
-06-02-B10117A007,GuD Tiefstack,Hamburg,Erdgas,2009,321.0,in Betrieb,2,BNA0400,Vattenfall GmbH
-06-08-1371304,Heizkraftwerk Stuttgart-Gaisburg,Baden-Württemberg,Steinkohle,2009,77.6,in Betrieb,2,BNA0934,EnBW AG
-06-09-600-0025-0001,Heizkraftwerke an der Friedensbrücke,Bayern,Erdgas,2009,122.0,in Betrieb,4,BNA1087,Heizkraftwerk Würzburg GmbH
-06-05-900-9140178,Trianel Gaskraftwerk ,Nordrhein-Westfalen,Erdgas,2008,838.0,in Betrieb,2,BNA0411,Trianel Gaskraftwerk Hamm GmbH & Co. KG 
-06-10-0020157,HKW Römerbrücke,Saarland,Erdgas,2012,125.0,in Betrieb,2,BNA0861a,Energie SaarLorLux AG
-07-05-8290552,Kraftwerk Mitte,Rheinland-Pfalz,Erdgas,2005,954.5,in Betrieb,3,BNA0614b,BASF SE
-06-00464020412,HKW Niederrad,Hessen,Erdgas,2005,252.0,in Betrieb,4,BNA0285,Mainova AG
-06-05-100-0018507,KWK-Anlage Krefeld DT,Nordrhein-Westfalen,Erdgas,2005,39.8,in Betrieb,2,BNA0556a,Cargill Deutschland GmbH
-06-09-500-0354-0002,HKW Sandreuth,Bayern,Erdgas,2005,150.0,in Betrieb,2,BNA0742,N-ERGIE AG
-06-05-100-0229264,HKW III/B,Nordrhein-Westfalen,Erdgas,2005,274.0,in Betrieb,2,BNA0214,Stadtwerke Duisburg AG
-06-09-100-0088-0005,Süd GT 61,Bayern,Erdgas,2004,651.9,in Betrieb,6,BNA0684a,SWM Services GmbH
-06-05-300-0326774,Niederaußem,Nordrhein-Westfalen,Braunkohle,2002,3656.0,in Betrieb,9,BNA0709,RWE AG
-06-09-171-0009-0B01,Burghausen 01 - GT,Bayern,Erdgas,2001,340.0,in Betrieb,4,BNA0172a,Wacker Chemie AG
-07-04-6021280,Kraftwerk Mainz,Rheinland-Pfalz,Erdgas,2001,769.2,in Betrieb,2,BNA0626,Kraftwerke Mainz-Wiesbaden AG
-14-80-00009560000,Lippendorf,Sachsen,Braunkohle,2000,1750.0,in Betrieb,2,BNA0115,Lausitz Energie Kraftwerke AG
-12-40716440000,Schwarze Pumpe,Brandenburg,Braunkohle,1998,1500.0,in Betrieb,2,BNA0915,Lausitz Energie Kraftwerke AG
-13770,GuD Leuna,Sachsen-Anhalt,Erdgas,1998,146.0,in Betrieb,4,BNA0592,InfraLeuna GmbH
-06-08-1741292,Heizkraftwerk Altbach/Deizisau,Baden-Württemberg,Steinkohle,1997,1022.0,in Betrieb,6,BNA0019,EnBW AG
-12358,Schkopau,Sachsen-Anhalt,Braunkohle,1996,900.0,in Betrieb,2,BNA0878,Uniper SE
-07-05-8030815,HKW Karcherstr.,Rheinland-Pfalz,Steinkohle,1996,38.4,in Betrieb,3,BNA0510b,SWK - Stadtwerke Kaiserslautern
-14326,GuD-Ikw Staßfurt,Sachsen-Anhalt,Erdgas,1996,132.0,in Betrieb,2,BNA0922,CIECH Energy Deutschland GmbH
-06-05-300-0181417,Kraftwerk,Nordrhein-Westfalen,Braunkohle,1995,23.0,vorläufig stillgelegt,3,BNA1293a,Martinswerk GmbH
-06-05-800-0203946,Goldenberg,Nordrhein-Westfalen,Braunkohle,1993,85.0,stillgelegt,3,BNA0490b,RWE AG
-06-00176010435,Staudinger,Hessen,Steinkohle,1992,2676.0,in Betrieb,7,BNA0377,Uniper SE
-GAS-0002,Ahrensfelde,Brandenburg,Erdgas,1990,150.0,vorläufig stillgelegt,4,BNA0008,Lausitz Energie Kraftwerke AG
-06-08-3042693,Heizkraftwerk Pforzheim GmbH,Baden-Württemberg,Steinkohle,1990,106.3,in Betrieb,4,BNA0801,Heizkraftwerk Pforzheim GmbH
-14-60-48821410003,HKW Chemnitz  Nord II,Sachsen,Braunkohle,1990,147.6,in Betrieb,2,BNA0179,eins - energie in sachsen GmbH & Co. KG
-12-40710010000,KW Jänschwalde,Brandenburg,Braunkohle,1989,2790.0,in Betrieb,6,BNA0790,Lausitz Energie Kraftwerke AG
-06-05-900-0327252,KW Herne,Nordrhein-Westfalen,Steinkohle,1989,862.0,in Betrieb,3,BNA0450,Steag GmbH
-06-10-00101000,Heizkraftwerk,Saarland,Steinkohle,1989,390.0,in Betrieb,2,BNA0999,Steag GmbH
-03-06-06060316030,GKH,Niedersachsen,Steinkohle,1989,272.0,in Betrieb,2,BNA0420,Stadtwerke Hannover AG
-GAS-0001,Thyrow,Brandenburg,Erdgas,1989,296.0,stillgelegt,8,BNA0735,Lausitz Energie Kraftwerke AG
-03-09-09281337040,PKV Kraftwerk,Niedersachsen,Erdgas,1989,117.2,in Betrieb,4,BNA1335a,Papier- u. Kartonfabrik Varel GmbH & Co. KG
-06-00464010412,HKW West,Hessen,Steinkohle,1989,123.0,in Betrieb,2,BNA0289b,Mainova AG
-06-11-01-1105609,Reuter West,Berlin,Steinkohle,1988,564.0,in Betrieb,2,BNA0087,Vattenfall GmbH
-06-14600010611,FKK,Hessen,Braunkohle,1988,117.0,in Betrieb,3,BNA0523,Städtische Werke Energie + Wärme GmbH
-06-05-100-0431554,KW Voerde,Nordrhein-Westfalen,Steinkohle,1985,1390.0,stillgelegt,2,BNA0992,RWE AG
-06-08-1020129,Heizkraftwerk Heilbronn,Baden-Württemberg,Steinkohle,1985,1028.0,in Betrieb,3,BNA0434,EnBW AG
-06-05-500-0342658,FWK Buer,Nordrhein-Westfalen,Steinkohle,1985,2126.0,in Betrieb,6,BNA0336,Uniper SE
-06-08-1195689,Restmüll-Heizkraftwerk Stuttgart-Münster,Baden-Württemberg,Steinkohle,1984,90.0,in Betrieb,2,BNA0936,EnBW AG
-06-05-900-0865327,Gersteinwerk,Nordrhein-Westfalen,Erdgas,1984,2680.0,in Betrieb,11,BNA1046b,RWE AG
-06-05-500-0152577,Kraftwerk I ,Nordrhein-Westfalen,Steinkohle,1983,175.9,in Betrieb,3,BNA0662a,Evonik Degussa GmbH
-06-05-300-0890760,Kessel 4,Nordrhein-Westfalen,Braunkohle,1983,12.200000000000001,in Betrieb,2,BNA1511a,Papierfabrik Schoellershammer H. A. Schoeller Söhne GmbH & Co KG
-06-05-900-0045033,Kraftwerk Werdohl-Elverlingsen,Nordrhein-Westfalen,Steinkohle,1982,496.0,in Betrieb,2,BNA1037,Mark-E AG
-06-05-300-9046797,X-Kraftwerk,Nordrhein-Westfalen,Erdgas,1981,233.0,in Betrieb,3,BNA0600a,Currenta GmbH & Co. OHG
-06-05-700-0020290,HKW Schildescher Straße,Nordrhein-Westfalen,Erdgas,1978,128.0,Sonderfall,4,BNA0098,Stadtwerke Bielefeld GmbH
-06-09-500-0368-0001,Franken 1,Bayern,Erdgas,1976,823.0,in Betrieb,2,BNA0745,Uniper SE
-06-05-300-0877384,Weisweiler,Nordrhein-Westfalen,Braunkohle,1975,2219.0,in Betrieb,6,BNA1028,RWE AG
-06-09-100-0088-0003,Freimann GT 1,Bayern,Erdgas,1975,160.0,stillgelegt,2,BNA0681,SWM Services GmbH
-06-11-01-1105607,Lichterfelde,Berlin,Erdgas,1974,432.0,in Betrieb,3,BNA0076,Vattenfall GmbH
-03-06-06254353820,Landesbergen Gas,Niedersachsen,Erdgas,1973,487.0,in Betrieb,2,BNA0574a,Statkraft Markets GmbH
-03-04-04224004080,Emden Gas,Niedersachsen,Erdgas,1973,485.0,vorläufig stillgelegt,2,BNA0245b,Statkraft Markets GmbH
-06-05-100-9021016,Kraftwerk N 230,Nordrhein-Westfalen,Steinkohle,1971,136.0,in Betrieb,2,BNA0557b,Currenta GmbH & Co. OHG
-06-05-100-0853075,KW West,Nordrhein-Westfalen,Steinkohle,1971,640.0,stillgelegt,2,BNA0989,Steag GmbH
-06-05-100-0081105,Frimmersdorf,Nordrhein-Westfalen,Braunkohle,1970,2008.0,Sicherheitsbereitschaft,13,BNA0314,RWE AG
-06-05-900-0884101,KW Lünen,Nordrhein-Westfalen,Steinkohle,1969,473.0,in Betrieb,2,BNA0619,Steag GmbH
-1,Datteln,Nordrhein-Westfalen,Steinkohle,1969,303.0,stillgelegt,3,BNA0189,Uniper SE
-06-08-2142201,Kraftwerk Walheim,Baden-Württemberg,Steinkohle,1967,244.0,Netzreserve,2,BNA1006,EnBW AG
-01-50-56050192711,Wedel,Schleswig-Holstein,Steinkohle,1962,260.0,in Betrieb,2,BNA0403,Vattenfall GmbH
+(Irsching)",Bayern,Erdgas,Nein,2011,2010,1407.0,Netzreserve,2,Uniper SE
+06-09-674-2071-0001,HKW Eltmann,Bayern,Erdgas,Ja,2008,2008,57.0,in Betrieb,1,Palm Power GmbH & Co. KG
+07-05-8779480,HKW Wörth,Rheinland-Pfalz,Erdgas,Ja,2008,2008,59.0,in Betrieb,1,Palm Power GmbH & Co. KG
+06-05-900-9140178,Trianel Gaskraftwerk ,Nordrhein-Westfalen,Erdgas,Nein,2008,2008,838.0,in Betrieb,2,Trianel Gaskraftwerk Hamm GmbH & Co. KG 
+06-05-900-0125939,Cuno Heizkraftwerk Herdecke,Nordrhein-Westfalen,Erdgas,Nein,2007,2007,417.0,in Betrieb,1,Mark-E AG / Statkraft Markets
+06-05-300-9046030,Knapsack Gas I,Nordrhein-Westfalen,Erdgas,Nein,2013,2006,1230.0,in Betrieb,2,Statkraft Markets GmbH
+06-05-300-0370387,HKW Niehl 2,Nordrhein-Westfalen,Erdgas,Ja,2016,2005,872.9,in Betrieb,2,RheinEnergie AG
+06-08-2951606,GuD-Kraftwerk,Baden-Württemberg,Erdgas,Ja,2005,2005,17.2,Netzreserve,1,Energie- und Medienversorgung Sandhofer Straße GmbH & Co. KG
+12305,HKW Halle Trotha,Sachsen-Anhalt,Erdgas,Ja,2013,2005,151.0,in Betrieb,2,EVH GmbH
+06-09-500-0354-0002,HKW Sandreuth,Bayern,Erdgas,Ja,2005,2005,150.0,in Betrieb,2,N-ERGIE AG
+06-05-100-0030712,HKW Barmen,Nordrhein-Westfalen,Erdgas,Ja,2005,2005,82.0,in Betrieb,1,WSW Energie & Wasser AG
+16874,,Sachsen-Anhalt,Braunkohle,Ja,2005,2005,17.5,in Betrieb,1,CropEnergies Bioethanol GmbH Zeitz
+06-05-900-0021170,Bochum,Nordrhein-Westfalen,Erdgas,Ja,2004,2004,20.7,in Betrieb,1,RWE AG
+06-08-34064722,Kraftwerk Grenzach-Wyhlen,Baden-Württemberg,Erdgas,Ja,2004,2004,40.0,in Betrieb,1,KGW - Kraftwerk Grenzach-Wyhlen GmbH
+06-09-171-0002--C01,Industriepark Werk Gendorf,Bayern,Erdgas,Ja,2002,2002,62.0,in Betrieb,1,InfraServ GmbH & Co. Gendorf KG
+06-05-100-0229264,HKW III/A,Nordrhein-Westfalen,Erdgas,Ja,2005,2002,274.0,in Betrieb,2,Stadtwerke Duisburg AG
+06-09-187-4048-0001,HBB,Bayern,Erdgas,Ja,2001,2001,24.0,in Betrieb,1,HBB Heizkraftwerk Bauernfeind Betreibergesellschaft mbh
+06-08-3610519,HKW,Baden-Württemberg,Erdgas,Ja,2001,2001,27.0,in Betrieb,1,Universitätsklinikum Freiburg AdöR
+12342,GuD Bitterfeld,Sachsen-Anhalt,Erdgas,Ja,2000,2000,106.0,in Betrieb,1,envia THERM GmbH
+16-30-30400102003,HKW Erfurt-Ost,Thüringen,Erdgas,Ja,2014,2000,109.1,in Betrieb,2,SWE Energie GmbH
+06-00004310411,Heizkraftwerk,Hessen,Erdgas,Ja,2013,1999,104.6,in Betrieb,2,Merck KGaA
+12-40520430000,HKW Cottbus,Brandenburg,Braunkohle,Ja,1999,1999,74.0,in Betrieb,1,HKW Heizkraftwerksgesellschaft Cottbus mbH
+14-80-00009560000,Lippendorf,Sachsen,Braunkohle,Ja,2000,1999,1750.0,in Betrieb,2,EnBW AG
+14-70-52316700250,EVC / GLOBALFOUNDRIES,Sachsen,Erdgas,Ja,1998,1998,34.3,in Betrieb,1,Energieversorgungscenter Dresden-Wilschdorf GmbH & Co. KG
+06-08-9840001,GuD Anlage WVK,Baden-Württemberg,Erdgas,Ja,1998,1998,60.1,in Betrieb,1,Solvay Acetow GmbH
+13-50-138,GuD-HKW Neubrandenburg,Mecklenburg-Vorpommern,Erdgas,Ja,1997,1997,75.0,in Betrieb,1,Neubrandenburger Stadtwerke GmbH
+12-30532000000,Heizkraftwerk FFO,Brandenburg,Braunkohle,Ja,1997,1997,45.0,in Betrieb,1,Stadtwerke Frankfurt (Oder) GmbH
+12-40716440000,Schwarze Pumpe,Brandenburg,Braunkohle,Ja,1998,1997,1500.0,in Betrieb,2,Lausitz Energie Kraftwerke AG
+06-05-300-0215520,Gasturbine,Nordrhein-Westfalen,Erdgas,Ja,1996,1996,51.9,in Betrieb,1,Basell Polyolefine GmbH
+14-30-55047380000,Heizkraftwerk Leipzig-Nord,Sachsen,Erdgas,Ja,1996,1996,167.0,in Betrieb,1,Stadtwerke Leipzig GmbH
+03-10-10257401440,BP Werk Lingen,Niedersachsen,Erdgas,Ja,1996,1996,66.0,in Betrieb,1,BP Europa SE
+13-30-2102110,GuD Marienehe,Mecklenburg-Vorpommern,Erdgas,Ja,1996,1996,108.0,in Betrieb,1,Stadtwerke Rostock AG
+06-11-01-1105503,Mitte,Berlin,Erdgas,Ja,1996,1996,444.0,in Betrieb,1,Vattenfall GmbH
+12110,Kraftwerk Dessau,Sachsen-Anhalt,Braunkohle,Ja,1996,1996,49.0,in Betrieb,1,Kraftwerk Dessau GmbH
+16-30-31400103005,Heizkraftwerk Gera-Nord,Thüringen,Erdgas,Ja,1996,1996,74.0,in Betrieb,1,Energieversorgung Gera GmbH
+18042,Zielitz,Sachsen-Anhalt,Erdgas,Ja,1996,1996,52.0,in Betrieb,1,K+S AG
+12358,Schkopau,Sachsen-Anhalt,Braunkohle,Ja,1996,1996,900.0,in Betrieb,2,Uniper SE
+06-05-900-0235121,Egger Kraftwerk Brilon,Nordrhein-Westfalen,Erdgas,Ja,1996,1996,13.5,in Betrieb,1,Egger Holzwerkstoffe Brilon GmbH & Co. KG
+14326,GuD-Ikw Staßfurt,Sachsen-Anhalt,Erdgas,Ja,1996,1996,132.0,in Betrieb,2,CIECH Energy Deutschland GmbH
+06-05-100-0018507,KWK-Anlage Krefeld VM,Nordrhein-Westfalen,Erdgas,Ja,2005,1995,39.8,in Betrieb,2,Cargill Deutschland GmbH
+06-05-100-0387357,INEOS Kraftwerk,Nordrhein-Westfalen,Erdgas,Ja,1995,1995,24.0,in Betrieb,1,INEOS Solvents Germany GmbH
+06-05-300-0181417,Kraftwerk,Nordrhein-Westfalen,Braunkohle,Ja,1995,1995,23.0,in Betrieb,3,Martinswerk GmbH
+06-05-100-0990908,HKW 2,Nordrhein-Westfalen,Erdgas,Ja,1995,1995,24.5,in Betrieb,1,Energieversorgung Oberhausen AG
+15397,Werk Klein Wanzleben,Sachsen-Anhalt,Erdgas,Nein,1994,1994,23.4,Sonderfall,1,Nordzucker AG
+18040,Wählitz,Sachsen-Anhalt,Braunkohle,Ja,1994,1994,31.0,in Betrieb,1,Mitteldeutsche Braunkohlengesellschaft mbH
+16591,Industriekraftwerk Bernburg (IKB),Sachsen-Anhalt,Erdgas,Ja,1994,1994,66.0,in Betrieb,1,Solvay Chemicals GmbH
+13-30-1010101,KNG Kraftwerk Rostock,Mecklenburg-Vorpommern,Steinkohle,Ja,1994,1994,514.0,in Betrieb,1,EnBW AG
+06-05-300-0054298,HKW Südstadt,Nordrhein-Westfalen,Erdgas,Ja,1994,1994,35.0,in Betrieb,1,RheinEnergie AG
+13-40-1300408,HKW Schwerin Süd,Mecklenburg-Vorpommern,Erdgas,Ja,1994,1994,44.9,in Betrieb,1,Energieversorgung Schwerin GmbH & Co. Erzeugung KG
+13770,ILK-GuD,Sachsen-Anhalt,Erdgas,Ja,1998,1994,146.0,in Betrieb,4,InfraLeuna GmbH
+12-60510410000,Kirchmöser,Brandenburg,Erdgas,Nein,1994,1994,160.0,in Betrieb,1,Uniper SE
+12-40669070000,GuD Schwarzheide,Brandenburg,Erdgas,Ja,1994,1994,122.0,in Betrieb,1,BASF Schwarzheide GmbH
+16873,EZ1,Sachsen-Anhalt,Braunkohle,Ja,1993,1993,23.3,in Betrieb,1,"Südzucker AG, Werk Zeitz"
+14-30-56918040000,Kombikraftwerk,Sachsen,Erdgas,Ja,1993,1993,46.6,in Betrieb,1,Stora Enso Sachsen GmbH
+06-02-B10117A007,GuD Tiefstack,Hamburg,Steinkohle,Ja,2009,1993,321.0,in Betrieb,2,Vattenfall GmbH
+07-01-126351,Gemeinschaftskraftwerk Weig,Rheinland-Pfalz,Erdgas,Ja,1992,1992,42.0,in Betrieb,1,Moritz J. Weig GmbH & Co KG
+06-02-B28903H003,Heizkraftwerk,Hamburg,Erdgas,Ja,1992,1992,22.5,in Betrieb,1,ADM Hamburg Aktiengesellschaft
+06-05-800-0203946,Goldenberg,Nordrhein-Westfalen,Braunkohle,Ja,1993,1992,85.0,Sonderfall,3,RWE AG
+07-05-8153238,HKW 1 Werk Offstein,Rheinland-Pfalz,Erdgas,Ja,1992,1992,30.0,in Betrieb,1,Südzucker AG Mannheim
+07-05-8290552,Kraftwerk Mitte,Rheinland-Pfalz,Erdgas,Ja,2005,1992,954.5,in Betrieb,3,BASF SE
+07-04-6048443,Co-Generation,Rheinland-Pfalz,Erdgas,Ja,1991,1991,11.5,in Betrieb,1,Grace GmbH
+06-09-100-0088-0001,Nord 2,Bayern,Steinkohle,Ja,1991,1991,332.7,in Betrieb,1,SWM Services GmbH
+06-05-800-0197010,Ville/Berrenrath,Nordrhein-Westfalen,Braunkohle,Ja,1991,1991,98.0,in Betrieb,1,RWE AG
+06-76400010631,Kraftwerk 2,Hessen,Erdgas,Ja,2012,1990,34.2,in Betrieb,2,Papierfabrik Adolf Jass Schwarza GmbH
+06-11-01-1105604,Moabit,Berlin,Steinkohle,Ja,1990,1990,89.0,in Betrieb,1,Vattenfall GmbH
+GAS-0002,Ahrensfelde,Brandenburg,Erdgas,Nein,1990,1990,150.0,vorläufig stillgelegt,4,Lausitz Energie Kraftwerke AG
+06-00059010413,Heizkraftwerk Offenbach,Hessen,Steinkohle,Ja,1990,1990,54.0,in Betrieb,1,Energieversorgung Offenbach AG
+06-05-100-0030723,HKW Elberfeld ,Nordrhein-Westfalen,Steinkohle,Ja,1989,1989,85.0,in Betrieb,1,WSW Energie & Wasser AG
+06-00464010412,HKW West,Hessen,Steinkohle,Ja,1989,1989,123.0,in Betrieb,2,Mainova AG
+06-00453010412,Heizkraftwerk,Hessen,Steinkohle,Ja,2012,1989,248.5,in Betrieb,3,Infraserv GmbH & Co. Höchst KG
+07-05-8030815,HKW Karcherstr.,Rheinland-Pfalz,Steinkohle,Ja,1996,1989,25.0,in Betrieb,2,SWK - Stadtwerke Kaiserslautern
+03-06-06060316030,GKH,Niedersachsen,Steinkohle,Ja,1989,1989,272.0,in Betrieb,2,Stadtwerke Hannover AG
+14-60-48821410003,HKW Chemnitz  Nord II,Sachsen,Braunkohle,Ja,1990,1988,147.6,in Betrieb,2,eins - energie in sachsen GmbH & Co. KG
+06-10-0020157,HKW Römerbrücke,Saarland,Steinkohle,Ja,2012,1988,125.0,in Betrieb,2,Energie SaarLorLux AG
+06-11-01-1105609,Reuter West,Berlin,Steinkohle,Ja,1988,1987,564.0,in Betrieb,2,Vattenfall GmbH
+GAS-0001,Thyrow,Brandenburg,Erdgas,Nein,1989,1987,296.0,Netzreserve,8,Lausitz Energie Kraftwerke AG
+06-05-700-0105516,Heyden,Nordrhein-Westfalen,Steinkohle,Nein,1987,1987,875.0,in Betrieb,1,Uniper SE
+06-14600010611,FKK,Hessen,Braunkohle,Ja,1988,1987,83.5,in Betrieb,2,Städtische Werke Energie + Wärme GmbH
+14-20-48821410003,HKW Chemnitz  Nord II,Sachsen,Erdgas,Ja,1986,1986,57.2,vorläufig stillgelegt,1,eins - energie in sachsen GmbH & Co. KG
+06-08-4124448,,Baden-Württemberg,Steinkohle,Ja,1986,1986,18.5,in Betrieb,1,Koehler SE
+06-09-100-0003-0003,Zolling,Bayern,Steinkohle,Ja,1986,1986,472.0,in Betrieb,1,ENGIE Deutschland AG
+06-05-500-0338944,Ibbenbüren,Nordrhein-Westfalen,Steinkohle,Ja,1985,1985,794.0,in Betrieb,1,RWE AG
+06-05-100-0031758,HKW I,Nordrhein-Westfalen,Steinkohle,Ja,1985,1985,95.0,in Betrieb,1,Stadtwerke Duisburg AG
+03-01-01241117210,HKW West,Niedersachsen,Steinkohle,Ja,2015,1985,410.4,in Betrieb,5,Volkswagen AG
+06-08-2797933,Rheinhafen-Dampfkraftwerk,Baden-Württemberg,Steinkohle,Ja,2014,1984,1741.0,in Betrieb,4,EnBW AG
+03-01-01010157480,HKW-Mitte,Niedersachsen,Steinkohle,Ja,1984,1984,43.3,in Betrieb,1,Braunschweiger Versorgungs-AG & Co. KG
+06-10-00100999,Kraftwerk Bexbach,Saarland,Steinkohle,Nein,1983,1983,726.0,Netzreserve,1,STEAG GmbH
+06-08-1195689,Restmüll-Heizkraftwerk Stuttgart-Münster,Baden-Württemberg,Steinkohle,Ja,1984,1982,90.0,in Betrieb,2,EnBW AG
+06-05-100-0431554,KW Voerde,Nordrhein-Westfalen,Steinkohle,Nein,1985,1982,1390.0,stillgelegt,2,RWE AG
+06-10-00101000,Heizkraftwerk,Saarland,Steinkohle,Ja,1989,1982,390.0,in Betrieb,2,Steag GmbH
+06-11-01-1105501,Klingenberg,Berlin,Erdgas,Ja,1981,1981,164.0,in Betrieb,1,Vattenfall GmbH
+06-05-900-0205103,Bergkamen,Nordrhein-Westfalen,Steinkohle,Ja,1981,1981,717.0,in Betrieb,1,RWE AG
+12-40710010000,KW Jänschwalde,Brandenburg,Braunkohle,Ja,1989,1981,2790.0,in Betrieb,6,Lausitz Energie Kraftwerke AG
+06-09-500-0112-0001,HKW Erlangen,Bayern,Steinkohle,Ja,2014,1980,45.7,in Betrieb,3,Erlanger Stadtwerke AG
+06-09-100-0088-0005,Süd GT 62,Bayern,Erdgas,Ja,2004,1980,651.9,in Betrieb,6,SWM Services GmbH
+18037,Grubenheizkraftwerk,Sachsen-Anhalt,Braunkohle,Ja,1979,1979,45.0,in Betrieb,1,ROMONTA GmbH
+06-04-11_2001178_8_0,KW Hafen,Bremen,Steinkohle,Ja,2014,1979,422.0,in Betrieb,2,swb Erzeugung GmbH & Co. KG
+03-01-01010098080,KWM,Niedersachsen,Steinkohle,Nein,1979,1979,690.0,in Betrieb,1,Stadtwerke Hannover AG
+14-70-46630660001,Boxberg,Sachsen,Braunkohle,Ja,2012,1979,2427.0,in Betrieb,4,Lausitz Energie Kraftwerke AG
+06-05-300-0079450,Kohlekraftwerk,Nordrhein-Westfalen,Braunkohle,Ja,1978,1978,19.5,in Betrieb,1,Smurfit Kappa Zülpich Papier GmbH
+01-50-01000004838,Heizkraftwerk FL,Schleswig-Holstein,Steinkohle,Ja,2016,1978,222.0,in Betrieb,6,Stadtwerke Flensburg GmbH
+06-08-1383701,Heizkraftwerk Magirusstraße,Baden-Württemberg,Steinkohle,Ja,1978,1978,20.7,in Betrieb,1,Fernwärme Ulm GmbH
+07-04-6021280,Kraftwerk Mainz,Rheinland-Pfalz,Erdgas,Ja,2001,1977,769.2,in Betrieb,2,Kraftwerke Mainz-Wiesbaden AG
+06-09-171-0009-0B01,Burghausen 01 - GT,Bayern,Erdgas,Ja,2001,1977,170.0,in Betrieb,2,Wacker Chemie AG
+06-10-00101003,Weiher,Saarland,Steinkohle,Ja,1976,1976,655.6,Netzreserve,1,Steag GmbH
+03-09-09281566110,Wilhelmshaven,Niedersachsen,Steinkohle,Nein,1976,1976,757.0,in Betrieb,1,Uniper SE
+06-11-01-1105603,Charlottenburg,Berlin,Erdgas,Ja,1975,1975,144.0,in Betrieb,1,Vattenfall GmbH
+06-09-100-0088-0003,Freimann GT 2,Bayern,Erdgas,Ja,1975,1975,160.0,stillgelegt,2,SWM Services GmbH
+06-19200010636,Gaskraftwerk,Hessen,Erdgas,Ja,1975,1975,13.2,Sonderfall,1,DS Smith Paper Deutschland GmbH
+06-05-100-0167182,GT,Nordrhein-Westfalen,Erdgas,Ja,2016,1974,1119.4,in Betrieb,5,Stadtwerke Düsseldorf AG
+06-00464020412,HKW Niederrad,Hessen,Erdgas,Ja,2005,1973,126.0,in Betrieb,2,Mainova AG
+03-10-10257673950,Emsland,Niedersachsen,Erdgas,Ja,2011,1973,1837.0,in Betrieb,5,RWE AG
+03-06-06254353820,Landesbergen Gas,Niedersachsen,Erdgas,Nein,1973,1973,487.0,in Betrieb,2,Statkraft Markets GmbH
+03-04-04224004080,Emden Gas,Niedersachsen,Erdgas,Nein,1973,1973,485.0,in Betrieb,2,Statkraft Markets GmbH
+06-08-1371304,Heizkraftwerk Stuttgart-Gaisburg,Baden-Württemberg,Steinkohle,Ja,2009,1973,77.6,in Betrieb,2,EnBW AG
+06-05-900-0865327,Gersteinwerk,Nordrhein-Westfalen,Steinkohle,Nein,1984,1973,2011.0,in Betrieb,9,RWE AG
+06-09-500-0368-0001,Franken 1,Bayern,Erdgas,Nein,1976,1973,823.0,in Betrieb,2,Uniper SE
+06-05-100-0248923,Neurath,Nordrhein-Westfalen,Braunkohle,Ja,2012,1972,4211.0,in Betrieb,7,RWE AG
+03-03-03030273580,Dow Stade,Niedersachsen,Erdgas,Ja,2014,1972,363.0,in Betrieb,2,Dow Deutschland Anlagengesellschaft mbH
+06-11-01-1105607,Lichterfelde,Berlin,Erdgas,Ja,1974,1972,432.0,in Betrieb,3,Vattenfall GmbH
+06-05-900-0045033,Kraftwerk Werdohl-Elverlingsen,Nordrhein-Westfalen,Steinkohle,,1982,1971,496.0,in Betrieb,2,Mark-E AG
+06-08-1741292,Heizkraftwerk Altbach/Deizisau,Baden-Württemberg,Steinkohle,Ja,1997,1971,1022.0,in Betrieb,6,EnBW AG
+06-09-600-0025-0001,Heizkraftwerke an der Friedensbrücke,Bayern,Erdgas,Ja,2009,1971,122.0,in Betrieb,4,Heizkraftwerk Würzburg GmbH
+06-05-100-0853075,KW West,Nordrhein-Westfalen,Steinkohle,Nein,1971,1971,640.0,stillgelegt,2,Steag GmbH
+01-50-02000283604,Gemeinschaftskraftwerk Kiel,Schleswig-Holstein,Steinkohle,Ja,1970,1970,323.0,in Betrieb,1,Gemeinschaftskraftwerk Kiel GmbH
+06-04-11_2039669_2_0,Farge,Bremen,Steinkohle,Nein,1969,1969,350.0,in Betrieb,1,ENGIE Deutschland AG
+06-11-01-1105602,Reuter,Berlin,Steinkohle,Ja,1969,1969,124.0,in Betrieb,1,Vattenfall GmbH
+06-09-671-0140-0001,Heizkraftwerk der Sappi Stockstadt GmbH,Bayern,Steinkohle,Ja,1969,1969,24.8,in Betrieb,1,Sappi Stockstadt GmbH
+06-09-190-0036-0002,HKW3 UPM Schongau,Bayern,Erdgas,Ja,2015,1969,129.0,in Betrieb,2,UPM GmbH
+06-08-3042693,Heizkraftwerk Pforzheim GmbH,Baden-Württemberg,Steinkohle,Ja,1990,1969,79.39999999999999,in Betrieb,3,Heizkraftwerk Pforzheim GmbH
+03-09-09281337040,PKV Kraftwerk,Niedersachsen,Erdgas,Ja,1989,1968,58.6,in Betrieb,2,Papier- u. Kartonfabrik Varel GmbH & Co. KG
+06-04-11_2001178_8_2,KWK-Anlage,Bremen,Steinkohle,Ja,2016,1968,586.3,in Betrieb,3,Gemeinschaftskraftwerk Bremen GmbH und Co. KG
+06-05-500-0342658,Scholven,Nordrhein-Westfalen,Steinkohle,Ja,1985,1968,2126.0,in Betrieb,6,Uniper SE
+06-90032200632,Wintershall,Hessen,Erdgas,Ja,1967,1967,109.5,in Betrieb,1,K+S AG
+06-05-300-0890760,Kessel 4,Nordrhein-Westfalen,Braunkohle,Ja,1983,1967,12.200000000000001,in Betrieb,2,Papierfabrik Schoellershammer H. A. Schoeller Söhne GmbH & Co KG
+06-05-700-0020290,HKW Schildescher Straße,Nordrhein-Westfalen,Erdgas,Ja,1978,1966,64.0,Sonderfall,2,Stadtwerke Bielefeld GmbH
+06-08-2948214,GKM ,Baden-Württemberg,Steinkohle,Ja,2015,1966,2363.0,in Betrieb,6,Grosskraftwerk Mannheim AG
+06-05-500-0875741,Kraftwerk III,Nordrhein-Westfalen,Steinkohle,Ja,2016,1966,375.2,in Betrieb,6,Evonik Degussa GmbH
+06-09-761-0026-0001,UPM Augsburg,Bayern,Erdgas,Ja,1966,1966,29.0,vorläufig stillgelegt,1,UPM GmbH Werk Augsburg
+16-62-09401231000,Unterbreizbach,Thüringen,Erdgas,Ja,1965,1965,33.6,in Betrieb,1,K+S AG
+06-05-300-0923949,HKW Merkenich,Nordrhein-Westfalen,Braunkohle,Ja,2010,1965,198.8,in Betrieb,3,RheinEnergie AG
+06-08-1020129,Heizkraftwerk Heilbronn,Baden-Württemberg,Steinkohle,Ja,1985,1965,1028.0,in Betrieb,3,EnBW AG
+06-00176010435,Staudinger,Hessen,Steinkohle,Ja,1992,1965,1624.0,in Betrieb,4,Uniper SE
+1,Datteln,Nordrhein-Westfalen,Steinkohle,Ja,1969,1964,303.0,stillgelegt,3,Uniper SE
+06-08-2142201,Kraftwerk Walheim,Baden-Württemberg,Steinkohle,Nein,1967,1964,244.0,Netzreserve,2,EnBW AG
+06-05-900-0079017,Westfalen,Nordrhein-Westfalen,Steinkohle,Nein,2014,1963,2116.7,in Betrieb,5,RWE AG
+06-05-900-0327252,KW Herne,Nordrhein-Westfalen,Steinkohle,Ja,1989,1963,862.0,in Betrieb,3,Steag GmbH
+06-10-0075248,Kraftwerk Ensdorf,Saarland,Steinkohle,Ja,2011,1963,389.0,in Betrieb,2,Gemeinschaft nach Bruchteilen der Saarstahl AG (SAG) und Saarschmiede GmbH Freiformschmiede (SSF)
+06-05-300-0326774,Niederaußem,Nordrhein-Westfalen,Braunkohle,Ja,2002,1963,3656.0,in Betrieb,9,RWE AG
+06-90031210632,Hattorf,Hessen,Erdgas,Ja,2013,1962,52.3,in Betrieb,2,K+S AG
+06-05-100-0888309,HKW Sachtleben,Nordrhein-Westfalen,Braunkohle,Ja,1962,1962,27.5,in Betrieb,1,Huntsman P&A Germany GmbH
+06-05-900-0884101,KW Lünen,Nordrhein-Westfalen,Steinkohle,Ja,1969,1962,473.0,in Betrieb,2,Steag GmbH
+06-05-300-9046797,G-Kraftwerk,Nordrhein-Westfalen,Steinkohle,Ja,1981,1962,130.0,in Betrieb,2,Currenta GmbH & Co. OHG
+01-50-56050192711,Wedel,Schleswig-Holstein,Steinkohle,Ja,1962,1961,260.0,in Betrieb,2,Vattenfall GmbH
+06-26200010633,"GuD Baunatal, VW Werksgelände",Hessen,Erdgas,Ja,2013,1961,90.2,in Betrieb,2,Volkswagen AG
+06-05-100-0365906,KW Walsum,Nordrhein-Westfalen,Steinkohle,Ja,2013,1959,1224.0,in Betrieb,3,Steag GmbH
+06-05-100-9021016,Kraftwerk N 230,Nordrhein-Westfalen,Steinkohle,Ja,1971,1957,136.0,in Betrieb,2,Currenta GmbH & Co. OHG
+06-05-100-0081105,Frimmersdorf,Nordrhein-Westfalen,Braunkohle,Ja,1970,1957,2008.0,Sicherheitsbereitschaft,13,RWE AG
+06-05-300-0877384,Weisweiler,Nordrhein-Westfalen,Braunkohle,Ja,2006,1955,2619.0,in Betrieb,8,RWE AG
+03-01-01244641360,Werk Clauen,Niedersachsen,Erdgas,Ja,1951,1951,15.8,Sonderfall,1,Nordzucker AG
