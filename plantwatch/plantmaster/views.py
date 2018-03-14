@@ -212,10 +212,11 @@ def impressum(request):
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider1 = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS)
     lower, upper = create_low_up(slider1)
-    plant_list = Plants.objects.all().filter(latestexpanded__range=(lower, upper)).order_by(sort_method + sort_criteria)
+    plant_list = Plants.objects.all().filter(initialop__range=(lower, upper)).order_by(sort_method + sort_criteria)
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
     block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
+    block_list = block_list.filter(initialop__range=(lower, upper))
     block_list = create_block_list(block_list, filter_dict)
     plant_list = create_block_list(plant_list, filter_dict)
 
