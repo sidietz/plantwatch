@@ -63,13 +63,13 @@ def forge_sources_dict(block_list, power_type):
         tmp = filter_or(block_list, "energysource", [source])
         factor = SOURCES_DICT[source]
         factors.append(factor)
-        raw_power = tmp.all().aggregate(Sum(power_type))[power_type+'__sum'] or 0
+        raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
         power = round(raw_power, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
         whole_power += anual_power
         count = tmp.all().count()
         sources_dict[source] = [count, power, anual_power, factor]
-    power = block_list.all().aggregate(Sum(power_type))[power_type+'__sum'] or 1
+    power = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
     power = round(power, 2)
     count = block_list.all().count()
     whole_power = round(whole_power, 2)
@@ -242,7 +242,7 @@ def blocks(request):
 
     block_list = block_list[::1]
     block_tmp_dict = list(map(model_to_dict, block_list))
-    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate","fullload", "netpower"]
+    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "fullload", "netpower"]
     key_list = ["energysource", "blockid", "plantid"]
     block_dict = create_blocks_dict(block_tmp_dict, value_list, key_list)
 
@@ -302,8 +302,8 @@ def plants_2(request):
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
     block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
-    #block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
-    #block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
+    # block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
+    # block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
     block_list = create_block_list(block_list, filter_dict)
     plant_list = create_block_list(plant_list, filter_dict)
 
@@ -365,4 +365,3 @@ def plant(request, plantid):
         'blocks_of_plant': blocks_of_plant
     }
     return render(request, "plantmaster/plant.html", context)
-

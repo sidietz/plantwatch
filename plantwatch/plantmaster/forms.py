@@ -10,4 +10,3 @@ class BlocksForm(forms.Form):
     select_opstate = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
     slider1 = forms.CharField(widget=forms.HiddenInput)
     slider2 = forms.CharField(widget=forms.HiddenInput)
-
