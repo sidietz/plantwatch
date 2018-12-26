@@ -22,7 +22,7 @@ class Addresses(models.Model):
 
 class Blocks(models.Model):
     plantid = models.TextField(blank=True, null=True)
-    #plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
+    # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
     blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
@@ -33,11 +33,12 @@ class Blocks(models.Model):
     state = models.TextField(blank=True, null=True)
     endop = models.TextField(blank=True, null=True)
     company = models.TextField(blank=True, null=True)
+    fullload = models.FloatField(blank=True, null=True)
+    ophours = models.FloatField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'blocks'
-
 
 
 class Plants(models.Model):
@@ -64,7 +65,7 @@ class Pollutions(models.Model):
     pollutant = models.TextField()
     amount = models.FloatField(blank=True, null=True)
     potency = models.IntegerField(blank=True, null=True)
-    unit_2 = models.TextField(blank=True, null=True)
+    unit = models.TextField(db_column="unit_2", blank=True, null=True)
     year = models.IntegerField()
 
     class Meta:
