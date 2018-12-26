@@ -1,5 +1,7 @@
 # plantwatch
-[![Code Health](https://landscape.io/github/oberam-eng/plantwatch/master/landscape.svg?style=flat-square)](https://landscape.io/github/oberam-eng/plantwatch/master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/848d2d7834c447d1a8d48d186110f7b1)](https://www.codacy.com/app/oberam-eng/plantwatch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oberam-eng/plantwatch&amp;utm_campaign=Badge_Grade)
+[![Maintainability](https://api.codeclimate.com/v1/badges/555b3f164b4c67843731/maintainability)](https://codeclimate.com/github/sidietz/plantwatch/maintainability)
+
 
 ## What is plantwatch?
 
