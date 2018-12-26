@@ -4,24 +4,34 @@
 from .models import Blocks, Plants
 from django.db.models import Sum, Min
 from django.shortcuts import render, get_object_or_404
-from django.db.models import Q
+from django.db.models import Q, F
 from django.forms.models import model_to_dict
 from .forms import BlocksForm
 from functools import reduce
-from collections import OrderedDict
 
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie"]
-SORT_CRITERIA_BLOCKS = ([('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "initialop")
+SORT_CRITERIA_BLOCKS = ([('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme'), ('fullload', 'Volllast')], "initialop")
 SORT_CRITERIA_PLANTS = ([('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "initialop")
 OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
 DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall']
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"), ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700}
+FULL_YEAR = 8760
 SLIDER_1 = "1950;2020"
+SLIDER_2p = "200;4500"
+SLIDER_2b = "200;1300"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-secondary"}
+HEADER_BLOCKS = ['Kraftwerk','Block', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland','Volllast [in %]', 'Nennleistung [in MW]']
+SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
+
+SLIDER = [[1950, 2020, 1950, 2020], [300, 4500, 0, 5000]]
+
+SL_1 = [1950, 2020, 1950, 2020, 5]
+SL_2b = [200, 1300, 0, 1300, 100]
+SL_2p = [300, 4500, 0, 4500, 300]
 
 
 def filter_and(queryset, filtered, filters):
@@ -31,7 +41,8 @@ def filter_and(queryset, filtered, filters):
 
 
 def filter_or(queryset, filtered, filters):
-    # Thanks to https://stackoverflow.com/questions/852414/how-to-dynamically-compose-an-or-query-filter-in-django
+    """Chain or filters
+    Thanks to https://stackoverflow.com/questions/852414/how-to-dynamically-compose-an-or-query-filter-in-django"""
     query = reduce(lambda q, value: q | Q(**{filtered: value}), filters, Q())
     queryset = queryset.all().filter(query)
     return queryset
@@ -66,16 +77,44 @@ def forge_sources_dict(block_list, power_type):
     return sources_dict
 
 
-def create_low_up(lowup):
-    return lowup.split(';')
+def handle_sliders(sliders):
+    new_sliders = list(map(handle_slider, sliders))
+    return new_sliders
 
 
-def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS):
+def handle_slider(slider):
+    new_slider = list(map(int, slider.split(';')))
+    return new_slider
+
+
+def handle_slider_1(slider):
+    new_slider = handle_slider(slider)
+    new_slider.extend(SL_1[2:])
+    return new_slider
+
+
+def handle_slider_2(slider, is_plants):
+    new_slider = handle_slider(slider)
+    if is_plants:
+        new_slider.extend(SL_2p[2:])
+    else:
+        new_slider.extend(SL_2b[2:])
+    # raise TypeError(new_slider)
+    return new_slider
+
+
+def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     slider1 = SLIDER_1
+
+    if plants:
+        sl2 = SLIDER_2p
+    else:
+        sl2 = SLIDER_2b
+    slider2 = sl2
     sort_criteria = SORT_CRITERIA[1]
     sort_method = ""
     search_federalstate = []
-    search_power = []
+    search_power = ['Braunkohle', "Steinkohle"]
     search_opstate = DEFAULT_OPSTATES
     search_chp = []
 
@@ -87,6 +126,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS):
         search_opstate = request.POST.getlist('select_opstate', DEFAULT_OPSTATES)
         search_chp = request.POST.getlist('select_chp', [])
         slider1 = request.POST.get('slider1', SLIDER_1)
+        slider2 = request.POST.get('slider2', sl2)
         sort_method = request.POST.get('sort_method', sort_method)
     else:
         form = BlocksForm()
@@ -116,8 +156,11 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS):
                                                                'Netzreserve', 'Sicherheitsbereitschaft', 'Sonderfall']
     form.fields['select_opstate'].label = "Filtere nach Betriebszustand:"
 
-    form.fields['slider1'].initial = SLIDER_1
+    form.fields['slider1'].initial = slider1
     form.fields['slider1'].label = "Filtere nach Zeitraum"
+
+    form.fields['slider2'].initial = slider2
+    form.fields['slider2'].label = "Filtere nach Nennleistung"
 
     if not search_power:
         search_power = SOURCES_LIST
@@ -128,42 +171,86 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS):
     if not search_federalstate:
         search_federalstate = FEDERAL_STATES
 
-    return form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider1
+    slider_1 = handle_slider_1(slider1)
+    slider_2 = handle_slider_2(slider2, plants)
+    # raise TypeError(slider_2)
+    return form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, [slider_1,
+                                                                                                             slider_2]
 
 
 def create_block_list(block_list, filter_dict):
-
     for filter_tag, filtered in filter_dict.items():
         block_list = filter_or(block_list, filter_tag, filtered)
-
     return block_list
 
 
-def blocks(request):
-    form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider1 = initialize_form(request)
+def efficiency(request):
+    form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, sliders = initialize_form(
+        request)
 
-    lower, upper = create_low_up(slider1)
+    #  lower, upper = create_low_up(slider1)
 
     block_list = Blocks.objects.order_by(sort_method + sort_criteria)
-    filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate, "chp": search_chp}
+    filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate,
+                   "chp": search_chp}
     block_list = create_block_list(block_list, filter_dict)
 
-    block_list = block_list.filter(initialop__range=(lower, upper))
+    block_list = block_list.filter(initialop__range=sliders[0][0:1])
+    block_list = block_list.filter(fullload__is_null=False)
+    block_list = block_list.filter(pollutions__pollutant="CO2")
+    block_list = block_list.filter(pollutions__pollutant="CO2")
+    block_list.annotate(production=(F('blocks__netpower') * F('') * FULL_YEAR))
+    block_list.annotate(efficiency=(F('')))
 
     sources_dict = forge_sources_dict(block_list, "netpower")
 
     block_list = block_list[::1]
     block_tmp_dict = list(map(model_to_dict, block_list))
-    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
+    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "fullload", "netpower"]
     key_list = ["energysource", "blockid", "plantid"]
     block_dict = create_blocks_dict(block_tmp_dict, value_list, key_list)
 
-    header_list = ['Kraftwerk','Block', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-    sources_header = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
+    header_list = ['Kraftwerk', 'Block', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland',
+                   'Volllast [in %]', 'Nennleistung [in MW]']
+    sources_header = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]",
+                      "Volllaststunden [pro Jahr]"]
     context = {
         'header_list': header_list,
-        'upper': upper,
-        'lower': lower,
+        'form': form,
+        'block_dict': block_dict,
+        'sources_dict': sources_dict,
+        'sources_header': sources_header,
+        'plant_mapper': PLANT_COLOR_MAPPING,
+        'range': range(2),
+    }
+    return render(request, 'plantmaster/blocks.html', context)
+
+
+def blocks(request):
+    form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, sliders = initialize_form(request)
+    # slider = list(map(create_low_up, sliders))
+    slider = sliders
+
+    block_list = Blocks.objects.order_by(sort_method + sort_criteria)
+    filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate, "chp": search_chp}
+    block_list = create_block_list(block_list, filter_dict)
+
+    block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
+    block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
+
+    sources_dict = forge_sources_dict(block_list, "netpower")
+
+    block_list = block_list[::1]
+    block_tmp_dict = list(map(model_to_dict, block_list))
+    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate","fullload", "netpower"]
+    key_list = ["energysource", "blockid", "plantid"]
+    block_dict = create_blocks_dict(block_tmp_dict, value_list, key_list)
+
+    header_list = HEADER_BLOCKS
+    sources_header = SOURCES_BLOCKS
+    context = {
+        'header_list': header_list,
+        'slider': slider,
         'form': form,
         'block_dict': block_dict,
         'sources_dict': sources_dict,
@@ -210,13 +297,13 @@ def impressum(request):
 
 
 def plants_2(request):
-    form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider1 = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS)
-    lower, upper = create_low_up(slider1)
-    plant_list = Plants.objects.all().filter(initialop__range=(lower, upper)).order_by(sort_method + sort_criteria)
+    form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
+    plant_list = Plants.objects.all().filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
     block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
-    block_list = block_list.filter(initialop__range=(lower, upper))
+    #block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
+    #block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
     block_list = create_block_list(block_list, filter_dict)
     plant_list = create_block_list(plant_list, filter_dict)
 
@@ -240,10 +327,10 @@ def plants_2(request):
 
     header_list = ['Kraftwerk', 'Name', 'Inbetriebnahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamtleistung [in MW]']
     sources_header = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
+    slider_list = slider
     context = {
         'header_list': header_list,
-        'upper': upper,
-        'lower': lower,
+        'slider': slider_list,
         'form': form,
         'plant_mapper': PLANT_COLOR_MAPPING,
         'block_dict': block_dict,
@@ -252,15 +339,6 @@ def plants_2(request):
         'range': range(2),
     }
     return render(request, 'plantmaster/blocks.html', context)
-
-
-def create_plant_dict(blocks_tmp_dict):
-    blocks_of_plant = OrderedDict
-    for ablock in blocks_tmp_dict:
-        key = ablock["blockid"]
-        value = create_blocks_dict(ablock)
-        blocks_of_plant[key] = value
-    return blocks_of_plant
 
 
 def plant(request, plantid):

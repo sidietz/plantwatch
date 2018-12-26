@@ -3,6 +3,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [0.0.13] - 2018-12-27
+### Added
+- slider to filter by net/total power
+
+### Changed
+- updated data to 2018-11-19
+- gas fired and nuclear power plants are not shown by default anymore
+- plants with a power output below a certain cutoff value are not shown by default anymore
+
+### Fixed
+- calculation of summary in plants, consistency between plants and blocks
+- minor fixes in impressum
+
+### Removed
+- some dead code
+- some unneeded files
 
 ## [0.0.12a] - 2018-03-14
 ### Changed
