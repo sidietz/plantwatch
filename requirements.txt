@@ -1,1 +1,5 @@
-django
+Django==2.1.7
+Jinja2==2.10
+MarkupSafe==1.1.1
+pkg-resources==0.0.0
+pytz==2018.9

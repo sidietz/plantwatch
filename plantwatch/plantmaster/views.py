@@ -12,7 +12,7 @@ from functools import reduce
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie"]
-SORT_CRITERIA_BLOCKS = ([('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme'), ('fullload', 'Volllast')], "initialop")
+SORT_CRITERIA_BLOCKS = ([('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "initialop")
 SORT_CRITERIA_PLANTS = ([('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "initialop")
 OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
 DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall']
@@ -21,16 +21,14 @@ SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700}
 FULL_YEAR = 8760
 SLIDER_1 = "1950;2020"
-SLIDER_2p = "200;4500"
-SLIDER_2b = "200;1300"
+SLIDER_2p = "300;4500"
+SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-secondary"}
-HEADER_BLOCKS = ['Kraftwerk','Block', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland','Volllast [in %]', 'Nennleistung [in MW]']
+HEADER_BLOCKS = ['Kraftwerk','Block', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
 SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
 
-SLIDER = [[1950, 2020, 1950, 2020], [300, 4500, 0, 5000]]
-
 SL_1 = [1950, 2020, 1950, 2020, 5]
-SL_2b = [200, 1300, 0, 1300, 100]
+SL_2b = [250, 1500, 0, 1500, 250]
 SL_2p = [300, 4500, 0, 4500, 300]
 
 
@@ -63,13 +61,13 @@ def forge_sources_dict(block_list, power_type):
         tmp = filter_or(block_list, "energysource", [source])
         factor = SOURCES_DICT[source]
         factors.append(factor)
-        raw_power = tmp.all().aggregate(Sum(power_type))[power_type+'__sum'] or 0
+        raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
         power = round(raw_power, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
         whole_power += anual_power
         count = tmp.all().count()
         sources_dict[source] = [count, power, anual_power, factor]
-    power = block_list.all().aggregate(Sum(power_type))[power_type+'__sum'] or 1
+    power = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
     power = round(power, 2)
     count = block_list.all().count()
     whole_power = round(whole_power, 2)
@@ -114,7 +112,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     sort_criteria = SORT_CRITERIA[1]
     sort_method = ""
     search_federalstate = []
-    search_power = ['Braunkohle', "Steinkohle"]
+    search_power = ['Braunkohle', "Steinkohle", "Kernenergie"]
     search_opstate = DEFAULT_OPSTATES
     search_chp = []
 
@@ -235,14 +233,18 @@ def blocks(request):
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate, "chp": search_chp}
     block_list = create_block_list(block_list, filter_dict)
 
+    # print(block_list)
+
     block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
     block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
+
+    # print(block_list)
 
     sources_dict = forge_sources_dict(block_list, "netpower")
 
     block_list = block_list[::1]
     block_tmp_dict = list(map(model_to_dict, block_list))
-    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate","fullload", "netpower"]
+    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
     key_list = ["energysource", "blockid", "plantid"]
     block_dict = create_blocks_dict(block_tmp_dict, value_list, key_list)
 
@@ -302,8 +304,8 @@ def plants_2(request):
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
     block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
-    #block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
-    #block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
+    # block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
+    # block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
     block_list = create_block_list(block_list, filter_dict)
     plant_list = create_block_list(plant_list, filter_dict)
 
@@ -326,7 +328,7 @@ def plants_2(request):
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
     header_list = ['Kraftwerk', 'Name', 'Inbetriebnahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamtleistung [in MW]']
-    sources_header = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
+    sources_header = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]"]
     slider_list = slider
     context = {
         'header_list': header_list,
@@ -365,4 +367,3 @@ def plant(request, plantid):
         'blocks_of_plant': blocks_of_plant
     }
     return render(request, "plantmaster/plant.html", context)
-
