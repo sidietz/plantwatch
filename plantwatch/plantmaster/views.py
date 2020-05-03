@@ -354,11 +354,11 @@ def plant(request, plantid):
     tp = plant.totalpower
 
     blocks_tmp_dict = list(map(model_to_dict, blocks_list))
-    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
+    value_list = ["blockname", "blockdescription", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
     key_list = ["energysource", "blockid", "plantid"]
     blocks_of_plant = create_blocks_dict(blocks_tmp_dict, value_list, key_list)
 
-    blocks_header_list = ['BlockID', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+    blocks_header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
     data_list = [plantid, plantname, block_count, le, tp]
     header_list = ['KraftwerkID', 'Kraftwerkname', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
     context = {
