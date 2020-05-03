@@ -1,7 +1,7 @@
 Table 1:
 blocks:
 
-CREATE TABLE blocks(    KraftwerkID TEXT,    BlockID TEXT NOT NULL PRIMARY KEY,    company TEXT,    blockname TEXT, federalstate TEXT,    initialop INTEGER,    state TEXT,     energysource Text,    netpower REAL);
+CREATE TABLE blocks(    KraftwerkID TEXT,    BlockID TEXT NOT NULL PRIMARY KEY, blockname Text     company TEXT,    plantname TEXT, federalstate TEXT,    initialop INTEGER,    state TEXT,     energysource Text,    netpower REAL);
 
 
 CREATE TABLE addresses(

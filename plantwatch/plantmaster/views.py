@@ -24,7 +24,7 @@ SLIDER_1 = "1950;2020"
 SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-secondary"}
-HEADER_BLOCKS = ['Kraftwerk','Block', 'Name', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
 SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
 
 SL_1 = [1950, 2020, 1950, 2020, 5]
@@ -244,7 +244,7 @@ def blocks(request):
 
     block_list = block_list[::1]
     block_tmp_dict = list(map(model_to_dict, block_list))
-    value_list = ["blockname", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
+    value_list = ["blockname", "blockdescription", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
     key_list = ["energysource", "blockid", "plantid"]
     block_dict = create_blocks_dict(block_tmp_dict, value_list, key_list)
 
@@ -284,8 +284,8 @@ def block(request, blockid):
     plant_id = block.plantid
     error = True if not plant_id else False
 
-    data_list = [plant_id, block.blockname, address.plz, address.place, address.street, address.federalstate, block.netpower]
-    header_list = ['PlantID', 'Name', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
+    data_list = [plant_id, block.blockname, block.blockdescription, address.plz, address.place, address.street, address.federalstate, block.netpower]
+    header_list = ['PlantID', 'Name', 'Description', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
     context = {
         'data_list': zip(header_list, data_list),
         'plant_id': plant_id,

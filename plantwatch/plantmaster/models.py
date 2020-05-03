@@ -24,6 +24,7 @@ class Blocks(models.Model):
     plantid = models.TextField(blank=True, null=True)
     # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
     blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
+    blockdescription = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
     initialop = models.IntegerField(blank=True, null=True)
@@ -35,7 +36,7 @@ class Blocks(models.Model):
     company = models.TextField(blank=True, null=True)
     fullload = models.FloatField(blank=True, null=True)
     ophours = models.FloatField(blank=True, null=True)
-
+    
     class Meta:
         managed = False
         db_table = 'blocks'
