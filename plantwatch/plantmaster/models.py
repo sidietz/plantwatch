@@ -7,23 +7,10 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
-class Addresses(models.Model):
-    blockid = models.TextField(unique=True, primary_key=True)
-    federalstate = models.TextField(blank=True, null=True)
-    place = models.TextField(blank=True, null=True)
-    plz = models.IntegerField(blank=True, null=True)  # Field name made lowercase.
-    street = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'addresses'
-
-
 class Blocks(models.Model):
     plantid = models.TextField(blank=True, null=True)
     # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
-    blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
+    blockid = models.TextField(unique=True, primary_key=True)
     blockdescription = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
@@ -38,6 +25,17 @@ class Blocks(models.Model):
     class Meta:
         managed = False
         db_table = 'blocks'
+
+class Addresses(models.Model):
+    blockid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
+    federalstate = models.TextField(blank=True, null=True)
+    place = models.TextField(blank=True, null=True)
+    plz = models.IntegerField(blank=True, null=True)  # Field name made lowercase.
+    street = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'addresses'
 
 
 class Plants(models.Model):
@@ -62,7 +60,7 @@ class Power(models.Model):
     powerid = models.IntegerField(unique=True, primary_key=True)
     producedat = models.DateTimeField()
     # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
-    blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
+    blockid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
     power = models.IntegerField(null=False)
     
     class Meta:
@@ -73,7 +71,7 @@ class Month(models.Model):
     monthid = models.IntegerField(unique=True, primary_key=True)
     year = models.IntegerField()
     month = models.IntegerField()
-    blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
+    blockid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
     power = models.IntegerField(null=False)
     
     class Meta:

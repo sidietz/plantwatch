@@ -380,12 +380,12 @@ def get_for_year(q, year):
 def block(request, blockid):
     block = get_object_or_404(Blocks, blockid=blockid)
 
-    address = block.blockid
+    address = get_object_or_404(Addresses, blockid=blockid)
     plant_id = block.plantid
     error = True if not plant_id else False
 
-    data_list = [plant_id, block.blockid.blockid, block.blockname, block.blockdescription, address.plz, address.place, address.street, address.federalstate, block.netpower]
-    header_list = ['PlantID', 'BlockID', 'Plantname', 'Blockname', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
+    data_list = [plant_id, block.blockid, block.blockname, block.blockdescription, block.company, address.plz, address.place, address.street, address.federalstate, block.netpower]
+    header_list = ['PlantID', 'BlockID', 'Plantname', 'Blockname', 'Unternehmen', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
     context = {
         'data_list': zip(header_list, data_list),
         'plant_id': plant_id,
@@ -553,7 +553,6 @@ def plant(request, plantid):
 
     plant = get_object_or_404(Plants, plantid=plantid)
     blocks = Blocks.objects.filter(plantid=plantid)
-    addresses = Addresses.objects.filter(blockid__in=blocks)
 
     year = 2017
 
@@ -566,7 +565,7 @@ def plant(request, plantid):
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
     try:
         pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
-        q = query_for_year_all(addresses, year)
+        q = query_for_year_all(blocks, year)
         pollutant = pollution.pollutant
         amount2 = pollution.amount
         unit2 = pollution.unit2
@@ -581,9 +580,7 @@ def plant(request, plantid):
     plantname = plant.plantname
     block_count = plant.blockcount
     le = plant.latestexpanded
-    tp = plant.totalpower
-
-    
+    tp = plant.totalpower    
 
     blocks_tmp_dict = list(map(model_to_dict, blocks_list))
     value_list = ["blockname", "blockdescription", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
@@ -631,7 +628,7 @@ def plant2(request, plantid):
 
     m1 = list(range(1,13))
     q = 0
-    blocknames = list(map(lambda x: x.blockid, blocks))
+    blocknames = blocks_list#list(map(lambda x: x.blockid, blocks))
 
     percentages = []
     yearprod = []
