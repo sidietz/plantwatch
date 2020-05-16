@@ -34,8 +34,6 @@ class Blocks(models.Model):
     state = models.TextField(blank=True, null=True)
     endop = models.TextField(blank=True, null=True)
     company = models.TextField(blank=True, null=True)
-    fullload = models.FloatField(blank=True, null=True)
-    ophours = models.FloatField(blank=True, null=True)
     
     class Meta:
         managed = False
@@ -58,18 +56,44 @@ class Plants(models.Model):
     class Meta:
         managed = False
         db_table = 'plants'
+        
+
+class Power(models.Model):
+    powerid = models.IntegerField(unique=True, primary_key=True)
+    producedat = models.DateTimeField()
+    # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
+    blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
+    power = models.IntegerField(null=False)
+    
+    class Meta:
+        managed = False
+        db_table = 'power'
+
+class Month(models.Model):
+    monthid = models.IntegerField(unique=True, primary_key=True)
+    year = models.IntegerField()
+    month = models.IntegerField()
+    blockid = models.OneToOneField(Addresses, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
+    power = models.IntegerField(null=False)
+    
+    class Meta:
+        managed = False
+        db_table = 'month'
+
 
 
 class Pollutions(models.Model):
-    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')
-    releases_to = models.TextField(blank=True, null=True)
-    pollutant = models.TextField()
-    amount = models.FloatField(blank=True, null=True)
-    potency = models.IntegerField(blank=True, null=True)
-    unit = models.TextField(db_column="unit_2", blank=True, null=True)
+    pollutionsid = models.IntegerField(unique=True, primary_key=True)
     year = models.IntegerField()
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')
+    pollutant = models.TextField()
+    releasesto = models.TextField(blank=True, null=True)
+    amount = models.FloatField(db_column="amount", blank=True, null=True)
+    amount2 = models.FloatField(db_column="amount2", blank=True, null=True)
+    unit2 = models.TextField(db_column="unit2", blank=True, null=True)
+    potency = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'pollutions'
-        unique_together = (('plantid', 'releases_to', 'pollutant', 'year'),)
+        unique_together = (('plantid', 'releasesto', 'pollutant', 'year'),)

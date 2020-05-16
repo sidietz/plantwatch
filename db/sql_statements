@@ -14,6 +14,14 @@ CREATE TABLE addresses(
     FOREIGN KEY (BlockID) REFERENCES blocks(BlockID) ON DELETE CASCADE
 );
 
+CREATE TABLE power(
+    PowerID INTEGER NOT NULL PRIMARY KEY,
+    ProducedAt TIMESTAMP NOT NULL,
+    BlockID TEXT NOT NULL,
+    Power INTEGER NOT NULL.
+    FOREIGN KEY (BlockID) REFERENCES blocks(BlockID) ON DELETE CASCADE
+)
+
 CREATE TABLE plants(
 
 );
@@ -22,6 +30,7 @@ CREATE TABLE plants(
 .mode csv
 .import blocks_3_nh.csv blocks
 .import stammdaten_nh.csv addresses
+.import produced_power_gp.csv power
 q
 
 Blocks:

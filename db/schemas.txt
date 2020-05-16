@@ -8,7 +8,7 @@ Plants:
 PlantID, BlockID, company, plantname, 
 
 Pollution:
-PlantID, year, pollutant, amount, 
+year, PlantID, pollutant, releases_to, amount, amount_2, unit_2, potency
 
 
 
@@ -21,3 +21,12 @@ Kraftwerke:
 
 
 
+year             int64
+plantid         object
+pollutant       object
+releases_to     object
+amount         float64
+potency          int64
+unit_2          object
+amount_2       float64
+dtype: object
