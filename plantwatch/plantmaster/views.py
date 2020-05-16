@@ -557,9 +557,25 @@ def plant(request, plantid):
 
     year = 2017
 
+    pollutants_dict = {}
+
     pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air')
-    pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
-    q = query_for_year_all(addresses, year)
+
+    pol_list = ["year", "amount2", "unit2"]
+    pk_list = ["year", "pollutant", "amount2"]
+    pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
+    try:
+        pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
+        q = query_for_year_all(addresses, year)
+        pollutant = pollution.pollutant
+        amount2 = pollution.amount
+        unit2 = pollution.unit2
+        pollutants_tmp_dict = list(map(model_to_dict, pollutions))
+        pol_list = ["year", "amount2", "unit2"]
+        pk_list = ["year", "pollutant", "amount2"]
+        pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
+    except:
+        q = ""
 
     blocks_list = blocks.order_by("initialop" + "")
     plantname = plant.plantname
@@ -567,9 +583,7 @@ def plant(request, plantid):
     le = plant.latestexpanded
     tp = plant.totalpower
 
-    pollutant = pollution.pollutant
-    amount2 = pollution.amount
-    unit2 = pollution.unit2
+    
 
     blocks_tmp_dict = list(map(model_to_dict, blocks_list))
     value_list = ["blockname", "blockdescription", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
@@ -580,15 +594,6 @@ def plant(request, plantid):
     data_list = [plantid, plantname, block_count, le, tp]
     header_list = ['KraftwerkID', 'Kraftwerkname', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
 
-
-
-    pollutants_tmp_dict = list(map(model_to_dict, pollutions))
-    pol_list = ["year", "amount2", "unit2"]
-    pk_list = ["year", "pollutant", "amount2"]
-    pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
-
-    pol_data_list = [year, pollutant, amount2, unit2]
-    pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
 
 
 

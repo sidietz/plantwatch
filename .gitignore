@@ -5,3 +5,9 @@
 .directory
 *.pyc
 plantwatch/plantmaster/__pycache__/*.pyc
+
+*.db
+**/*.db
+db/*.db
+db/*.bak
+

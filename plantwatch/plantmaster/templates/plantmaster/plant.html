@@ -42,7 +42,7 @@
 
     <button type="button" onclick="window.history.back()" class="btn btn-primary" style="display:inline-block; margin-right:10px;">Zurück</button>
    
-
+    {% if pollutants_dict %}
     <table class="table table-bordered table-hover table-striped table-sm">
         {% for header in pol_header_list %}
             <th> {{ header }}</th>
@@ -72,7 +72,9 @@
         </tr>
         {% endfor %}
 </table>
-    
+{% else %}
+<p></p>
+{% endif %}
     
 {% endblock %}
 
