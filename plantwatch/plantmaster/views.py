@@ -600,7 +600,7 @@ def plant(request, plantid):
         'blocks_of_plant': blocks_of_plant,
         'pollutants_dict': pollutants_dict,
         'pol_header_list': pol_header_list,
-
+        'plant_id': plantid,
         'q': q,
     }
     return render(request, "plantmaster/plant.html", context)
@@ -609,8 +609,8 @@ def plant(request, plantid):
 def plant2(request, plantid):
 
     plant = get_object_or_404(Plants, plantid=plantid)
-    blocks = Blocks.objects.filter(plantid=plantid)
-    blocks_list = blocks.order_by("initialop" + "")
+    blocks = Blocks.objects.filter(plantid=plantid).order_by("initialop" + "")
+    blocks_list = blocks #blocks.order_by("initialop" + "")
     plantname = plant.plantname
     block_count = plant.blockcount
     le = plant.latestexpanded
@@ -702,6 +702,7 @@ def plant2(request, plantid):
         'powers3' : powers3,
         'charts': chart_dict,
         'guage_dict': guage_dict,
+        'plant_id': plantid,
         'q' : q,
         'd' : d,
     }
