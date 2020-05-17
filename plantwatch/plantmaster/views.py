@@ -558,7 +558,7 @@ def plant(request, plantid):
 
     pollutants_dict = {}
     p, z = 0, 0
-    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2" + "")
+    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
