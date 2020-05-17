@@ -18,7 +18,51 @@
         {% for header in header_list %}
             <th> {{ header }}</th>
         {% endfor %}
+
         {% for block, block_rows in blocks_of_plant.items %}
+        {% if block.0 == "Steinkohle" %}
+            <tr class="table table-danger">
+        {% elif block.0 == "Braunkohle" %}
+            <tr class="table table-warning">
+        {% elif block.0 == "Erdgas" %}
+            <tr class="table table-success">
+                {% elif block.0 == "Kernenergie" %}
+                <tr class="table table-info">
+                    {% elif block.0 == "Mineralölprodukte" %}
+                    <tr class="table table-secondary">
+        {%  else %}
+            <tr class="table">
+        {% endif %}
+        <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
+        {% for column in block_rows %}
+            <td> {{ column }} </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+</table>
+
+
+    <div>
+        <span style="float: left"><button type="button" onclick="window.history.back()" class="btn btn-primary" style="display:inline-block; margin-right:10px;">Zurück</button>
+        </span>
+        <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
+    </div>
+    <!--
+    <div>
+        {{ q }} {{ p }} {{ z }}
+    </div>
+
+
+    -->
+
+    
+    {% if pollutants_dict %}
+    <table class="table table-bordered table-hover table-striped table-sm">
+        {% for header in pol_header_list %}
+            <th> {{ header }}</th>
+        {% endfor %}
+
+        {% for block, block_rows in pollutants_dict.items %}
         {% if block.0 == "Steinkohle" %}
             <tr class="table table-danger">
         {% elif block.0 == "Braunkohle" %}
@@ -30,12 +74,23 @@
         {%  else %}
             <tr class="table">
         {% endif %}
-        <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
+        <!--
+<th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
+
+
+    -->
+        <th>{{ block.1 }} </th>
         {% for column in block_rows %}
             <td> {{ column }} </td>
             {% endfor %}
         </tr>
         {% endfor %}
 </table>
-    <button type="button" onclick="window.history.back()" class="btn btn-primary" style="display:inline-block; margin-right:10px;">Zurück</button>
+{% else %}
+<p></p>
+{% endif %}
+    
+{% endblock %}
+
+{% block js %}
 {% endblock %}

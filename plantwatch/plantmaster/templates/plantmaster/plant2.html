@@ -1,0 +1,165 @@
+{% extends "plantmaster/base.html" %}
+{% block content %}
+
+{% if data_list %}
+<table class="table table-bordered table-hover table-striped table-sm">
+    {% for key, value in data_list %}
+    <tr>
+        <th> {{ key}} </th>
+        <td> {{ value}} </td>
+    </tr>
+{% endfor %}
+</table>
+{% else %}
+    <p>Keine Daten vorhanden.</p>
+{% endif %}
+    {% csrf_token %}
+    <table class="table table-bordered table-hover table-striped table-sm">
+        {% for header in header_list %}
+            <th> {{ header }}</th>
+        {% endfor %}
+
+        {% for block, block_rows in blocks_of_plant.items %}
+        {% if block.0 == "Steinkohle" %}
+            <tr class="table table-danger">
+        {% elif block.0 == "Braunkohle" %}
+            <tr class="table table-warning">
+        {% elif block.0 == "Erdgas" %}
+            <tr class="table table-success">
+                {% elif block.0 == "Kernenergie" %}
+                <tr class="table table-info">
+                    {% elif block.0 == "Mineralölprodukte" %}
+                    <tr class="table table-secondary">
+        {%  else %}
+            <tr class="table">
+        {% endif %}
+        <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
+        {% for column in block_rows %}
+            <td> {{ column }} </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+</table>
+<!--
+
+
+
+
+<p>Blocknames</p>
+{% for b in blocknames %}
+            <p> {{ b }}</p>
+        {% endfor %}
+<p>Query: {{ q }}</p>
+<p>D: {{ d }}</p>
+<p>Power: {{ power }}</p>
+{% for p in powers %}
+            <p> {{ p }}</p>
+        {% endfor %}
+
+        -->
+        <div>
+            <span style="float: left"><button type="button" onclick="window.history.back()" class="btn btn-primary" style="display:inline-block; margin-right:10px;">Zurück</button>
+            </span>
+            <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant' plant_id %}">Kraftwerksschadstoffe</a></span>
+        </div>
+
+    <!--
+
+
+
+    -->
+
+
+    <div></div>
+    <div></div>
+    
+
+    <h3>Auslastung</h3>
+    <div id="percentages"></div>
+
+    <h3>Jahresproduktion</h3>
+    <div id="yearprod"></div>
+
+    <h3>Gesamtproduktion aller Blöcke 2015 - 2019</h3>
+    <div id="chart3"></div>
+
+
+    {% for key, value in charts.items %}
+    <h3>Produktion pro Block im Jahr {{ key }}</h3>
+    <div id="chart{{ key }}"></div>
+    {% endfor %}
+{% endblock %}
+
+{% block js %}
+
+
+var gauge = c3.generate({
+    bindto: '#gauge',
+    data: {
+        columns: [
+            ['test', 91.4]
+        ],
+        type: 'gauge',
+    },
+    gauge: {
+    },
+    color: {
+        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+        threshold: {
+//            unit: 'value', // percentage is default
+//            max: 200, // 100 is default
+            values: [30, 60, 90, 100]
+        }
+    },
+    size: {
+        height: 180
+    }
+});
+
+var percentages = c3.generate({
+    bindto: '#percentages',
+    data: {
+        x: 'x',
+        columns:         {{ percentages |safe }}
+    }
+});
+
+var yearprod = c3.generate({
+    bindto: '#yearprod',
+    data: {
+        x: 'x',
+        columns:         {{ yearprod |safe }}
+    }
+});
+
+var chart3 = c3.generate({
+    bindto: '#chart3',
+    data: {
+        columns:         {{ powers3 |safe }}
+    },
+    axis: {
+        x: {
+            type: 'category',
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        } 
+
+    }
+});
+
+{% for key, value in charts.items %}
+var chart3 = c3.generate({
+    bindto: '#chart{{ key }}',
+    data: {
+        columns:         {{ value |safe }}
+    },
+    axis: {
+        x: {
+            type: 'category',
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        } 
+
+    }
+});
+{% endfor %}
+
+{% endblock %}

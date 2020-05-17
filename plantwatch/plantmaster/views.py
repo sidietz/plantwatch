@@ -1,33 +1,37 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from .models import Blocks, Plants
-from django.db.models import Sum, Min
+from .models import Blocks, Plants, Power, Addresses, Month, Pollutions
+from django.db.models import Sum, Min, Avg, Max
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q, F
 from django.forms.models import model_to_dict
 from .forms import BlocksForm
 from functools import reduce
+from datetime import date
+import calendar
+import json
 
+HOURS_IN_YEAR = 365 * 24
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
-SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie"]
-SORT_CRITERIA_BLOCKS = ([('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "initialop")
-SORT_CRITERIA_PLANTS = ([('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "initialop")
+SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte"]
+SORT_CRITERIA_BLOCKS = ([('blockname', 'Name'), ('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "netpower")
+SORT_CRITERIA_PLANTS = ([('plantname', 'Name'), ('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "totalpower")
 OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
 DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall']
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"), ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
-SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700}
+SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700, "Mineralölprodukte": 1000}
 FULL_YEAR = 8760
-SLIDER_1 = "1950;2020"
+SLIDER_1 = "1950;2025"
 SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
-PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-secondary"}
+PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
 SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
 
-SL_1 = [1950, 2020, 1950, 2020, 5]
+SL_1 = [1950, 2025, 1950, 2025, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
 SL_2p = [300, 4500, 0, 4500, 300]
 
@@ -110,7 +114,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
         sl2 = SLIDER_2b
     slider2 = sl2
     sort_criteria = SORT_CRITERIA[1]
-    sort_method = ""
+    sort_method = "-"
     search_federalstate = []
     search_power = ['Braunkohle', "Steinkohle", "Kernenergie"]
     search_opstate = DEFAULT_OPSTATES
@@ -197,8 +201,8 @@ def efficiency(request):
     block_list = block_list.filter(fullload__is_null=False)
     block_list = block_list.filter(pollutions__pollutant="CO2")
     block_list = block_list.filter(pollutions__pollutant="CO2")
-    block_list.annotate(production=(F('blocks__netpower') * F('') * FULL_YEAR))
-    block_list.annotate(efficiency=(F('')))
+    block_list = block_list.annotate(fullload=(F('blocks__netpower') * F('monthly') * FULL_YEAR))
+    block_list = block_list.annotate(efficiency=(F('')))
 
     sources_dict = forge_sources_dict(block_list, "netpower")
 
@@ -277,23 +281,6 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
     return block_dict
 
 
-def block(request, blockid):
-    block = get_object_or_404(Blocks, blockid=blockid)
-
-    address = block.blockid
-    plant_id = block.plantid
-    error = True if not plant_id else False
-
-    data_list = [plant_id, block.blockname, block.blockdescription, address.plz, address.place, address.street, address.federalstate, block.netpower]
-    header_list = ['PlantID', 'Name', 'Description', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
-    context = {
-        'data_list': zip(header_list, data_list),
-        'plant_id': plant_id,
-        'error': error
-    }
-    return render(request, "plantmaster/block.html", context)
-
-
 def impressum(request):
     return render(request, "plantmaster/impressum.html", {})
 
@@ -342,16 +329,360 @@ def plants_2(request):
     }
     return render(request, 'plantmaster/blocks.html', context)
 
+def query_for_month_many2(blocks, year, month):
+    start_date = date(year, month, 1)
+    end_date = date(year, month+1, 1)
+    q = Power.objects.filter(blockid__in=blocks)
+    power = q.filter(producedat__range=(start_date, end_date)).aggregate(Sum("power"))['power__sum']
+    return power or 0
+
+
+def query_for_month_many(blocks, year, month):
+    q = Month.objects.filter(blockid__in=blocks)
+    power = q.filter(year=year, month=month).aggregate(Sum("power"))['power__sum']
+    return power or 0
+
+def query_for_month(blockid, year, month):
+    q = Month.objects.filter(blockid=blockid)
+    power = q.filter(year=year, month=month).aggregate(Sum("power"))['power__sum']
+    return power or 0
+
+def query_for_year_all(blocks, year):
+    q = Month.objects.filter(blockid__in=blocks)
+    power = q.filter(year=year).aggregate(Sum("power"))['power__sum']
+    return power or 0
+
+def query_for_year(blockid, year):
+    q = Month.objects.filter(blockid=blockid)
+    power = q.filter(year=year).aggregate(Sum("power"))['power__sum']
+    return power or 0
+
+def query2(block):
+    power = Power.objects.filter(blockid=block.blockid, producedat__date=date(2018, 8, 13))
+    return power
+
+def query(block):
+    q = Power.objects.filter(blockid=block.blockid)
+    return q
+
+def get_aggs(q):
+    minimum = q.aggregate(Min("power"))['power__min']
+    maximum = q.aggregate(Max("power"))['power__max']
+    avg = q.aggregate(Avg("power"))['power__avg']
+    return ["power", minimum, maximum, avg]
+
+def get_for_year(q, year):
+    power = q.filter(producedat__year=year)
+
+    return power
+
+
+def block(request, blockid):
+    block = get_object_or_404(Blocks, blockid=blockid)
+
+    address = get_object_or_404(Addresses, blockid=blockid)
+    plant_id = block.plantid
+    error = True if not plant_id else False
+
+    data_list = [plant_id, block.blockid, block.blockname, block.blockdescription, block.company, address.plz, address.place, address.street, address.federalstate, block.netpower]
+    header_list = ['PlantID', 'BlockID', 'Plantname', 'Blockname', 'Unternehmen', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
+    context = {
+        'data_list': zip(header_list, data_list),
+        'plant_id': plant_id,
+        'error': error
+    }
+    return render(request, "plantmaster/block.html", context)
+
+
+#def plant(request, plantid):
+#    return plant_year(request, plantid, 2019)
+
+def gen_row_m(blocknames, year):
+    m1 = list(range(1,13))
+    return list(map(lambda x: query_for_month_many(blocknames, year, x), m1))
+
+def gen_row_y(blocknames, year):
+    return list(map(lambda x: query_for_year(x, year), blocknames))
+
+def get_chart_data_m(blocknames, y1, y2):
+
+
+    m1 = list(range(1,13))
+    
+    #head = get_month_header()
+
+    powers = []
+    for i in range(y1, y2+1):
+        p = [i] + gen_row_m(blocknames, i)
+        powers.append(p)
+    
+    #print(powers)
+    return powers
+
+def get_month_header():
+    m1 = list(range(1,13))
+
+    m2 = list(map(lambda x: calendar.month_abbr[x], m1))
+    m2.insert(0, "x")
+    return m2
+
+def get_chart_data_b(blocknames, year):
+
+    powers = []
+    for block in blocknames:
+        p = [block.blockid] + gen_row_m([block], year)
+        powers.append(p)
+    
+    #print(powers)
+    return powers
+
+def get_chart_data_whole_y2(blocknames, year):
+
+    #head = ["x"] + blocknames
+    powers = []
+    for block in blocknames:
+        p = [block.blockid] + gen_row_y([block], year)
+        powers.append(p)
+    
+    #print(powers)
+    return powers
+
+def get_chart_data_whole_y(blocknames, y1, y2):
+    head = ["x"] + list(range(y1, y2+1))
+    powers = [head]
+    for block in blocknames:
+        p = [block.blockid] + [gen_row_y([block], year) for year in range(y1, y2+1)]
+        powers.append(p)
+    
+    #print(powers)
+    return powers
+
+
+def get_chart_data_y(blocknames, y1, y2):
+
+    #head = ["x"] + blocknames
+    powers = []
+    for i in range(y1, y2+1):
+        p = [i] + gen_row_y(blocknames, i)
+        powers.append(p)
+    
+    #print(powers)
+    return powers
+
+'''
+ [['x', 2015, 2016, 2017, 2018, 2019],
+ ['BNA1401b', [3527270], [6902114], [6776868], [7600485], [6597178]],
+ ['BNA1401a', [4597335], [6226422], [6397973], [7570517], [5553160]],
+ ['BNA0700', [2826215], [3933523], [3303061], [4131712], [3160021]],
+ ['BNA0699', [2975076], [2992213], [4161728], [4296797], [1689022]],
+ ['BNA0698', [1460920], [1758575], [1971850], [1907709], [882157]],
+ ['BNA0697', [1482192], [1990156], [2271638], [1971377], [1303110]],
+ ['BNA0696', [1393787], [1665595], [2229252], [1985128], [1656708]]]
+'''
+
+def get_block_power(blockid):
+    block = Blocks.objects.get(blockid=blockid)
+    netpower = block.netpower
+    return
+
+def get_gague_from_powers(powers):
+
+    years = powers[0][1:]
+    data = powers[1:]
+    
+    blocks = [x[0] for x in data]
+    vals = [x[1:] for x in data]
+
+    block_power = [get_block_power(block) for block in blocks]
+
+    percentage = [HOURS_IN_YEAR for idx, p in enumerate(block_power)]
+    percentage = [HOURS_IN_YEAR for p in block_power]
+
+
+
+'''
+        columns:         [
+        ['BNA1401b', [37.986452140949424], [74.33137330920997], [72.98255363142931], [81.85238433703799], [71.0474067373137]],
+        ['BNA1401a', [49.51037089687258], [67.05460067200828], [68.90209571810115], [81.52964805720686], [59.803997587662614]],
+        ['BNA0700', [53.415113096858086], [74.34309700928362], [62.42744337597146], [78.08884453717984], [59.72400511052648]],
+        ['BNA0699', [55.95066687729909], [56.27295329226001], [78.2673978620809], [80.80756847434422], [31.764535517892472]],
+        ['BNA0698', [57.11359229373866], [68.75019547132045], [77.08802464502408], [74.58047945205479], [34.487278726465256]],
+        ['BNA0697', [57.55102040816327], [77.27440747988693], [88.20387972540614], [76.54525052029945], [50.59756779424099]],
+        ['BNA0696', [54.118403068990155], [64.67225017861026], [86.55810269313204], [77.07917870344485], [64.32718292796571]]]
+    }
+});
+
+var yearprod = c3.generate({
+    bindto: '#yearprod',
+    data: {
+        x: 'x',
+        columns:         [['x', 2015, 2016, 2017, 2018, 2019],
+        ['BNA1401b', [3527270], [6902114], [6776868], [7600485], [6597178]],
+        ['BNA1401a', [4597335], [6226422], [6397973], [7570517], [5553160]],
+        ['BNA0700', [2826215], [3933523], [3303061], [4131712], [3160021]],
+        ['BNA0699', [2975076], [2992213], [4161728], [4296797], [1689022]],
+        ['BNA0698', [1460920], [1758575], [1971850], [1907709], [882157]],
+        ['BNA0697', [1482192], [1990156], [2271638], [1971377], [1303110]],
+        ['BNA0696', [1393787], [1665595], [2229252], [1985128], [1656708]]]
+    }
+});
+
+
+'''
+
+def get_percentages_from_yearprod2(yearprod, blocks):
+
+    data = yearprod[1:]
+    blocks_str = [x[0] for x in data]
+    vals = [x[1:] for x in data]
+
+    block_power = [block.netpower for block in blocks]
+    percentage = [[[value[0] * 100 / (HOURS_IN_YEAR * block_power[idx])] for value in entry] for idx, entry in enumerate(vals)]
+    blocks_percs = [[[blocks_str[idx]] + entry] for idx, entry in enumerate(percentage)]
+
+    #p4 = [x[0] for x in blocks_percs]
+    result = [x[0] for x in blocks_percs]
+    blocks_str.insert(0, 'x')
+
+    head = yearprod[0]
+    result.insert(0, head)
+
+    return result
 
 def plant(request, plantid):
 
     plant = get_object_or_404(Plants, plantid=plantid)
     blocks = Blocks.objects.filter(plantid=plantid)
+
+    year = 2017
+
+    pollutants_dict = {}
+    p, z = 0, 0
+    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2" + "")
+
+    pol_list = ["year", "amount2", "unit2"]
+    pk_list = ["year", "pollutant", "amount2"]
+    pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
+    try:
+        pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
+        q = query_for_year_all(blocks, year)
+        p = pollution.amount
+        z = p / q
+        # p = pollution.aggregate(Sum(amount))[amount + '__sum']
+        pollutant = pollution.pollutant
+        amount2 = pollution.amount
+        unit2 = pollution.unit2
+        pollutants_tmp_dict = list(map(model_to_dict, pollutions))
+        pol_list = ["year", "amount2", "unit2"]
+        pk_list = ["year", "pollutant", "amount2"]
+        pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
+    except:
+        q = ""
+
     blocks_list = blocks.order_by("initialop" + "")
     plantname = plant.plantname
     block_count = plant.blockcount
     le = plant.latestexpanded
+    tp = plant.totalpower    
+
+    blocks_tmp_dict = list(map(model_to_dict, blocks_list))
+    value_list = ["blockname", "blockdescription", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
+    key_list = ["energysource", "blockid", "plantid"]
+    blocks_of_plant = create_blocks_dict(blocks_tmp_dict, value_list, key_list)
+
+    blocks_header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+    data_list = [plantid, plantname, block_count, le, tp]
+    header_list = ['KraftwerkID', 'Kraftwerkname', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
+
+    context = {
+        'data_list': zip(header_list, data_list),
+        'header_list': blocks_header_list,
+        'blocks_of_plant': blocks_of_plant,
+        'pollutants_dict': pollutants_dict,
+        'pol_header_list': pol_header_list,
+        'plant_id': plantid,
+        'q': q,
+        'p': p,
+        'z': z,
+    }
+    return render(request, "plantmaster/plant.html", context)
+
+
+def plant2(request, plantid):
+
+    plant = get_object_or_404(Plants, plantid=plantid)
+    blocks = Blocks.objects.filter(plantid=plantid).order_by("initialop" + "")
+    blocks_list = blocks #blocks.order_by("initialop" + "")
+    plantname = plant.plantname
+    block_count = plant.blockcount
+    le = plant.latestexpanded
     tp = plant.totalpower
+
+    power, minp, maxp, avg = 0, 0, 0, 0
+    powers = [minp, maxp, avg]
+    powers2 = []
+    #q = query(blocks[0])
+
+    pivblock = blocks[0]
+
+    #pag = q.aggregate(Sum('power'))
+    d = len(blocks)
+
+    m1 = list(range(1,13))
+    q = 0
+    blocknames = blocks_list#list(map(lambda x: x.blockid, blocks))
+
+    percentages = []
+    yearprod = []
+    
+    powers3 = 0
+
+    guage_dict = {}
+    chart_dict = {}
+
+    m1 = list(range(1,13))
+    
+    try:
+        
+        power = query_for_month_many(blocknames, "2018", "1")
+
+        #powers = get_aggs(q)
+        #powers = json.dumps(get_aggs(q))
+
+        powers3 = get_chart_data_m(blocknames, 2015, 2019)
+        yearprod = get_chart_data_whole_y(blocknames, 2015, 2019)
+
+        percentages = get_percentages_from_yearprod2(yearprod, blocks)
+
+        years = list(range(2015, 2020))[::-1]
+        diaglist = [get_chart_data_b(blocknames, x) for x in years]
+
+        #print(diaglist)
+
+
+
+        for idx, diag in enumerate(diaglist):
+            chart_dict[years[idx]] = diag
+
+        #chartnums = list(range(0, len(diaglist)))
+
+        #print(chart_dict)
+
+        powers2 = diaglist[2]
+
+        # = ["2018"] + list(map(lambda x: query_for_month(pivblock, "2018", x), m1))
+        #powers2 = [query_for_month(q, "2018", "1")]
+        
+        d = len(powers)
+    except TypeError:
+        d = d
+
+    #Entry.objects.filter(pub_date__date=datetime.date(2005, 1, 1))
+
+    
+
+
+    mhd = {}
 
     blocks_tmp_dict = list(map(model_to_dict, blocks_list))
     value_list = ["blockname", "blockdescription", "initialop", "endop", "chp", "state", "federalstate", "netpower"]
@@ -364,6 +695,19 @@ def plant(request, plantid):
     context = {
         'data_list': zip(header_list, data_list),
         'header_list': blocks_header_list,
-        'blocks_of_plant': blocks_of_plant
+        'blocks_of_plant': blocks_of_plant,
+        'blocknames': blocknames,
+        'power' : power,
+        'yearprod' : yearprod,
+        'percentages': percentages,
+        'powers2' : powers2,
+        'powers3' : powers3,
+        'charts': chart_dict,
+        'guage_dict': guage_dict,
+        'plant_id': plantid,
+        'q' : q,
+        'd' : d,
     }
-    return render(request, "plantmaster/plant.html", context)
+    return render(request, "plantmaster/plant2.html", context)
+
+
