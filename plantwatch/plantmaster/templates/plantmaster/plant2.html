@@ -26,8 +26,10 @@
             <tr class="table table-warning">
         {% elif block.0 == "Erdgas" %}
             <tr class="table table-success">
-        {% elif block.0 == "Kernenergie" %}
-            <tr class="table table-secondary">
+                {% elif block.0 == "Kernenergie" %}
+                <tr class="table table-info">
+                    {% elif block.0 == "Mineralölprodukte" %}
+                    <tr class="table table-secondary">
         {%  else %}
             <tr class="table">
         {% endif %}

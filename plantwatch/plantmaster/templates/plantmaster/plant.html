@@ -26,8 +26,10 @@
             <tr class="table table-warning">
         {% elif block.0 == "Erdgas" %}
             <tr class="table table-success">
-        {% elif block.0 == "Kernenergie" %}
-            <tr class="table table-secondary">
+                {% elif block.0 == "Kernenergie" %}
+                <tr class="table table-info">
+                    {% elif block.0 == "Mineralölprodukte" %}
+                    <tr class="table table-secondary">
         {%  else %}
             <tr class="table">
         {% endif %}
@@ -45,6 +47,14 @@
         </span>
         <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
     </div>
+    <!--
+    <div>
+        {{ q }} {{ p }} {{ z }}
+    </div>
+
+
+    -->
+
     
     {% if pollutants_dict %}
     <table class="table table-bordered table-hover table-striped table-sm">

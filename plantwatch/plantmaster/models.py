@@ -27,7 +27,7 @@ class Blocks(models.Model):
         db_table = 'blocks'
 
 class Addresses(models.Model):
-    blockid = models.ForeignKey(Blocks, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
+    blockid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
     federalstate = models.TextField(blank=True, null=True)
     place = models.TextField(blank=True, null=True)
     plz = models.IntegerField(blank=True, null=True)  # Field name made lowercase.

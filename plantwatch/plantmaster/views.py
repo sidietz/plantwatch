@@ -15,19 +15,19 @@ import json
 HOURS_IN_YEAR = 365 * 24
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
-SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie"]
+SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte"]
 SORT_CRITERIA_BLOCKS = ([('blockname', 'Name'), ('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "initialop")
 SORT_CRITERIA_PLANTS = ([('plantname', 'Name'), ('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "initialop")
 OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
 DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall']
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"), ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
-SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700}
+SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700, "Mineralölprodukte": 1000}
 FULL_YEAR = 8760
 SLIDER_1 = "1950;2025"
 SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
-PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-secondary"}
+PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
 SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
 
@@ -557,8 +557,8 @@ def plant(request, plantid):
     year = 2017
 
     pollutants_dict = {}
-
-    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air')
+    p, z = 0, 0
+    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2" + "")
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
@@ -566,6 +566,9 @@ def plant(request, plantid):
     try:
         pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
         q = query_for_year_all(blocks, year)
+        p = pollution.amount
+        z = p / q
+        # p = pollution.aggregate(Sum(amount))[amount + '__sum']
         pollutant = pollution.pollutant
         amount2 = pollution.amount
         unit2 = pollution.unit2
@@ -591,9 +594,6 @@ def plant(request, plantid):
     data_list = [plantid, plantname, block_count, le, tp]
     header_list = ['KraftwerkID', 'Kraftwerkname', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
 
-
-
-
     context = {
         'data_list': zip(header_list, data_list),
         'header_list': blocks_header_list,
@@ -602,6 +602,8 @@ def plant(request, plantid):
         'pol_header_list': pol_header_list,
         'plant_id': plantid,
         'q': q,
+        'p': p,
+        'z': z,
     }
     return render(request, "plantmaster/plant.html", context)
 
