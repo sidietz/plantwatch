@@ -121,6 +121,13 @@ var percentages = c3.generate({
     data: {
         x: 'x',
         columns:         {{ percentages |safe }}
+    }, axis: {
+        y: {
+            max: 100,
+            min: 0,
+            // Range includes padding, set 0 if no padding needed
+            padding: {top:0, bottom:0}
+        }
     }
 });
 
