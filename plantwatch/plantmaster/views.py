@@ -116,7 +116,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     sort_criteria = SORT_CRITERIA[1]
     sort_method = "-"
     search_federalstate = []
-    search_power = ['Braunkohle', "Steinkohle", "Kernenergie"]
+    search_power = ['Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte", "Erdgas"]
     search_opstate = DEFAULT_OPSTATES
     search_chp = []
 
@@ -315,7 +315,7 @@ def plants_2(request):
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
     header_list = ['Kraftwerk', 'Name', 'Inbetriebnahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamtleistung [in MW]']
-    sources_header = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]"]
+    sources_header = SOURCES_BLOCKS
     slider_list = slider
     context = {
         'header_list': header_list,
