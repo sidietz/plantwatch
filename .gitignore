@@ -6,8 +6,7 @@
 *.pyc
 plantwatch/plantmaster/__pycache__/*.pyc
 
+*.csv
 *.db
-**/*.db
-db/*.db
-db/*.bak
+*.bak
 

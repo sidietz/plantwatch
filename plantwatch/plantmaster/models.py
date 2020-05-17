@@ -50,6 +50,8 @@ class Plants(models.Model):
     state = models.TextField(blank=True, null=True)
     blockcount = models.IntegerField(blank=True, null=True)
     company = models.TextField(blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
     class Meta:
         managed = False

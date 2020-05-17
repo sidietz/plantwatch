@@ -31,6 +31,8 @@ PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warnin
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
 SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
 
+API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
+
 SL_1 = [1950, 2025, 1950, 2025, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
 SL_2p = [300, 4500, 0, 4500, 300]
@@ -554,6 +556,14 @@ def plant(request, plantid):
     plant = get_object_or_404(Plants, plantid=plantid)
     blocks = Blocks.objects.filter(plantid=plantid)
 
+    lat, lon = plant.latitude, plant.longitude
+
+    ss2 = plant.plantname + " " + plant.company
+    ss3 = "Kraftwerk " + ss2 if "Kraftwerk" not in ss2 else ss2
+
+    ss = ss3.replace(" ", "+")
+    ss = ss.replace("&", "")
+
     year = 2017
 
     pollutants_dict = {}
@@ -591,8 +601,8 @@ def plant(request, plantid):
     blocks_of_plant = create_blocks_dict(blocks_tmp_dict, value_list, key_list)
 
     blocks_header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-    data_list = [plantid, plantname, block_count, le, tp]
-    header_list = ['KraftwerkID', 'Kraftwerkname', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
+    data_list = [plantid, plantname, plant.company, block_count, le, tp]
+    header_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
 
     context = {
         'data_list': zip(header_list, data_list),
@@ -603,7 +613,11 @@ def plant(request, plantid):
         'plant_id': plantid,
         'q': q,
         'p': p,
+        'lat': lat,
+        'lon': lon,
         'z': z,
+        'ss': ss,
+        'API': API_KEY,
     }
     return render(request, "plantmaster/plant.html", context)
 
