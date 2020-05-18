@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from .models import Blocks, Plants, Power, Addresses, Month, Pollutions
-from django.db.models import Sum, Min, Avg, Max
-from django.shortcuts import render, get_object_or_404
-from django.db.models import Q, F
-from django.forms.models import model_to_dict
+
 from .forms import BlocksForm
+from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp
+
+from django.db.models import Sum, Min, Avg, Max
+from django.db.models import Q, F
+from django.db.models import OuterRef, Subquery
+from django.forms.models import model_to_dict
+from django.shortcuts import render, get_object_or_404
+
 from functools import reduce
 from datetime import date
 import calendar
@@ -32,6 +36,10 @@ HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebna
 SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
 
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
+YEAR = 2017
+
+PRTR_YEARS = list(range(2015, 2018))
+ENERGY_YEARS = list(range(2015, 2020))
 
 SL_1 = [1950, 2025, 1950, 2025, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
@@ -291,6 +299,12 @@ def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
     plant_list = Plants.objects.all().filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
 
+    p, q, z = 1, 2, 3
+
+    q = [1, 2, 3]
+
+    q = plant_list
+
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
     block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
     # block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
@@ -328,6 +342,9 @@ def plants_2(request):
         'sources_dict': sources_dict,
         'sources_header': sources_header,
         'range': range(2),
+        'q': q,
+        'p': p,
+        'z': z,
     }
     return render(request, 'plantmaster/blocks.html', context)
 
@@ -551,15 +568,38 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
     return result
 
+def get_energy_for_plant(plantid, year):
+    tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
+    return tmp / 10**6 or 0.001
+
+def get_co2_for_plant(plantid, year):
+    return Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2 or 1
+
 def plant(request, plantid):
 
     plant = get_object_or_404(Plants, plantid=plantid)
     blocks = Blocks.objects.filter(plantid=plantid)
 
+    monthp = Monthp.objects.filter(plantid=plantid, year=YEAR).aggregate(Sum('power'))
+
+
+    energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
+    co2s = ""
+    effs = ""
+
+    effcols = ""
+    elist = []
+
     lat, lon = plant.latitude, plant.longitude
 
+    p, q, z, co2, energy = 1, 2, 3, 0, 0
+
+    q = energies
+
+    w = monthp #lant.annotate(blocks)
+
     ss2 = plant.plantname + " " + plant.company
-    ss3 = "Kraftwerk " + ss2 if "Kraftwerk" not in ss2 else ss2
+    ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
 
     ss = ss3.replace(" ", "+")
     ss = ss.replace("&", "")
@@ -577,7 +617,9 @@ def plant(request, plantid):
         pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
         q = query_for_year_all(blocks, year)
         p = pollution.amount
-        z = p / q
+        co2 = get_co2_for_plant(plantid, 2017) #pollution.amount
+        energy = get_energy_for_plant(plantid, 2017) # query_for_year_all(blocks, year)
+        z = (co2 / energy) * 10**3
         # p = pollution.aggregate(Sum(amount))[amount + '__sum']
         pollutant = pollution.pollutant
         amount2 = pollution.amount
@@ -586,6 +628,13 @@ def plant(request, plantid):
         pol_list = ["year", "amount2", "unit2"]
         pk_list = ["year", "pollutant", "amount2"]
         pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
+        energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
+        co2s = [get_co2_for_plant(plantid, x) for x in PRTR_YEARS]
+        tmp = zip(co2s, energies)
+        effs = [(x / y) * 10**3 for x, y in tmp]
+
+        effcols = list(zip(PRTR_YEARS, energies, co2s, effs))
+        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh"], effcols]
     except:
         q = ""
 
@@ -611,12 +660,18 @@ def plant(request, plantid):
         'pollutants_dict': pollutants_dict,
         'pol_header_list': pol_header_list,
         'plant_id': plantid,
-        'q': q,
+        'q': w,
         'p': p,
+        'z': z,
         'lat': lat,
         'lon': lon,
-        'z': z,
         'ss': ss,
+        'co2': co2,
+        'energy': energy,
+        'elist': elist,
+        'energies': energies,
+         'clist': co2s,
+         'effs': effs,
         'API': API_KEY,
     }
     return render(request, "plantmaster/plant.html", context)
