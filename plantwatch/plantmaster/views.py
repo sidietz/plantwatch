@@ -569,10 +569,11 @@ def get_percentages_from_yearprod2(yearprod, blocks):
     return result
 
 def get_energy_for_plant(plantid, year):
-    return Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] / 10**6
+    tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
+    return tmp / 10**6 or 0.001
 
 def get_co2_for_plant(plantid, year):
-    return Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2
+    return Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2 or 1
 
 def plant(request, plantid):
 
@@ -583,16 +584,15 @@ def plant(request, plantid):
 
 
     energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
-    co2s = [get_co2_for_plant(plantid, x) for x in PRTR_YEARS]
-    tmp = zip(co2s, energies)
-    effs = [(x / y) * 10**3 for x, y in tmp]
+    co2s = ""
+    effs = ""
 
-    effcols = list(zip(PRTR_YEARS, energies, co2s, effs))
-    elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh"], effcols]
+    effcols = ""
+    elist = []
 
     lat, lon = plant.latitude, plant.longitude
 
-    p, q, z = 1, 2, 3
+    p, q, z, co2, energy = 1, 2, 3, 0, 0
 
     q = energies
 
@@ -628,6 +628,13 @@ def plant(request, plantid):
         pol_list = ["year", "amount2", "unit2"]
         pk_list = ["year", "pollutant", "amount2"]
         pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
+        energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
+        co2s = [get_co2_for_plant(plantid, x) for x in PRTR_YEARS]
+        tmp = zip(co2s, energies)
+        effs = [(x / y) * 10**3 for x, y in tmp]
+
+        effcols = list(zip(PRTR_YEARS, energies, co2s, effs))
+        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh"], effcols]
     except:
         q = ""
 
