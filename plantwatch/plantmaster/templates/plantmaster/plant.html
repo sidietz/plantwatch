@@ -47,14 +47,18 @@
         </span>
         <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
     </div>
-    <!--
+
+
+
+
+    {{ clist }}     {{ elist }} {{ effs }}
+    {{ co2 }} {{ energy }} 
+
     <div>
-        {{ q }} {{ p }} {{ z }} {{ lat }} {{ lon }}
+        {{ q }} 
         </div>
 
-
-
-    -->
+    {{ p }} {{ z }} {{ lat }} {{ lon }}
 
 
         <div>
@@ -107,11 +111,27 @@
            
 
             </span>
+            <span style="float: inline-start">
+
+                {% if elist %}
+                <table class="table table-bordered table-hover table-striped table-sm">
+                    {% for header in elist.0 %}
+                                    <th> {{ header }}</th>
+                                {% endfor %}
+                    {% for row in elist.1 %}
+                    <tr>
+                        {% for e in row %}
+                        <td> {{ e |floatformat:2}} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+                {% else %}
+                {% endif %}
+            </span>
         </div>
        
-       
 
-    
    
     
 {% endblock %}

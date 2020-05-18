@@ -88,6 +88,22 @@
 {% else %}
     <p>Keine Blöcke gefunden.</p>
 {% endif %}
+
+<div>
+    {{ p }}
+    {{ q }}
+    {{ z }}
+</div>
+
+<div>
+
+    {% for i in q %}
+    <li> {{i }}</li>
+  {% endfor %}
+
+</div>
+
+
 {% endblock %}
 
 

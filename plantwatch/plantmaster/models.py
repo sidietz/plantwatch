@@ -79,8 +79,7 @@ class Month(models.Model):
     class Meta:
         managed = False
         db_table = 'month'
-
-
+        unique_together = ('blockid', 'year', 'month')
 
 class Pollutions(models.Model):
     pollutionsid = models.IntegerField(unique=True, primary_key=True)
@@ -97,3 +96,18 @@ class Pollutions(models.Model):
         managed = False
         db_table = 'pollutions'
         unique_together = (('plantid', 'releasesto', 'pollutant', 'year'),)
+
+
+class Monthp(models.Model):
+    monthidp = models.IntegerField(unique=True, primary_key=True)
+    year = models.IntegerField()
+    month = models.IntegerField()
+    plantid = models.OneToOneField(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
+    power = models.IntegerField(null=False)
+    
+    class Meta:
+        managed = False
+        db_table = 'monthp'
+        unique_together = ('plantid', 'year', 'month')
+
+
