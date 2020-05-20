@@ -598,7 +598,7 @@ def plant(request, plantid):
 
     w = monthp #lant.annotate(blocks)
 
-    ss2 = plant.plantname + " " + plant.company
+    ss2 = plant.plantname + " " + plant.company.split(" ")[1]
     ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
 
     ss = ss3.replace(" ", "+")
