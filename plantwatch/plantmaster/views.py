@@ -40,6 +40,7 @@ YEAR = 2017
 
 PRTR_YEARS = list(range(2015, 2018))
 ENERGY_YEARS = list(range(2015, 2020))
+YEARS = ENERGY_YEARS
 
 SL_1 = [1950, 2025, 1950, 2025, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
@@ -644,13 +645,13 @@ def plant(request, plantid):
         q = ""
     
     try:
-        energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
-        co2s = [get_co2_for_plant(plantid, x) for x in PRTR_YEARS]
+        energies = [get_energy_for_plant(plantid, x) for x in YEARS]
+        co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
         tmp = zip(co2s, energies)
         effs = [(x / y) * 10**3 for x, y in tmp]
         workload = [e / plant.totalpower * HOURS_IN_YEAR for e in energies]
 
-        effcols = list(zip(PRTR_YEARS, energies, co2s, effs, workload))
+        effcols = list(zip(YEARS, energies, co2s, effs, workload))
         elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
     except:
         q = ""
