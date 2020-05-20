@@ -583,6 +583,16 @@ def get_co2_for_plant(plantid, year):
         co2 = 0
     return co2# or 1
 
+def get_company(company):
+    cl = company.split(" ")
+    l = len(cl)
+    if l == 1:
+        return company
+    elif l == 2:
+        return "" if "niper" in company else cl[1]
+    else:
+        return ""
+
 def plant(request, plantid):
 
     plant = get_object_or_404(Plants, plantid=plantid)
@@ -606,7 +616,7 @@ def plant(request, plantid):
 
     w = monthp #lant.annotate(blocks)
 
-    ss2 = plant.plantname + " " + plant.company.split(" ")[1] if plant.company else ""
+    ss2 = plant.plantname + " " + get_company(plant.company)
     ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
 
     ss = ss3.replace(" ", "+")
