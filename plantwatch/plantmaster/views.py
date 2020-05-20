@@ -604,7 +604,11 @@ def plant(request, plantid):
     ss = ss3.replace(" ", "+")
     ss = ss.replace("&", "")
 
-    year = 2017
+    try:
+        year = 2017
+        test = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
+    except:
+        year = 2015
 
     pollutants_dict = {}
     p, z = 0, 0
