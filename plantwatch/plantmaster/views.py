@@ -569,11 +569,18 @@ def get_percentages_from_yearprod2(yearprod, blocks):
     return result
 
 def get_energy_for_plant(plantid, year):
-    tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
-    return tmp / 10**6 or 0.001
+    try:
+        tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
+    except:
+        tmp = 0.001
+    return tmp / 10**6 or 0.0001
 
 def get_co2_for_plant(plantid, year):
-    return Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2 or 1
+    try:
+        co2 = Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2
+    except:
+        co2 = 0
+    return co2# or 1
 
 def plant(request, plantid):
 
@@ -621,8 +628,9 @@ def plant(request, plantid):
         pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
         q = query_for_year_all(blocks, year)
         p = pollution.amount
-        co2 = get_co2_for_plant(plantid, 2017) #pollution.amount
-        energy = get_energy_for_plant(plantid, 2017) # query_for_year_all(blocks, year)
+        co2 = get_co2_for_plant(plantid, year) #pollution.amount
+        energy = get_energy_for_plant(plantid, year) # query_for_year_all(blocks, year)
+
         z = (co2 / energy) * 10**3
         # p = pollution.aggregate(Sum(amount))[amount + '__sum']
         pollutant = pollution.pollutant
@@ -632,13 +640,18 @@ def plant(request, plantid):
         pol_list = ["year", "amount2", "unit2"]
         pk_list = ["year", "pollutant", "amount2"]
         pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
+    except:
+        q = ""
+    
+    try:
         energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
         co2s = [get_co2_for_plant(plantid, x) for x in PRTR_YEARS]
         tmp = zip(co2s, energies)
         effs = [(x / y) * 10**3 for x, y in tmp]
+        workload = [e / plant.totalpower * HOURS_IN_YEAR for e in energies]
 
-        effcols = list(zip(PRTR_YEARS, energies, co2s, effs))
-        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh"], effcols]
+        effcols = list(zip(PRTR_YEARS, energies, co2s, effs, workload))
+        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
     except:
         q = ""
 
