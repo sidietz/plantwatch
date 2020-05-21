@@ -443,8 +443,7 @@ def get_chart_data_m(blocknames, y1, y2):
 def get_month_header():
     m1 = list(range(1,13))
 
-    m2 = list(map(lambda x: calendar.month_abbr[x], m1))
-    m2.insert(0, "x")
+    m2 = ['x'] + list(map(lambda x: calendar.month_abbr[x], m1))
     return m2
 
 def get_chart_data_b(blocknames, year):
@@ -559,8 +558,7 @@ def get_percentages_from_yearprod3(plant):
     workloads.insert(0, plant.plantid)
     result = [workloads]
 
-    head = YEARS
-    head.insert(0, 'x')
+    head = ['x'] + YEARS
     result.insert(0, head)
 
     return result
@@ -568,7 +566,7 @@ def get_percentages_from_yearprod3(plant):
 def get_percentages_from_yearprod2(yearprod, blocks):
 
     data = yearprod[1:]
-    blocks_str = [x[0] for x in data]
+    blocks_str = ['x'] + [x[0] for x in data]
     vals = [x[1:] for x in data]
 
     block_power = [block.netpower for block in blocks]
@@ -577,7 +575,6 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
     #p4 = [x[0] for x in blocks_percs]
     result = [x[0] for x in blocks_percs]
-    blocks_str.insert(0, 'x')
 
     head = yearprod[0]
     result.insert(0, head)
@@ -687,15 +684,14 @@ def plant(request, plantid):
         q = ""
     
     try:
-        years = range(2015, 2020)
-        energies = [get_energy_for_plant(plantid, x) for x in years]
-        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in years]
-        co2s = [get_co2_for_plant(plantid, x) for x in years]
+        energies = [get_energy_for_plant(plantid, x) for x in YEARS]
+        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
+        co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
         tmp = list(zip(co2s, energies))
         effs = [(x / y) * 10**3 for x, y in tmp]
         workload = [e / (plant.totalpower * HOURS_IN_YEAR) * 100 for e in e2s]
 
-        effcols = list(zip(years, energies, co2s, effs, workload))
+        effcols = list(zip(YEARS, energies, co2s, effs, workload))
         elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
     except:
         q = ""
