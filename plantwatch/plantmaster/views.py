@@ -566,7 +566,7 @@ def get_percentages_from_yearprod3(plant):
 def get_percentages_from_yearprod2(yearprod, blocks):
 
     data = yearprod[1:]
-    blocks_str = ['x'] + [x[0] for x in data]
+    blocks_str = [x[0] for x in data]
     vals = [x[1:] for x in data]
 
     block_power = [block.netpower for block in blocks]
@@ -575,6 +575,7 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
     #p4 = [x[0] for x in blocks_percs]
     result = [x[0] for x in blocks_percs]
+    blocks_str.insert(0, 'x')
 
     head = yearprod[0]
     result.insert(0, head)
