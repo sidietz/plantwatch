@@ -649,7 +649,7 @@ def get_pollutants(plantid):
     for year in PRTR_YEARS[::-1]:
         q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
         if q.exists():
-            return q
+            return year, q
 
 
 def plant(request, plantid):
@@ -690,7 +690,7 @@ def plant(request, plantid):
 
     pollutants_dict = {}
     p, z = 0, 0
-    pollutions = get_pollutants(plantid)
+    year, pollutions = get_pollutants(plantid)
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
