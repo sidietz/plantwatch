@@ -569,12 +569,16 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
     return result
 
-def get_energy_for_plant(plantid, year):
+def get_energy_for_plant(plantid, year, raw=False):
     try:
         tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
     except:
         tmp = 0.001
-    return tmp / 10**6 or 0.0001
+
+    if raw:
+        return tmp
+    else:
+        return tmp / 10**6 or 0.0001
 
 def get_co2_for_plant(plantid, year):
     try:
@@ -656,10 +660,11 @@ def plant(request, plantid):
     
     try:
         energies = [get_energy_for_plant(plantid, x) for x in YEARS]
+        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
         co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
         tmp = zip(co2s, energies)
         effs = [(x / y) * 10**3 for x, y in tmp]
-        workload = [e / plant.totalpower * HOURS_IN_YEAR for e in energies]
+        workload = [e / (plant.totalpower * HOURS_IN_YEAR) * 100 for e in e2s]
 
         effcols = list(zip(YEARS, energies, co2s, effs, workload))
         elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
