@@ -85,31 +85,17 @@
                             {% endfor %}
                     
                             {% for block, block_rows in pollutants_dict.items %}
-                            {% if block.0 == "Steinkohle" %}
-                                <tr class="table table-danger">
-                            {% elif block.0 == "Braunkohle" %}
-                                <tr class="table table-warning">
-                            {% elif block.0 == "Erdgas" %}
-                                <tr class="table table-success">
-                            {% elif block.0 == "Kernenergie" %}
-                                <tr class="table table-secondary">
-                            {%  else %}
                                 <tr class="table">
-                            {% endif %}
-                            <!--
-                    <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
-                            -->
-            
-                            <th>{{ block.1 }} </th>
-                            {% for column in block_rows %}
-                                <td> {{ column }} </td>
-                                {% endfor %}
-                            </tr>
+                                <th>{{ block.1 }} </th>
+                                    {% for column in block_rows %}
+                                        <td> {{ column }} </td>
+                                    {% endfor %}
+                                </tr>
                             {% endfor %}
-                    </table>
-                    {% else %}
-                    <p></p>
-                    {% endif %}
+                        </table>
+                        {% else %}
+                        <p></p>
+                        {% endif %}
             
                        
             

@@ -696,7 +696,7 @@ def plant(request, plantid):
     pk_list = ["year", "pollutant", "amount2"]
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
     try:
-        pollution = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
+        pollution = get_co2(plantid)
         q = query_for_year_all(blocks, year)
         p = pollution.amount
         co2 = get_co2_for_plant(plantid, year) #pollution.amount
