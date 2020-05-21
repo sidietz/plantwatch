@@ -603,13 +603,14 @@ def get_co2_for_plant(plantid, year):
 def get_company(company):
 
     tmp = company.replace("Kraftwerk", "").strip()
+    tmp = tmp.replace("Stadtwerke", "").strip()
 
     cl = tmp.split(" ")
     l = len(cl)
     if l == 1:
         return company
     elif l > 1:
-        return "" if "niper" in company else "RWE Power" if "RWE" in company else cl[0] if "ENGIE" in company else cl[1]
+        return "" if "niper" in company else "RWE Power" if "RWE" in company else cl[0] if "ENGIE" in company else cl[0]
     else:
         return ""
 
