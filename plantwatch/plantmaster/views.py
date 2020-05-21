@@ -636,6 +636,21 @@ def random_plant(request):
     return redirect('plant', random_item.plantid)
     
 
+def get_co2(plantid):
+    for year in PRTR_YEARS[::-1]:
+        try:
+            q = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
+            break
+        except:
+            pass
+    return q
+
+def get_pollutants(plantid):
+    for year in PRTR_YEARS[::-1]:
+        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
+        if q.exists():
+            return q
+
 
 def plant(request, plantid):
 
@@ -673,15 +688,9 @@ def plant(request, plantid):
     ss3 = ss3.replace("&", "%26")
     #ss3 = ss3.replace("/", "&#x2F")
 
-    try:
-        year = 2017
-        test = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
-    except:
-        year = 2015
-
     pollutants_dict = {}
     p, z = 0, 0
-    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
+    pollutions = get_pollutants(plantid)
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
