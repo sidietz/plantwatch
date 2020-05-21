@@ -601,14 +601,27 @@ def get_co2_for_plant(plantid, year):
     return co2# or 1
 
 def get_company(company):
-    cl = company.split(" ")
+
+    tmp = company.replace("Kraftwerk", "").strip()
+    tmp = tmp.replace("Stadtwerke", "").strip()
+
+    cl = tmp.split(" ")
     l = len(cl)
     if l == 1:
         return company
-    elif l == 2:
-        return "" if "niper" in company else cl[1]
+    elif l > 1:
+        return "" if "niper" in company else "RWE Power" if "RWE" in company else cl[0] if "ENGIE" in company else cl[0]
     else:
         return ""
+
+def get_plantname(plantname):
+    tmp = plantname.replace("Kraftwerk", "").strip()
+    l = len(tmp)
+
+    if l < 4:
+        return tmp if "GKM" in tmp else ""
+    else:
+        return tmp
 
 def random_plant(request):
     i = Plants.objects.filter(state__in=DEFAULT_OPSTATES).filter(totalpower__gte=300).filter(Q(energysource="Steinkohle") | Q(energysource="Braunkohle")).all()
@@ -646,8 +659,10 @@ def plant(request, plantid):
 
     w = monthp #lant.annotate(blocks)
 
-    ss2 = plant.plantname + " " + get_company(plant.company)
-    ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
+    pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
+    #ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
+
+    ss3 = comp + " Kraftwerk " + pltn
 
     ss = ss3.replace(" ", "+")
     ss = ss.replace("&", "")
