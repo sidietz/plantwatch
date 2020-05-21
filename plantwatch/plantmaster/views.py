@@ -39,7 +39,7 @@ SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahrespro
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 YEAR = 2017
 
-PRTR_YEARS = list(range(2015, 2018))
+PRTR_YEARS = list(range(2015, 2019))
 ENERGY_YEARS = list(range(2015, 2020))
 YEARS = ENERGY_YEARS
 
@@ -433,7 +433,7 @@ def get_chart_data_m(blocknames, y1, y2):
     #head = get_month_header()
 
     powers = []
-    for i in range(y1, y2+1):
+    for i in range(y1, y2):
         p = [i] + gen_row_m(blocknames, i)
         powers.append(p)
     
@@ -468,10 +468,10 @@ def get_chart_data_whole_y2(blocknames, year):
     return powers
 
 def get_chart_data_whole_y(blocknames, y1, y2):
-    head = ["x"] + list(range(y1, y2+1))
+    head = ["x"] + list(range(y1, y2))
     powers = [head]
     for block in blocknames:
-        p = [block.blockid] + [gen_row_y([block], year) for year in range(y1, y2+1)]
+        p = [block.blockid] + [gen_row_y([block], year) for year in range(y1, y2)]
         powers.append(p)
     
     #print(powers)
@@ -616,6 +616,7 @@ def get_company(company):
 
 def get_plantname(plantname):
     tmp = plantname.replace("Kraftwerk", "").strip()
+    tmp = plantname.replace("HKW", "").strip()
     l = len(tmp)
 
     if l < 4:
@@ -634,6 +635,21 @@ def random_plant(request):
     # if you want only a single random item
     return redirect('plant', random_item.plantid)
     
+
+def get_co2(plantid):
+    for year in PRTR_YEARS[::-1]:
+        try:
+            q = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
+            break
+        except:
+            pass
+    return q
+
+def get_pollutants(plantid):
+    for year in PRTR_YEARS[::-1]:
+        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
+        if q.exists():
+            return q
 
 
 def plant(request, plantid):
@@ -662,20 +678,19 @@ def plant(request, plantid):
     pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
     #ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
 
-    ss3 = comp + " Kraftwerk " + pltn
+    ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
 
-    ss = ss3.replace(" ", "+")
-    ss = ss.replace("&", "")
+    ss3 = comp + ks + pltn
 
-    try:
-        year = 2017
-        test = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
-    except:
-        year = 2015
+    ss3 = plant.plantname.replace("Werk", "") if "P&L" in plant.plantname else ss3
+
+    ss3 = ss3.replace(" ", "+")
+    ss3 = ss3.replace("&", "%26")
+    #ss3 = ss3.replace("/", "&#x2F")
 
     pollutants_dict = {}
     p, z = 0, 0
-    pollutions = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
+    pollutions = get_pollutants(plantid)
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
@@ -739,7 +754,7 @@ def plant(request, plantid):
         'z': z,
         'lat': lat,
         'lon': lon,
-        'ss': ss,
+        'ss': ss3,
         'co2': co2,
         'energy': energy,
         'elist': elist,
@@ -792,13 +807,13 @@ def plant2(request, plantid):
         #powers = get_aggs(q)
         #powers = json.dumps(get_aggs(q))
 
-        powers3 = get_chart_data_m(blocknames, 2015, 2019)
-        yearprod = get_chart_data_whole_y(blocknames, 2015, 2019)
+        powers3 = get_chart_data_m(blocknames, YEARS[0], YEARS[1])
+        yearprod = get_chart_data_whole_y(blocknames, YEARS[0], YEARS[1])
 
         percentages = get_percentages_from_yearprod2(yearprod, blocks)
         percentages2 = get_percentages_from_yearprod3(plant)
 
-        years = list(range(2015, 2020))[::-1]
+        years = YEARS[::-1]
         diaglist = [get_chart_data_b(blocknames, x) for x in years]
 
         #print(diaglist)
