@@ -7,10 +7,32 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
+class Plants(models.Model):
+    #plantid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='plantid', unique=True, primary_key=True)
+    plantid = models.TextField(primary_key=True, unique=True)
+    plantname = models.TextField(blank=True, null=True)
+    federalstate = models.TextField(blank=True, null=True)
+    energysource = models.TextField(blank=True, null=True)
+    chp = models.TextField(blank=True, null=True)
+    latestexpanded = models.IntegerField(blank=True, null=True)
+    initialop = models.IntegerField(blank=True, null=True)
+    totalpower = models.FloatField(blank=True, null=True)
+    state = models.TextField(blank=True, null=True)
+    blockcount = models.IntegerField(blank=True, null=True)
+    company = models.TextField(blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'plants'
+
 class Blocks(models.Model):
-    plantid = models.TextField(blank=True, null=True)
+    #plantid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='plantid', unique=True, primary_key=True)
+    #plantid = models(blank=True, null=True)
     # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
-    blockid = models.TextField(unique=True, primary_key=True)
+    blockid = models.TextField(unique=True, primary_key=True, db_column="blockid")
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')
     blockdescription = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
@@ -38,24 +60,7 @@ class Addresses(models.Model):
         db_table = 'addresses'
 
 
-class Plants(models.Model):
-    plantid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='plantid', unique=True, primary_key=True)
-    plantname = models.TextField(blank=True, null=True)
-    federalstate = models.TextField(blank=True, null=True)
-    energysource = models.TextField(blank=True, null=True)
-    chp = models.TextField(blank=True, null=True)
-    latestexpanded = models.IntegerField(blank=True, null=True)
-    initialop = models.IntegerField(blank=True, null=True)
-    totalpower = models.FloatField(blank=True, null=True)
-    state = models.TextField(blank=True, null=True)
-    blockcount = models.IntegerField(blank=True, null=True)
-    company = models.TextField(blank=True, null=True)
-    latitude = models.FloatField(blank=True, null=True)
-    longitude = models.FloatField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'plants'
         
 
 class Power(models.Model):

@@ -9,12 +9,13 @@ from django.db.models import Sum, Min, Avg, Max
 from django.db.models import Q, F
 from django.db.models import OuterRef, Subquery
 from django.forms.models import model_to_dict
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from functools import reduce
 from datetime import date
 import calendar
 import json
+import random
 
 HOURS_IN_YEAR = 365 * 24
 
@@ -315,7 +316,7 @@ def plants_2(request):
 
     sources_dict = forge_sources_dict(block_list, "netpower")
 
-    plant_list = plant_list[::1]
+    #plant_list = plant_list[::1]
     plant_tmp_dict = list(map(model_to_dict, plant_list))
     plant_tmp_list = []
 
@@ -401,7 +402,7 @@ def block(request, blockid):
     block = get_object_or_404(Blocks, blockid=blockid)
 
     address = get_object_or_404(Addresses, blockid=blockid)
-    plant_id = block.plantid
+    plant_id = block.plantid.plantid
     error = True if not plant_id else False
 
     data_list = [plant_id, block.blockid, block.blockname, block.blockdescription, block.company, address.plz, address.place, address.street, address.federalstate, block.netpower]
@@ -442,8 +443,7 @@ def get_chart_data_m(blocknames, y1, y2):
 def get_month_header():
     m1 = list(range(1,13))
 
-    m2 = list(map(lambda x: calendar.month_abbr[x], m1))
-    m2.insert(0, "x")
+    m2 = ['x'] + list(map(lambda x: calendar.month_abbr[x], m1))
     return m2
 
 def get_chart_data_b(blocknames, year):
@@ -550,10 +550,23 @@ var yearprod = c3.generate({
 
 '''
 
+def get_percentages_from_yearprod3(plant):
+
+    energies = [get_energy_for_plant(plant, x, raw=True) for x in YEARS]
+    workloads = [e / (plant.totalpower * HOURS_IN_YEAR) * 100 for e in energies]
+
+    workloads.insert(0, plant.plantid)
+    result = [workloads]
+
+    head = ['x'] + YEARS
+    result.insert(0, head)
+
+    return result
+
 def get_percentages_from_yearprod2(yearprod, blocks):
 
     data = yearprod[1:]
-    blocks_str = [x[0] for x in data]
+    blocks_str = ['x'] + [x[0] for x in data]
     vals = [x[1:] for x in data]
 
     block_power = [block.netpower for block in blocks]
@@ -562,19 +575,22 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
     #p4 = [x[0] for x in blocks_percs]
     result = [x[0] for x in blocks_percs]
-    blocks_str.insert(0, 'x')
 
     head = yearprod[0]
     result.insert(0, head)
 
     return result
 
-def get_energy_for_plant(plantid, year):
+def get_energy_for_plant(plantid, year, raw=False):
     try:
         tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
     except:
         tmp = 0.001
-    return tmp / 10**6 or 0.0001
+
+    if raw:
+        return tmp
+    else:
+        return tmp / 10**6 or 0.0001
 
 def get_co2_for_plant(plantid, year):
     try:
@@ -592,6 +608,19 @@ def get_company(company):
         return "" if "niper" in company else cl[1]
     else:
         return ""
+
+def random_plant(request):
+    i = Plants.objects.filter(state__in=DEFAULT_OPSTATES).filter(totalpower__gte=300).filter(Q(energysource="Steinkohle") | Q(energysource="Braunkohle")).all()
+    #j = i.filter(totalpower__range(300,5000))
+    #items = list(map(lambda x: x.plantid, i))
+    l = len(i)
+
+    # change 3 to how many random it/06-05-300-0326774/ems you want
+    random_item = i[random.randint(0, l - 1)] #random.sample(i, 1)
+    # if you want only a single random item
+    return redirect('plant', random_item.plantid)
+    
+
 
 def plant(request, plantid):
 
@@ -656,10 +685,11 @@ def plant(request, plantid):
     
     try:
         energies = [get_energy_for_plant(plantid, x) for x in YEARS]
+        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
         co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
-        tmp = zip(co2s, energies)
+        tmp = list(zip(co2s, energies))
         effs = [(x / y) * 10**3 for x, y in tmp]
-        workload = [e / plant.totalpower * HOURS_IN_YEAR for e in energies]
+        workload = [e / (plant.totalpower * HOURS_IN_YEAR) * 100 for e in e2s]
 
         effcols = list(zip(YEARS, energies, co2s, effs, workload))
         elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
@@ -750,6 +780,7 @@ def plant2(request, plantid):
         yearprod = get_chart_data_whole_y(blocknames, 2015, 2019)
 
         percentages = get_percentages_from_yearprod2(yearprod, blocks)
+        percentages2 = get_percentages_from_yearprod3(plant)
 
         years = list(range(2015, 2020))[::-1]
         diaglist = [get_chart_data_b(blocknames, x) for x in years]
@@ -797,6 +828,7 @@ def plant2(request, plantid):
         'power' : power,
         'yearprod' : yearprod,
         'percentages': percentages,
+        'percentages2': percentages2,
         'powers2' : powers2,
         'powers3' : powers3,
         'charts': chart_dict,
