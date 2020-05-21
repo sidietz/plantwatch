@@ -39,7 +39,7 @@ SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahrespro
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 YEAR = 2017
 
-PRTR_YEARS = list(range(2015, 2018))
+PRTR_YEARS = list(range(2015, 2019))
 ENERGY_YEARS = list(range(2015, 2020))
 YEARS = ENERGY_YEARS
 
