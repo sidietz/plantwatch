@@ -616,6 +616,7 @@ def get_company(company):
 
 def get_plantname(plantname):
     tmp = plantname.replace("Kraftwerk", "").strip()
+    tmp = plantname.replace("HKW", "").strip()
     l = len(tmp)
 
     if l < 4:
@@ -662,10 +663,15 @@ def plant(request, plantid):
     pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
     #ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
 
-    ss3 = comp + " Kraftwerk " + pltn
+    ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
 
-    ss = ss3.replace(" ", "+")
-    ss = ss.replace("&", "")
+    ss3 = comp + ks + pltn
+
+    ss3 = plant.plantname.replace("Werk", "") if "P&L" in plant.plantname else ss3
+
+    ss3 = ss3.replace(" ", "+")
+    ss3 = ss3.replace("&", "%26")
+    #ss3 = ss3.replace("/", "&#x2F")
 
     try:
         year = 2017
@@ -739,7 +745,7 @@ def plant(request, plantid):
         'z': z,
         'lat': lat,
         'lon': lon,
-        'ss': ss,
+        'ss': ss3,
         'co2': co2,
         'energy': energy,
         'elist': elist,
