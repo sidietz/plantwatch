@@ -58,11 +58,10 @@
 
         -->
         <div>
-            <span style="float: left"><button type="button" onclick="window.history.back()" class="btn btn-primary" style="display:inline-block; margin-right:10px;">Zurück</button>
-            </span>
+            <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
             <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant' plant_id %}">Kraftwerksschadstoffe</a></span>
         </div>
-
+        <div stye=“width:100%; style="height:3em;"> </div>
     <!--
 
 
@@ -74,7 +73,10 @@
     <div></div>
     
 
-    <h3>Auslastung</h3>
+    <h3>Auslastung Kraftwerk</h3>
+    <div id="percentages2"></div>
+
+    <h3>Auslastung Blöcke</h3>
     <div id="percentages"></div>
 
     <h3>Jahresproduktion</h3>
@@ -121,6 +123,21 @@ var percentages = c3.generate({
     data: {
         x: 'x',
         columns:         {{ percentages |safe }}
+    }, axis: {
+        y: {
+            max: 100,
+            min: 0,
+            // Range includes padding, set 0 if no padding needed
+            padding: {top:0, bottom:0}
+        }
+    }
+});
+
+var percentages2 = c3.generate({
+    bindto: '#percentages2',
+    data: {
+        x: 'x',
+        columns:         {{ percentages2 |safe }}
     }, axis: {
         y: {
             max: 100,
