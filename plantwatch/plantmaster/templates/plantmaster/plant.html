@@ -121,7 +121,7 @@
         <tr>
             <th>{{ pollutant }}</th>
             {% for p in pols %}
-            <td>{{ p.amount2|floatformat:2 }}</td>
+            <td>{{ p.amount2|floatformat:3 }}</td>
             {% endfor %}
         </tr>
         {% endfor %}
