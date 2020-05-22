@@ -425,7 +425,7 @@ def gen_row_m(blocknames, year):
 def gen_row_y(blocknames, year):
     return list(map(lambda x: query_for_year(x, year), blocknames))
 
-def get_chart_data_m(blocknames, y1, y2):
+def get_chart_data_m(blocknames, years):
 
 
     m1 = list(range(1,13))
@@ -433,7 +433,7 @@ def get_chart_data_m(blocknames, y1, y2):
     #head = get_month_header()
 
     powers = []
-    for i in range(y1, y2):
+    for i in years:
         p = [i] + gen_row_m(blocknames, i)
         powers.append(p)
     
@@ -467,22 +467,22 @@ def get_chart_data_whole_y2(blocknames, year):
     #print(powers)
     return powers
 
-def get_chart_data_whole_y(blocknames, y1, y2):
-    head = ["x"] + list(range(y1, y2))
+def get_chart_data_whole_y(blocknames, years):
+    head = ["x"] + years
     powers = [head]
     for block in blocknames:
-        p = [block.blockid] + [gen_row_y([block], year) for year in range(y1, y2)]
+        p = [block.blockid] + [gen_row_y([block], year) for year in years]
         powers.append(p)
     
     #print(powers)
     return powers
 
 
-def get_chart_data_y(blocknames, y1, y2):
+def get_chart_data_y(blocknames, years):
 
     #head = ["x"] + blocknames
     powers = []
-    for i in range(y1, y2+1):
+    for i in years:
         p = [i] + gen_row_y(blocknames, i)
         powers.append(p)
     
@@ -807,8 +807,8 @@ def plant2(request, plantid):
         #powers = get_aggs(q)
         #powers = json.dumps(get_aggs(q))
 
-        powers3 = get_chart_data_m(blocknames, YEARS[0], YEARS[1])
-        yearprod = get_chart_data_whole_y(blocknames, YEARS[0], YEARS[1])
+        powers3 = get_chart_data_m(blocknames, YEARS)
+        yearprod = get_chart_data_whole_y(blocknames, YEARS)
 
         percentages = get_percentages_from_yearprod2(yearprod, blocks)
         percentages2 = get_percentages_from_yearprod3(plant)
