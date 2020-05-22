@@ -18,6 +18,12 @@ import json
 import random
 
 HOURS_IN_YEAR = 365 * 24
+PRTR_YEARS = list(range(2007, 2019))
+ENERGY_YEARS = list(range(2015, 2020))
+YEARS = ENERGY_YEARS
+YEAR = PRTR_YEARS[-1]
+
+FULL_HOURS = "Volllaststunden [" + str(YEAR) + "]"
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte"]
@@ -34,14 +40,12 @@ SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
+SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [MW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [%]"]
 
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
-YEAR = 2017
 
-PRTR_YEARS = list(range(2007, 2019))
-ENERGY_YEARS = list(range(2015, 2020))
-YEARS = ENERGY_YEARS
+
+
 
 SL_1 = [1950, 2025, 1950, 2025, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
@@ -75,19 +79,24 @@ def forge_sources_dict(block_list, power_type):
     factors = []
     for source in SOURCES_LIST:
         tmp = filter_or(block_list, "energysource", [source])
-        factor = SOURCES_DICT[source]
-        factors.append(factor)
+        count = tmp.all().count()
         raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
+        raw_energy = Month.objects.filter(blockid__in=tmp, year=YEAR, month__in=list(range(1,13))).aggregate(Sum("power"))['power__sum']
+        energy = raw_energy / 10**6
+
+        factor = raw_energy  / raw_power
+        workload = calc_workload(raw_energy, raw_power)
+        factors.append(factor)
         power = round(raw_power, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
-        whole_power += anual_power
-        count = tmp.all().count()
-        sources_dict[source] = [count, power, anual_power, factor]
+        whole_power += energy
+
+        sources_dict[source] = [count, power, round(energy, 2), round(factor, 2), round(workload, 2)]
     power = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
     power = round(power, 2)
     count = block_list.all().count()
     whole_power = round(whole_power, 2)
-    sources_dict["Summe"] = [count, power, whole_power, round(whole_power * 1000000 / power)]
+    sources_dict["Summe"] = [count, power, whole_power, round(whole_power * 10000 / raw_power, 2), round(calc_workload(whole_power * 10**6, power), 2)]
     return sources_dict
 
 
@@ -296,6 +305,16 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
 def impressum(request):
     return render(request, "plantmaster/impressum.html", {})
 
+
+def calc_workload(energy, power):
+    return energy / (power * HOURS_IN_YEAR) * 100
+
+def calc_efficency(co2, energy):
+    try:
+        r = (co2 / energy) * 10**3
+    except:
+        r = 0
+    return r
 
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
@@ -591,7 +610,7 @@ def get_energy_for_plant(plantid, year, raw=False):
     if raw:
         return tmp
     else:
-        return tmp / 10**6 or 0.0001
+        return tmp / 10**6 or 0
 
 def get_co2_for_plant(plantid, year):
     try:
