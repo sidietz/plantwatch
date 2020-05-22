@@ -39,7 +39,7 @@ SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahrespro
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 YEAR = 2017
 
-PRTR_YEARS = list(range(2015, 2019))
+PRTR_YEARS = list(range(2007, 2019))
 ENERGY_YEARS = list(range(2015, 2020))
 YEARS = ENERGY_YEARS
 
@@ -651,6 +651,11 @@ def get_pollutants(plantid):
         if q.exists():
             return year, q
 
+def get_pollutants_any_year(plantid):
+    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-potency", "pollutant2", "year", "-amount")
+    return q
+
+
 
 def plant(request, plantid):
 
@@ -742,6 +747,8 @@ def plant(request, plantid):
     data_list = [plantid, plantname, plant.company, block_count, le, tp]
     header_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
 
+    pollutions2 = get_pollutants_any_year(plantid)
+
     context = {
         'data_list': zip(header_list, data_list),
         'header_list': blocks_header_list,
@@ -762,6 +769,7 @@ def plant(request, plantid):
          'clist': co2s,
          'effs': effs,
         'API': API_KEY,
+        'pollutions2': pollutions2,
     }
     return render(request, "plantmaster/plant.html", context)
 

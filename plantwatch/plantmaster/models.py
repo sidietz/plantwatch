@@ -96,6 +96,7 @@ class Pollutions(models.Model):
     amount2 = models.FloatField(db_column="amount2", blank=True, null=True)
     unit2 = models.TextField(db_column="unit2", blank=True, null=True)
     potency = models.IntegerField(blank=True, null=True)
+    pollutant2 = models.TextField()
 
     class Meta:
         managed = False
