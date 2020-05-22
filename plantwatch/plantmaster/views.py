@@ -670,7 +670,11 @@ def get_co2(plantid):
             pass
     return q
 
-def get_pollutants(plantid):
+def get_pollutants(plantid, year=''):
+    #TODO: fix to display least recent pollutant year instead of fixed year
+    if year:
+        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
+
     for year in PRTR_YEARS[::-1]:
         q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
         if q.exists():
