@@ -39,7 +39,7 @@ SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahrespro
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 YEAR = 2017
 
-PRTR_YEARS = list(range(2015, 2019))
+PRTR_YEARS = list(range(2007, 2019))
 ENERGY_YEARS = list(range(2015, 2020))
 YEARS = ENERGY_YEARS
 
@@ -425,7 +425,7 @@ def gen_row_m(blocknames, year):
 def gen_row_y(blocknames, year):
     return list(map(lambda x: query_for_year(x, year), blocknames))
 
-def get_chart_data_m(blocknames, y1, y2):
+def get_chart_data_m(blocknames, years):
 
 
     m1 = list(range(1,13))
@@ -433,7 +433,7 @@ def get_chart_data_m(blocknames, y1, y2):
     #head = get_month_header()
 
     powers = []
-    for i in range(y1, y2):
+    for i in years:
         p = [i] + gen_row_m(blocknames, i)
         powers.append(p)
     
@@ -467,22 +467,22 @@ def get_chart_data_whole_y2(blocknames, year):
     #print(powers)
     return powers
 
-def get_chart_data_whole_y(blocknames, y1, y2):
-    head = ["x"] + list(range(y1, y2))
+def get_chart_data_whole_y(blocknames, years):
+    head = ["x"] + years
     powers = [head]
     for block in blocknames:
-        p = [block.blockid] + [gen_row_y([block], year) for year in range(y1, y2)]
+        p = [block.blockid] + [gen_row_y([block], year) for year in years]
         powers.append(p)
     
     #print(powers)
     return powers
 
 
-def get_chart_data_y(blocknames, y1, y2):
+def get_chart_data_y(blocknames, years):
 
     #head = ["x"] + blocknames
     powers = []
-    for i in range(y1, y2+1):
+    for i in years:
         p = [i] + gen_row_y(blocknames, i)
         powers.append(p)
     
@@ -647,9 +647,14 @@ def get_co2(plantid):
 
 def get_pollutants(plantid):
     for year in PRTR_YEARS[::-1]:
-        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
+        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
         if q.exists():
             return year, q
+
+def get_pollutants_any_year(plantid):
+    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-potency", "pollutant2", "year", "-amount")
+    return q
+
 
 
 def plant(request, plantid):
@@ -690,12 +695,12 @@ def plant(request, plantid):
 
     pollutants_dict = {}
     p, z = 0, 0
-    year, pollutions = get_pollutants(plantid)
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
     try:
+        year, pollutions = get_pollutants(plantid)
         pollution = get_co2(plantid)
         q = query_for_year_all(blocks, year)
         p = pollution.amount
@@ -742,6 +747,8 @@ def plant(request, plantid):
     data_list = [plantid, plantname, plant.company, block_count, le, tp]
     header_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
 
+    pollutions2 = get_pollutants_any_year(plantid)
+
     context = {
         'data_list': zip(header_list, data_list),
         'header_list': blocks_header_list,
@@ -762,6 +769,7 @@ def plant(request, plantid):
          'clist': co2s,
          'effs': effs,
         'API': API_KEY,
+        'pollutions2': pollutions2,
     }
     return render(request, "plantmaster/plant.html", context)
 
@@ -807,8 +815,8 @@ def plant2(request, plantid):
         #powers = get_aggs(q)
         #powers = json.dumps(get_aggs(q))
 
-        powers3 = get_chart_data_m(blocknames, YEARS[0], YEARS[1])
-        yearprod = get_chart_data_whole_y(blocknames, YEARS[0], YEARS[1])
+        powers3 = get_chart_data_m(blocknames, YEARS)
+        yearprod = get_chart_data_whole_y(blocknames, YEARS)
 
         percentages = get_percentages_from_yearprod2(yearprod, blocks)
         percentages2 = get_percentages_from_yearprod3(plant)
