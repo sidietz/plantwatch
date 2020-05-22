@@ -647,7 +647,7 @@ def get_co2(plantid):
 
 def get_pollutants(plantid):
     for year in PRTR_YEARS[::-1]:
-        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("unit2", "-amount2")
+        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
         if q.exists():
             return year, q
 
