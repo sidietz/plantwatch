@@ -690,12 +690,12 @@ def plant(request, plantid):
 
     pollutants_dict = {}
     p, z = 0, 0
-    year, pollutions = get_pollutants(plantid)
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
     try:
+        year, pollutions = get_pollutants(plantid)
         pollution = get_co2(plantid)
         q = query_for_year_all(blocks, year)
         p = pollution.amount
