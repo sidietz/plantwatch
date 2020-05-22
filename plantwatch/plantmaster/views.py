@@ -344,13 +344,20 @@ def plants_2(request):
         blocks_list = Blocks.objects.all().filter(plantid=plantid)
         initialop = blocks_list.all().aggregate(Min('initialop'))['initialop__min']
         plant_list_entry["initialop"] = initialop
+        energy = get_energy_for_plant(plantid, YEAR)
+        co2 = get_co2_for_plant(plantid, YEAR)
+        plant_list_entry["co2"] = co2
+        plant_list_entry["energy"] = round(energy, 2)
+        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, YEAR, raw=True), plant_list_entry["totalpower"]), 2)
+        plant_list_entry["efficency"] = int(calc_efficency(co2, energy))
+        plant_list_entry["totalpower"] = round(plant_list_entry["totalpower"], 1)
         plant_tmp_list.append(plant_list_entry)
 
-    value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower"]
+    value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower", "energy", "workload", "efficency"]
     key_list = ["energysource", "plantid", "plantid"]
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
-    header_list = ['Kraftwerk', 'Name', 'Inbetriebnahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamtleistung [in MW]']
+    header_list = ['Kraftwerk', 'Name', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'Auslastung [%]', 'Effizienz [g/kWh]']
     sources_header = SOURCES_BLOCKS
     slider_list = slider
     context = {
