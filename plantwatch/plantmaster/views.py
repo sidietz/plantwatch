@@ -40,7 +40,7 @@ SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [MW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [%]"]
+SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [%]"]
 
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 
@@ -87,16 +87,15 @@ def forge_sources_dict(block_list, power_type):
         factor = raw_energy  / raw_power
         workload = calc_workload(raw_energy, raw_power)
         factors.append(factor)
-        power = round(raw_power, 2)
+        power = round(raw_power / 1000, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
         whole_power += energy
 
         sources_dict[source] = [count, power, round(energy, 2), round(factor, 2), round(workload, 2)]
-    power = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
-    power = round(power, 2)
+    power_c = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
+    power = round(power_c / 1000, 2)
     count = block_list.all().count()
-    whole_power = round(whole_power, 2)
-    sources_dict["Summe"] = [count, power, whole_power, round(whole_power * 10000 / raw_power, 2), round(calc_workload(whole_power * 10**6, power), 2)]
+    sources_dict["Summe"] = [count, power, round(whole_power, 2), round(whole_power * 10000 / raw_power, 2), round(calc_workload(whole_power * 10**6, power_c), 2)]
     return sources_dict
 
 
