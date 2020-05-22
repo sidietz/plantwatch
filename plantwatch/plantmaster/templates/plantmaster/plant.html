@@ -5,124 +5,106 @@
 <table class="table table-bordered table-hover table-striped table-sm">
     {% for key, value in data_list %}
     <tr>
-        <th> {{ key}} </th>
-        <td> {{ value}} </td>
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
     </tr>
 {% endfor %}
 </table>
 {% else %}
     <p>Keine Daten vorhanden.</p>
 {% endif %}
-    {% csrf_token %}
-    <table class="table table-bordered table-hover table-striped table-sm">
-        {% for header in header_list %}
-            <th> {{ header }}</th>
-        {% endfor %}
+{% csrf_token %}
 
-        {% for block, block_rows in blocks_of_plant.items %}
-        {% if block.0 == "Steinkohle" %}
-            <tr class="table table-danger">
-        {% elif block.0 == "Braunkohle" %}
-            <tr class="table table-warning">
-        {% elif block.0 == "Erdgas" %}
-            <tr class="table table-success">
-                {% elif block.0 == "Kernenergie" %}
-                <tr class="table table-info">
-                    {% elif block.0 == "Mineralölprodukte" %}
-                    <tr class="table table-secondary">
-        {%  else %}
-            <tr class="table">
-        {% endif %}
-        <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
-        {% for column in block_rows %}
-            <td> {{ column }} </td>
-            {% endfor %}
+<table class="table table-bordered table-hover table-striped table-sm">
+{% for header in header_list %}
+    <th>{{ header }}</th>
+{% endfor %}
+
+{% for block, block_rows in blocks_of_plant.items %}
+    {% if block.0 == "Steinkohle" %}
+        <tr class="table table-danger">
+    {% elif block.0 == "Braunkohle" %}
+        <tr class="table table-warning">
+    {% elif block.0 == "Erdgas" %}
+        <tr class="table table-success">
+    {% elif block.0 == "Kernenergie" %}
+        <tr class="table table-info">
+    {% elif block.0 == "Mineralölprodukte" %}
+        <tr class="table table-secondary">
+    {% else %}
+        <tr class="table">
+    {% endif %}
+    <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
+    {% for column in block_rows %}
+        <td> {{ column }} </td>
+    {% endfor %}
         </tr>
-        {% endfor %}
+{% endfor %}
 </table>
 
-    <div>
-        <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
-        <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
-    </div>
-    <div stye=“width:100%; style="height:3em;"> </div>
+<div>
+    <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
+    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
+</div>
+
+<div stye=“width:100%; style="height:3em;"> </div>
 
 
-            <!--
+<div>
+    <span style="float: left">
+        <iframe
+            width="900"
+            height="675"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key={{API}}
+            &q={{ss}}&maptype=satellite&zoom=16" allowfullscreen>
+        </iframe>
+    </span>
 
-                   {{ clist }}     {{ elist }} {{ effs }}
-    {{ co2 }} {{ energy }} 
-
-    <div>
-        {{ q }} 
-        </div>
-
-    {{ p }} {{ z }} {{ lat }} {{ lon }}
-
-
-            -->
-
- 
+    <span>
         <div>
             <span style="float: left">
-                <iframe
-                width="900"
-                height="675"
-                frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?key={{API}}
-                  &q={{ss}}&maptype=satellite&zoom=16" allowfullscreen>
-              </iframe>
-            </span>
 
-            <span>
-                <div>
-                    <span style="float: left">
-
-                        {% if pollutants_dict %}
-                        <table class="table table-bordered table-hover table-striped table-sm">
-                            {% for header in pol_header_list %}
-                                <th> {{ header }}</th>
-                            {% endfor %}
+            {% if pollutants_dict %}
+                <table class="table table-bordered table-hover table-striped table-sm">
+                {% for header in pol_header_list %}
+                    <th> {{ header }}</th>
+                {% endfor %}
                     
-                            {% for block, block_rows in pollutants_dict.items %}
-                                <tr class="table">
-                                <th>{{ block.1 }} </th>
-                                    {% for column in block_rows %}
-                                        <td> {{ column }} </td>
-                                    {% endfor %}
-                                </tr>
-                            {% endfor %}
-                        </table>
-                        {% else %}
-                        <p></p>
-                        {% endif %}
-            
-                       
-            
-                        </span>
-                        <span style="float: left">
-            
-                            {% if elist %}
-                            <table class="table table-bordered table-hover table-striped table-sm">
-                                {% for header in elist.0 %}
-                                                <th> {{ header }}</th>
-                                            {% endfor %}
-                                {% for row in elist.1 %}
-                                <tr>
-                                    {% for e in row %}
-                                    <td> {{ e |floatformat:2}} </td>
-                                    {% endfor %}
-                                </tr>
-                            {% endfor %}
-                            </table>
-                            {% else %}
-                            {% endif %}
-                        </span>
-                </div>
-
+                {% for block, block_rows in pollutants_dict.items %}
+                    <tr class="table">
+                    <th>{{ block.1 }} </th>
+                    {% for column in block_rows %}
+                        <td> {{ column }} </td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                </table>
+            {% else %}
+                <p></p>
+            {% endif %}
             </span>
             
-        </div>
+            <span style="float: left">
+                {% if elist %}
+                    <table class="table table-bordered table-hover table-striped table-sm">
+                    {% for header in elist.0 %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                    {% for row in elist.1 %}
+                        <tr>
+                        {% for e in row %}
+                            <td> {{ e |floatformat:2}} </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% else %}
+                {% endif %}
+            </span>
+       </div>
+   </span>
+</div>
        
 
    
