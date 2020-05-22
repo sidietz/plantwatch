@@ -18,6 +18,12 @@ import json
 import random
 
 HOURS_IN_YEAR = 365 * 24
+PRTR_YEARS = list(range(2007, 2019))
+ENERGY_YEARS = list(range(2015, 2020))
+YEARS = ENERGY_YEARS
+YEAR = PRTR_YEARS[-1]
+
+FULL_HOURS = "Volllaststunden [" + str(YEAR) + "]"
 
 FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg', 'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern', 'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz', 'Saarland', 'Sachsen', 'Sachsen-Anhalt', 'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte"]
@@ -34,14 +40,12 @@ SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [in MW]", "Jahresproduktion [in TWh]", "Volllaststunden [pro Jahr]"]
+SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [%]"]
 
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
-YEAR = 2017
 
-PRTR_YEARS = list(range(2007, 2019))
-ENERGY_YEARS = list(range(2015, 2020))
-YEARS = ENERGY_YEARS
+
+
 
 SL_1 = [1950, 2025, 1950, 2025, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
@@ -75,19 +79,23 @@ def forge_sources_dict(block_list, power_type):
     factors = []
     for source in SOURCES_LIST:
         tmp = filter_or(block_list, "energysource", [source])
-        factor = SOURCES_DICT[source]
-        factors.append(factor)
-        raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
-        power = round(raw_power, 2)
-        anual_power = round((raw_power * factor) / (10**6), 2)
-        whole_power += anual_power
         count = tmp.all().count()
-        sources_dict[source] = [count, power, anual_power, factor]
-    power = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
-    power = round(power, 2)
+        raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
+        raw_energy = Month.objects.filter(blockid__in=tmp, year=YEAR, month__in=list(range(1,13))).aggregate(Sum("power"))['power__sum']
+        energy = raw_energy / 10**6
+
+        factor = raw_energy  / raw_power
+        workload = calc_workload(raw_energy, raw_power)
+        factors.append(factor)
+        power = round(raw_power / 1000, 2)
+        anual_power = round((raw_power * factor) / (10**6), 2)
+        whole_power += energy
+
+        sources_dict[source] = [count, power, round(energy, 2), round(factor, 2), round(workload, 2)]
+    power_c = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
+    power = round(power_c / 1000, 2)
     count = block_list.all().count()
-    whole_power = round(whole_power, 2)
-    sources_dict["Summe"] = [count, power, whole_power, round(whole_power * 1000000 / power)]
+    sources_dict["Summe"] = [count, power, round(whole_power, 2), round(whole_power * 10000 / raw_power, 2), round(calc_workload(whole_power * 10**6, power_c), 2)]
     return sources_dict
 
 
@@ -297,9 +305,19 @@ def impressum(request):
     return render(request, "plantmaster/impressum.html", {})
 
 
+def calc_workload(energy, power):
+    return energy / (power * HOURS_IN_YEAR) * 100
+
+def calc_efficency(co2, energy):
+    try:
+        r = (co2 / energy) * 10**3
+    except:
+        r = 0
+    return r
+
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
-    plant_list = Plants.objects.all().filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
+    plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
 
     p, q, z = 1, 2, 3
 
@@ -326,13 +344,20 @@ def plants_2(request):
         blocks_list = Blocks.objects.all().filter(plantid=plantid)
         initialop = blocks_list.all().aggregate(Min('initialop'))['initialop__min']
         plant_list_entry["initialop"] = initialop
+        energy = get_energy_for_plant(plantid, YEAR)
+        co2 = get_co2_for_plant(plantid, YEAR)
+        plant_list_entry["co2"] = co2
+        plant_list_entry["energy"] = round(energy, 2)
+        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, YEAR, raw=True), plant_list_entry["totalpower"]), 2)
+        plant_list_entry["efficency"] = int(calc_efficency(co2, energy))
+        plant_list_entry["totalpower"] = round(plant_list_entry["totalpower"], 1)
         plant_tmp_list.append(plant_list_entry)
 
-    value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower"]
+    value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower", "energy", "workload", "efficency"]
     key_list = ["energysource", "plantid", "plantid"]
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
-    header_list = ['Kraftwerk', 'Name', 'Inbetriebnahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamtleistung [in MW]']
+    header_list = ['Kraftwerk', 'Name', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'Auslastung [%]', 'Effizienz [g/kWh]']
     sources_header = SOURCES_BLOCKS
     slider_list = slider
     context = {
@@ -591,7 +616,7 @@ def get_energy_for_plant(plantid, year, raw=False):
     if raw:
         return tmp
     else:
-        return tmp / 10**6 or 0.0001
+        return tmp / 10**6 or 0
 
 def get_co2_for_plant(plantid, year):
     try:
@@ -645,7 +670,11 @@ def get_co2(plantid):
             pass
     return q
 
-def get_pollutants(plantid):
+def get_pollutants(plantid, year=''):
+    #TODO: fix to display least recent pollutant year instead of fixed year
+    if year:
+        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
+
     for year in PRTR_YEARS[::-1]:
         q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
         if q.exists():
