@@ -1,95 +1,82 @@
 {% extends "plantmaster/base.html" %}
 {% block content %}
 
+<div>
+<span style="float: left">
 {% if data_list %}
 <table class="table table-bordered table-hover table-striped table-sm">
     {% for key, value in data_list %}
     <tr>
-        <th> {{ key}} </th>
-        <td> {{ value}} </td>
+        <th> {{ key }} </th>
+        <td> {{ value }} </td>
     </tr>
 {% endfor %}
 </table>
 {% else %}
     <p>Keine Daten vorhanden.</p>
 {% endif %}
-    {% csrf_token %}
-    <table class="table table-bordered table-hover table-striped table-sm">
-        {% for header in header_list %}
-            <th> {{ header }}</th>
-        {% endfor %}
+</span>
 
-        {% for block, block_rows in blocks_of_plant.items %}
-        {% if block.0 == "Steinkohle" %}
-            <tr class="table table-danger">
-        {% elif block.0 == "Braunkohle" %}
-            <tr class="table table-warning">
-        {% elif block.0 == "Erdgas" %}
-            <tr class="table table-success">
-                {% elif block.0 == "Kernenergie" %}
-                <tr class="table table-info">
-                    {% elif block.0 == "Mineralölprodukte" %}
-                    <tr class="table table-secondary">
-        {%  else %}
-            <tr class="table">
-        {% endif %}
-        <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
-        {% for column in block_rows %}
-            <td> {{ column }} </td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
+{% if percentages2 %}
+<span style="float: right">
+    <h3>Auslastung des Kraftwerks</h3>
+    <div id="gauge"></div>
+</span>
+{% endif %}
+</div>
+
+
+
+{% csrf_token %}
+<table class="table table-bordered table-hover table-striped table-sm">
+    {% for header in header_list %}
+        <th> {{ header }}</th>
+    {% endfor %}
+
+    {% for block, block_rows in blocks_of_plant.items %}
+    {% if block.0 == "Steinkohle" %}
+        <tr class="table table-danger">
+    {% elif block.0 == "Braunkohle" %}
+        <tr class="table table-warning">
+    {% elif block.0 == "Erdgas" %}
+        <tr class="table table-success">
+    {% elif block.0 == "Kernenergie" %}
+        <tr class="table table-info">
+    {% elif block.0 == "Mineralölprodukte" %}
+        <tr class="table table-secondary">
+    {%  else %}
+        <tr class="table">
+    {% endif %}
+    <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
+    {% for column in block_rows %}
+        <td> {{ column }} </td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
 </table>
-<!--
 
-
-
-
-<p>Blocknames</p>
-{% for b in blocknames %}
-            <p> {{ b }}</p>
-        {% endfor %}
-<p>Query: {{ q }}</p>
-<p>D: {{ d }}</p>
-<p>Power: {{ power }}</p>
-{% for p in powers %}
-            <p> {{ p }}</p>
-        {% endfor %}
-
-        -->
-        <div>
-            <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
-            <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant' plant_id %}">Kraftwerksschadstoffe</a></span>
-        </div>
-        <div stye=“width:100%; style="height:3em;"> </div>
-    <!--
-
-
-
-    -->
-
-
-    <div></div>
-    <div></div>
-    
+<div>
+    <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
+    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant' plant_id %}">Kraftwerksschadstoffe</a></span>
+</div>
+<div stye=“width:100%; style="height:3em;"> </div>
 
     <h3>Auslastung Kraftwerk</h3>
     <div id="percentages2"></div>
 
-    <h3>Auslastung Blöcke</h3>
-    <div id="percentages"></div>
+<h3>Auslastung Blöcke</h3>
+<div id="percentages"></div>
 
-    <h3>Jahresproduktion</h3>
-    <div id="yearprod"></div>
+<h3>Jahresproduktion</h3>
+<div id="yearprod"></div>
 
-    <h3>Gesamtproduktion aller Blöcke 2015 - 2019</h3>
-    <div id="chart3"></div>
+<h3>Gesamtproduktion aller Blöcke 2015 - 2019</h3>
+<div id="chart3"></div>
 
-
-    {% for key, value in charts.items %}
+{% for key, value in charts.items %}
     <h3>Produktion pro Block im Jahr {{ key }}</h3>
     <div id="chart{{ key }}"></div>
-    {% endfor %}
+{% endfor %}
 {% endblock %}
 
 {% block js %}
