@@ -61,8 +61,10 @@
 </div>
 <div stye=“width:100%; style="height:3em;"> </div>
 
+{% if percentages2 %}
     <h3>Auslastung Kraftwerk</h3>
     <div id="percentages2"></div>
+{% endif %}
 
 <h3>Auslastung Blöcke</h3>
 <div id="percentages"></div>
@@ -85,19 +87,15 @@
 var gauge = c3.generate({
     bindto: '#gauge',
     data: {
-        columns: [
-            ['test', 91.4]
-        ],
+        columns: {{ guage |safe }},
         type: 'gauge',
     },
     gauge: {
     },
     color: {
-        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
+        pattern: ['#60B044', '#F6C600', '#F97600', '#FF0000'], // the three color levels for the percentage values.
         threshold: {
-//            unit: 'value', // percentage is default
-//            max: 200, // 100 is default
-            values: [30, 60, 90, 100]
+            values: [30, 60, 85, 100]
         }
     },
     size: {

@@ -842,7 +842,7 @@ def plant2(request, plantid):
     
     powers3 = 0
 
-    guage_dict = {}
+    guage = []
     chart_dict = {}
 
     m1 = list(range(1,13))
@@ -858,7 +858,12 @@ def plant2(request, plantid):
         yearprod = get_chart_data_whole_y(blocknames, YEARS)
 
         percentages = get_percentages_from_yearprod2(yearprod, blocks)
-        percentages2 = get_percentages_from_yearprod3(plant)
+
+        if power == 0:
+            percentages2 = []
+        else:
+            percentages2 = get_percentages_from_yearprod3(plant)
+            guage = [[str(percentages2[0][-1]), percentages2[1][-1]]]
 
         years = YEARS[::-1]
         diaglist = [get_chart_data_b(blocknames, x) for x in years]
@@ -910,7 +915,7 @@ def plant2(request, plantid):
         'powers2' : powers2,
         'powers3' : powers3,
         'charts': chart_dict,
-        'guage_dict': guage_dict,
+        'guage': guage,
         'plant_id': plantid,
         'q' : q,
         'd' : d,
