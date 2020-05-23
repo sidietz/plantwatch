@@ -81,10 +81,11 @@ def forge_sources_dict(block_list, power_type):
         tmp = filter_or(block_list, "energysource", [source])
         count = tmp.all().count()
         raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
-        raw_energy = Month.objects.filter(blockid__in=tmp, year=YEAR, month__in=list(range(1,13))).aggregate(Sum("power"))['power__sum']
+        raw_energy = Month.objects.filter(blockid__in=tmp, year=YEAR, month__in=list(range(1,13))).aggregate(Sum("power"))['power__sum'] or 0
         energy = raw_energy / 10**6
 
-        factor = raw_energy  / raw_power
+        factor = divide_safe(raw_energy, raw_power)
+
         workload = calc_workload(raw_energy, raw_power)
         factors.append(factor)
         power = round(raw_power / 1000, 2)
@@ -95,7 +96,7 @@ def forge_sources_dict(block_list, power_type):
     power_c = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
     power = round(power_c / 1000, 2)
     count = block_list.all().count()
-    sources_dict["Summe"] = [count, power, round(whole_power, 2), round(whole_power * 10000 / raw_power, 2), round(calc_workload(whole_power * 10**6, power_c), 2)]
+    sources_dict["Summe"] = [count, power, round(whole_power, 2), round(divide_safe(whole_power * 10000, raw_power), 2), round(calc_workload(whole_power * 10**6, power_c), 2)]
     return sources_dict
 
 
@@ -304,16 +305,15 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
 def impressum(request):
     return render(request, "plantmaster/impressum.html", {})
 
+def divide_safe(n, d):
+    return n / d if d else 0
 
 def calc_workload(energy, power):
-    return energy / (power * HOURS_IN_YEAR) * 100
+    return divide_safe(energy, (power * HOURS_IN_YEAR) * 100)
 
 def calc_efficency(co2, energy):
-    try:
-        r = (co2 / energy) * 10**3
-    except:
-        r = 0
-    return r
+    return divide_safe(co2, energy) * 10**3
+    
 
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
@@ -578,7 +578,7 @@ var yearprod = c3.generate({
 def get_percentages_from_yearprod3(plant):
 
     energies = [get_energy_for_plant(plant, x, raw=True) for x in YEARS]
-    workloads = [e / (plant.totalpower * HOURS_IN_YEAR) * 100 for e in energies]
+    workloads = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in energies]
 
     workloads.insert(0, plant.plantid)
     result = [workloads]
@@ -684,7 +684,52 @@ def get_pollutants_any_year(plantid):
     q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-potency", "pollutant2", "year", "-amount")
     return q
 
+def get_pollutant_dict(plantid, blocks):
+    try:
+        year, pollutions = get_pollutants(plantid)
+    except TypeError:
+        return {}
+    pollution = get_co2(plantid)
+    q = query_for_year_all(blocks, year)
+    p = pollution.amount
+    co2 = get_co2_for_plant(plantid, year) #pollution.amount
+    energy = get_energy_for_plant(plantid, year) # query_for_year_all(blocks, year)
 
+    z = divide_safe(co2, energy) * 10**3
+    # p = pollution.aggregate(Sum(amount))[amount + '__sum']
+    pollutant = pollution.pollutant
+    amount2 = pollution.amount
+    unit2 = pollution.unit2
+    pollutants_tmp_dict = list(map(model_to_dict, pollutions))
+    pol_list = ["year", "amount2", "unit2"]
+    pk_list = ["year", "pollutant", "amount2"]
+    pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
+    return pollutants_dict
+
+def get_elist(plantid, plant):
+
+    elist = []
+
+    try:
+        energies = [get_energy_for_plant(plantid, x) for x in YEARS]
+        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
+        co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
+        tmp = list(zip(co2s, energies))
+        effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
+        workload = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
+
+        effcols = list(zip(YEARS, energies, co2s, effs, workload))
+        testval = reduce(lambda a, b: a + b, [i for col in effcols for i in col[1:]])
+
+        # all rows empty, so return emptylist
+        if testval == 0:
+            return elist
+
+        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
+    except:
+        q = ""
+
+    return elist
 
 def plant(request, plantid):
 
@@ -695,15 +740,6 @@ def plant(request, plantid):
 
 
     energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
-    co2s = ""
-    effs = ""
-
-    effcols = ""
-    elist = []
-
-    lat, lon = plant.latitude, plant.longitude
-
-    p, q, z, co2, energy = 1, 2, 3, 0, 0
 
     q = energies
 
@@ -722,44 +758,27 @@ def plant(request, plantid):
     ss3 = ss3.replace("&", "%26")
     #ss3 = ss3.replace("/", "&#x2F")
 
-    pollutants_dict = {}
+    pollutants_dict = get_pollutant_dict(plantid, blocks)
     p, z = 0, 0
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
-    try:
-        year, pollutions = get_pollutants(plantid)
-        pollution = get_co2(plantid)
-        q = query_for_year_all(blocks, year)
-        p = pollution.amount
-        co2 = get_co2_for_plant(plantid, year) #pollution.amount
-        energy = get_energy_for_plant(plantid, year) # query_for_year_all(blocks, year)
 
-        z = (co2 / energy) * 10**3
-        # p = pollution.aggregate(Sum(amount))[amount + '__sum']
-        pollutant = pollution.pollutant
-        amount2 = pollution.amount
-        unit2 = pollution.unit2
-        pollutants_tmp_dict = list(map(model_to_dict, pollutions))
-        pol_list = ["year", "amount2", "unit2"]
-        pk_list = ["year", "pollutant", "amount2"]
-        pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
-    except:
-        q = ""
-    
     try:
         energies = [get_energy_for_plant(plantid, x) for x in YEARS]
         e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
         co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
         tmp = list(zip(co2s, energies))
-        effs = [(x / y) * 10**3 for x, y in tmp]
-        workload = [e / (plant.totalpower * HOURS_IN_YEAR) * 100 for e in e2s]
+        effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
+        workload = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
 
         effcols = list(zip(YEARS, energies, co2s, effs, workload))
         elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
     except:
         q = ""
+
+    elist = get_elist(plantid, plant)
 
     blocks_list = blocks.order_by("initialop" + "")
     plantname = plant.plantname
@@ -785,18 +804,9 @@ def plant(request, plantid):
         'pollutants_dict': pollutants_dict,
         'pol_header_list': pol_header_list,
         'plant_id': plantid,
-        'q': w,
-        'p': p,
-        'z': z,
-        'lat': lat,
-        'lon': lon,
         'ss': ss3,
-        'co2': co2,
-        'energy': energy,
         'elist': elist,
         'energies': energies,
-         'clist': co2s,
-         'effs': effs,
         'API': API_KEY,
         'pollutions2': pollutions2,
     }

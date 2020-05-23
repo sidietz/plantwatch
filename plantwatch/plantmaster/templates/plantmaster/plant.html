@@ -80,8 +80,6 @@
                     </tr>
                 {% endfor %}
                 </table>
-            {% else %}
-                <p></p>
             {% endif %}
             </span>
             
@@ -100,20 +98,34 @@
                     {% endfor %}
                     </table>
                 {% else %}
+                <table class="table table-bordered table-hover table-striped table-sm">
+                    <tbody>
+                        <tr class="table">
+                            <th>Stromproduktion</th>
+                        </tr>
+                        <tr>
+                            <th>Keine Daten vorhaden.</th>
+                        </tr>
                 {% endif %}
             </span>
        </div>
    </span>
 </div>
-       
+
 <table class="table table-bordered table-hover table-striped table-sm">
     <tbody>
         {% regroup pollutions2|dictsort:"year" by year as yp %}
         <tr class="table">
+            {% if pollutions2 %}
             <th>Schadstoff</th>
             {% for year in yp %}
             <th>{{year.grouper}}</th>
             {% endfor %}
+            {% else %}
+            <th>Schadstoffe</th>
+            </tr>
+            <tr><th>Keine Daten vorhaden.</th>
+            {% endif %}
         </tr>
 
         {% regroup pollutions2 by pollutant2 as pollutants %}
@@ -127,6 +139,7 @@
         {% endfor %}
     </tbody>
 </table>
+
     
 {% endblock %}
 
