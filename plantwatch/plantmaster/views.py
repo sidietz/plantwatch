@@ -695,15 +695,6 @@ def plant(request, plantid):
 
 
     energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
-    co2s = ""
-    effs = ""
-
-    effcols = ""
-    elist = []
-
-    lat, lon = plant.latitude, plant.longitude
-
-    p, q, z, co2, energy = 1, 2, 3, 0, 0
 
     q = energies
 
@@ -785,18 +776,9 @@ def plant(request, plantid):
         'pollutants_dict': pollutants_dict,
         'pol_header_list': pol_header_list,
         'plant_id': plantid,
-        'q': w,
-        'p': p,
-        'z': z,
-        'lat': lat,
-        'lon': lon,
         'ss': ss3,
-        'co2': co2,
-        'energy': energy,
         'elist': elist,
         'energies': energies,
-         'clist': co2s,
-         'effs': effs,
         'API': API_KEY,
         'pollutions2': pollutions2,
     }
