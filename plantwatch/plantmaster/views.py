@@ -630,15 +630,15 @@ def get_co2(plantid):
 def get_pollutants(plantid, year=''):
     #TODO: fix to display least recent pollutant year instead of fixed year
     if year:
-        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
+        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-exponent", "-amount")
 
     for year in PRTR_YEARS[::-1]:
-        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
+        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-exponent", "-amount")
         if q.exists():
             return year, q
 
 def get_pollutants_any_year(plantid):
-    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-potency", "pollutant2", "year", "-amount")
+    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-exponent", "pollutant2", "year", "-amount")
     return q
 
 def get_pollutant_dict(plantid, blocks):
