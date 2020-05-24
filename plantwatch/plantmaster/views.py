@@ -86,7 +86,7 @@ def forge_sources_dict(block_list, power_type):
 
         factor = divide_safe(raw_energy, raw_power)
 
-        workload = calc_workload(raw_energy, raw_power)
+        workload = calc_workload(raw_energy * 10000, raw_power)
         factors.append(factor)
         power = round(raw_power / 1000, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
