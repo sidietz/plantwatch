@@ -503,7 +503,6 @@ def get_chart_data_whole_y(blocknames, years):
     #print(powers)
     return powers
 
-
 def get_chart_data_y(blocknames, years):
 
     #head = ["x"] + blocknames
@@ -514,17 +513,6 @@ def get_chart_data_y(blocknames, years):
     
     #print(powers)
     return powers
-
-'''
- [['x', 2015, 2016, 2017, 2018, 2019],
- ['BNA1401b', [3527270], [6902114], [6776868], [7600485], [6597178]],
- ['BNA1401a', [4597335], [6226422], [6397973], [7570517], [5553160]],
- ['BNA0700', [2826215], [3933523], [3303061], [4131712], [3160021]],
- ['BNA0699', [2975076], [2992213], [4161728], [4296797], [1689022]],
- ['BNA0698', [1460920], [1758575], [1971850], [1907709], [882157]],
- ['BNA0697', [1482192], [1990156], [2271638], [1971377], [1303110]],
- ['BNA0696', [1393787], [1665595], [2229252], [1985128], [1656708]]]
-'''
 
 def get_block_power(blockid):
     block = Blocks.objects.get(blockid=blockid)
@@ -543,38 +531,6 @@ def get_gague_from_powers(powers):
 
     percentage = [HOURS_IN_YEAR for idx, p in enumerate(block_power)]
     percentage = [HOURS_IN_YEAR for p in block_power]
-
-
-
-'''
-        columns:         [
-        ['BNA1401b', [37.986452140949424], [74.33137330920997], [72.98255363142931], [81.85238433703799], [71.0474067373137]],
-        ['BNA1401a', [49.51037089687258], [67.05460067200828], [68.90209571810115], [81.52964805720686], [59.803997587662614]],
-        ['BNA0700', [53.415113096858086], [74.34309700928362], [62.42744337597146], [78.08884453717984], [59.72400511052648]],
-        ['BNA0699', [55.95066687729909], [56.27295329226001], [78.2673978620809], [80.80756847434422], [31.764535517892472]],
-        ['BNA0698', [57.11359229373866], [68.75019547132045], [77.08802464502408], [74.58047945205479], [34.487278726465256]],
-        ['BNA0697', [57.55102040816327], [77.27440747988693], [88.20387972540614], [76.54525052029945], [50.59756779424099]],
-        ['BNA0696', [54.118403068990155], [64.67225017861026], [86.55810269313204], [77.07917870344485], [64.32718292796571]]]
-    }
-});
-
-var yearprod = c3.generate({
-    bindto: '#yearprod',
-    data: {
-        x: 'x',
-        columns:         [['x', 2015, 2016, 2017, 2018, 2019],
-        ['BNA1401b', [3527270], [6902114], [6776868], [7600485], [6597178]],
-        ['BNA1401a', [4597335], [6226422], [6397973], [7570517], [5553160]],
-        ['BNA0700', [2826215], [3933523], [3303061], [4131712], [3160021]],
-        ['BNA0699', [2975076], [2992213], [4161728], [4296797], [1689022]],
-        ['BNA0698', [1460920], [1758575], [1971850], [1907709], [882157]],
-        ['BNA0697', [1482192], [1990156], [2271638], [1971377], [1303110]],
-        ['BNA0696', [1393787], [1665595], [2229252], [1985128], [1656708]]]
-    }
-});
-
-
-'''
 
 def get_percentages_from_yearprod3(plant):
 
@@ -738,29 +694,18 @@ def plant(request, plantid):
     blocks = Blocks.objects.filter(plantid=plantid)
 
     monthp = Monthp.objects.filter(plantid=plantid, year=YEAR).aggregate(Sum('power'))
-
-
     energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
 
-    q = energies
-
-    w = monthp #lant.annotate(blocks)
 
     pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
-    #ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
-
     ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
-
     ss3 = comp + ks + pltn
-
     ss3 = plant.plantname.replace("Werk", "") if "P&L" in plant.plantname else ss3
-
     ss3 = ss3.replace(" ", "+")
     ss3 = ss3.replace("&", "%26")
     #ss3 = ss3.replace("/", "&#x2F")
 
     pollutants_dict = get_pollutant_dict(plantid, blocks)
-    p, z = 0, 0
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
