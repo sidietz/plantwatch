@@ -22,6 +22,7 @@ PRTR_YEARS = list(range(2007, 2019))
 ENERGY_YEARS = list(range(2015, 2020))
 YEARS = ENERGY_YEARS
 YEAR = PRTR_YEARS[-1]
+LATEST_YEAR = ENERGY_YEARS[-1]
 
 FULL_HOURS = "Volllaststunden [" + str(YEAR) + "]"
 
@@ -40,7 +41,7 @@ SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [%]"]
+SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [" + str(YEAR) + "] [%]", "Auslastung [" + str(LATEST_YEAR) + "] [%]"]
 
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 
@@ -75,7 +76,7 @@ def filter_queryset(queryset, filtered, afilter):
 def forge_sources_dict(block_list, power_type):
 
     sources_dict = {}
-    whole_power = 0
+    whole_power, whole_power2 = 0, 0
     factors = []
     for source in SOURCES_LIST:
         tmp = filter_or(block_list, "energysource", [source])
@@ -86,17 +87,21 @@ def forge_sources_dict(block_list, power_type):
 
         factor = divide_safe(raw_energy, raw_power)
 
+        raw_energy2 = Month.objects.filter(blockid__in=tmp, year=LATEST_YEAR, month__in=list(range(1,13))).aggregate(Sum("power"))['power__sum'] or 0
+        energy2 = raw_energy2 / 10**6
         workload = calc_workload(raw_energy * 10000, raw_power)
+        workload2 = calc_workload(raw_energy2 * 10000, raw_power)
         factors.append(factor)
         power = round(raw_power / 1000, 2)
         anual_power = round((raw_power * factor) / (10**6), 2)
         whole_power += energy
+        whole_power2 += energy2
 
-        sources_dict[source] = [count, power, round(energy, 2), round(factor, 2), round(workload, 2)]
+        sources_dict[source] = [count, power, round(energy, 2), round(factor, 2), round(workload, 2), round(workload2, 2)]
     power_c = block_list.all().aggregate(Sum(power_type))[power_type + '__sum'] or 1
     power = round(power_c / 1000, 2)
     count = block_list.all().count()
-    sources_dict["Summe"] = [count, power, round(whole_power, 2), round(divide_safe(whole_power * 10000, raw_power), 2), round(calc_workload(whole_power * 10**6, power_c), 2)]
+    sources_dict["Summe"] = [count, power, round(whole_power, 2), round(divide_safe(whole_power * 10000, raw_power), 2), round(calc_workload(whole_power * 10**10, power_c), 2), round(calc_workload(whole_power2 * 10**10, power_c), 2)]
     return sources_dict
 
 
