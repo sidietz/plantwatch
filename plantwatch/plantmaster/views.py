@@ -5,8 +5,8 @@
 from .forms import BlocksForm
 from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp
 
-from django.db.models import Sum, Min, Avg, Max
-from django.db.models import Q, F
+from django.db.models import Sum, Min, Avg, Max, Count
+from django.db.models import Q, F, When, Case, FloatField
 from django.db.models import OuterRef, Subquery
 from django.forms.models import model_to_dict
 from django.shortcuts import render, get_object_or_404, redirect
@@ -318,11 +318,54 @@ def calc_workload(energy, power):
 
 def calc_efficency(co2, energy):
     return divide_safe(co2, energy) * 10**3
-    
+
+def plants3(request):
+    form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
+    plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).annotate(block_count=Count('blocks__plantid')).order_by(sort_method + sort_criteria)
+
+    t = plant_list.first()
+
+    bc = t.block_count
+    return render(request, 'plantmaster/blocks.html', context)
+
 
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
-    plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
+    tmp = Plants.objects.prefetch_related('monthp').filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
+    tmp2 = tmp.annotate(
+    block_count=Count('blocks__plantid', distinct=True))
+    tmp3 = tmp2.all().annotate(
+    co2=Max('pollutions__amount',
+    filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")))
+
+    tmp4 = tmp3.all().annotate(
+    energy=Sum('monthp__power',
+    filter=Q(monthp__year=YEAR, monthp__month__in=range(1,13)), distinct=True))
+    
+    tmp5 = tmp4.all().annotate(
+    eff=Case(
+        When(energy=0, then=0),
+        default=(F('co2') / F('energy')), output_field=FloatField())
+    )
+
+    tmp6 = tmp5.all().annotate(
+    workload=Case(
+        When(energy=0, then=0),
+        default=(F('energy') / (F('totalpower') * HOURS_IN_YEAR)), output_field=FloatField())
+    )
+    plant_list = tmp6    #&
+    #Q(pollutions__pollutant="CO2") &
+    #Q(pollutions__releasesto="Air")))))
+    #.order_by(sort_method + sort_criteria)
+    #.order_by(sort_method + sort_criteria)
+
+    t = plant_list.first()
+
+    bc = t.energy
+    pl = t.co2
+
+    #raise Error
+    #plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).annotate(block_count=Count('blocks__plantid')).order_by(sort_method + sort_criteria)
 
     p, q, z = 1, 2, 3
 
@@ -363,7 +406,7 @@ def plants_2(request):
     key_list = ["energysource", "plantid", "plantid"]
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
-    header_list = ['Kraftwerk', 'Name', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'Auslastung [%]', 'Effizienz [g/kWh]']
+    header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'Auslastung [%]', 'Effizienz [g/kWh]']
     sources_header = SOURCES_BLOCKS
     slider_list = slider
     context = {
@@ -371,15 +414,16 @@ def plants_2(request):
         'slider': slider_list,
         'form': form,
         'plant_mapper': PLANT_COLOR_MAPPING,
-        'block_dict': block_dict,
+        'block_dict': {},
         'sources_dict': sources_dict,
         'sources_header': sources_header,
+        'plant_list': plant_list,
         'range': range(2),
         'q': q,
         'p': p,
         'z': z,
     }
-    return render(request, 'plantmaster/blocks.html', context)
+    return render(request, 'plantmaster/blocks_old.html', context)
 
 def query_for_month_many2(blocks, year, month):
     start_date = date(year, month, 1)
