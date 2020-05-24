@@ -420,7 +420,7 @@ def plants_2(request):
         'p': p,
         'z': z,
     }
-    return render(request, 'plantmaster/blocks_old.html', context)
+    return render(request, 'plantmaster/plants.html', context)
 
 def query_for_month_many2(blocks, year, month):
     start_date = date(year, month, 1)
