@@ -346,9 +346,10 @@ def plants_2(request):
         plant_list_entry["initialop"] = initialop
         energy = get_energy_for_plant(plantid, YEAR)
         co2 = get_co2_for_plant(plantid, YEAR)
+        tpl =  plant_list_entry["totalpower"]
         plant_list_entry["co2"] = co2
         plant_list_entry["energy"] = round(energy, 2)
-        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, YEAR, raw=True), plant_list_entry["totalpower"]), 2)
+        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, ENERGY_YEARS[-1], raw=True) * 10000, tpl), 2)
         plant_list_entry["efficency"] = int(calc_efficency(co2, energy))
         plant_list_entry["totalpower"] = round(plant_list_entry["totalpower"], 1)
         plant_tmp_list.append(plant_list_entry)
