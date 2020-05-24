@@ -345,10 +345,11 @@ def plants_2(request):
         initialop = blocks_list.all().aggregate(Min('initialop'))['initialop__min']
         plant_list_entry["initialop"] = initialop
         energy = get_energy_for_plant(plantid, YEAR)
-        co2 = get_co2_for_plant(plantid, YEAR)
+        co2 = get_co2_for_plant_by_year(plantid, YEAR)
+        tpl =  plant_list_entry["totalpower"]
         plant_list_entry["co2"] = co2
         plant_list_entry["energy"] = round(energy, 2)
-        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, YEAR, raw=True), plant_list_entry["totalpower"]), 2)
+        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, ENERGY_YEARS[-1], raw=True) * 10000, tpl), 2)
         plant_list_entry["efficency"] = int(calc_efficency(co2, energy))
         plant_list_entry["totalpower"] = round(plant_list_entry["totalpower"], 1)
         plant_tmp_list.append(plant_list_entry)
@@ -502,7 +503,6 @@ def get_chart_data_whole_y(blocknames, years):
     #print(powers)
     return powers
 
-
 def get_chart_data_y(blocknames, years):
 
     #head = ["x"] + blocknames
@@ -513,17 +513,6 @@ def get_chart_data_y(blocknames, years):
     
     #print(powers)
     return powers
-
-'''
- [['x', 2015, 2016, 2017, 2018, 2019],
- ['BNA1401b', [3527270], [6902114], [6776868], [7600485], [6597178]],
- ['BNA1401a', [4597335], [6226422], [6397973], [7570517], [5553160]],
- ['BNA0700', [2826215], [3933523], [3303061], [4131712], [3160021]],
- ['BNA0699', [2975076], [2992213], [4161728], [4296797], [1689022]],
- ['BNA0698', [1460920], [1758575], [1971850], [1907709], [882157]],
- ['BNA0697', [1482192], [1990156], [2271638], [1971377], [1303110]],
- ['BNA0696', [1393787], [1665595], [2229252], [1985128], [1656708]]]
-'''
 
 def get_block_power(blockid):
     block = Blocks.objects.get(blockid=blockid)
@@ -542,38 +531,6 @@ def get_gague_from_powers(powers):
 
     percentage = [HOURS_IN_YEAR for idx, p in enumerate(block_power)]
     percentage = [HOURS_IN_YEAR for p in block_power]
-
-
-
-'''
-        columns:         [
-        ['BNA1401b', [37.986452140949424], [74.33137330920997], [72.98255363142931], [81.85238433703799], [71.0474067373137]],
-        ['BNA1401a', [49.51037089687258], [67.05460067200828], [68.90209571810115], [81.52964805720686], [59.803997587662614]],
-        ['BNA0700', [53.415113096858086], [74.34309700928362], [62.42744337597146], [78.08884453717984], [59.72400511052648]],
-        ['BNA0699', [55.95066687729909], [56.27295329226001], [78.2673978620809], [80.80756847434422], [31.764535517892472]],
-        ['BNA0698', [57.11359229373866], [68.75019547132045], [77.08802464502408], [74.58047945205479], [34.487278726465256]],
-        ['BNA0697', [57.55102040816327], [77.27440747988693], [88.20387972540614], [76.54525052029945], [50.59756779424099]],
-        ['BNA0696', [54.118403068990155], [64.67225017861026], [86.55810269313204], [77.07917870344485], [64.32718292796571]]]
-    }
-});
-
-var yearprod = c3.generate({
-    bindto: '#yearprod',
-    data: {
-        x: 'x',
-        columns:         [['x', 2015, 2016, 2017, 2018, 2019],
-        ['BNA1401b', [3527270], [6902114], [6776868], [7600485], [6597178]],
-        ['BNA1401a', [4597335], [6226422], [6397973], [7570517], [5553160]],
-        ['BNA0700', [2826215], [3933523], [3303061], [4131712], [3160021]],
-        ['BNA0699', [2975076], [2992213], [4161728], [4296797], [1689022]],
-        ['BNA0698', [1460920], [1758575], [1971850], [1907709], [882157]],
-        ['BNA0697', [1482192], [1990156], [2271638], [1971377], [1303110]],
-        ['BNA0696', [1393787], [1665595], [2229252], [1985128], [1656708]]]
-    }
-});
-
-
-'''
 
 def get_percentages_from_yearprod3(plant):
 
@@ -618,7 +575,7 @@ def get_energy_for_plant(plantid, year, raw=False):
     else:
         return tmp / 10**6 or 0
 
-def get_co2_for_plant(plantid, year):
+def get_co2_for_plant_by_year(plantid, year):
     try:
         co2 = Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2
     except:
@@ -673,15 +630,15 @@ def get_co2(plantid):
 def get_pollutants(plantid, year=''):
     #TODO: fix to display least recent pollutant year instead of fixed year
     if year:
-        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
+        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-exponent", "-amount")
 
     for year in PRTR_YEARS[::-1]:
-        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-potency", "-amount")
+        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air').order_by("-exponent", "-amount")
         if q.exists():
             return year, q
 
 def get_pollutants_any_year(plantid):
-    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-potency", "pollutant2", "year", "-amount")
+    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-exponent", "pollutant2", "year", "-amount")
     return q
 
 def get_pollutant_dict(plantid, blocks):
@@ -689,17 +646,8 @@ def get_pollutant_dict(plantid, blocks):
         year, pollutions = get_pollutants(plantid)
     except TypeError:
         return {}
-    pollution = get_co2(plantid)
-    q = query_for_year_all(blocks, year)
-    p = pollution.amount
-    co2 = get_co2_for_plant(plantid, year) #pollution.amount
-    energy = get_energy_for_plant(plantid, year) # query_for_year_all(blocks, year)
-
-    z = divide_safe(co2, energy) * 10**3
-    # p = pollution.aggregate(Sum(amount))[amount + '__sum']
-    pollutant = pollution.pollutant
-    amount2 = pollution.amount
-    unit2 = pollution.unit2
+    co2 = get_co2_for_plant_by_year(plantid, year)
+    energy = get_energy_for_plant(plantid, year)
     pollutants_tmp_dict = list(map(model_to_dict, pollutions))
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
@@ -713,7 +661,7 @@ def get_elist(plantid, plant):
     try:
         energies = [get_energy_for_plant(plantid, x) for x in YEARS]
         e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
-        co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
+        co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
         tmp = list(zip(co2s, energies))
         effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
         workload = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
@@ -737,29 +685,18 @@ def plant(request, plantid):
     blocks = Blocks.objects.filter(plantid=plantid)
 
     monthp = Monthp.objects.filter(plantid=plantid, year=YEAR).aggregate(Sum('power'))
-
-
     energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
 
-    q = energies
-
-    w = monthp #lant.annotate(blocks)
 
     pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
-    #ss3 = "Kraftwerk " + ss2 if "raftwerk" not in ss2 else ss2
-
     ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
-
     ss3 = comp + ks + pltn
-
     ss3 = plant.plantname.replace("Werk", "") if "P&L" in plant.plantname else ss3
-
     ss3 = ss3.replace(" ", "+")
     ss3 = ss3.replace("&", "%26")
     #ss3 = ss3.replace("/", "&#x2F")
 
     pollutants_dict = get_pollutant_dict(plantid, blocks)
-    p, z = 0, 0
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
@@ -768,7 +705,7 @@ def plant(request, plantid):
     try:
         energies = [get_energy_for_plant(plantid, x) for x in YEARS]
         e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
-        co2s = [get_co2_for_plant(plantid, x) for x in YEARS]
+        co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
         tmp = list(zip(co2s, energies))
         effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
         workload = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
@@ -776,7 +713,7 @@ def plant(request, plantid):
         effcols = list(zip(YEARS, energies, co2s, effs, workload))
         elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
     except:
-        q = ""
+        pass
 
     elist = get_elist(plantid, plant)
 
@@ -842,7 +779,7 @@ def plant2(request, plantid):
     
     powers3 = 0
 
-    guage_dict = {}
+    guage = []
     chart_dict = {}
 
     m1 = list(range(1,13))
@@ -858,7 +795,12 @@ def plant2(request, plantid):
         yearprod = get_chart_data_whole_y(blocknames, YEARS)
 
         percentages = get_percentages_from_yearprod2(yearprod, blocks)
-        percentages2 = get_percentages_from_yearprod3(plant)
+
+        if power == 0:
+            percentages2 = []
+        else:
+            percentages2 = get_percentages_from_yearprod3(plant)
+            guage = [[str(percentages2[0][-1]), percentages2[1][-1]]]
 
         years = YEARS[::-1]
         diaglist = [get_chart_data_b(blocknames, x) for x in years]
@@ -910,7 +852,7 @@ def plant2(request, plantid):
         'powers2' : powers2,
         'powers3' : powers3,
         'charts': chart_dict,
-        'guage_dict': guage_dict,
+        'guage': guage,
         'plant_id': plantid,
         'q' : q,
         'd' : d,
