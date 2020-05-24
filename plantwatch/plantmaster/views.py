@@ -3,7 +3,7 @@
 
 
 from .forms import BlocksForm
-from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp
+from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp, Mtp
 
 from django.db.models import Sum, Min, Avg, Max, Count
 from django.db.models import Q, F, When, Case, FloatField
@@ -12,7 +12,7 @@ from django.forms.models import model_to_dict
 from django.shortcuts import render, get_object_or_404, redirect
 
 from functools import reduce
-from datetime import date
+from datetime import date, datetime
 import calendar
 import json
 import random
@@ -331,17 +331,30 @@ def plants3(request):
 
 def plants_2(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
-    tmp = Plants.objects.prefetch_related('monthp').filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).order_by(sort_method + sort_criteria)
+    tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1]))
+    plc = tmp.count()
+
     tmp2 = tmp.annotate(
-    block_count=Count('blocks__plantid', distinct=True))
+    block_count=Count('blocks__plantid'))
     tmp3 = tmp2.all().annotate(
     co2=Max('pollutions__amount',
     filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")))
 
+    co2c = tmp3.first().co2
+
+    #raise Error
     tmp4 = tmp3.all().annotate(
-    energy=Sum('monthp__power',
-    filter=Q(monthp__year=YEAR, monthp__month__in=range(1,13)), distinct=True))
+    energy=Sum('mtp__power', distinct=True,
+    filter=Q(mtp__producedat__range=(datetime(YEAR, 1, 1), datetime(YEAR, 12, 31)))))
     
+    ec = tmp4.first().energy
+
+    plc1 = tmp.count()
+    plc2 = tmp2.count()
+    plc3 = tmp3.count()
+    plc4 = tmp4.count()
+
+
     tmp5 = tmp4.all().annotate(
     eff=Case(
         When(energy=0, then=0),
@@ -353,7 +366,7 @@ def plants_2(request):
         When(energy=0, then=0),
         default=(F('energy') / (F('totalpower') * HOURS_IN_YEAR)), output_field=FloatField())
     )
-    plant_list = tmp6    #&
+    plant_list = tmp6.order_by(sort_method + sort_criteria)    #&
     #Q(pollutions__pollutant="CO2") &
     #Q(pollutions__releasesto="Air")))))
     #.order_by(sort_method + sort_criteria)
