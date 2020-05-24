@@ -14,11 +14,13 @@ sqlite3 plantwatch.db "CREATE TABLE month(monthid INTEGER NOT NULL PRIMARY KEY, 
 
 sqlite3 plantwatch.db "CREATE TABLE monthp(monthpid INTEGER NOT NULL PRIMARY KEY, year INT, month INT, plantid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
+sqlite3 plantwatch.db "CREATE TABLE yearly(yid INTEGER NOT NULL PRIMARY KEY, year INTEGER NOT NULL. plantid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
+
 sqlite3 plantwatch.db "CREATE TABLE mtp(mtpid INTEGER NOT NULL PRIMARY KEY, plantid TEXT NOT NULL, power INTEGER NOT NULL, producedat TIM̀ESTAMP NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
 sqlite3 plantwatch.db  "CREATE TABLE pollutions(pollutionsid INTEGER NOT NULL, year INTEGER, plantid  TEXT NOT NULL, pollutant TEXT NOT NULL, releasesto TEXT NOT NULL, amount REAL, potency INTEGER NOT NULL, unit2 TEXT NOT NULL, amount2 REAL, pollutant2 TEXT, PRIMARY KEY(plantid, releasesto, pollutant, year), FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
-echo -e '.separator "," \n.import stammdaten_nh.csv addresses  \n.import plants_nh.csv plants \n.import blocks_nh.csv blocks\n. import produced_power_pg.csv power\n. import monthly.csv month\n. import monthlyp_pg.csv monthp \n.import pollutants_pg.csv pollutions\n. import mt_pg.csv mtp' | sqlite3 plantwatch.db
+echo -e '.separator "," \n.import stammdaten_nh.csv addresses  \n.import plants_nh.csv plants \n.import blocks_nh.csv blocks\n. import produced_power_pg.csv power\n. import monthly.csv month\n. import yearly_pg.csv yearly\n. import monthlyp_pg.csv monthp \n.import pollutants_pg.csv pollutions\n. import mt_pg.csv mtp' | sqlite3 plantwatch.db
 
 # 	year 	plantid 	pollutant 	releases_to 	amount 	potency 	unit_2 	amount_2
 # plz 	ort 	strasse 	hausnr 	geo_lat_wgs84 	geo_long_wgs84

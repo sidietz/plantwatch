@@ -387,37 +387,19 @@ def plants_2(request):
     q = plant_list
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
-    block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
+    #block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid"))
     # block_list = block_list.filter(initialop__range=(slider[0][0], slider[0][1]))
     # block_list = block_list.filter(netpower__range=(slider[1][0], slider[1][1]))
-    block_list = create_block_list(block_list, filter_dict)
-    plant_list = create_block_list(plant_list, filter_dict)
+    #block_list = create_block_list(block_list, filter_dict)
+    #plant_list = create_block_list(plant_list, filter_dict)
 
-    sources_dict = forge_sources_dict(block_list, "netpower")
-
-    #plant_list = plant_list[::1]
-    plant_tmp_dict = list(map(model_to_dict, plant_list))
-    plant_tmp_list = []
-
-    for plant_dict_entry in plant_tmp_dict:
-        plant_list_entry = plant_dict_entry
-        plantid = plant_dict_entry["plantid"]
-        blocks_list = Blocks.objects.all().filter(plantid=plantid)
-        initialop = blocks_list.all().aggregate(Min('initialop'))['initialop__min']
-        plant_list_entry["initialop"] = initialop
-        energy = get_energy_for_plant(plantid, YEAR)
-        co2 = get_co2_for_plant_by_year(plantid, YEAR)
-        tpl =  plant_list_entry["totalpower"]
-        plant_list_entry["co2"] = co2
-        plant_list_entry["energy"] = round(energy, 2)
-        plant_list_entry["workload"] = round(calc_workload(get_energy_for_plant(plantid, ENERGY_YEARS[-1], raw=True) * 10000, tpl), 2)
-        plant_list_entry["efficency"] = int(calc_efficency(co2, energy))
-        plant_list_entry["totalpower"] = round(plant_list_entry["totalpower"], 1)
-        plant_tmp_list.append(plant_list_entry)
+    block_list = []
+    block_dict = {}
+    sources_dict = {}
 
     value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower", "energy", "workload", "efficency"]
     key_list = ["energysource", "plantid", "plantid"]
-    block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
+    #block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
     header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'Auslastung [%]', 'Effizienz [g/kWh]']
     sources_header = SOURCES_BLOCKS

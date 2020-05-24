@@ -101,7 +101,7 @@ class Pollutions(models.Model):
 
 class Mtp(models.Model):
     mtpid = models.IntegerField(unique=True, primary_key=True)
-    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')  # Field name made lowercase.
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
     power = models.IntegerField(null=False)
     producedat = models.DateTimeField()
     
@@ -121,5 +121,16 @@ class Monthp(models.Model):
         managed = False
         db_table = 'monthp'
         unique_together = ('plantid', 'year', 'month')
+
+class Yearly(models.Model):
+    yid = models.IntegerField(unique=True, primary_key=True)
+    year = models.IntegerField()
+    plantid = models.OneToOneField(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
+    power = models.IntegerField(null=False)
+    
+    class Meta:
+        managed = False
+        db_table = 'monthp'
+        unique_together = ('plantid', 'year')
 
 
