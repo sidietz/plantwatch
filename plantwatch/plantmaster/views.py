@@ -334,25 +334,27 @@ def plants_2(request):
     tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1]))
     plc = tmp.count()
 
-    tmp2 = tmp.annotate(
-    block_count=Count('blocks__plantid'))
-    tmp3 = tmp2.all().annotate(
+    #tmp2 = tmp.annotate(
+    #block_count=Count('blocks__plantid'))
+    tmp3 = tmp.all().annotate(
+    energy=Sum('yearly__power', distinct=True,
+    filter=Q(yearly__year=YEAR)),
     co2=Max('pollutions__amount',
     filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")))
 
     co2c = tmp3.first().co2
-
+    tmp4 = tmp3
     #raise Error
-    tmp4 = tmp3.all().annotate(
-    energy=Sum('mtp__power', distinct=True,
-    filter=Q(mtp__producedat__range=(datetime(YEAR, 1, 1), datetime(YEAR, 12, 31)))))
+    #tmp4 = tmp3.annotate(
+    #energy=Count('yearly__power',
+    #filter=Q(yearly__year=YEAR)))
     
     ec = tmp4.first().energy
 
-    plc1 = tmp.count()
-    plc2 = tmp2.count()
-    plc3 = tmp3.count()
-    plc4 = tmp4.count()
+    #plc1 = tmp.count()
+    #plc2 = tmp2.count()
+    #plc3 = tmp3.count()
+    #plc4 = tmp4.count()
 
 
     tmp5 = tmp4.all().annotate(
