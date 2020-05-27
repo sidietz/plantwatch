@@ -14,7 +14,7 @@ sqlite3 plantwatch.db "CREATE TABLE month(monthid INTEGER NOT NULL PRIMARY KEY, 
 
 sqlite3 plantwatch.db "CREATE TABLE monthp(monthpid INTEGER NOT NULL PRIMARY KEY, year INT, month INT, plantid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
-sqlite3 plantwatch.db "CREATE TABLE yearly(yid INTEGER NOT NULL PRIMARY KEY, year INTEGER NOT NULL. plantid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
+sqlite3 plantwatch.db "CREATE TABLE yearly(yid INTEGER NOT NULL PRIMARY KEY, year INTEGER NOT NULL, plantid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
 sqlite3 plantwatch.db "CREATE TABLE mtp(mtpid INTEGER NOT NULL PRIMARY KEY, plantid TEXT NOT NULL, power INTEGER NOT NULL, producedat TIM̀ESTAMP NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
