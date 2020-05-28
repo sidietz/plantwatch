@@ -42,7 +42,9 @@ SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [" + str(YEAR) + "] [%]", "Auslastung [" + str(LATEST_YEAR) + "] [%]"]
+SOURCES_BLOCKS = ["Energieträger [" + str(YEAR) + "]", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [h]", "Auslastung [%]", "Effizienz [g CO2/kWh]"]
+SOURCES_BLOCKS_OLD = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [" + str(YEAR) + "] [%]", "Auslastung [" + str(LATEST_YEAR) + "] [%]"]
+
 
 API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
 
@@ -103,6 +105,38 @@ def forge_sources_dict(block_list, power_type):
     power = round(power_c / 1000, 2)
     count = block_list.all().count()
     sources_dict["Summe"] = [count, power, round(whole_power, 2), round(divide_safe(whole_power * 10000, raw_power), 2), round(calc_workload(whole_power * 10**10, power_c), 2), round(calc_workload(whole_power2 * 10**10, power_c), 2)]
+    return sources_dict
+
+def force_sources_plant(annotated_plants):
+
+    sources_dict = {}
+    energy, energy2 = 0, 0
+
+    total_power = 0
+    total_energy = 0
+    total_co2 = 0
+    total_count = 0
+
+    for source in SOURCES_LIST:
+        # TODO: introduce effective power besides totalpower
+        # TODO: show in plant active and inactive plants, separately
+        filtered = annotated_plants.filter(energysource=source)
+        count = filtered.count()
+        effective_power = filtered.aggregate(Sum('totalpower'))['totalpower__sum'] or 0
+        energy = filtered.aggregate(Sum('energy'))['energy__sum'] or 0
+        co2 = filtered.aggregate(Sum('co2'))['co2__sum'] or 0
+        workload = calc_workload(energy, effective_power)
+        ophours = divide_safe(energy, effective_power)
+        efficiency = divide_safe(co2, energy)
+
+        total_power += effective_power
+        total_energy += energy
+        total_co2 += co2
+        total_count += count
+    
+        sources_dict[source] = [count, effective_power / 1000, energy / 10**6, ophours, workload * 10000, efficiency]
+    
+    sources_dict['Summe'] = [total_count, total_power / 1000, total_energy / 10**6, divide_safe(total_energy, total_power), calc_workload(total_energy, total_power) * 10000, divide_safe(total_co2, total_energy)]
     return sources_dict
 
 
@@ -331,6 +365,7 @@ def plants3(request):
 
 
 def plants(request):
+    start = datetime.now()
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS_OLD, plants=True)
     plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).order_by(sort_method + sort_criteria)
 
@@ -374,8 +409,13 @@ def plants(request):
     block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
     header_list = ['Kraftwerk', 'Name', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'Auslastung [%]', 'Effizienz [g/kWh]']
-    sources_header = SOURCES_BLOCKS
+    sources_header = SOURCES_BLOCKS_OLD
     slider_list = slider
+
+    end = datetime.now()
+    diff = end - start
+    res = [start, end, diff]
+    res = []
     context = {
         'header_list': header_list,
         'slider': slider_list,
@@ -388,21 +428,26 @@ def plants(request):
         'q': q,
         'p': p,
         'z': z,
+        'res': res,
     }
     return render(request, 'plantmaster/blocks.html', context)
 
 
 def plants_new(request):
+    start = datetime.now()
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
     tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp)
     plc = tmp.count()
 
     #tmp2 = tmp.annotate(
     #block_count=Count('blocks__plantid'))
-    tmp3 = tmp.all().annotate(
+    '''
+    tmp2 = tmp.all().annotate(
     energy=Sum('yearly__power', distinct=True,
-    filter=Q(yearly__year=YEAR)),
-    co2=Max('pollutions__amount',
+    filter=Q(yearly__year=YEAR)))
+    
+    tmp3 = tmp2.all().annotate(
+        co2=Max('pollutions__amount',
     filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")),
     eff=Case(
         When(energy=0, then=0),
@@ -418,6 +463,40 @@ def plants_new(request):
         When(energy=0, then=0),
         default=(F('co2') / float(10**9)), output_field=FloatField()),
     )
+    '''
+
+    # on after another: 4.2... sec with sources
+    # on after another: 1.3 sec w/out
+
+    #simultanious
+    # on after another: 4.2... sec with sources
+    # on after another: 1.3 sec w/out
+    
+    
+    tmp3 = tmp.all().annotate(
+    energy=Sum('yearly__power', distinct=True,
+    filter=Q(yearly__year=YEAR)),
+        co2=Max('pollutions__amount',
+    filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")),
+    eff=Case(
+        When(energy=0, then=0),
+        When(co2=0, then=0),
+        default=(F('co2') / F('energy')), output_field=FloatField()),
+    workload=Case(
+        When(energy=0, then=0),
+        default=(F('energy') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    energy2=Case(
+        When(energy=0, then=0),
+        default=(F('energy') / float(10**6)), output_field=FloatField()),
+    co22=Case(
+        When(energy=0, then=0),
+        default=(F('co2') / float(10**9)), output_field=FloatField()),
+    )
+
+
+
+
+    
 
     co2c = tmp3.first().co2
     tmp4 = tmp3
@@ -469,11 +548,11 @@ def plants_new(request):
     q = plant_list
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
-    block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid")).filter(initialop__range=(slider[0][0], slider[0][1])).filter(netpower__range=(slider[1][0], slider[1][1]))
-    block_list = create_block_list(block_list, filter_dict)
+    #block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid")).filter(initialop__range=(slider[0][0], slider[0][1])).filter(netpower__range=(slider[1][0], slider[1][1]))
+    #block_list = create_block_list(block_list, filter_dict)
     #plant_list = create_block_list(plant_list, filter_dict)
 
-    sources_dict = forge_sources_dict(block_list, "netpower")
+    sources_dict = force_sources_plant(plant_list)
 
     block_list = []
     block_dict = {}
@@ -486,6 +565,12 @@ def plants_new(request):
     header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'CO2 Ausstoß [Mio. t]', 'Auslastung [%]', 'Effizienz [g/kWh]']
     sources_header = SOURCES_BLOCKS
     slider_list = slider
+
+    end = datetime.now()
+    diff = end - start
+    res = [start, end, diff]
+
+    res = []
     context = {
         'header_list': header_list,
         'slider': slider_list,
@@ -499,6 +584,7 @@ def plants_new(request):
         'q': q,
         'p': p,
         'z': z,
+        'res': res,
     }
     return render(request, 'plantmaster/plants.html', context)
 
