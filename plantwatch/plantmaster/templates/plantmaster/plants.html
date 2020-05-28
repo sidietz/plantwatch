@@ -34,8 +34,9 @@
     </div>
     <input type="submit" class="btn btn-success" value="ändere Anfrage" >
     </form>
-
-
+{% if res %}
+    {{ res }}
+{% endif %}
 
     {% if sources_dict %}
         <table class="table table-bordered table-hover table-sm">
@@ -61,7 +62,7 @@
                 {% endif %}
                     <th> {{ key}} </th>
                     {% for value in value_list %}
-                    <td> {{ value}} </td>
+                    <td> {{ value |floatformat:-3 }} </td>
                         {% endfor %}
                 </tr>
             {% endfor %}
@@ -104,6 +105,8 @@
 
 
 </table>
+
+
 
 {% if block_dict %}
 
