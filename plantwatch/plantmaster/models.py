@@ -97,7 +97,7 @@ class Pollutions(models.Model):
     class Meta:
         managed = False
         db_table = 'pollutions'
-        unique_together = (('plantid', 'releasesto', 'pollutant', 'year'),)
+        unique_together = (('plantid', 'releasesto', 'pollutant', 'year'))
 
 class Mtp(models.Model):
     mtpid = models.IntegerField(unique=True, primary_key=True)
@@ -114,7 +114,7 @@ class Monthp(models.Model):
     monthpid = models.IntegerField(unique=True, primary_key=True)
     year = models.IntegerField()
     month = models.IntegerField()
-    plantid = models.OneToOneField(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')  # Field name made lowercase.
     power = models.IntegerField(null=False)
     
     class Meta:
