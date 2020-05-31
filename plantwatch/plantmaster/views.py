@@ -364,7 +364,7 @@ def plants3(request):
     return render(request, 'plantmaster/blocks.html', context)
 
 
-def plants(request):
+def plants_old(request):
     start = datetime.now()
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS_OLD, plants=True)
     plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).order_by(sort_method + sort_criteria)
@@ -433,7 +433,7 @@ def plants(request):
     return render(request, 'plantmaster/blocks.html', context)
 
 
-def plants_new(request):
+def plants(request):
     start = datetime.now()
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
     tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).order_by(sort_method + sort_criteria)

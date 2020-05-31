@@ -11,7 +11,6 @@ urlpatterns = [
     path('plant2/<plantid>/', views.plant2, name="plant2"),
     #path('plant/<plantid>/<year>', views.plant, name="plant_year"),
     path('plant/', views.random_plant, name="random_plant"),
-    path('plants_v2/', views.plants_new, name="plants_new"),
     path('plants/', views.plants, name="plants"),
 ]
 
