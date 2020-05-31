@@ -22,6 +22,23 @@ class Plants(models.Model):
     company = models.TextField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
+    energy_2015 = models.IntegerField(blank=True, null=True)
+    energy_2016 = models.IntegerField(blank=True, null=True)
+    energy_2017 = models.IntegerField(blank=True, null=True)
+    energy_2018 = models.IntegerField(blank=True, null=True)
+    energy_2019 = models.IntegerField(blank=True, null=True)
+    co2_2007 = models.IntegerField(blank=True, null=True)
+    co2_2008 = models.IntegerField(blank=True, null=True)
+    co2_2009 = models.IntegerField(blank=True, null=True)
+    co2_2010 = models.IntegerField(blank=True, null=True)
+    co2_2011 = models.IntegerField(blank=True, null=True)
+    co2_2012 = models.IntegerField(blank=True, null=True)
+    co2_2013 = models.IntegerField(blank=True, null=True)
+    co2_2014 = models.IntegerField(blank=True, null=True)
+    co2_2015 = models.IntegerField(blank=True, null=True)
+    co2_2016 = models.IntegerField(blank=True, null=True)
+    co2_2017 = models.IntegerField(blank=True, null=True)
+    co2_2018 = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False

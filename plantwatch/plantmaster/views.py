@@ -3,7 +3,7 @@
 
 
 from .forms import BlocksForm
-from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp, Mtp
+from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp, Mtp, Yearly
 
 from django.db.models import Sum, Min, Avg, Max, Count
 from django.db.models import Q, F, When, Case, FloatField
@@ -123,8 +123,8 @@ def force_sources_plant(annotated_plants):
         filtered = annotated_plants.filter(energysource=source)
         count = filtered.count()
         effective_power = filtered.aggregate(Sum('totalpower'))['totalpower__sum'] or 0
-        energy = filtered.aggregate(Sum('energy'))['energy__sum'] or 0
-        co2 = filtered.aggregate(Sum('co2'))['co2__sum'] or 0
+        energy = filtered.aggregate(Sum('energy_2018'))['energy_2018__sum'] or 0
+        co2 = filtered.aggregate(Sum('co2_2018'))['co2_2018__sum'] or 0
         workload = calc_workload(energy, effective_power)
         ophours = divide_safe(energy, effective_power)
         efficiency = divide_safe(co2, energy)
@@ -436,131 +436,66 @@ def plants(request):
 def plants_new(request):
     start = datetime.now()
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
-    tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp)
+    tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).order_by(sort_method + sort_criteria)
     plc = tmp.count()
-
-    #tmp2 = tmp.annotate(
-    #block_count=Count('blocks__plantid'))
-    '''
-    tmp2 = tmp.all().annotate(
-    energy=Sum('yearly__power', distinct=True,
-    filter=Q(yearly__year=YEAR)))
-    
-    tmp3 = tmp2.all().annotate(
-        co2=Max('pollutions__amount',
-    filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")),
-    eff=Case(
-        When(energy=0, then=0),
-        When(co2=0, then=0),
-        default=(F('co2') / F('energy')), output_field=FloatField()),
-    workload=Case(
-        When(energy=0, then=0),
-        default=(F('energy') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
-    energy2=Case(
-        When(energy=0, then=0),
-        default=(F('energy') / float(10**6)), output_field=FloatField()),
-    co22=Case(
-        When(energy=0, then=0),
-        default=(F('co2') / float(10**9)), output_field=FloatField()),
-    )
-    '''
-
-    # on after another: 4.2... sec with sources
-    # on after another: 1.3 sec w/out
-
-    #simultanious
-    # on after another: 4.2... sec with sources
-    # on after another: 1.3 sec w/out
-    
     
     tmp3 = tmp.all().annotate(
-    energy=Sum('yearly__power', distinct=True,
-    filter=Q(yearly__year=YEAR)),
-        co2=Max('pollutions__amount',
-    filter=Q(pollutions__year=YEAR, pollutions__pollutant="CO2", pollutions__releasesto="Air")),
+    eff15=Case(
+        When(energy_2015=0, then=0),
+        When(co2_2015=0, then=0),
+        default=(F('co2_2015') / F('energy_2015')), output_field=FloatField()),
+    eff16=Case(
+        When(energy_2016=0, then=0),
+        When(co2_2016=0, then=0),
+        default=(F('co2_2016') / F('energy_2016')), output_field=FloatField()),
+    eff17=Case(
+        When(energy_2017=0, then=0),
+        When(co2_2017=0, then=0),
+        default=(F('co2_2017') / F('energy_2017')), output_field=FloatField()),
+    eff18=Case(
+        When(energy_2018=0, then=0),
+        When(co2_2018=0, then=0),
+        default=(F('co2_2018') / F('energy_2018')), output_field=FloatField()),
     eff=Case(
-        When(energy=0, then=0),
-        When(co2=0, then=0),
-        default=(F('co2') / F('energy')), output_field=FloatField()),
-    workload=Case(
-        When(energy=0, then=0),
-        default=(F('energy') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
-    energy2=Case(
-        When(energy=0, then=0),
-        default=(F('energy') / float(10**6)), output_field=FloatField()),
-    co22=Case(
-        When(energy=0, then=0),
-        default=(F('co2') / float(10**9)), output_field=FloatField()),
+        When(energy_2018=0, then=0),
+        When(co2_2018=0, then=0),
+        default=(F('co2_2018') / F('energy_2018')), output_field=FloatField()),
+    workload15=Case(
+        When(energy_2015=0, then=0),
+        default=(F('energy_2015') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    workload16=Case(
+        When(energy_2016=0, then=0),
+        default=(F('energy_2016') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    workload17=Case(
+        When(energy_2017=0, then=0),
+        default=(F('energy_2017') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    workload18=Case(
+        When(energy_2018=0, then=0),
+        default=(F('energy_2018') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    workload19=Case(
+        When(energy_2019=0, then=0),
+        default=(F('energy_2019') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    energy=Case(
+        When(energy_2018=0, then=0),
+        default=(F('energy_2018') / float(10**6)), output_field=FloatField()),
+    co2=Case(
+        When(co2_2018=0, then=0),
+        default=(F('co2_2018') / float(10**9)), output_field=FloatField()),
     )
 
-
-
-
-    
-
-    co2c = tmp3.first().co2
-    tmp4 = tmp3
-    #raise Error
-    #tmp4 = tmp3.annotate(
-    #energy=Count('yearly__power',
-    #filter=Q(yearly__year=YEAR)))
-    
-    ec = tmp3.first().energy
-
-    #plc1 = tmp.count()
-    #plc2 = tmp2.count()
-    #plc3 = tmp3.count()
-    #plc4 = tmp4.count()
-
-    '''
-
-
-    tmp5 = tmp4.all().annotate(
-    eff=Case(
-        When(energy=0, then=0),
-        default=(F('co2') / F('energy')), output_field=FloatField())
-    )
-
-    tmp6 = tmp5.all().annotate(
-    workload=Case(
-        When(energy=0, then=0),
-        default=(F('energy') / (F('totalpower') * HOURS_IN_YEAR)), output_field=FloatField())
-    )
-    '''
     plant_list = tmp3.order_by(sort_method + sort_criteria)    #&
-    #Q(pollutions__pollutant="CO2") &
-    #Q(pollutions__releasesto="Air")))))
-    #.order_by(sort_method + sort_criteria)
-    #.order_by(sort_method + sort_criteria)
-
-    t = plant_list.first()
-
-    bc = t.energy
-    pl = t.co2
-
-    #raise Error
-    #plant_list = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).annotate(block_count=Count('blocks__plantid')).order_by(sort_method + sort_criteria)
 
     p, q, z = 1, 2, 3
-
     q = [1, 2, 3]
 
-    q = plant_list
-
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
-    #block_list = Blocks.objects.filter(plantid__in=plant_list.values("plantid")).filter(initialop__range=(slider[0][0], slider[0][1])).filter(netpower__range=(slider[1][0], slider[1][1]))
-    #block_list = create_block_list(block_list, filter_dict)
-    #plant_list = create_block_list(plant_list, filter_dict)
-
     sources_dict = force_sources_plant(plant_list)
 
     block_list = []
     block_dict = {}
-    #sources_dict = {}
 
     value_list = ["plantname", "initialop", "latestexpanded", "state", "federalstate", "totalpower", "energy", "workload", "efficency"]
     key_list = ["energysource", "plantid", "plantid"]
-    #block_dict = create_blocks_dict(plant_tmp_dict, value_list, key_list)
 
     header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'CO2 Ausstoß [Mio. t]', 'Auslastung [%]', 'Effizienz [g/kWh]']
     sources_header = SOURCES_BLOCKS
