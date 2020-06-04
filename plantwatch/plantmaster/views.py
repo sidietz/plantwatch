@@ -812,7 +812,7 @@ def get_activepower(blocks):
     powers = []
 
     for x in YEARS:
-        activeblocks = blocks.filter(Q(state__in=ACTIVE_OPS[0:2]) | (Q(state=ACTIVE_OPS[2]) & Q(reserveyear__gt=x)))
+        activeblocks = blocks.filter(Q(state__in=ACTIVE_OPS[0:1]) | (Q(state=ACTIVE_OPS[2]) & Q(reserveyear__gt=x) | ((Q(state="stillgelegt") & Q(endop__gt=x)))))
         activepower = activeblocks.aggregate(Sum('netpower'))['netpower__sum'] # or 0
         powers.append(activepower)
 
