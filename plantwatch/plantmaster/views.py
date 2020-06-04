@@ -462,19 +462,22 @@ def plants(request):
         default=(F('co2_2018') / F('energy_2018')), output_field=FloatField()),
     workload15=Case(
         When(energy_2015=0, then=0),
-        default=(F('energy_2015') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+        default=(F('energy_2015') / (F(power_type) * HOURS_IN_YEAR) * 100), output_field=FloatField()),
     workload16=Case(
         When(energy_2016=0, then=0),
-        default=(F('energy_2016') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+        default=(F('energy_2016') / (F(power_type) * HOURS_IN_YEAR) * 100), output_field=FloatField()),
     workload17=Case(
         When(energy_2017=0, then=0),
-        default=(F('energy_2017') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+        default=(F('energy_2017') / (F(power_type) * HOURS_IN_YEAR) * 100), output_field=FloatField()),
     workload18=Case(
         When(energy_2018=0, then=0),
-        default=(F('energy_2018') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+        default=(F('energy_2018') / (F(power_type) * HOURS_IN_YEAR) * 100), output_field=FloatField()),
     workload19=Case(
         When(energy_2019=0, then=0),
-        default=(F('energy_2019') / (F('totalpower') * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+        default=(F('energy_2019') / (F(power_type) * HOURS_IN_YEAR) * 100), output_field=FloatField()),
+    workload=Case(
+        When(energy_2019=0, then=0),
+        default=(F('energy_2019') / (F(power_type) * HOURS_IN_YEAR) * 100), output_field=FloatField()),
     energy=Case(
         When(energy_2018=0, then=0),
         default=(F('energy_2018') / float(10**6)), output_field=FloatField()),
@@ -483,7 +486,7 @@ def plants(request):
         default=(F('co2_2018') / float(10**9)), output_field=FloatField()),
     )
 
-    plant_list = tmp3.order_by(sort_method + sort_criteria)    #&
+    plant_list = tmp3.order_by(sort_method + sort_criteria)
 
     p, q, z = 1, 2, 3
     q = [1, 2, 3]
@@ -849,19 +852,6 @@ def plant(request, plantid):
     pk_list = ["year", "pollutant", "amount2"]
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
 
-    try:
-        energies = [get_energy_for_plant(plantid, x) for x in YEARS]
-        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
-        co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
-        tmp = list(zip(co2s, energies))
-        effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
-        workload = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
-
-        effcols = list(zip(YEARS, energies, co2s, effs, workload))
-        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
-    except:
-        pass
-
     elist = get_elist(plantid, plant)
 
     blocks_list = blocks.order_by("initialop" + "")
@@ -876,8 +866,8 @@ def plant(request, plantid):
     blocks_of_plant = create_blocks_dict(blocks_tmp_dict, value_list, key_list)
 
     blocks_header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-    data_list = [plantid, plantname, plant.company, block_count, le, tp]
-    header_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung']
+    data_list = [plantid, plantname, plant.company, block_count, le, tp, plant.activepower]
+    header_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
 
     pollutions2 = get_pollutants_any_year(plantid)
 

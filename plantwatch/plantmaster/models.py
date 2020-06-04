@@ -22,6 +22,7 @@ class Plants(models.Model):
     company = models.TextField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
+    activepower = models.FloatField(blank=True, null=True)
     energy_2015 = models.IntegerField(blank=True, null=True)
     energy_2016 = models.IntegerField(blank=True, null=True)
     energy_2017 = models.IntegerField(blank=True, null=True)

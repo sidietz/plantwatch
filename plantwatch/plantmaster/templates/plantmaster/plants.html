@@ -98,7 +98,7 @@
             <td> {{ plant.initialop }}</td> <td> {{ plant.latestexpanded }}</td>
             <td> {{ plant.state }}</td> <td> {{ plant.federalstate }}</td>
             <td> {{ plant.totalpower |floatformat:1 }}</td> <td> {{ plant.energy |floatformat:2 }}</td> <td> {{ plant.co2 |floatformat:2 }}</td>
-            <td> {{ plant.workload18 |floatformat:2 }}</td> <td> {{ plant.eff |floatformat:2}}</td>
+            <td> {{ plant.workload |floatformat:2 }}</td> <td> {{ plant.eff |floatformat:2}}</td>
              </tr>
         {% endfor %}
 </table>
