@@ -31,8 +31,9 @@ SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", "Mineralöl
 SORT_CRITERIA_BLOCKS = ([('blockname', 'Name'), ('netpower', 'Nennleistung'), ('initialop', 'Inbetriebnahme')], "netpower")
 SORT_CRITERIA_PLANTS = ([('plantname', 'Name'), ('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert'), ('eff', 'Effizienz'), ('workload', 'Auslastung'), ('co2', 'CO2 Ausstoß'), ('energy', 'Energie')], "totalpower")
 SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'), ('totalpower', 'Gesamtleistung'),('initialop', 'Inbetriebnahme'), ('latestexpanded', 'Zuletzt erweitert')], "totalpower")
-OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
-DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve',  'Sicherheitsbereitschaft', 'Sonderfall']
+OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall', 'vorläufig stillgelegt', 'stillgelegt']
+ACTIVE_OPS = OPSTATES[0:3]
+DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall']
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"), ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000, "Kernenergie": 6700, "Mineralölprodukte": 1000}
@@ -438,6 +439,9 @@ def plants(request):
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
     tmp = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).order_by(sort_method + sort_criteria)
     plc = tmp.count()
+
+    power_type = "totalpower"
+    power_type = "activepower"
     
     tmp3 = tmp.all().annotate(
     eff15=Case(
@@ -804,30 +808,41 @@ def get_pollutant_dict(plantid, blocks):
     pollutants_dict = create_blocks_dict(pollutants_tmp_dict, pol_list, pk_list)
     return pollutants_dict
 
+def get_activepower(blocks):
+    powers = []
+
+    for x in YEARS:
+        activeblocks = blocks.filter(Q(state__in=ACTIVE_OPS[0:2]) | (Q(state=ACTIVE_OPS[2]) & Q(reserveyear__gt=x)))
+        activepower = activeblocks.aggregate(Sum('netpower'))['netpower__sum'] # or 0
+        powers.append(activepower)
+
+    return powers
+
+
 def get_elist(plantid, plant):
 
     elist = []
 
-    try:
-        energies = [get_energy_for_plant(plantid, x) for x in YEARS]
-        e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
-        co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
-        tmp = list(zip(co2s, energies))
-        effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
-        workload = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
+    blocks = Blocks.objects.filter(plantid=plantid)
 
-        effcols = list(zip(YEARS, energies, co2s, effs, workload))
-        testval = reduce(lambda a, b: a + b, [i for col in effcols for i in col[1:]])
+    powers = get_activepower(blocks)
+
+    energies = [get_energy_for_plant(plantid, x) for x in YEARS]
+    e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
+    co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
+    tmp = list(zip(co2s, energies))
+    effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
+    workload2 = [divide_safe(e, (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in e2s]
+    workload = [divide_safe(e, (p * HOURS_IN_YEAR)) * 100 for (e, p) in zip(e2s, powers)]
+
+    effcols = list(zip(YEARS, energies, co2s, effs, workload, workload2))
+    testval = reduce(lambda a, b: a + b, [i for col in effcols for i in col[1:]])
 
         # all rows empty, so return emptylist
-        if testval == 0:
-            return elist
-
-        elist = [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung [%]"], effcols]
-    except:
-        q = ""
-
-    return elist
+    if testval == 0:
+        return elist
+    else:
+        return [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung aktive Blöcke [%]", "Auslastung gesamt [%]"], effcols]
 
 def plant(request, plantid):
 
