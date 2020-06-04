@@ -22,6 +22,24 @@ class Plants(models.Model):
     company = models.TextField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
+    activepower = models.FloatField(blank=True, null=True)
+    energy_2015 = models.IntegerField(blank=True, null=True)
+    energy_2016 = models.IntegerField(blank=True, null=True)
+    energy_2017 = models.IntegerField(blank=True, null=True)
+    energy_2018 = models.IntegerField(blank=True, null=True)
+    energy_2019 = models.IntegerField(blank=True, null=True)
+    co2_2007 = models.IntegerField(blank=True, null=True)
+    co2_2008 = models.IntegerField(blank=True, null=True)
+    co2_2009 = models.IntegerField(blank=True, null=True)
+    co2_2010 = models.IntegerField(blank=True, null=True)
+    co2_2011 = models.IntegerField(blank=True, null=True)
+    co2_2012 = models.IntegerField(blank=True, null=True)
+    co2_2013 = models.IntegerField(blank=True, null=True)
+    co2_2014 = models.IntegerField(blank=True, null=True)
+    co2_2015 = models.IntegerField(blank=True, null=True)
+    co2_2016 = models.IntegerField(blank=True, null=True)
+    co2_2017 = models.IntegerField(blank=True, null=True)
+    co2_2018 = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -43,6 +61,7 @@ class Blocks(models.Model):
     state = models.TextField(blank=True, null=True)
     endop = models.TextField(blank=True, null=True)
     company = models.TextField(blank=True, null=True)
+    reserveyear = models.IntegerField(null=True)
     
     class Meta:
         managed = False
@@ -58,10 +77,6 @@ class Addresses(models.Model):
     class Meta:
         managed = False
         db_table = 'addresses'
-
-
-
-        
 
 class Power(models.Model):
     powerid = models.IntegerField(unique=True, primary_key=True)
@@ -101,19 +116,40 @@ class Pollutions(models.Model):
     class Meta:
         managed = False
         db_table = 'pollutions'
-        unique_together = (('plantid', 'releasesto', 'pollutant', 'year'),)
+        unique_together = (('plantid', 'releasesto', 'pollutant', 'year'))
 
+class Mtp(models.Model):
+    mtpid = models.IntegerField(unique=True, primary_key=True)
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
+    power = models.IntegerField(null=False)
+    producedat = models.DateTimeField()
+    
+    class Meta:
+        managed = False
+        db_table = 'mtp'
+        unique_together = ('plantid', 'producedat')
 
 class Monthp(models.Model):
-    monthidp = models.IntegerField(unique=True, primary_key=True)
+    monthpid = models.IntegerField(unique=True, primary_key=True)
     year = models.IntegerField()
     month = models.IntegerField()
-    plantid = models.OneToOneField(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')  # Field name made lowercase.
     power = models.IntegerField(null=False)
     
     class Meta:
         managed = False
         db_table = 'monthp'
         unique_together = ('plantid', 'year', 'month')
+
+class Yearly(models.Model):
+    yid = models.IntegerField(unique=True, primary_key=True)
+    year = models.IntegerField()
+    plantid = models.OneToOneField(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
+    power = models.IntegerField(null=False)
+    
+    class Meta:
+        managed = False
+        db_table = 'monthp'
+        unique_together = ('plantid', 'year')
 
 
