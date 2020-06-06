@@ -441,7 +441,8 @@ def plants(request):
     plc = tmp.count()
 
     power_type = "totalpower"
-    power_type = "activepower"
+    # power_type = "activepower"
+    #TODO: make activepower work
     
     tmp3 = tmp.all().annotate(
     eff15=Case(
