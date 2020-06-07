@@ -733,6 +733,12 @@ def get_energy_for_plant(plantid, year, raw=False):
     else:
         return tmp / 10**6 or 0
 
+def get_co2_for_plant_by_years(plantid, years):
+    pols = Pollutions.objects.filter(plantid=plantid, releasesto="Air", pollutant="CO2", year__in=years).order_by("year")
+    co2s = list(map(lambda x: x.amount2, pols))
+
+    return co2s
+
 def get_co2_for_plant_by_year(plantid, year):
     try:
         co2 = Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2
@@ -795,8 +801,8 @@ def get_pollutants(plantid, year=''):
         if q.exists():
             return year, q
 
-def get_pollutants_any_year(plantid):
-    q = Pollutions.objects.filter(plantid=plantid, releasesto='Air').order_by("-exponent", "pollutant2", "year", "-amount")
+def get_pollutants_any_year(plantid, to):
+    q = Pollutions.objects.filter(plantid=plantid, releasesto=to).order_by("-exponent", "pollutant2", "year", "-amount")
     return q
 
 def get_pollutant_dict(plantid, blocks):
@@ -833,6 +839,7 @@ def get_elist(plantid, plant):
 
     energies = [get_energy_for_plant(plantid, x) for x in YEARS]
     e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
+    co2s = get_co2_for_plant_by_years(plantid, YEARS)
     co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
     tmp = list(zip(co2s, energies))
     effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
@@ -888,7 +895,8 @@ def plant(request, plantid):
     data_list = [plantid, plantname, plant.company, block_count, le, tp, plant.activepower]
     header_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
 
-    pollutions2 = get_pollutants_any_year(plantid)
+    pollutions2 = get_pollutants_any_year(plantid, "Air")
+    pollutions3 = get_pollutants_any_year(plantid, "Water")
 
     context = {
         'data_list': zip(header_list, data_list),
@@ -902,6 +910,10 @@ def plant(request, plantid):
         'energies': energies,
         'API': API_KEY,
         'pollutions2': pollutions2,
+        'pollutions3': pollutions3,
+        'rtos': ['Luft', "Wasser"],
+        'rto1': 'Luft',
+        'rto2': 'Wasser'
     }
     return render(request, "plantmaster/plant.html", context)
 
