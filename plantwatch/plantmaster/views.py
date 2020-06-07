@@ -111,7 +111,7 @@ def forge_sources_dict(block_list, power_type):
     sources_dict["Summe"] = [count, power, round(whole_power, 2), round(divide_safe(whole_power * 10000, raw_power), 2), round(calc_workload(whole_power * 10**10, power_c), 2), round(calc_workload(whole_power2 * 10**10, power_c), 2)]
     return sources_dict
 
-def force_sources_plant(annotated_plants):
+def forge_sources_plant(annotated_plants):
 
     sources_dict = {}
     energy, energy2 = 0, 0
@@ -500,7 +500,7 @@ def plants(request):
     q = [1, 2, 3]
 
     filter_dict = {"energysource": search_power, "state": search_opstate, "federalstate": search_federalstate}
-    sources_dict = force_sources_plant(plant_list)
+    sources_dict = forge_sources_plant(plant_list)
 
     block_list = []
     block_dict = {}
