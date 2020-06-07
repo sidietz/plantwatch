@@ -8,8 +8,11 @@ from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp,
 from django.db.models import Sum, Min, Avg, Max, Count
 from django.db.models import Q, F, When, Case, FloatField
 from django.db.models import OuterRef, Subquery
+
 from django.forms.models import model_to_dict
 from django.shortcuts import render, get_object_or_404, redirect
+
+from django.views.generic import ListView
 
 from functools import reduce
 from datetime import date, datetime
@@ -437,6 +440,41 @@ def plants_old(request):
     return render(request, 'plantmaster/blocks.html', context)
 
 
+
+class PlantsList(ListView):
+    model = Plants
+    context_object_name = 'plants'
+
+    form = ""
+    slider = ""
+
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['form'] = self.form
+        context['slider'] = self.slider
+        sources_dict = forge_sources_plant(context['plants'])
+        header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'CO2 Ausstoß [Mio. t]', 'Auslastung [%]', 'Effizienz [g/kWh]']
+        context['sources_dict'] = sources_dict
+        context['sources_header'] = SOURCES_PLANTS
+        context['header_list'] = header_list
+        return context
+
+    def post(self, request, *args, **kwargs):
+        #self.status_form = StatusForm(self.request.POST or None)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
+        #queryset = queryset.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).filter(energysource__in=search_power).order_by(sort_method + sort_criteria)
+
+        return super(PlantsList, self).get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
+        self.form = form
+        self.slider = slider
+
+        plants = Plants.objects.order_by('-totalpower').filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).filter(energysource__in=search_power).order_by(sort_method + sort_criteria)
+        return annotate_plants(plants)
+
+
 def plants(request):
     start = datetime.now()
     form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
@@ -855,6 +893,63 @@ def get_elist(plantid, plant):
     else:
         return [["Jahr", "Energie TWh", "CO2 [Mio. t.]", "g/kWh", "Auslastung aktive Blöcke [%]", "Auslastung gesamt [%]"], effcols]
 
+
+class PlantList(ListView):
+    model = Blocks
+    context_object_name = 'blocks'
+    template_name = "plantmaster/plant_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+
+        plant = Plants.objects.get(pk=self.plantid)
+
+        data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount, plant.latestexpanded, plant.totalpower, plant.activepower]
+        header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+        pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
+        pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
+
+
+        ss = get_ss(plant)
+
+        pollutants_dict = get_pollutant_dict(self.plantid, blocks)
+        elist = get_elist(self.plantid, plant)
+
+        pollutions2 = get_pollutants_any_year(self.plantid, "Air")
+        pollutions3 = get_pollutants_any_year(self.plantid, "Water")
+
+        context['plant_id'] = self.plantid
+        context['data_list'] = zip(pl_list, data_list)
+        context['header_list'] = header_list
+        context['rto1'] = 'Luft'
+        context['rto2'] = 'Wasser'
+        context['ss'] = ss
+        context['API'] = API_KEY
+        context['pollutions2'] = pollutions2
+        context['pollutions3'] = pollutions3
+
+        context['pollutants_dict'] = pollutants_dict
+        context['pol_header_list'] = pol_header_list
+
+        context['elist'] = elist
+
+        return context
+
+    def get_queryset(self):
+        self.plantid = self.kwargs['plantid']
+        return Blocks.objects.filter(plantid=self.plantid).order_by('initialop')
+
+
+def get_ss(plant):
+
+    pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
+    ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
+    ss3 = comp + ks + pltn
+    ss3 = plant.plantname.replace("Werk", "") if "P&L" in plant.plantname else ss3
+    ss3 = ss3.replace(" ", "+")
+    ss3 = ss3.replace("&", "%26")
+    return ss3
+
 def plant(request, plantid):
 
     plant = get_object_or_404(Plants, plantid=plantid)
@@ -863,22 +958,14 @@ def plant(request, plantid):
     monthp = Monthp.objects.filter(plantid=plantid, year=YEAR).aggregate(Sum('power'))
     energies = [get_energy_for_plant(plantid, x) for x in PRTR_YEARS]
 
-
-    pltn, comp = get_plantname(plant.plantname), get_company(plant.company)
-    ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
-    ss3 = comp + ks + pltn
-    ss3 = plant.plantname.replace("Werk", "") if "P&L" in plant.plantname else ss3
-    ss3 = ss3.replace(" ", "+")
-    ss3 = ss3.replace("&", "%26")
-    #ss3 = ss3.replace("/", "&#x2F")
+    ss3 = get_ss(plant)
 
     pollutants_dict = get_pollutant_dict(plantid, blocks)
+    elist = get_elist(plantid, plant)
 
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
     pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
-
-    elist = get_elist(plantid, plant)
 
     blocks_list = blocks.order_by("initialop" + "")
     plantname = plant.plantname
