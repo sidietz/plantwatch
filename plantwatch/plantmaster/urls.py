@@ -1,16 +1,13 @@
-from django.urls import path
-from . import views
-
+from django.urls import path, include
+from .views import *
 
 urlpatterns = [
-    path('', views.plants, name='index'),
-    path('impressum', views.impressum, name="impressum"),
-    path('blocks/', views.blocks, name='blocks'),
-    path('block/<blockid>/', views.block, name='block'),
-    path('plant/<plantid>/', views.plant, name="plant"),
-    path('plant2/<plantid>/', views.plant2, name="plant2"),
-    #path('plant/<plantid>/<year>', views.plant, name="plant_year"),
-    path('plant/', views.random_plant, name="random_plant"),
-    path('plants/', views.plants, name="plants"),
+    path('', plants, name='index'),
+    path('impressum', impressum, name="impressum"),
+    path('blocks/', blocks, name='blocks'),
+    path('block/<blockid>/', block, name='block'),
+    path('plant/<plantid>/', plant, name="plant"),
+    path('plant2/<plantid>/', plant2, name="plant2"),
+    path('plant/', random_plant, name="random_plant"),
+    path('plants/', plants, name="plants"),
 ]
-
