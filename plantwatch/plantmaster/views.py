@@ -43,7 +43,10 @@ SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning", "Erdgas": "table-success", "Kernenergie": "table-info", "Mineralölprodukte": "table-secondary"}
 HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-SOURCES_BLOCKS = ["Energieträger [" + str(YEAR) + "]", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [h]", "Auslastung [%]", "Effizienz [g CO2/kWh]"]
+SOURCES_PLANTS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "CO2 [Mio. t]", "Volllaststunden [h]", "Auslastung [%]", "Effizienz [g CO2/kWh]"]
+SOURCES_BLOCKS = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [h]", "Auslastung 2018 [%]", "Auslastung 2019 [%]"]
+
+
 SOURCES_BLOCKS_OLD = ["Energieträger", "Anzahl", "Nennleistung [GW]", "Jahresproduktion [TWh]", "Volllaststunden [" + str(YEAR) + "]", "Auslastung [" + str(YEAR) + "] [%]", "Auslastung [" + str(LATEST_YEAR) + "] [%]"]
 
 
@@ -506,7 +509,7 @@ def plants(request):
     key_list = ["energysource", "plantid", "plantid"]
 
     header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'CO2 Ausstoß [Mio. t]', 'Auslastung [%]', 'Effizienz [g/kWh]']
-    sources_header = SOURCES_BLOCKS
+    sources_header = SOURCES_PLANTS
     slider_list = slider
 
     end = datetime.now()
