@@ -138,9 +138,9 @@ def force_sources_plant(annotated_plants):
         total_co2 += co2
         total_count += count
     
-        sources_dict[source] = [count, effective_power / 1000, energy / 10**6, ophours, workload * 10000, efficiency]
+        sources_dict[source] = [count, effective_power / 1000, energy / 10**6, co2 / 10**9, ophours, workload * 10000, efficiency]
     
-    sources_dict['Summe'] = [total_count, total_power / 1000, total_energy / 10**6, divide_safe(total_energy, total_power), calc_workload(total_energy, total_power) * 10000, divide_safe(total_co2, total_energy)]
+    sources_dict['Summe'] = [total_count, total_power / 1000, total_energy / 10**6, total_co2 / 10**9, divide_safe(total_energy, total_power), calc_workload(total_energy, total_power) * 10000, divide_safe(total_co2, total_energy)]
     return sources_dict
 
 
