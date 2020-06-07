@@ -59,7 +59,7 @@ class Blocks(models.Model):
     blockname = models.TextField(blank=True, null=True)
     netpower = models.FloatField(blank=True, null=True)
     state = models.TextField(blank=True, null=True)
-    endop = models.TextField(blank=True, null=True)
+    endop = models.IntegerField(blank=True, null=True)
     company = models.TextField(blank=True, null=True)
     reserveyear = models.IntegerField(null=True)
     

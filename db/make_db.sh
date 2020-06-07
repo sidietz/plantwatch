@@ -4,7 +4,7 @@ if [ -f plantwatch.db ]; then
 fi
 sqlite3 plantwatch.db  "CREATE TABLE addresses(blockid TEXT NOT NULL PRIMARY KEY, federalstate TEXT, place TEXT, plz INTEGER, street TEXT);"
 
-sqlite3 plantwatch.db  "CREATE TABLE blocks(plantid TEXT, blockid TEXT NOT NULL PRIMARY KEY, blockdescription TEXT, federalstate TEXT, energysource TEXT, initialop INTEGER, chp TEXT, blockname TEXT, netpower REAL, state TEXT, endop TEXT, company TEXT, reserveyear INT, FOREIGN KEY (blockid) REFERENCES addresses(blockid) ON DELETE CASCADE);"
+sqlite3 plantwatch.db  "CREATE TABLE blocks(plantid TEXT, blockid TEXT NOT NULL PRIMARY KEY, blockdescription TEXT, federalstate TEXT, energysource TEXT, initialop INTEGER, chp TEXT, blockname TEXT, netpower REAL, state TEXT, endop INT, company TEXT, reserveyear INT, FOREIGN KEY (blockid) REFERENCES addresses(blockid) ON DELETE CASCADE);"
 
 sqlite3 plantwatch.db  "CREATE TABLE plants(plantid TEXT NOT NULL PRIMARY KEY, plantname TEXT, federalstate TEXT, energysource TEXT, chp TEXT, latestexpanded INT, initialop INT, totalpower REAL, state TEXT, blockcount INT,  company TEXT, plz TEXT, place TEXT, street TEXT, number TEXT, latitude REAL, longitude REAL, activepower REAL, energy_2015 INTEGER,  energy_2016 INTEGER,  energy_2017 INTEGER,  energy_2018 INTEGER,  energy_2019 INTEGER,  co2_2007 INTEGER,  co2_2008 INTEGER,  co2_2009 INTEGER,  co2_2010 INTEGER,  co2_2011 INTEGER,  co2_2012 INTEGER,  co2_2013 INTEGER,  co2_2014 INTEGER,  co2_2015 INTEGER,  co2_2016 INTEGER,  co2_2017 INTEGER,  co2_2018, FOREIGN KEY (plantid) REFERENCES blocks(plantid) ON DELETE CASCADE);"
 
