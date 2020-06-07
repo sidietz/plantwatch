@@ -1,65 +1,40 @@
 {% extends "plantmaster/base.html" %}
+{% load static %}
+
 {% block content %}
 
 <div>
 <span style="float: left">
-{% if data_list %}
-<table class="table table-bordered table-hover table-striped table-sm">
-    {% for key, value in data_list %}
-    <tr>
-        <th> {{ key }} </th>
-        <td> {{ value }} </td>
-    </tr>
-{% endfor %}
-</table>
-{% else %}
-    <p>Keine Daten vorhanden.</p>
-{% endif %}
+
+    {% include "plant.html" with data_list=data_list %}
+
 </span>
 
-{% if percentages2 %}
+
 <span style="float: right">
+{% if percentages2 %}
     <h3>Auslastung des Kraftwerks</h3>
     <div id="gauge"></div>
+
+    {% endif %}
 </span>
-{% endif %}
+
 </div>
 
 
 
-{% csrf_token %}
-<table class="table table-bordered table-hover table-striped table-sm">
-    {% for header in header_list %}
-        <th> {{ header }}</th>
-    {% endfor %}
 
-    {% for block, block_rows in blocks_of_plant.items %}
-    {% if block.0 == "Steinkohle" %}
-        <tr class="table table-danger">
-    {% elif block.0 == "Braunkohle" %}
-        <tr class="table table-warning">
-    {% elif block.0 == "Erdgas" %}
-        <tr class="table table-success">
-    {% elif block.0 == "Kernenergie" %}
-        <tr class="table table-info">
-    {% elif block.0 == "Mineralölprodukte" %}
-        <tr class="table table-secondary">
-    {%  else %}
-        <tr class="table">
-    {% endif %}
-    <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
-    {% for column in block_rows %}
-        <td> {{ column }} </td>
-    {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
+{% include "block_table_short.html" with header=header_list list=blocks %}
+
 
 <div>
     <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
-    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant' plant_id %}">Kraftwerksschadstoffe</a></span>
+    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
 </div>
+
 <div stye=“width:100%; style="height:3em;"> </div>
+
+
 
 {% if percentages2 %}
     <h3>Auslastung Kraftwerk</h3>
@@ -79,7 +54,11 @@
     <h3>Produktion pro Block im Jahr {{ key }}</h3>
     <div id="chart{{ key }}"></div>
 {% endfor %}
+
+
 {% endblock %}
+
+
 
 {% block js %}
 

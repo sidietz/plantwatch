@@ -19,10 +19,9 @@
         {% else %}
             <tr class="table">
         {% endif %}
-        <td><a class="btn btn-outline-secondary" href="{% url 'plant' block.plantid.plantid %}">{{ block.plantid.plantid }} </a></td>
         <td><a class="btn btn-outline-secondary" href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
-            <td> {{ block.blockname }}</td> <td> {{ block.company }}</td>
-            <td> {{ block.initialop }}</td> <td> {{ block.endop }}</td>  <td> {{ block.chp }}</td>
+            <td> {{ block.blockname }}</td> <td> {{ block.blockdescription }}</td>
+            <td> {{ block.initialop }}</td> <td> {{ block.endop }}</td> <td> {{ block.chp }}</td>
             <td> {{ block.state }}</td> <td> {{ block.federalstate }}</td>
             <td> {{ block.netpower |floatformat:1 }}</td>
             </tr>

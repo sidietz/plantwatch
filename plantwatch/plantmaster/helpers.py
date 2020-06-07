@@ -1,4 +1,4 @@
-from .models import Pollutions, Month
+from .models import Pollutions, Month, Yearly
 from django.db.models import Sum, Min, Avg, Max, Count
 
 from .constants import *
@@ -36,9 +36,6 @@ def handle_slider_2(slider, is_plants):
         new_slider.extend(SL_2b[2:])
     # raise TypeError(new_slider)
     return new_slider
-
-
-
 
 
 def query_for_month_many2(blocks, year, month):
@@ -216,8 +213,8 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
 def get_energy_for_plant(plantid, year, raw=False):
     try:
-        tmp = Monthp.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
-    except:
+        tmp = Yearly.objects.filter(plantid=plantid, year=year).aggregate(Sum('power'))['power__sum'] or 0
+    except KeyError:
         tmp = 0.001
 
     if raw:

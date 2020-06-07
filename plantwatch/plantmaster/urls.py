@@ -2,12 +2,12 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('', plants, name='index'),
+    path('', PlantsList.as_view(), name='index'),
     path('impressum', impressum, name="impressum"),
-    path('blocks/', blocks, name='blocks'),
-    path('block/<blockid>/', block, name='block'),
-    path('plant/<plantid>/', plant, name="plant"),
-    path('plant2/<plantid>/', plant2, name="plant2"),
+    path('block/<str:pk>/', BlockView.as_view(), name='block'),
     path('plant/', random_plant, name="random_plant"),
-    path('plants/', plants, name="plants"),
+    path('blocks/', BlocksList.as_view(), name='blocks'),
+    path('plants/', PlantsList.as_view(), name="plants"),
+    path('plant/<plantid>/', PlantList.as_view(), name="plant"),
+    path('plant2/<plantid>/', PlantList2.as_view(), name="plant2"),
 ]
