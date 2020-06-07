@@ -50,7 +50,7 @@ class Blocks(models.Model):
     #plantid = models(blank=True, null=True)
     # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
     blockid = models.TextField(unique=True, primary_key=True, db_column="blockid")
-    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid')
+    plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid', related_name='blocks')
     blockdescription = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
