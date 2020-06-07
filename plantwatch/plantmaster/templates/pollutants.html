@@ -1,0 +1,26 @@
+<table class="table table-bordered table-hover table-striped table-sm">
+    <tbody>
+        {% regroup pollutions2|dictsort:"year" by year as yp %}
+        <tr class="table">
+            <th>Schadstoff [{{ rto }}]</th>
+            {% if pollutions2 %}
+            {% for year in yp %}
+            <th>{{year.grouper}}</th>
+            {% endfor %}
+            {% else %}
+            </tr>
+            <tr><th>Keine Schadstoffdaten für {{ rto }} vorhaden.</th>
+            {% endif %}
+        </tr>
+
+        {% regroup pollutions2 by pollutant2 as pollutants %}
+        {% for pollutant, pols in pollutants %}
+        <tr>
+            <th>{{ pollutant }}</th>
+            {% for p in pols %}
+            <td>{{ p.amount2|floatformat:3 }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

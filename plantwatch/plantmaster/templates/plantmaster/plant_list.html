@@ -1,34 +1,12 @@
 {% extends "plantmaster/base.html" %}
+{% load static %}
+
 {% block content %}
 
 {% include "plant.html" with data_list=data_list %}
 
-<table class="table table-bordered table-hover table-striped table-sm">
-{% for header in header_list %}
-    <th>{{ header }}</th>
-{% endfor %}
+{% include "block_table.html" with header=header_list list=blocks %}
 
-{% for block, block_rows in blocks_of_plant.items %}
-    {% if block.0 == "Steinkohle" %}
-        <tr class="table table-danger">
-    {% elif block.0 == "Braunkohle" %}
-        <tr class="table table-warning">
-    {% elif block.0 == "Erdgas" %}
-        <tr class="table table-success">
-    {% elif block.0 == "Kernenergie" %}
-        <tr class="table table-info">
-    {% elif block.0 == "Mineralölprodukte" %}
-        <tr class="table table-secondary">
-    {% else %}
-        <tr class="table">
-    {% endif %}
-    <th><a class="btn btn-outline-secondary" href="{% url 'block' block.1 %}">{{ block.1 }} </a></th>
-    {% for column in block_rows %}
-        <td> {{ column }} </td>
-    {% endfor %}
-        </tr>
-{% endfor %}
-</table>
 
 <div>
     <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
@@ -54,11 +32,11 @@
             <span style="float: left">
 
                 {% include "pollutants_year.html" %}
-
+            
             </span>
             
             <span style="float: left">
-
+                
                 {% include "elist.html" %}
 
             </span>
@@ -69,7 +47,5 @@
 {% include "pollutants.html" with pollutions2=pollutions2 rto=rto1 %}
 {% include "pollutants.html" with pollutions2=pollutions3 rto=rto2 %}
 
-{% endblock %}
 
-{% block js %}
 {% endblock %}
