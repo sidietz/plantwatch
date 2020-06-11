@@ -1,0 +1,51 @@
+{% extends "plantmaster/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% include "plant.html" with data_list=data_list %}
+
+{% include "block_table_short.html" with header=header_list list=blocks %}
+
+
+<div>
+    <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
+    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
+</div>
+
+<div stye=“width:100%; style="height:3em;"> </div>
+
+
+<div>
+    <span style="float: left">
+        <iframe
+            width="900"
+            height="675"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key={{API}}
+            &q={{ss}}&maptype=satellite&zoom=16" allowfullscreen>
+        </iframe>
+    </span>
+
+    <span>
+        <div>
+            <span style="float: left">
+
+                {% include "pollutants_year.html" %}
+            
+            </span>
+            
+            <span style="float: left">
+                
+                {% include "elist.html" %}
+
+            </span>
+       </div>
+   </span>
+</div>
+
+{% include "pollutants.html" with pollutions2=pollutions2 rto=rto1 %}
+{% include "pollutants.html" with pollutions2=pollutions3 rto=rto2 %}
+
+
+{% endblock %}

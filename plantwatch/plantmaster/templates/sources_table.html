@@ -1,0 +1,32 @@
+{% if sources_dict %}
+<table class="table table-bordered table-hover table-sm">
+    <thead>
+        <tr>
+            {% for h in header %}
+                <th> {{ h }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+
+    {% for key, value_list in dict.items %}
+        {% if key == "Steinkohle" %}
+            <tr class="table table-danger">
+        {% elif key == "Braunkohle" %}
+            <tr class="table table-warning">
+        {% elif key == "Erdgas" %}
+            <tr class="table table-success">
+        {% elif key == "Mineralölprodukte" %}
+            <tr class="table table-secondary">
+         {% elif key == "Kernenergie" %}
+            <tr class="table table-info">
+        {% else %}
+            <tr>
+        {% endif %}
+        <th> {{ key }} </th>
+        {% for value in value_list %}
+            <td> {{ value |floatformat:-2 }} </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
