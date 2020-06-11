@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - pollution table description
 
+### Fixed
+- some html elements intersecting
+
 ## [0.1.15-a] - 2020-06-06
 ### Added
 - api for blocks and plants
