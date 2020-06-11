@@ -4,12 +4,96 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.14-e] - 2020-06-06
+### Changed
+- endop to int
+
+### Fixed
+- this and subsequent versions adhere to semver more accurately 
+- headers of blocks table
+- co2 for plants table
+
+## [0.1.14d] - 2020-06-06
+### Changed
+- update dependencies
+
+### Fixed
+- filtering by energy source
+- workload for plants is now based on totalpower, which fixes inconsistencies
+
+## [0.1.14c] - 2020-06-06
+### Changed
+- update README
+
+## [0.1.14b] - 2020-06-05
+### Fixed
+- active workload for retired blocks
+- active workload for blocks with missing data
+
+## [0.1.14a] - 2020-06-04
+### Fixed
+- active workload for retired blocks
+
+## [0.1.14] - 2020-06-04
+### Added
+- active power and active workload for plants and blocks
+- reserveyear for blocks
+
+## [0.1.13] - 2020-05-31
+### Fixed
+- performance
+
+### Removed
+- plants slow
+
+## [0.1.12c] - 2020-05-28
+### Changed
+- debug stuff is not displayed in html, when not present
+
+### Fixed
+- typos
+- performance a little
+- models
+
+## [0.1.12b] - 2020-05-27
+### Fixed
+- plants not being sorted correctly
+- plants not being filtered correctly
+
+## [0.1.12a] - 2020-05-25
+### Added
+- plants slow
+
+### Changed
+- datasource for workload
+
+## [0.1.12] - 2020-05-24
+### Added
+- workload for plants
+
+## [0.1.11c] - 2020-05-24
+### Added
+- workload of previous year
+
+## [0.1.11b] - 2020-05-24
+### Fixed
+- workload
+
+## [0.1.11a] - 2020-05-24
+### Changed
+- refactor code
+- update CHANGELOG
+- update README
+
+### Fixed
+- workload
+
 ## [0.1.11] - 2020-05-23
 ### Added
 - guage chart for workload
 
 ### Changed
-- update changelog
+- update CHANGELOG
 
 ## [0.1.10a] - 2020-05-23
 ### Chanced
@@ -238,7 +322,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - some unused imports
 
 ### Fixed
-- some bugs in Changelog
+- some bugs in CHANGELOG
 - README should now correctly show the landscape badget
 
 ## [0.1.1] - 2018-02-15
