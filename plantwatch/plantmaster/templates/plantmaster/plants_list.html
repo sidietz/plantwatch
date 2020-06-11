@@ -1,0 +1,27 @@
+{% extends "plantmaster/base.html" %}
+{% load static %}
+
+{% block head %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.3/nouislider.min.css" rel="stylesheet">
+<link href="../../plantmaster/static/plantmaster/style.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.3/nouislider.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+{% include "filter_form.html" with form=form %}
+
+<div style="margin-top: 1em;"></div>
+
+{% include "sources_table.html" with header=sources_header dict=sources_dict %}
+{% include "plant_table.html" with header=header_list list=plants %}
+
+{% endblock %}
+
+
+{% block js %}
+
+{% include "sliders.js" %}
+
+{% endblock %}
+

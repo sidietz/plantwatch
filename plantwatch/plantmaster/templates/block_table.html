@@ -1,0 +1,30 @@
+<table class="table table-bordered table-hover table-striped table-sm">
+    <tr>
+        {% for h in header %}
+            <th> {{ h }}</th>
+        {% endfor %}
+    </tr>
+
+    {% for block in list %}
+    {% if block.energysource == "Steinkohle" %}
+        <tr class="table table-danger">
+        {% elif block.energysource == "Braunkohle" %}
+            <tr class="table table-warning">
+        {% elif block.energysource == "Erdgas" %}
+        <tr class="table table-success">
+        {% elif block.energysource == "Mineralölprodukte" %}
+            <tr class="table table-secondary">
+        {% elif block.energysource == "Kernenergie" %}
+            <tr class="table table-info">
+        {% else %}
+            <tr class="table">
+        {% endif %}
+        <td><a class="btn btn-outline-secondary" href="{% url 'plant' block.plantid.plantid %}">{{ block.plantid.plantid }} </a></td>
+        <td><a class="btn btn-outline-secondary" href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
+            <td> {{ block.blockname }}</td> <td> {{ block.company }}</td>
+            <td> {{ block.initialop }}</td> <td> {{ block.endop }}</td>  <td> {{ block.chp }}</td>
+            <td> {{ block.state }}</td> <td> {{ block.federalstate }}</td>
+            <td> {{ block.netpower |floatformat:1 }}</td>
+            </tr>
+        {% endfor %}
+</table>

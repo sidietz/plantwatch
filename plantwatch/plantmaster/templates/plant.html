@@ -1,0 +1,13 @@
+{% if data_list %}
+<table class="table table-bordered table-hover table-striped table-sm">
+    {% for key, value in data_list %}
+    <tr>
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% else %}
+    <p>Keine Daten vorhanden.</p>
+{% endif %}
+{% csrf_token %}
