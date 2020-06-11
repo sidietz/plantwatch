@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.15-a] - 2020-06-06
+### Added
+- api for blocks and plants
+
+## [0.1.14-e] - 2020-06-06
+### Changed
+- endop to int
+
+### Fixed
+- this and subsequent versions adhere to semver more accurately 
+- headers of blocks table
+- co2 for plants table
+
+## [0.1.14d] - 2020-06-06
+### Changed
+- update dependencies
+
+### Fixed
+- filtering by energy source
+- workload for plants is now based on totalpower, which fixes inconsistencies
+
 ## [0.1.14c] - 2020-06-06
 ### Changed
 - update README
