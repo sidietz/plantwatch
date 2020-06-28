@@ -113,7 +113,7 @@ class PlantList(ListView):
     def get_context_data(self, **kwargs):
         context = super(ListView, self).get_context_data(**kwargs)
 
-        plant = Plants.objects.get(pk=self.plantid)
+        plant = get_object_or_404(Plants, pk=self.plantid)
 
         data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount, plant.latestexpanded, plant.totalpower, plant.activepower]
         header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
@@ -159,7 +159,7 @@ class PlantList2(ListView):
     def get_context_data(self, **kwargs):
         context = super(ListView, self).get_context_data(**kwargs)
 
-        plant = Plants.objects.get(pk=self.plantid)
+        plant = get_object_or_404(Plants, pk=self.plantid)
         blocks = Blocks.objects.filter(plantid=self.plantid).order_by("initialop" + "")
 
 
