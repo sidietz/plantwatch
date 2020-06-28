@@ -111,7 +111,7 @@ class Pollutions(models.Model):
     class Meta:
         managed = False
         db_table = 'pollutions'
-        unique_together = (('plantid', 'releasesto', 'pollutant', 'year'))
+        unique_together = ('plantid', 'releasesto', 'pollutant', 'year')
 
 class Mtp(models.Model):
     mtpid = models.IntegerField(unique=True, primary_key=True)

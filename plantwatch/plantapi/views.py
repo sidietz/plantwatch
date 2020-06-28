@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from .serializers import *
-from plantmaster.models import *
+from .serializers import PlantSerializer, BlockSerializer
+from plantmaster.models import Blocks, Plants
 
 
 

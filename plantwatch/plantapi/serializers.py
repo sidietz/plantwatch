@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from plantmaster.models import *
+from plantmaster.models import Blocks, Plants
 
 class BlockSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

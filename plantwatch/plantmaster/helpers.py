@@ -1,7 +1,9 @@
 from .models import Pollutions, Month, Yearly
 from django.db.models import Sum, Min, Avg, Max, Count
 
-from .constants import *
+from django.core.exceptions import ObjectDoesNotExist
+
+from .constants import HOURS_IN_YEAR, PRTR_YEARS, SL_1, SL_2p, SL_2b, YEARS
 
 def divide_safe(n, d):
     return n / d if d else 0
@@ -75,10 +77,6 @@ def gen_row_y(blocknames, year):
     return list(map(lambda x: query_for_year(x, year), blocknames))
 
 def get_chart_data_m(blocknames, years):
-
-
-    m1 = list(range(1,13))
-
     powers = []
     for i in years:
         p = [i] + gen_row_m(blocknames, i)
@@ -170,7 +168,7 @@ def get_co2_for_plant_by_years(plantid, years):
 def get_co2_for_plant_by_year(plantid, year):
     try:
         co2 = Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2
-    except:
+    except ObjectDoesNotExist:
         co2 = 0
     return co2
 
@@ -189,8 +187,7 @@ def get_company(company):
         return ""
 
 def get_plantname(plantname):
-    tmp = plantname.replace("Kraftwerk", "").strip()
-    tmp = plantname.replace("HKW", "").strip()
+    tmp = plantname.replace("HKW", "").strip()  # or replace("Kraftwerk", "").strip()?
     l = len(tmp)
 
     if l < 4:
@@ -205,7 +202,7 @@ def get_co2(plantid):
         try:
             q = Pollutions.objects.get(plantid=plantid, year=year, releasesto='Air', pollutant="CO2")
             break
-        except:
+        except ObjectDoesNotExist:
             pass
     return q
 

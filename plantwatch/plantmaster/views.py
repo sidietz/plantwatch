@@ -45,9 +45,7 @@ class BlocksList(ListView):
         return context
 
     def post(self, request, *args, **kwargs):
-        #self.status_form = StatusForm(self.request.POST or None)
         form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, sort_criteria_default=SORT_CRITERIA_BLOCKS)
-        #queryset = queryset.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).filter(energysource__in=search_power).order_by(sort_method + sort_criteria)
 
         return super(BlocksList, self).get(request, *args, **kwargs)
 
