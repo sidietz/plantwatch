@@ -3,7 +3,8 @@
     {% load filters %}
 
     <table class="table table-bordered table-hover table-striped table-sm">
-       {% for header in pol_header_list %}
+        <caption>Pollutants per year</caption>
+        {% for header in pol_header_list %}
             <th id="pollutants_year{{ forloop.counter0 }}"> {{ header }}</th>
         {% endfor %}
                     
