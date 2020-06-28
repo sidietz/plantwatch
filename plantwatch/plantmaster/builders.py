@@ -12,7 +12,7 @@ from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp,
 from .helpers import *
 from .constants import *
 
-def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
+def initialize_form(request, sort_criteria_default=SORT_CRITERIA_BLOCKS, plants=False):
     slider1 = SLIDER_1
 
     if plants:
@@ -20,7 +20,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     else:
         sl2 = SLIDER_2b
     slider2 = sl2
-    sort_criteria = SORT_CRITERIA[1]
+    sort_criteria = sort_criteria_default[1]
     sort_method = "-"
     search_federalstate = []
     search_power = ['Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte", "Erdgas"]
@@ -29,7 +29,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
 
     if request.method == 'POST':
         form = BlocksForm(request.POST)
-        sort_criteria = request.POST.get('sort_by', SORT_CRITERIA[1])
+        sort_criteria = request.POST.get('sort_by', sort_criteria_default[1])
         search_federalstate = request.POST.getlist('select_federalstate', [])
         search_power = request.POST.getlist('select_powersource', [])
         search_opstate = request.POST.getlist('select_opstate', DEFAULT_OPSTATES)
@@ -40,8 +40,8 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     else:
         form = BlocksForm()
 
-    form.fields['sort_by'].choices = SORT_CRITERIA[0]
-    form.fields['sort_by'].initial = sort_criteria or SORT_CRITERIA[1]
+    form.fields['sort_by'].choices = sort_criteria_default[0]
+    form.fields['sort_by'].initial = sort_criteria or sort_criteria_default[1]
     form.fields['sort_by'].label = "Sortiere nach:"
 
     form.fields['sort_method'].choices = [('-', 'absteigend'), ('', 'aufsteigend')]
