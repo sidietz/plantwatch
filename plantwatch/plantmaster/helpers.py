@@ -56,10 +56,6 @@ def query_for_year(blockid, year):
     power = q.filter(year=year).aggregate(Sum("power"))['power__sum']
     return power or 0
 
-def query(block):
-    q = Power.objects.filter(blockid=block.blockid)
-    return q
-
 def get_aggs(q):
     minimum = q.aggregate(Min("power"))['power__min']
     maximum = q.aggregate(Max("power"))['power__max']
