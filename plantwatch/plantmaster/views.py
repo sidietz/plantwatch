@@ -21,9 +21,9 @@ import json
 import random
 
 
-from .helpers import *
-from .constants import *
-from .builders import *
+
+from .constants import API_KEY, YEARS, PRTR_YEARS, SORT_CRITERIA_PLANTS, SORT_CRITERIA_BLOCKS, SOURCES_PLANTS, SOURCES_BLOCKS, DEFAULT_OPSTATES
+from .builders import initialize_form, get_ss, get_pollutant_dict, get_elist, get_pollutants_any_year, annotate_plants, forge_sources_plant, forge_sources_dict, query_for_month_many, get_chart_data_m, get_chart_data_whole_y, get_chart_data_b, get_percentages_from_yearprod2, get_percentages_from_yearprod3
 
 
 class BlocksList(ListView):
@@ -46,13 +46,13 @@ class BlocksList(ListView):
 
     def post(self, request, *args, **kwargs):
         #self.status_form = StatusForm(self.request.POST or None)
-        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, sort_criteria_default=SORT_CRITERIA_BLOCKS)
         #queryset = queryset.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).filter(energysource__in=search_power).order_by(sort_method + sort_criteria)
 
         return super(BlocksList, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
-        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, sort_criteria_default=SORT_CRITERIA_BLOCKS)
         self.form = form
         self.slider = slider
 
@@ -80,13 +80,13 @@ class PlantsList(ListView):
 
     def post(self, request, *args, **kwargs):
         #self.status_form = StatusForm(self.request.POST or None)
-        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, sort_criteria_default=SORT_CRITERIA_PLANTS, plants=True)
         #queryset = queryset.filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).filter(energysource__in=search_power).order_by(sort_method + sort_criteria)
 
         return super(PlantsList, self).get(request, *args, **kwargs)
 
     def get_queryset(self):
-        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, SORT_CRITERIA=SORT_CRITERIA_PLANTS, plants=True)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, sort_criteria_default=SORT_CRITERIA_PLANTS, plants=True)
         self.form = form
         self.slider = slider
 

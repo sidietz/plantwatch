@@ -1,3 +1,5 @@
+{% load filters %}
+
 <table class="table table-bordered table-hover table-striped table-sm">
     <tbody>
         {% regroup pollutions2|dictsort:"year" by year as yp %}
@@ -18,7 +20,7 @@
         <tr>
             <th>{{ pollutant }}</th>
             {% for p in pols %}
-            <td>{{ p.amount2|floatformat:3 }}</td>
+            <td>{{ p.amount2|myround:3 }}</td>
             {% endfor %}
         </tr>
         {% endfor %}

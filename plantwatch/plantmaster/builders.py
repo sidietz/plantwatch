@@ -3,16 +3,15 @@ from django.db.models import Q, F, When, Case, FloatField
 
 from django.forms.models import model_to_dict
 
-from .forms import BlocksForm
-
-
+import re
 from functools import reduce
+
+from .forms import BlocksForm
 from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp, Mtp, Yearly
+from .helpers import divide_safe, get_ss, get_pollutants_any_year, query_for_month_many, get_chart_data_m, get_chart_data_whole_y, get_chart_data_b, get_percentages_from_yearprod2, get_percentages_from_yearprod3, handle_slider, handle_slider_1, handle_slider_2, calc_workload, get_pollutants, get_co2_for_plant_by_year, get_energy_for_plant, get_co2_for_plant_by_years
+from .constants import API_KEY, SORT_CRITERIA_BLOCKS, SLIDER_1, SLIDER_2p, SLIDER_2b, DEFAULT_OPSTATES, SELECT_CHP, SELECT_CHP_LIST, FEDERAL_STATES, SOURCES_LIST, OPSTATES, HOURS_IN_YEAR, YEAR, LATEST_YEAR, YEARS, ACTIVE_OPS
 
-from .helpers import *
-from .constants import *
-
-def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
+def initialize_form(request, sort_criteria_default=SORT_CRITERIA_BLOCKS, plants=False):
     slider1 = SLIDER_1
 
     if plants:
@@ -20,7 +19,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     else:
         sl2 = SLIDER_2b
     slider2 = sl2
-    sort_criteria = SORT_CRITERIA[1]
+    sort_criteria = sort_criteria_default[1]
     sort_method = "-"
     search_federalstate = []
     search_power = ['Braunkohle', "Steinkohle", "Kernenergie", "Mineralölprodukte", "Erdgas"]
@@ -29,7 +28,7 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
 
     if request.method == 'POST':
         form = BlocksForm(request.POST)
-        sort_criteria = request.POST.get('sort_by', SORT_CRITERIA[1])
+        sort_criteria = request.POST.get('sort_by', sort_criteria_default[1])
         search_federalstate = request.POST.getlist('select_federalstate', [])
         search_power = request.POST.getlist('select_powersource', [])
         search_opstate = request.POST.getlist('select_opstate', DEFAULT_OPSTATES)
@@ -40,8 +39,8 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     else:
         form = BlocksForm()
 
-    form.fields['sort_by'].choices = SORT_CRITERIA[0]
-    form.fields['sort_by'].initial = sort_criteria or SORT_CRITERIA[1]
+    form.fields['sort_by'].choices = sort_criteria_default[0]
+    form.fields['sort_by'].initial = sort_criteria or sort_criteria_default[1]
     form.fields['sort_by'].label = "Sortiere nach:"
 
     form.fields['sort_method'].choices = [('-', 'absteigend'), ('', 'aufsteigend')]
@@ -80,9 +79,8 @@ def initialize_form(request, SORT_CRITERIA=SORT_CRITERIA_BLOCKS, plants=False):
     if not search_federalstate:
         search_federalstate = FEDERAL_STATES
 
-    slider_1 = handle_slider_1(slider1)
-    slider_2 = handle_slider_2(slider2, plants)
-    # raise TypeError(slider_2)
+    slider_1 = handle_slider_1(re.escape(slider1))
+    slider_2 = handle_slider_2(re.escape(slider2), plants)
     return form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, [slider_1, slider_2]
 
 

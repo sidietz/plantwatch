@@ -1,4 +1,7 @@
 {% if pollutants_dict %}
+
+    {% load filters %}
+
     <table class="table table-bordered table-hover table-striped table-sm">
        {% for header in pol_header_list %}
             <th> {{ header }}</th>
@@ -8,7 +11,7 @@
             <tr class="table">
             <th>{{ block.1 }} </th>
             {% for column in block_rows %}
-                <td> {{ column }} </td>
+                <td> {{ column |myround:3  }} </td>
             {% endfor %}
             </tr>
         {% endfor %}
