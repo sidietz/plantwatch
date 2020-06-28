@@ -89,7 +89,6 @@ def forge_sources_dict(block_list, power_type):
         workload2 = calc_workload(raw_energy2 * 10000, raw_power)
         factors.append(factor)
         power = round(raw_power / 1000, 2)
-        anual_power = round((raw_power * factor) / (10**6), 2)
         whole_power += energy
         whole_power2 += energy2
 
@@ -202,8 +201,6 @@ def get_pollutant_dict(plantid, blocks):
         year, pollutions = get_pollutants(plantid)
     except TypeError:
         return {}
-    co2 = get_co2_for_plant_by_year(plantid, year)
-    energy = get_energy_for_plant(plantid, year)
     pollutants_tmp_dict = list(map(model_to_dict, pollutions))
     pol_list = ["year", "amount2", "unit2"]
     pk_list = ["year", "pollutant", "amount2"]
@@ -214,7 +211,7 @@ def get_activepower(blocks):
     powers = []
 
     for x in YEARS:
-        activeblocks = blocks.filter(Q(state__in=ACTIVE_OPS[0:2]) | (Q(state=ACTIVE_OPS[2]) & Q(reserveyear__gt=x) | ((Q(state="stillgelegt") & Q(endop__gt=x)))))
+        activeblocks = blocks.filter(Q(state__in=ACTIVE_OPS[0:2]) | (Q(state=ACTIVE_OPS[2]) & Q(reserveyear__gt=x) | (Q(state="stillgelegt") & Q(endop__gt=x))))
         activepower = activeblocks.aggregate(Sum('netpower'))['netpower__sum'] or 0 # if plant is retired
         powers.append(activepower)
 
@@ -231,7 +228,6 @@ def get_elist(plantid, plant):
 
     energies = [get_energy_for_plant(plantid, x) for x in YEARS]
     e2s = [get_energy_for_plant(plantid, x, raw=True) for x in YEARS]
-    co2s = get_co2_for_plant_by_years(plantid, YEARS)
     co2s = [get_co2_for_plant_by_year(plantid, x) for x in YEARS]
     tmp = list(zip(co2s, energies))
     effs = [divide_safe(x, y) * 10**3 for x, y in tmp]
