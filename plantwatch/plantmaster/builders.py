@@ -17,7 +17,6 @@ def fill_field(form, by, entries):
         form.fields[by].choices = entries[2]
     form.fields[by].initial = entries[0]
     form.fields[by].label = entries[1]
-    return
 
 def initialize_form(request, sort_criteria_default=SORT_CRITERIA_BLOCKS, plants=False):
     slider1 = SLIDER_1

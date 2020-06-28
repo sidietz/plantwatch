@@ -9,7 +9,6 @@ def myround(value, num):
             return int(value)
         else:
             f = round(value, num)
-            fms = '{:.' + str(num) + 'f}'
             return str(f).replace(".", ",")
     else:
         return value
