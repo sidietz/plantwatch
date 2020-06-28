@@ -1,4 +1,7 @@
 {% if elist %}
+
+    {% load filters %}
+
     <table class="table table-bordered table-hover table-striped table-sm">
     {% for header in elist.0 %}
         <th>{{ header }}</th>
@@ -6,7 +9,7 @@
     {% for row in elist.1 %}
         <tr>
         {% for e in row %}
-            <td> {{ e |floatformat:2}} </td>
+            <td> {{ e |myround:2}} </td>
         {% endfor %}
         </tr>
     {% endfor %}
