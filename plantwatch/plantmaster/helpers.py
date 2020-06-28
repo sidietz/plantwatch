@@ -184,7 +184,7 @@ def get_company(company):
     if l == 1:
         return company
     elif l > 1:
-        return "" if "niper" in company else "RWE Power" if "RWE" in company else cl[0] if "ENGIE" in company else cl[0]
+        return "" if "niper" in company else "RWE Power" if "RWE" in company else cl[0]
     else:
         return ""
 

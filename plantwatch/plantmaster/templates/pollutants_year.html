@@ -10,7 +10,7 @@
                     
         {% for block, block_rows in pollutants_dict.items %}
             <tr class="table">
-            <th>{{ block.1 }} </th>
+            <th id="block{{ forloop.counter0 }}">{{ block.1 }} </th>
             {% for column in block_rows %}
                 <td> {{ column |myround:3  }} </td>
             {% endfor %}
