@@ -11,6 +11,14 @@ from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp,
 from .helpers import divide_safe, get_ss, get_pollutants_any_year, query_for_month_many, get_chart_data_m, get_chart_data_whole_y, get_chart_data_b, get_percentages_from_yearprod2, get_percentages_from_yearprod3, handle_slider, handle_slider_1, handle_slider_2, calc_workload, get_pollutants, get_co2_for_plant_by_year, get_energy_for_plant, get_co2_for_plant_by_years
 from .constants import API_KEY, SORT_CRITERIA_BLOCKS, SLIDER_1, SLIDER_2p, SLIDER_2b, DEFAULT_OPSTATES, SELECT_CHP, SELECT_CHP_LIST, FEDERAL_STATES, SOURCES_LIST, OPSTATES, HOURS_IN_YEAR, YEAR, LATEST_YEAR, YEARS, ACTIVE_OPS
 
+def fill_field(form, by, entries):
+
+    if len(entries) == 3:
+        form.fields[by].choices = entries[2]
+    form.fields[by].initial = entries[0]
+    form.fields[by].label = entries[1]
+    return
+
 def initialize_form(request, sort_criteria_default=SORT_CRITERIA_BLOCKS, plants=False):
     slider1 = SLIDER_1
 
@@ -39,36 +47,14 @@ def initialize_form(request, sort_criteria_default=SORT_CRITERIA_BLOCKS, plants=
     else:
         form = BlocksForm()
 
-    form.fields['sort_by'].choices = sort_criteria_default[0]
-    form.fields['sort_by'].initial = sort_criteria or sort_criteria_default[1]
-    form.fields['sort_by'].label = "Sortiere nach:"
-
-    form.fields['sort_method'].choices = [('-', 'absteigend'), ('', 'aufsteigend')]
-    form.fields['sort_method'].initial = sort_method
-    form.fields['sort_method'].label = "aufsteigend oder absteigend?"
-
-    form.fields['select_chp'].choices = SELECT_CHP
-    form.fields['select_chp'].initial = search_chp or SELECT_CHP_LIST
-    form.fields['select_chp'].label = "Filtere nach Kraft-Wärme-Kopplung:"
-
-    form.fields['select_federalstate'].choices = list(zip(FEDERAL_STATES, FEDERAL_STATES))
-    form.fields['select_federalstate'].initial = search_federalstate  # or FEDERAL_STATES
-    form.fields['select_federalstate'].label = "Filtere nach Bundesland:"
-
-    form.fields['select_powersource'].choices = list(zip(SOURCES_LIST, SOURCES_LIST))
-    form.fields['select_powersource'].initial = search_power or SOURCES_LIST
-    form.fields['select_powersource'].label = "Filtere nach Energieträger:"
-
-    form.fields['select_opstate'].choices = list(zip(OPSTATES, OPSTATES))
-    form.fields['select_opstate'].initial = search_opstate or ['in Betrieb', 'Gesetzlich an Stilllegung gehindert',
-                                                               'Netzreserve', 'Sicherheitsbereitschaft', 'Sonderfall']
-    form.fields['select_opstate'].label = "Filtere nach Betriebszustand:"
-
-    form.fields['slider1'].initial = slider1
-    form.fields['slider1'].label = "Filtere nach Zeitraum"
-
-    form.fields['slider2'].initial = slider2
-    form.fields['slider2'].label = "Filtere nach Nennleistung"
+    fill_field(form, 'sort_by', [sort_criteria or sort_criteria_default[1], "Sortiere nach:", sort_criteria_default[0]])
+    fill_field(form, 'sort_method', [sort_method, "aufsteigend oder absteigend?", [('-', 'absteigend'), ('', 'aufsteigend')]])
+    fill_field(form, 'select_chp', [search_chp or SELECT_CHP_LIST, "Filtere nach Kraft-Wärme-Kopplung:", SELECT_CHP])
+    fill_field(form, 'select_federalstate', [search_federalstate, "Filtere nach Bundesland:", list(zip(FEDERAL_STATES, FEDERAL_STATES))])
+    fill_field(form, 'select_powersource', [search_power or SOURCES_LIST, "Filtere nach Energieträger:", list(zip(SOURCES_LIST, SOURCES_LIST))])
+    fill_field(form, 'select_opstate', [search_opstate or ['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Netzreserve', 'Sicherheitsbereitschaft', 'Sonderfall'], "Filtere nach Betriebszustand:", list(zip(OPSTATES, OPSTATES))])
+    fill_field(form, 'slider1', [slider1, "Filtere nach Zeitraum"])
+    fill_field(form, 'slider2', [slider2, "Filtere nach Nennleistung"])
 
     if not search_power:
         search_power = SOURCES_LIST
