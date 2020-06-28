@@ -4,7 +4,7 @@
 
     <table class="table table-bordered table-hover table-striped table-sm">
        {% for header in pol_header_list %}
-            <th> {{ header }}</th>
+            <th id="pollutants_year{{ forloop.counter0 }}"> {{ header }}</th>
         {% endfor %}
                     
         {% for block, block_rows in pollutants_dict.items %}

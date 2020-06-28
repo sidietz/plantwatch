@@ -2,7 +2,7 @@
 <table class="table table-bordered table-hover table-striped table-sm">
     {% for key, value in data_list %}
     <tr>
-        <th>{{ key }}</th>
+        <th id="plant{{ forloop.counter0 }}">{{ key }}</th>
         <td>{{ value }}</td>
     </tr>
 {% endfor %}

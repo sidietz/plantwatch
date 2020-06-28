@@ -1,7 +1,7 @@
 <table class="table table-bordered table-hover table-striped table-sm">
     <tr>
         {% for h in header %}
-            <th> {{ h }}</th>
+            <th id="block{{ forloop.counter0 }}"> {{ h }}</th>
         {% endfor %}
     </tr>
 
