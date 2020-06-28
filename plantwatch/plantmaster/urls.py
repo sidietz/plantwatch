@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import *
+from .views import PlantsList, PlantList, PlantList2, BlocksList, BlockView, impressum, random_plant
 
 urlpatterns = [
     path('', PlantsList.as_view(), name='index'),
