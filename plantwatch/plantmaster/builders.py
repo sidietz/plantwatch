@@ -5,6 +5,7 @@ from django.forms.models import model_to_dict
 
 from .forms import BlocksForm
 
+import re
 
 from functools import reduce
 from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp, Mtp, Yearly
@@ -80,9 +81,8 @@ def initialize_form(request, sort_criteria_default=SORT_CRITERIA_BLOCKS, plants=
     if not search_federalstate:
         search_federalstate = FEDERAL_STATES
 
-    slider_1 = handle_slider_1(slider1)
-    slider_2 = handle_slider_2(slider2, plants)
-    # raise TypeError(slider_2)
+    slider_1 = handle_slider_1(re.escape(slider1))
+    slider_2 = handle_slider_2(re.escape(slider2), plants)
     return form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, [slider_1, slider_2]
 
 
