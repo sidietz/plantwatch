@@ -3,8 +3,9 @@
     {% load filters %}
 
     <table class="table table-bordered table-hover table-striped table-sm">
+    <caption>Efficiency</caption>
     {% for header in elist.0 %}
-        <th>{{ header }}</th>
+        <th id="elistentry{{ forloop.counter0 }}">{{ header }}</th>
     {% endfor %}
     {% for row in elist.1 %}
         <tr>
@@ -18,10 +19,10 @@
 <table class="table table-bordered table-hover table-striped table-sm">
     <tbody>
         <tr class="table">
-            <th>Stromproduktion</th>
+            <th id="powerproduction">Stromproduktion</th>
         </tr>
         <tr>
-            <th>Keine Daten vorhaden.</th>
+            <th id="nopowerdata">Keine Daten vorhaden.</th>
         </tr>
     </tbody> 
 {% endif %}
