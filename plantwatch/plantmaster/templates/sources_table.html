@@ -4,7 +4,7 @@
     <thead>
         <tr>
             {% for h in header %}
-                <th> {{ h }}</th>
+                <th id="header{{ forloop.counter0 }}"> {{ h }}</th>
             {% endfor %}
         </tr>
     </thead>
@@ -23,7 +23,7 @@
         {% else %}
             <tr>
         {% endif %}
-        <th> {{ key }} </th>
+        <th id="summary{{ forloop.counter0 }}"> {{ key }} </th>
         {% for value in value_list %}
             <td> {{ value |floatformat:-2 }} </td>
         {% endfor %}
