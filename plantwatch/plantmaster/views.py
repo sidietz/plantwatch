@@ -22,8 +22,12 @@ import random
 
 
 
-from .constants import API_KEY, YEARS, PRTR_YEARS, SORT_CRITERIA_PLANTS, SORT_CRITERIA_BLOCKS, SOURCES_PLANTS, SOURCES_BLOCKS, DEFAULT_OPSTATES
-from .builders import initialize_form, get_ss, get_pollutant_dict, get_elist, get_pollutants_any_year, annotate_plants, forge_sources_plant, forge_sources_dict, query_for_month_many, get_chart_data_m, get_chart_data_whole_y, get_chart_data_b, get_percentages_from_yearprod2, get_percentages_from_yearprod3
+from .constants import API_KEY, YEARS, PRTR_YEARS, SORT_CRITERIA_PLANTS, SORT_CRITERIA_BLOCKS,\
+                        SOURCES_PLANTS, SOURCES_BLOCKS, DEFAULT_OPSTATES
+from .builders import initialize_form, get_ss, get_pollutant_dict, get_elist, get_pollutants_any_year,\
+                        annotate_plants, forge_sources_plant, forge_sources_dict, query_for_month_many,\
+                        get_chart_data_m, get_chart_data_whole_y, get_chart_data_b,\
+                        get_percentages_from_yearprod2, get_percentages_from_yearprod3
 
 
 class BlocksList(ListView):
@@ -38,14 +42,16 @@ class BlocksList(ListView):
         context['form'] = self.form
         context['slider'] = self.slider
         sources_dict = forge_sources_dict(context['blocks'], 'netpower')
-        header_list = ['Kraftwerk', 'Block', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [MW]']
+        header_list = ['Kraftwerk', 'Block', 'Name', 'Unternehmen', 'Inbetrieb-nahme',
+                        'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [MW]']
         context['sources_dict'] = sources_dict
         context['sources_header'] = SOURCES_BLOCKS
         context['header_list'] = header_list
         return context
 
     def post(self, request, *args, **kwargs):
-        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, default=SORT_CRITERIA_BLOCKS)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method,\
+        sort_criteria, slider = initialize_form(self.request, default=SORT_CRITERIA_BLOCKS)
 
         return super(BlocksList, self).get(request, *args, **kwargs)
 
@@ -77,7 +83,8 @@ class PlantsList(ListView):
         return context
 
     def post(self, request, *args, **kwargs):
-        form, search_power, search_opstate, search_federalstate, search_chp, sort_method, sort_criteria, slider = initialize_form(self.request, default=SORT_CRITERIA_PLANTS, plants=True)
+        form, search_power, search_opstate, search_federalstate, search_chp, sort_method,\
+            sort_criteria, slider = initialize_form(self.request, default=SORT_CRITERIA_PLANTS, plants=True)
 
         return super(PlantsList, self).get(request, *args, **kwargs)
 
@@ -86,8 +93,12 @@ class PlantsList(ListView):
         self.form = form
         self.slider = slider
 
-        plants = Plants.objects.order_by('-totalpower').filter(initialop__range=(slider[0][0], slider[0][1])).filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate).filter(chp__in=search_chp).filter(energysource__in=search_power).order_by(sort_method + sort_criteria)
+        plants = Plants.objects.order_by('-totalpower').filter(initialop__range=(slider[0][0], slider[0][1]))\
+                                                        .filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate)\
+                                                        .filter(chp__in=search_chp).filter(energysource__in=search_power)\
+                                                        .order_by(sort_method + sort_criteria)
         return annotate_plants(plants)
+
 
 class BlockView(DetailView):
 
@@ -97,10 +108,14 @@ class BlockView(DetailView):
         context = super(DetailView, self).get_context_data(**kwargs)
         block = self.object
         address = get_object_or_404(Addresses, blockid=block.blockid)
-        data_list = [block.plantid.plantid, block.blockid, block.blockname, block.blockdescription, block.company, address.plz, address.place, address.street, address.federalstate, block.netpower]
-        header_list = ['PlantID', 'BlockID', 'Plantname', 'Blockname', 'Unternehmen', 'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
+        data_list = [block.plantid.plantid, block.blockid, block.blockname,
+                        block.blockdescription, block.company, address.plz, address.place,
+                        address.street, address.federalstate, block.netpower]
+        header_list = ['PlantID', 'BlockID', 'Plantname', 'Blockname', 'Unternehmen',
+                        'PLZ', 'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
         context['data_list'] = zip(header_list, data_list)
         return context
+
 
 class PlantList(ListView):
     model = Blocks
@@ -112,9 +127,12 @@ class PlantList(ListView):
 
         plant = get_object_or_404(Plants, pk=self.plantid)
 
-        data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount, plant.latestexpanded, plant.totalpower, plant.activepower]
-        header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-        pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
+        data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount,
+                        plant.latestexpanded, plant.totalpower, plant.activepower]
+        header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme',
+                        'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+        pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl',
+                    'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
         pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
 
 
@@ -160,9 +178,12 @@ class PlantList2(ListView):
         blocks = Blocks.objects.filter(plantid=self.plantid).order_by("initialop" + "")
 
 
-        data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount, plant.latestexpanded, plant.totalpower, plant.activepower]
-        header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme', 'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-        pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl', 'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
+        data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount,
+                        plant.latestexpanded, plant.totalpower, plant.activepower]
+        header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme',
+                        'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+        pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl',
+                    'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
         pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
 
 
@@ -232,11 +253,13 @@ class PlantList2(ListView):
 
 
 def random_plant(request):
-    i = Plants.objects.filter(state__in=DEFAULT_OPSTATES).filter(totalpower__gte=300).filter(Q(energysource="Steinkohle") | Q(energysource="Braunkohle")).all()
+    i = Plants.objects.filter(state__in=DEFAULT_OPSTATES).filter(totalpower__gte=300)\
+                        .filter(Q(energysource="Steinkohle") |
+                        Q(energysource="Braunkohle")).all()
     l = len(i)
     random_item = i[random.randint(0, l - 1)]
     return redirect('plant', random_item.plantid)
 
+
 def impressum(request):
     return render(request, "plantmaster/impressum.html", {})
-
