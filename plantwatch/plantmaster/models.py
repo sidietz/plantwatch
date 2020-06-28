@@ -8,7 +8,6 @@
 from django.db import models
 
 class Plants(models.Model):
-    #plantid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='plantid', unique=True, primary_key=True)
     plantid = models.TextField(primary_key=True, unique=True)
     plantname = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
@@ -46,9 +45,6 @@ class Plants(models.Model):
         db_table = 'plants'
 
 class Blocks(models.Model):
-    #plantid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='plantid', unique=True, primary_key=True)
-    #plantid = models(blank=True, null=True)
-    # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
     blockid = models.TextField(unique=True, primary_key=True, db_column="blockid")
     plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid', related_name='blocks')
     blockdescription = models.TextField(blank=True, null=True)
@@ -81,7 +77,6 @@ class Addresses(models.Model):
 class Power(models.Model):
     powerid = models.IntegerField(unique=True, primary_key=True)
     producedat = models.DateTimeField()
-    # plantid = models.ForeignKey related_name="ablockstest")  # Field name made lowercase.
     blockid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='blockid', unique=True)  # Field name made lowercase.
     power = models.IntegerField(null=False)
     

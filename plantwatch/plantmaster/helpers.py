@@ -34,17 +34,7 @@ def handle_slider_2(slider, is_plants):
         new_slider.extend(SL_2p[2:])
     else:
         new_slider.extend(SL_2b[2:])
-    # raise TypeError(new_slider)
     return new_slider
-
-
-def query_for_month_many2(blocks, year, month):
-    start_date = date(year, month, 1)
-    end_date = date(year, month+1, 1)
-    q = Power.objects.filter(blockid__in=blocks)
-    power = q.filter(producedat__range=(start_date, end_date)).aggregate(Sum("power"))['power__sum']
-    return power or 0
-
 
 def query_for_month_many(blocks, year, month):
     q = Month.objects.filter(blockid__in=blocks)
@@ -66,10 +56,6 @@ def query_for_year(blockid, year):
     power = q.filter(year=year).aggregate(Sum("power"))['power__sum']
     return power or 0
 
-def query2(block):
-    power = Power.objects.filter(blockid=block.blockid, producedat__date=date(2018, 8, 13))
-    return power
-
 def query(block):
     q = Power.objects.filter(blockid=block.blockid)
     return q
@@ -85,12 +71,6 @@ def get_for_year(q, year):
 
     return power
 
-
-
-
-#def plant(request, plantid):
-#    return plant_year(request, plantid, 2019)
-
 def gen_row_m(blocknames, year):
     m1 = list(range(1,13))
     return list(map(lambda x: query_for_month_many(blocknames, year, x), m1))
@@ -102,42 +82,28 @@ def get_chart_data_m(blocknames, years):
 
 
     m1 = list(range(1,13))
-    
-    #head = get_month_header()
 
     powers = []
     for i in years:
         p = [i] + gen_row_m(blocknames, i)
         powers.append(p)
     
-    #print(powers)
     return powers
 
-def get_month_header():
-    m1 = list(range(1,13))
-
-    m2 = ['x'] + list(map(lambda x: calendar.month_abbr[x], m1))
-    return m2
-
 def get_chart_data_b(blocknames, year):
-
     powers = []
     for block in blocknames:
         p = [block.blockid] + gen_row_m([block], year)
+
         powers.append(p)
-    
-    #print(powers)
     return powers
 
 def get_chart_data_whole_y2(blocknames, year):
-
-    #head = ["x"] + blocknames
     powers = []
     for block in blocknames:
         p = [block.blockid] + gen_row_y([block], year)
         powers.append(p)
-    
-    #print(powers)
+
     return powers
 
 def get_chart_data_whole_y(blocknames, years):
@@ -146,38 +112,16 @@ def get_chart_data_whole_y(blocknames, years):
     for block in blocknames:
         p = [block.blockid] + [gen_row_y([block], year) for year in years]
         powers.append(p)
-    
-    #print(powers)
+
     return powers
 
 def get_chart_data_y(blocknames, years):
 
-    #head = ["x"] + blocknames
     powers = []
     for i in years:
         p = [i] + gen_row_y(blocknames, i)
         powers.append(p)
-    
-    #print(powers)
     return powers
-
-def get_block_power(blockid):
-    block = Blocks.objects.get(blockid=blockid)
-    netpower = block.netpower
-    return
-
-def get_gague_from_powers(powers):
-
-    years = powers[0][1:]
-    data = powers[1:]
-    
-    blocks = [x[0] for x in data]
-    vals = [x[1:] for x in data]
-
-    block_power = [get_block_power(block) for block in blocks]
-
-    percentage = [HOURS_IN_YEAR for idx, p in enumerate(block_power)]
-    percentage = [HOURS_IN_YEAR for p in block_power]
 
 def get_percentages_from_yearprod3(plant):
 
@@ -202,7 +146,6 @@ def get_percentages_from_yearprod2(yearprod, blocks):
     percentage = [[[value[0] * 100 / (HOURS_IN_YEAR * block_power[idx])] for value in entry] for idx, entry in enumerate(vals)]
     blocks_percs = [[[blocks_str[idx]] + entry] for idx, entry in enumerate(percentage)]
 
-    #p4 = [x[0] for x in blocks_percs]
     result = [x[0] for x in blocks_percs]
     blocks_str.insert(0, 'x')
 
@@ -233,7 +176,7 @@ def get_co2_for_plant_by_year(plantid, year):
         co2 = Pollutions.objects.get(plantid=plantid, releasesto="Air", pollutant="CO2", year=year).amount2
     except:
         co2 = 0
-    return co2# or 1
+    return co2
 
 def get_company(company):
 
@@ -292,5 +235,3 @@ def get_ss(plant):
     ss3 = ss3.replace(" ", "+")
     ss3 = ss3.replace("&", "%26")
     return ss3
-
-

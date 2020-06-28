@@ -201,7 +201,7 @@ def annotate_plants(plants):
 
 def create_blocks_dict(block_tmp_dict, value_list, key_list):
     block_dict = {}
-    # print(key_list)
+
     for entry in block_tmp_dict:
         key = []
         for a_key in key_list:
@@ -211,13 +211,6 @@ def create_blocks_dict(block_tmp_dict, value_list, key_list):
             value.append(entry[element])
             block_dict[tuple(key)] = value
     return block_dict
-
-
-
-def create_block_list(block_list, filter_dict):
-    for filter_tag, filtered in filter_dict.items():
-        block_list = filter_or(block_list, filter_tag, filtered)
-    return block_list
 
 def get_pollutant_dict(plantid, blocks):
     try:
@@ -263,7 +256,7 @@ def get_elist(plantid, plant):
     effcols = list(zip(YEARS, energies, co2s, effs, workload, workload2))
     testval = reduce(lambda a, b: a + b, [i for col in effcols for i in col[1:]])
 
-        # all rows empty, so return emptylist
+    # all rows empty, so return emptylist
     if testval == 0:
         return elist
     else:
