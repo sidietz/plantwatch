@@ -4,7 +4,7 @@ from django.db.models import Sum, Min, Avg, Max, Count
 from django.core.exceptions import ObjectDoesNotExist
 
 from .constants import HOURS_IN_YEAR, PRTR_YEARS, SL_1, SL_2p, SL_2b, YEARS
-
+HIJ = HOURS_IN_YEAR
 
 def divide_safe(n, d):
     return n / d if d else 0
@@ -46,7 +46,7 @@ def handle_slider_2(slider, is_plants):
 def query_for_month_many(blocks, year, month):
     q = Month.objects.filter(blockid__in=blocks)
     power = q.filter(year=year, month=month)\
-                    .aggregate(Sum("power"))['power__sum']
+             .aggregate(Sum("power"))['power__sum']
     return power or 0
 
 
@@ -124,7 +124,7 @@ def get_percentages_from_yearprod3(plant):
 
     energies = [get_energy_for_plant(plant, x, raw=True) for x in YEARS]
     workloads = [divide_safe(e,
-                        (plant.totalpower * HOURS_IN_YEAR)) * 100 for e in energies]
+                             (plant.totalpower * HIJ)) * 100 for e in energies]
     workloads.insert(0, plant.plantid)
     result = [workloads]
 
@@ -142,9 +142,9 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 
     block_power = [block.netpower for block in blocks]
     percentage = [[[value[0] * 100 / (HOURS_IN_YEAR * block_power[idx])]
-                    for value in entry] for idx, entry in enumerate(vals)]
+                  for value in entry] for idx, entry in enumerate(vals)]
     blocks_percs = [[[blocks_str[idx]] + entry] for idx,
-                        entry in enumerate(percentage)]
+                    entry in enumerate(percentage)]
 
     result = [x[0] for x in blocks_percs]
     blocks_str.insert(0, 'x')
@@ -158,7 +158,7 @@ def get_percentages_from_yearprod2(yearprod, blocks):
 def get_energy_for_plant(plantid, year, raw=False):
     try:
         tmp = Yearly.objects.filter(plantid=plantid, year=year)\
-                                .aggregate(Sum('power'))['power__sum'] or 0
+                            .aggregate(Sum('power'))['power__sum'] or 0
     except KeyError:
         tmp = 0.001
 
@@ -170,7 +170,7 @@ def get_energy_for_plant(plantid, year, raw=False):
 
 def get_co2_for_plant_by_years(plantid, years):
     pols = Pollutions.objects.filter(plantid=plantid, releasesto="Air",
-                                        pollutant="CO2", year__in=years).order_by("year")
+                                     pollutant="CO2", year__in=years).order_by("year")
     co2s = list(map(lambda x: x.amount2, pols))
 
     return co2s
@@ -179,7 +179,7 @@ def get_co2_for_plant_by_years(plantid, years):
 def get_co2_for_plant_by_year(plantid, year):
     try:
         co2 = Pollutions.objects.get(plantid=plantid, releasesto="Air",
-                                        pollutant="CO2", year=year).amount2
+                                     pollutant="CO2", year=year).amount2
     except ObjectDoesNotExist:
         co2 = 0
     return co2
@@ -214,7 +214,7 @@ def get_co2(plantid):
     for year in PRTR_YEARS[::-1]:
         try:
             q = Pollutions.objects.get(plantid=plantid, year=year,
-                                        releasesto='Air', pollutant="CO2")
+                                       releasesto='Air', pollutant="CO2")
             break
         except ObjectDoesNotExist:
             pass
@@ -225,17 +225,18 @@ def get_pollutants(plantid, year=''):
     #TODO: fix to display least recent pollutant year instead of fixed year
     if year:
         return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air')\
-                                    .order_by("-exponent", "-amount")
+                                 .order_by("-exponent", "-amount")
 
     for year in PRTR_YEARS[::-1]:
         q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air')\
-                                        .order_by("-exponent", "-amount")
+                              .order_by("-exponent", "-amount")
         if q.exists():
             return year, q
 
 
 def get_pollutants_any_year(plantid, to):
-    q = Pollutions.objects.filter(plantid=plantid, releasesto=to).order_by("-exponent", "pollutant2", "year", "-amount")
+    q = Pollutions.objects.filter(plantid=plantid, releasesto=to)\
+                          .order_by("-exponent", "pollutant2", "year", "-amount")
     return q
 
 
@@ -244,7 +245,7 @@ def get_ss(plant):
     ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
     ss3 = comp + ks + pltn
     ss3 = plant.plantname.replace("Werk", "")\
-                            if "P&L" in plant.plantname else ss3
+                          if "P&L" in plant.plantname else ss3
     ss3 = ss3.replace(" ", "+")
     ss3 = ss3.replace("&", "%26")
     return ss3

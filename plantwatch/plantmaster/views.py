@@ -43,7 +43,7 @@ class BlocksList(ListView):
         context['slider'] = self.slider
         sources_dict = forge_sources_dict(context['blocks'], 'netpower')
         header_list = ['Kraftwerk', 'Block', 'Name', 'Unternehmen', 'Inbetrieb-nahme',
-                        'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [MW]']
+                       'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [MW]']
         context['sources_dict'] = sources_dict
         context['sources_header'] = SOURCES_BLOCKS
         context['header_list'] = header_list
