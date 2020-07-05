@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from .constants import HOURS_IN_YEAR, PRTR_YEARS, SL_1, SL_2p, SL_2b, YEARS
 HIJ = HOURS_IN_YEAR
 
+
 def divide_safe(n, d):
     return n / d if d else 0
 
@@ -170,7 +171,8 @@ def get_energy_for_plant(plantid, year, raw=False):
 
 def get_co2_for_plant_by_years(plantid, years):
     pols = Pollutions.objects.filter(plantid=plantid, releasesto="Air",
-                                     pollutant="CO2", year__in=years).order_by("year")
+                                     pollutant="CO2", year__in=years)\
+                             .order_by("year")
     co2s = list(map(lambda x: x.amount2, pols))
 
     return co2s
@@ -191,10 +193,10 @@ def get_company(company):
     tmp = tmp.replace("Stadtwerke", "").strip()
 
     cl = tmp.split(" ")
-    l = len(cl)
-    if l == 1:
+    length = len(cl)
+    if length == 1:
         return company
-    elif l > 1:
+    elif length > 1:
         return "" if "niper" in company else "RWE Power" if "RWE" in company else cl[0]
     else:
         return ""
@@ -202,9 +204,9 @@ def get_company(company):
 
 def get_plantname(plantname):
     tmp = plantname.replace("HKW", "").strip()  # or replace("Kraftwerk", "").strip()?
-    l = len(tmp)
+    chars = len(tmp)
 
-    if l < 4:
+    if chars < 4:
         return tmp if "GKM" in tmp else ""
     else:
         return tmp
@@ -222,13 +224,15 @@ def get_co2(plantid):
 
 
 def get_pollutants(plantid, year=''):
-    #TODO: fix to display least recent pollutant year instead of fixed year
+    # TODO: fix to display least recent pollutant year instead of fixed year
     if year:
-        return Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air')\
+        return Pollutions.objects.filter(plantid=plantid, year=year,
+                                         releasesto='Air')\
                                  .order_by("-exponent", "-amount")
 
     for year in PRTR_YEARS[::-1]:
-        q = Pollutions.objects.filter(plantid=plantid, year=year, releasesto='Air')\
+        q = Pollutions.objects.filter(plantid=plantid, year=year,
+                                      releasesto='Air')\
                               .order_by("-exponent", "-amount")
         if q.exists():
             return year, q
@@ -236,7 +240,8 @@ def get_pollutants(plantid, year=''):
 
 def get_pollutants_any_year(plantid, to):
     q = Pollutions.objects.filter(plantid=plantid, releasesto=to)\
-                          .order_by("-exponent", "pollutant2", "year", "-amount")
+                          .order_by("-exponent", "pollutant2",
+                                    "year", "-amount")
     return q
 
 
@@ -245,7 +250,7 @@ def get_ss(plant):
     ks = " Kraftwerk " if "raftwerk" not in pltn else pltn
     ss3 = comp + ks + pltn
     ss3 = plant.plantname.replace("Werk", "")\
-                          if "P&L" in plant.plantname else ss3
+          if "P&L" in plant.plantname else ss3
     ss3 = ss3.replace(" ", "+")
     ss3 = ss3.replace("&", "%26")
     return ss3

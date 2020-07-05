@@ -9,16 +9,18 @@ from functools import reduce
 from .forms import BlocksForm
 from .models import Blocks, Plants, Power, Addresses, Month, Pollutions,\
                         Monthp, Mtp, Yearly
-from .helpers import divide_safe, get_ss, get_pollutants_any_year, query_for_month_many,\
-                        get_chart_data_m, get_chart_data_whole_y, get_chart_data_b,\
-                        get_percentages_from_yearprod2, get_percentages_from_yearprod3,\
-                        handle_slider, handle_slider_1, handle_slider_2,\
-                        calc_workload, get_pollutants, get_co2_for_plant_by_year,\
-                        get_energy_for_plant, get_co2_for_plant_by_years
-from .constants import API_KEY, SORT_CRITERIA_BLOCKS, SLIDER_1, SLIDER_2p, SLIDER_2b,\
-                        DEFAULT_OPS, SELECT_CHP, SELECT_CHP_LIST, FEDERAL_STATES,\
-                        SOURCES_LIST, OPSTATES, HOURS_IN_YEAR, YEAR, LATEST_YEAR,\
-                        YEARS, ACTIVE_OPS, OIL
+from .helpers import divide_safe, get_ss, get_pollutants_any_year,\
+                     query_for_month_many, get_chart_data_m,\
+                     get_chart_data_whole_y, get_chart_data_b,\
+                     get_percentages_from_yearprod2,\
+                     get_percentages_from_yearprod3, handle_slider,\
+                     handle_slider_1, handle_slider_2, calc_workload,\
+                     get_pollutants, get_co2_for_plant_by_year,\
+                     get_energy_for_plant, get_co2_for_plant_by_years
+from .constants import API_KEY, SORT_CRITERIA_BLOCKS, SLIDER_1, SLIDER_2p,\
+                       SLIDER_2b, DEFAULT_OPS, SELECT_CHP, SELECT_CHP_LIST,\
+                       FEDERAL_STATES, SOURCES_LIST, OPSTATES, HOURS_IN_YEAR, YEAR, LATEST_YEAR,\
+                       YEARS, ACTIVE_OPS, OIL
 
 
 def fill_field(form, by, entries):
