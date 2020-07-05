@@ -1,7 +1,7 @@
 {% load filters %}
 
 <table class="table table-bordered table-hover table-striped table-sm">
-    <caption>Pollutants</caption>
+    <caption>Pollutants over time</caption>
     <tbody>
         {% regroup pollutions2|dictsort:"year" by year as yp %}
         <tr class="table">
