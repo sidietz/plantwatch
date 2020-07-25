@@ -1,7 +1,7 @@
 # plantwatch
 [![Requirements Status](https://requires.io/github/sidietz/plantwatch/requirements.svg?branch=master)](https://requires.io/github/sidietz/plantwatch/requirements/?branch=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sidietz_plantwatch&metric=alert_status)](https://sonarcloud.io/dashboard?id=sidietz_plantwatch)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/848d2d7834c447d1a8d48d186110f7b1)](https://www.codacy.com/app/oberam-eng/plantwatch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oberam-eng/plantwatch&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b71f209cb1d74890b386b183924097be)](https://www.codacy.com/manual/sidietz/plantwatch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sidietz/plantwatch&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/555b3f164b4c67843731/maintainability)](https://codeclimate.com/github/sidietz/plantwatch/maintainability)
 
 ## Was ist plantwatch?
