@@ -147,8 +147,8 @@ def forge_sources_plant(annotated_plants):
         count = filtered.count()
         effective_power = filtered.aggregate(Sum('totalpower'))\
         ['totalpower__sum'] or 0
-        energy = filtered.aggregate(Sum('energy_2018'))['energy_2018__sum'] or 0
-        co2 = filtered.aggregate(Sum('co2_2018'))['co2_2018__sum'] or 0
+        energy = filtered.aggregate(Sum('energy_2019'))['energy_2019__sum'] or 0
+        co2 = filtered.aggregate(Sum('co2_2019'))['co2_2019__sum'] or 0
         workload = calc_workload(energy, effective_power)
         ophours = divide_safe(energy, effective_power)
         efficiency = divide_safe(co2, energy)
@@ -188,10 +188,14 @@ def annotate_plants(plants):
         When(energy_2018=0, then=0),
         When(co2_2018=0, then=0),
         default=(F('co2_2018') / F('energy_2018')), output_field=FloatField()),
+    eff19=Case(
+        When(energy_2019=0, then=0),
+        When(co2_2019=0, then=0),
+        default=(F('co2_2019') / F('energy_2019')), output_field=FloatField()),
     eff=Case(
-        When(energy_2018=0, then=0),
-        When(co2_2018=0, then=0),
-        default=(F('co2_2018') / F('energy_2018')), output_field=FloatField()),
+        When(energy_2019=0, then=0),
+        When(co2_2019=0, then=0),
+        default=(F('co2_2019') / F('energy_2019')), output_field=FloatField()),
     workload15=Case(
         When(energy_2015=0, then=0),
         default=(F('energy_2015') / (F(power_type) * HOURS_IN_YEAR) * 100),
@@ -217,11 +221,11 @@ def annotate_plants(plants):
         default=(F('energy_2019') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
     energy=Case(
-        When(energy_2018=0, then=0),
-        default=(F('energy_2018') / float(10**6)), output_field=FloatField()),
+        When(energy_2019=0, then=0),
+        default=(F('energy_2019') / float(10**6)), output_field=FloatField()),
     co2=Case(
-        When(co2_2018=0, then=0),
-        default=(F('co2_2018') / float(10**9)), output_field=FloatField()),
+        When(co2_2019=0, then=0),
+        default=(F('co2_2019') / float(10**9)), output_field=FloatField()),
     )
 
     return plants2
@@ -287,7 +291,7 @@ def get_elist(plantid, plant):
 
     effcols = list(zip(YEARS, energies, co2s, effs, workload, workload2))
     testval = reduce(lambda a, b: a + b,
-    [i for col in effcols for i in col[1:]])
+    [i for col in effcols for i in col[:]])
 
     # all rows empty, so return emptylist
     if testval == 0:

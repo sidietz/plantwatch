@@ -39,6 +39,7 @@ class Plants(models.Model):
     co2_2016 = models.IntegerField(blank=True, null=True)
     co2_2017 = models.IntegerField(blank=True, null=True)
     co2_2018 = models.IntegerField(blank=True, null=True)
+    co2_2019 = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
