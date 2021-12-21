@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+## [0.1.15-h] - 2021-12-21
+### Fixed
+- expanding filter options not showing
+- impossible sorting options (by removal)
+
 ## [0.1.15-g] - 2021-12-16
 ### Changed
 - updated pollution data to 2019
