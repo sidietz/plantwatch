@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.15-j] - 2021-02-11
+### Changed
+- update production data to 2021
+- update dependencies
 
 ## [0.1.15-h] - 2021-12-21
 ### Fixed
@@ -12,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.15-g] - 2021-12-16
 ### Changed
-- updated pollution data to 2019
+- update pollution data to 2019
 
 ## [0.1.15-f] - 2021-12-16
 ### Changed
