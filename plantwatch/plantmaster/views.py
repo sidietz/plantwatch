@@ -3,7 +3,7 @@
 
 
 from .forms import BlocksForm
-from .models import Blocks, Plants, Power, Addresses, Month, Pollutions, Monthp, Mtp, Yearly
+from .models import Blocks, Plants, Power, Addresses, Pollutions, Yearly #, Monthp, Mtp, Month
 
 from django.db.models import Sum, Min, Avg, Max, Count
 from django.db.models import Q, F, When, Case, FloatField
@@ -215,7 +215,7 @@ class PlantList2(ListView):
         chart_dict = {}
 
         try:
-            power = query_for_month_many(blocknames, "2019", "1")
+            power = query_for_month_many(blocknames, "2021", "1")
 
             powers3 = get_chart_data_m(blocknames, YEARS)
             yearprod = get_chart_data_whole_y(blocknames, YEARS)

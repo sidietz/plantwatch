@@ -31,9 +31,9 @@ SL_2p = [250, 4500, 0, 4500, 250]
 
 HOURS_IN_YEAR = 365 * 24
 PRTR_YEARS = list(range(2007, 2020))
-ENERGY_YEARS = list(range(2015, 2020))
+ENERGY_YEARS = list(range(2015, 2022))
 YEARS = ENERGY_YEARS
-YEAR = PRTR_YEARS[-1]
+YEAR = ENERGY_YEARS[-1]
 LATEST_YEAR = ENERGY_YEARS[-1]
 
 FULL_HOURS = "Volllaststunden [" + str(YEAR) + "]"

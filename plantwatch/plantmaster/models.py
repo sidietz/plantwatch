@@ -27,6 +27,9 @@ class Plants(models.Model):
     energy_2017 = models.IntegerField(blank=True, null=True)
     energy_2018 = models.IntegerField(blank=True, null=True)
     energy_2019 = models.IntegerField(blank=True, null=True)
+    energy_2020 = models.IntegerField(blank=True, null=True)
+    energy_2021 = models.IntegerField(blank=True, null=True)
+    energy_2022 = models.IntegerField(blank=True, null=True)
     co2_2007 = models.IntegerField(blank=True, null=True)
     co2_2008 = models.IntegerField(blank=True, null=True)
     co2_2009 = models.IntegerField(blank=True, null=True)
@@ -114,6 +117,7 @@ class Pollutions(models.Model):
         db_table = 'pollutions'
         unique_together = ('plantid', 'releasesto', 'pollutant', 'year')
 
+'''
 class Mtp(models.Model):
     mtpid = models.IntegerField(unique=True, primary_key=True)
     plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid', unique=True)  # Field name made lowercase.
@@ -136,6 +140,8 @@ class Monthp(models.Model):
         managed = False
         db_table = 'monthp'
         unique_together = ('plantid', 'year', 'month')
+
+'''
 
 class Yearly(models.Model):
     yid = models.IntegerField(unique=True, primary_key=True)

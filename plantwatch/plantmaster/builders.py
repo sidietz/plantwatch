@@ -7,8 +7,8 @@ import re
 from functools import reduce
 
 from .forms import BlocksForm
-from .models import Blocks, Plants, Power, Addresses, Month, Pollutions,\
-                        Monthp, Mtp, Yearly
+from .models import Blocks, Plants, Power, Addresses, Pollutions, Yearly, Month#, Monthp, Mtp, Yearly, Month
+
 from .helpers import divide_safe, get_ss, get_pollutants_any_year,\
                      query_for_month_many, get_chart_data_m,\
                      get_chart_data_whole_y, get_chart_data_b,\
@@ -216,13 +216,21 @@ def annotate_plants(plants):
         When(energy_2019=0, then=0),
         default=(F('energy_2019') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
+    workload20=Case(
+        When(energy_2020=0, then=0),
+        default=(F('energy_2020') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        output_field=FloatField()),
+    workload21=Case(
+        When(energy_2021=0, then=0),
+        default=(F('energy_2021') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        output_field=FloatField()),
     workload=Case(
-        When(energy_2019=0, then=0),
-        default=(F('energy_2019') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        When(energy_2021=0, then=0),
+        default=(F('energy_2021') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
     energy=Case(
-        When(energy_2019=0, then=0),
-        default=(F('energy_2019') / float(10**6)), output_field=FloatField()),
+        When(energy_2021=0, then=0),
+        default=(F('energy_2021') / float(10**6)), output_field=FloatField()),
     co2=Case(
         When(co2_2019=0, then=0),
         default=(F('co2_2019') / float(10**9)), output_field=FloatField()),
