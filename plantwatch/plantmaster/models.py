@@ -145,7 +145,7 @@ class Yearly(models.Model):
     
     class Meta:
         managed = False
-        db_table = 'monthp'
+        db_table = 'yearly'
         unique_together = ('plantid', 'year')
 
 
