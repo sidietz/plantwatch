@@ -100,7 +100,7 @@ def forge_sources_dict(block_list, power_type):
         tmp = block_list.filter(energysource=source)
         count = tmp.all().count()
         raw_power = tmp.all().aggregate(Sum(power_type))[power_type + '__sum'] or 0
-        raw_energy = Month.objects.filter(blockid__in=tmp, year=YEAR,
+        raw_energy = Month.objects.filter(blockid__in=tmp, year=LATEST_YEAR-1,
                                             month__in=list(range(1,13)))\
                                     .aggregate(Sum("power"))['power__sum'] or 0
         energy = raw_energy / 10**6

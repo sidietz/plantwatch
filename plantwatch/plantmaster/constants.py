@@ -67,7 +67,7 @@ HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname',
 SOURCES_PLANTS = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD, "CO2 [Mio. t]",
                   "Volllaststunden [h]", "Auslastung [%]", "Effizienz [g CO2/kWh]"]
 SOURCES_BLOCKS = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD, "Volllaststunden [h]",
-                  "Auslastung 2018 [%]", "Auslastung 2019 [%]"]
+                  "Auslastung 2020 [%]", "Auslastung 2021 [%]"]
 
 
 SOURCES_BLOCKS_OLD = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD,
