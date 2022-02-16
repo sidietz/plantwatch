@@ -2,7 +2,7 @@
 if [ -f plantwatch.db ]; then
    rm plantwatch.db
 fi
-sqlite3 plantwatch.db  "CREATE TABLE addresses(blockid TEXT NOT NULL PRIMARY KEY, federalstate TEXT, place TEXT, plz INTEGER, street TEXT);"
+sqlite3 plantwatch.db  "CREATE TABLE addresses(blockid TEXT NOT NULL PRIMARY KEY, plz INTEGER, place TEXT, street TEXT, federalstate TEXT);"
 
 sqlite3 plantwatch.db  "CREATE TABLE blocks(plantid TEXT, blockid TEXT NOT NULL PRIMARY KEY, blockdescription TEXT, federalstate TEXT, energysource TEXT, initialop INTEGER, chp TEXT, blockname TEXT, netpower REAL, state TEXT, endop INT, company TEXT, reserveyear INT, FOREIGN KEY (blockid) REFERENCES addresses(blockid) ON DELETE CASCADE);"
 
