@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.15-k] - 2022-04-24
+### Fixed
+- CVE-2022-28346
+
+### Changed
+- contact info
+
 ## [0.1.15-j] - 2021-02-11
 ### Changed
 - update production data to 2021
