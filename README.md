@@ -29,7 +29,7 @@ Plantwatch wurde nur unter Mozilla Firefox getestet. Andere Browser könnten bes
 plantwatch visualizes the plant list ("Kraftwerksliste") of the "Bundesnetzagentur" and shows all conventional power plants located in Germany.
 
 ## Usage
-Visit oberamsystems.com/plantwatch
+Visit [plantwatch.de](https://plantwatch.de).
 
 ## Bugs
 This software is considered as beta, so don't hesitate to report any issue you experience.
