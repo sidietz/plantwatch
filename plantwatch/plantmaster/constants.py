@@ -75,5 +75,8 @@ SOURCES_BLOCKS_OLD = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD,
                       "Auslastung [" + str(YEAR) + "] [%]",
                       "Auslastung [" + str(LATEST_YEAR) + "] [%]"]
 
-
-API_KEY = "AIzaSyAWz7ee-a1eLUZ9aGJTauKxAMP1whRKlcE"
+try:
+    with open('/home/oberam/etc/api_key.txt') as f:
+        API_KEY = f.read().strip()
+except FileNotFoundError:
+    API_KEY = ""
