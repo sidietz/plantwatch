@@ -43,6 +43,7 @@ class Plants(models.Model):
     co2_2017 = models.IntegerField(blank=True, null=True)
     co2_2018 = models.IntegerField(blank=True, null=True)
     co2_2019 = models.IntegerField(blank=True, null=True)
+    co2_2020 = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -51,12 +52,12 @@ class Plants(models.Model):
 class Blocks(models.Model):
     blockid = models.TextField(unique=True, primary_key=True, db_column="blockid")
     plantid = models.ForeignKey(Plants, models.DO_NOTHING, db_column='plantid', related_name='blocks')
-    blockdescription = models.TextField(blank=True, null=True)
+    blockname = models.TextField(blank=True, null=True)
     federalstate = models.TextField(blank=True, null=True)
     energysource = models.TextField(blank=True, null=True)
     initialop = models.IntegerField(blank=True, null=True)
     chp = models.TextField(blank=True, null=True)
-    blockname = models.TextField(blank=True, null=True)
+    # = models.TextField(blank=True, null=True)
     netpower = models.FloatField(blank=True, null=True)
     state = models.TextField(blank=True, null=True)
     endop = models.IntegerField(blank=True, null=True)
