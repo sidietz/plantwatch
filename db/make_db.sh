@@ -2,9 +2,9 @@
 if [ -f plantwatch.db ]; then
    rm plantwatch.db
 fi
-sqlite3 plantwatch.db  "CREATE TABLE addresses(blockid TEXT NOT NULL PRIMARY KEY, plz INTEGER, place TEXT, street TEXT, federalstate TEXT);"
+sqlite3 plantwatch.db  "CREATE TABLE addresses(blockid TEXT NOT NULL PRIMARY KEY, plz INTEGER, place TEXT, street TEXT, street_number TEXT, federalstate TEXT);"
 
-sqlite3 plantwatch.db  "CREATE TABLE blocks(plantid TEXT, blockid TEXT NOT NULL PRIMARY KEY, blockname TEXT, federalstate TEXT, energysource TEXT, initialop INTEGER, chp TEXT, netpower REAL, state TEXT, endop INT, company TEXT, reserveyear INT, FOREIGN KEY (blockid) REFERENCES addresses(blockid) ON DELETE CASCADE);"
+sqlite3 plantwatch.db  "CREATE TABLE blocks(blockid TEXT NOT NULL PRIMARY KEY, plantid TEXT, blockname TEXT, federalstate TEXT, energysource TEXT, initialop INTEGER, chp TEXT, netpower REAL, state TEXT, endop INT, company TEXT, reserveyear INT, FOREIGN KEY (blockid) REFERENCES addresses(blockid) ON DELETE CASCADE);"
 
 sqlite3 plantwatch.db "CREATE TABLE month(monthid INTEGER NOT NULL PRIMARY KEY, year INT, month INT, blockid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (blockid) REFERENCES blocks(blockid) ON DELETE CASCADE);"
 
@@ -37,3 +37,6 @@ echo -e '.separator "," \n.import stammdaten_nh_new.csv addresses  \n.import pla
 #sqlite3 plantwatch.db "CREATE TABLE monthp(monthpid INTEGER NOT NULL PRIMARY KEY, year INT, month INT, plantid TEXT NOT NULL, power INTEGER NOT NULL, FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
 #echo -e '.separator "," \n.import stammdaten_nh_new.csv addresses  \n.import plants_nh_new.csv plants \n.import blocks_new_nh.csv blocks\n. import monthly.csv month\n. import yearly_pg.csv yearly\n. import monthlyp_pg.csv monthp \n.import pollutants_pg.csv pollutions\n. import mt_pg.csv mtp' | sqlite3 plantwat
+
+#blocks entry
+#06-05-100-0853075|BNA0990|KW West|Nordrhein-Westfalen|Steinkohle|1970|Nein|322.0|stillgelegt|2017.0||
