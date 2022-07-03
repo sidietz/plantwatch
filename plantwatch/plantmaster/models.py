@@ -70,10 +70,11 @@ class Blocks(models.Model):
 
 class Addresses(models.Model):
     blockid = models.OneToOneField(Blocks, models.DO_NOTHING, db_column='blockid', unique=True, primary_key=True)  # Field name made lowercase.
-    federalstate = models.TextField(blank=True, null=True)
-    place = models.TextField(blank=True, null=True)
     plz = models.IntegerField(blank=True, null=True)  # Field name made lowercase.
+    place = models.TextField(blank=True, null=True)
     street = models.TextField(blank=True, null=True)
+    street_number = models.TextField(blank=True, null=True)
+    federalstate = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
