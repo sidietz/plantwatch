@@ -1,0 +1,1101 @@
+{
+  "dependencyGraphs": {
+    "/home/simon/code/current/plantwatch/requirements.txt": {
+      "graph": {
+        "backports.zoneinfo 0.2.1 - pip": [
+          "importlib-resources 5.8.0 - pip"
+        ],
+        "sqlparse 0.4.2 - pip": null,
+        "typing-extensions 4.3.0 - pip": null,
+        "markupsafe 2.1.1 - pip": null,
+        "markdown 3.3.6 - pip": [
+          "importlib-metadata 4.12.0 - pip"
+        ],
+        "tzdata 2022.1 - pip": null,
+        "asgiref 3.5.0 - pip": [
+          "typing-extensions 4.3.0 - pip"
+        ],
+        "djangorestframework 3.13.1 - pip": [
+          "django 4.0.4 - pip",
+          "pytz 2022.1 - pip"
+        ],
+        "zipp 3.8.1 - pip": null,
+        "django 4.0.4 - pip": [
+          "asgiref 3.5.0 - pip",
+          "sqlparse 0.4.2 - pip",
+          "backports.zoneinfo 0.2.1 - pip",
+          "tzdata 2022.1 - pip"
+        ],
+        "pytz 2022.1 - pip": null,
+        "importlib-metadata 4.12.0 - pip": [
+          "zipp 3.8.1 - pip",
+          "typing-extensions 4.3.0 - pip"
+        ],
+        "importlib-resources 5.8.0 - pip": [
+          "zipp 3.8.1 - pip"
+        ],
+        "django-filter 21.1 - pip": [
+          "django 4.0.4 - pip"
+        ]
+      },
+      "explicitlyReferencedComponentIds": [
+        "sqlparse 0.4.2 - pip",
+        "markupsafe 2.1.1 - pip",
+        "markdown 3.3.6 - pip",
+        "asgiref 3.5.0 - pip",
+        "djangorestframework 3.13.1 - pip",
+        "django 4.0.4 - pip",
+        "django-filter 21.1 - pip"
+      ],
+      "developmentDependencies": [],
+      "dependencies": []
+    }
+  },
+  "componentsFound": [
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "backports.zoneinfo",
+        "version": "0.2.1",
+        "type": "Pip",
+        "id": "backports.zoneinfo 0.2.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "backports.zoneinfo",
+          "Version": "0.2.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "sqlparse",
+        "version": "0.4.2",
+        "type": "Pip",
+        "id": "sqlparse 0.4.2 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "sqlparse",
+          "Version": "0.4.2",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "sqlparse",
+          "version": "0.4.2",
+          "type": "Pip",
+          "id": "sqlparse 0.4.2 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "sqlparse",
+            "Version": "0.4.2",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "typing-extensions",
+        "version": "4.3.0",
+        "type": "Pip",
+        "id": "typing-extensions 4.3.0 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "typing-extensions",
+          "Version": "4.3.0",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "asgiref",
+          "version": "3.5.0",
+          "type": "Pip",
+          "id": "asgiref 3.5.0 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "asgiref",
+            "Version": "3.5.0",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "Markdown",
+          "version": "3.3.6",
+          "type": "Pip",
+          "id": "markdown 3.3.6 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "markdown",
+            "Version": "3.3.6",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "MarkupSafe",
+        "version": "2.1.1",
+        "type": "Pip",
+        "id": "markupsafe 2.1.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "markupsafe",
+          "Version": "2.1.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "MarkupSafe",
+          "version": "2.1.1",
+          "type": "Pip",
+          "id": "markupsafe 2.1.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "markupsafe",
+            "Version": "2.1.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "Markdown",
+        "version": "3.3.6",
+        "type": "Pip",
+        "id": "markdown 3.3.6 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "markdown",
+          "Version": "3.3.6",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Markdown",
+          "version": "3.3.6",
+          "type": "Pip",
+          "id": "markdown 3.3.6 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "markdown",
+            "Version": "3.3.6",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "tzdata",
+        "version": "2022.1",
+        "type": "Pip",
+        "id": "tzdata 2022.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "tzdata",
+          "Version": "2022.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "asgiref",
+        "version": "3.5.0",
+        "type": "Pip",
+        "id": "asgiref 3.5.0 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "asgiref",
+          "Version": "3.5.0",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "asgiref",
+          "version": "3.5.0",
+          "type": "Pip",
+          "id": "asgiref 3.5.0 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "asgiref",
+            "Version": "3.5.0",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "djangorestframework",
+        "version": "3.13.1",
+        "type": "Pip",
+        "id": "djangorestframework 3.13.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "djangorestframework",
+          "Version": "3.13.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "zipp",
+        "version": "3.8.1",
+        "type": "Pip",
+        "id": "zipp 3.8.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "zipp",
+          "Version": "3.8.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Markdown",
+          "version": "3.3.6",
+          "type": "Pip",
+          "id": "markdown 3.3.6 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "markdown",
+            "Version": "3.3.6",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "Django",
+        "version": "4.0.4",
+        "type": "Pip",
+        "id": "django 4.0.4 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "django",
+          "Version": "4.0.4",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "pytz",
+        "version": "2022.1",
+        "type": "Pip",
+        "id": "pytz 2022.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "pytz",
+          "Version": "2022.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "importlib-metadata",
+        "version": "4.12.0",
+        "type": "Pip",
+        "id": "importlib-metadata 4.12.0 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "importlib-metadata",
+          "Version": "4.12.0",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Markdown",
+          "version": "3.3.6",
+          "type": "Pip",
+          "id": "markdown 3.3.6 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "markdown",
+            "Version": "3.3.6",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "importlib-resources",
+        "version": "5.8.0",
+        "type": "Pip",
+        "id": "importlib-resources 5.8.0 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "importlib-resources",
+          "Version": "5.8.0",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "Django",
+          "version": "4.0.4",
+          "type": "Pip",
+          "id": "django 4.0.4 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django",
+            "Version": "4.0.4",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        },
+        {
+          "name": "djangorestframework",
+          "version": "3.13.1",
+          "type": "Pip",
+          "id": "djangorestframework 3.13.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "djangorestframework",
+            "Version": "3.13.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    },
+    {
+      "locationsFoundAt": [
+        "/requirements.txt"
+      ],
+      "component": {
+        "name": "django-filter",
+        "version": "21.1",
+        "type": "Pip",
+        "id": "django-filter 21.1 - pip",
+        "packageUrl": {
+          "Scheme": "pkg",
+          "Type": "pypi",
+          "Namespace": null,
+          "Name": "django-filter",
+          "Version": "21.1",
+          "Qualifiers": null,
+          "Subpath": null
+        }
+      },
+      "detectorId": "Pip",
+      "isDevelopmentDependency": null,
+      "dependencyScope": null,
+      "topLevelReferrers": [
+        {
+          "name": "django-filter",
+          "version": "21.1",
+          "type": "Pip",
+          "id": "django-filter 21.1 - pip",
+          "packageUrl": {
+            "Scheme": "pkg",
+            "Type": "pypi",
+            "Namespace": null,
+            "Name": "django-filter",
+            "Version": "21.1",
+            "Qualifiers": null,
+            "Subpath": null
+          }
+        }
+      ],
+      "containerDetailIds": [],
+      "containerLayerIds": {}
+    }
+  ],
+  "detectorsInScan": [
+    {
+      "detectorId": "Yarn",
+      "isExperimental": false,
+      "version": 6,
+      "supportedComponentTypes": [
+        "Npm"
+      ]
+    },
+    {
+      "detectorId": "RustCrateDetector",
+      "isExperimental": false,
+      "version": 7,
+      "supportedComponentTypes": [
+        "Cargo"
+      ]
+    },
+    {
+      "detectorId": "RustCrateV2Detector",
+      "isExperimental": false,
+      "version": 6,
+      "supportedComponentTypes": [
+        "Cargo"
+      ]
+    },
+    {
+      "detectorId": "Ruby",
+      "isExperimental": false,
+      "version": 3,
+      "supportedComponentTypes": [
+        "RubyGems"
+      ]
+    },
+    {
+      "detectorId": "Poetry",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Pip"
+      ]
+    },
+    {
+      "detectorId": "Pnpm",
+      "isExperimental": false,
+      "version": 5,
+      "supportedComponentTypes": [
+        "Npm"
+      ]
+    },
+    {
+      "detectorId": "Pip",
+      "isExperimental": false,
+      "version": 5,
+      "supportedComponentTypes": [
+        "Pip"
+      ]
+    },
+    {
+      "detectorId": "NuGet",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "NuGet"
+      ]
+    },
+    {
+      "detectorId": "NuGetProjectCentric",
+      "isExperimental": false,
+      "version": 1,
+      "supportedComponentTypes": [
+        "NuGet"
+      ]
+    },
+    {
+      "detectorId": "Npm",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Npm"
+      ]
+    },
+    {
+      "detectorId": "NpmWithRoots",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Npm"
+      ]
+    },
+    {
+      "detectorId": "MvnCli",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Maven"
+      ]
+    },
+    {
+      "detectorId": "Linux",
+      "isExperimental": false,
+      "version": 4,
+      "supportedComponentTypes": [
+        "Linux"
+      ]
+    },
+    {
+      "detectorId": "Ivy",
+      "isExperimental": true,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Maven"
+      ]
+    },
+    {
+      "detectorId": "Gradle",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Maven"
+      ]
+    },
+    {
+      "detectorId": "Go",
+      "isExperimental": false,
+      "version": 6,
+      "supportedComponentTypes": [
+        "Go"
+      ]
+    },
+    {
+      "detectorId": "CocoaPods",
+      "isExperimental": false,
+      "version": 2,
+      "supportedComponentTypes": [
+        "Pod",
+        "Git"
+      ]
+    }
+  ],
+  "containerDetailsMap": {},
+  "resultCode": "Success",
+  "sourceDirectory": "/home/simon/code/current/plantwatch/"
+}
