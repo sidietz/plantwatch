@@ -262,3 +262,7 @@ def random_plant(request):
 
 def impressum(request):
     return render(request, "plantmaster/impressum.html", {})
+
+def compliance(request):
+    return render(request, "plantmaster/compliance.html", {})
+
