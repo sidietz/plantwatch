@@ -123,6 +123,11 @@ var yearprod = c3.generate({
     data: {
         x: 'x',
         columns:         {{ yearprod |safe }}
+    },
+    axis: {
+        y: {
+            min: 0,
+        }
     }
 });
 
@@ -135,7 +140,10 @@ var chart3 = c3.generate({
         x: {
             type: 'category',
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        } 
+        },
+        y: {
+            min: 0,
+        }
 
     }
 });
@@ -150,7 +158,10 @@ var chart3 = c3.generate({
         x: {
             type: 'category',
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        } 
+        },
+        y: {
+            min: 0,
+        }
 
     }
 });
