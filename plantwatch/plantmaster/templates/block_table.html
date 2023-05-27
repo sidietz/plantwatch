@@ -29,7 +29,11 @@
             <td> {{ block.netpower |floatformat:1 }}</td>
             </tr>
         {% else %}
+            {% if block.plantid %}
             <td><a class="btn btn-outline-secondary" href="{% url 'plant' block.plantid.plantid %}">{{ block.plantid.plantid }} </a></td>
+            {% else %}
+            <td></td>
+            {% endif %}
             <td><a class="btn btn-outline-secondary" href="{% url 'block' block.blockid %}">{{ block.blockid }} </a></td>
             <td> {{ block.blockname }}</td> <td> {{ block.company }}</td>
             <td> {{ block.initialop }}</td> <td> {{ block.endop }}</td>  <td> {{ block.chp }}</td>
