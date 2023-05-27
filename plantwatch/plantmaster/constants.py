@@ -44,12 +44,18 @@ FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg',
                   'Saarland', 'Sachsen', 'Sachsen-Anhalt',
                   'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", OIL]
-OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert',
-            'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall',
-            'vorläufig stillgelegt', 'stillgelegt', 'Kohlestromvermarktungsverbot']
-ACTIVE_OPS = OPSTATES[0:3]
-DEFAULT_OPSTATES = ['in Betrieb', 'Gesetzlich an Stilllegung gehindert',
-                    'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall', 'Kohlestromvermarktungsverbot']
+OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
+
+
+#
+#
+
+#STATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
+#ACTIVE_STATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'vorläufig stillgelegt']
+
+ACTIVE_OPS = OPSTATES[0:4]
+DEFAULT_OPSTATES = ACTIVE_OPS
+#['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall', 'Kohlestromvermarktungsverbot']
 DEFAULT_OPS = DEFAULT_OPSTATES
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"),
               ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
