@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.1.16] - 2023-05-27
+### Added
+- support for most recent BNetzA plant list spec
+
+### Changed
+- update dependencies
+- update pollution data to 2022
+
+### Fixed
+- charts not having y-axis starting at zero
+- blocks without a plantid not being shown
+
+### Removed
+- manual calculation of retirement year
+
 ## [0.1.15-k] - 2022-04-24
 ### Fixed
 - CVE-2022-28346
