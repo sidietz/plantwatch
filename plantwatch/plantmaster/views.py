@@ -108,9 +108,13 @@ class BlockView(DetailView):
         context = super(DetailView, self).get_context_data(**kwargs)
         block = self.object
         address = get_object_or_404(Addresses, blockid=block.blockid)
-        data_list = [block.plantid.plantid, block.blockid, block.blockname, block.company, address.plz, address.place,
+        try:
+            myplantid = block.plantid.plantid
+        except:
+            myplantid = ""
+        data_list = [myplantid, block.blockid, block.blockname, block.company, address.plz, address.place,
                         address.street + " " + address.street_number, address.federalstate, block.netpower]
-        header_list = ['PlantID', 'BlockID', 'Blockname', 'Unternehmen', 'PLZ',
+        header_list = ['KraftwerkID', 'BlockID', 'Blockname', 'Unternehmen', 'PLZ',
                         'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
         context['data_list'] = zip(header_list, data_list)
         return context
