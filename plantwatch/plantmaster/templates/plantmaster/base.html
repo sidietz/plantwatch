@@ -5,13 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <title>plantwatch</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" crossorigin="anonymous">
 
     {% block head %}
     {% endblock %}
 </head>
 <body>
+
+<h1>plantwatch.de</h1>
+<h2>a #NiemehrRWE project and transparency website</h2>
+
 <nav class="navbar navbar-expand-sm bg-light">
 
   <!-- Links -->
@@ -33,6 +37,15 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'compliance' %}">Compliance</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'widmung' %}">Widmung</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'enemies' %}">Feinde der NieMehrRWE</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'friends' %}">Freunde der NieMehrRWE</a>
     </li>
   </ul>
 
