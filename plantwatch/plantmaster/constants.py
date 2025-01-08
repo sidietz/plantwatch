@@ -9,7 +9,7 @@ SORT_CRITERIA_PLANTS = ([('plantname', 'Name'),
                          ('totalpower', 'Gesamtleistung'),
                          ('initialop', 'Inbetriebnahme'),
                          ('latestexpanded', 'Zuletzt erweitert'),
-                         ('co2_2020', 'CO2 Ausstoß'),
+                         ('co2_2021', 'CO2 Ausstoß'),
                          ('energy_2021', 'Energie')], "totalpower")
 SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'),
                              ('totalpower', 'Gesamtleistung'),
@@ -31,7 +31,7 @@ SL_2p = [250, 4500, 0, 4500, 250]
 
 HOURS_IN_YEAR = 365 * 24
 PRTR_YEARS = list(range(2007, 2022))
-ENERGY_YEARS = list(range(2015, 2023))
+ENERGY_YEARS = list(range(2015, 2025))
 YEARS = ENERGY_YEARS
 YEAR = ENERGY_YEARS[-1]
 LATEST_YEAR = ENERGY_YEARS[-1]
