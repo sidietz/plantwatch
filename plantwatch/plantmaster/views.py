@@ -270,3 +270,14 @@ def impressum(request):
 def compliance(request):
     return render(request, "plantmaster/compliance.html", {})
 
+def widmung(request):
+    return render(request, "plantmaster/widmung.html", {})
+
+def enemies(request):
+    return render(request, "plantmaster/enemies.html", {})
+
+def friends(request):
+    return render(request, "plantmaster/friends.html", {})
+
+
+
