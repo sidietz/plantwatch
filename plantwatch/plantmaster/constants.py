@@ -10,8 +10,8 @@ SORT_CRITERIA_PLANTS = ([('plantid', 'PlantID'),
                          ('totalpower', 'Gesamtleistung'),
                          ('initialop', 'Inbetriebnahme'),
                          ('latestexpanded', 'Zuletzt erweitert'),
-                         ('co2_2021', 'CO2 Ausstoß'),
-                         ('energy_2021', 'Energie')], "totalpower")
+                         ('co2_2022', 'CO2 Ausstoß'),
+                         ('energy_2022', 'Energie')], "totalpower")
 SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'),
                              ('totalpower', 'Gesamtleistung'),
                              ('initialop', 'Inbetriebnahme'),
@@ -74,7 +74,7 @@ HEADER_BLOCKS = ['Kraftwerk','Block', 'Krafwerksname', 'Blockname',
 SOURCES_PLANTS = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD, "CO2 [Mio. t]",
                   "Volllaststunden [h]", "Auslastung [%]", "Effizienz [g CO2/kWh]"]
 SOURCES_BLOCKS = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD, "Volllaststunden [h]",
-                  "Auslastung 2020 [%]", "Auslastung 2021 [%]"]
+                  "Auslastung 2022 [%]", "Auslastung 2022 [%]"]
 
 
 SOURCES_BLOCKS_OLD = [ENERGY_SOURCE, "Anzahl", NETOP, YEARLY_PRD,
