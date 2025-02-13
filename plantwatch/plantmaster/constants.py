@@ -45,7 +45,7 @@ FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg',
                   'Saarland', 'Sachsen', 'Sachsen-Anhalt',
                   'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", OIL]
-OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
+OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'bnBm', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
 
 
 #
@@ -54,7 +54,7 @@ OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückk
 #STATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
 #ACTIVE_STATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'vorläufig stillgelegt']
 
-ACTIVE_OPS = OPSTATES[0:4]
+ACTIVE_OPS = OPSTATES[0:5]
 DEFAULT_OPSTATES = ACTIVE_OPS
 #['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall', 'Kohlestromvermarktungsverbot']
 DEFAULT_OPS = DEFAULT_OPSTATES
