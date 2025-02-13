@@ -5,7 +5,8 @@ NETOP = "Nennleistung [GW]"
 
 SORT_CRITERIA_BLOCKS = ([('blockname', 'Name'), ('netpower', 'Nennleistung'),
                          ('initialop', 'Inbetriebnahme')], "netpower")
-SORT_CRITERIA_PLANTS = ([('plantname', 'Name'),
+SORT_CRITERIA_PLANTS = ([('plantid', 'PlantID'),
+                         ('plantname', 'Name'),
                          ('totalpower', 'Gesamtleistung'),
                          ('initialop', 'Inbetriebnahme'),
                          ('latestexpanded', 'Zuletzt erweitert'),
