@@ -19,14 +19,14 @@ SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'),
                             "totalpower")
 
 
-SLIDER_1 = "1950;2025"
+SLIDER_1 = "1950;2030"
 SLIDER_2p = "300;4500"
 SLIDER_2b = "250;1500"
 
 HOURS_IN_YEAR = 365 * 24
 
 
-SL_1 = [1950, 2025, 1950, 2025, 5]
+SL_1 = [1950, 2030, 1950, 2030, 5]
 SL_2b = [250, 1500, 0, 1500, 250]
 SL_2p = [250, 4500, 0, 4500, 250]
 
