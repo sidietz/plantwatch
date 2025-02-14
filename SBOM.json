@@ -1,1101 +1,1956 @@
 {
-  "dependencyGraphs": {
-    "/home/simon/code/current/plantwatch/requirements.txt": {
-      "graph": {
-        "backports.zoneinfo 0.2.1 - pip": [
-          "importlib-resources 5.8.0 - pip"
-        ],
-        "sqlparse 0.4.2 - pip": null,
-        "typing-extensions 4.3.0 - pip": null,
-        "markupsafe 2.1.1 - pip": null,
-        "markdown 3.3.6 - pip": [
-          "importlib-metadata 4.12.0 - pip"
-        ],
-        "tzdata 2022.1 - pip": null,
-        "asgiref 3.5.0 - pip": [
-          "typing-extensions 4.3.0 - pip"
-        ],
-        "djangorestframework 3.13.1 - pip": [
-          "django 4.0.4 - pip",
-          "pytz 2022.1 - pip"
-        ],
-        "zipp 3.8.1 - pip": null,
-        "django 4.0.4 - pip": [
-          "asgiref 3.5.0 - pip",
-          "sqlparse 0.4.2 - pip",
-          "backports.zoneinfo 0.2.1 - pip",
-          "tzdata 2022.1 - pip"
-        ],
-        "pytz 2022.1 - pip": null,
-        "importlib-metadata 4.12.0 - pip": [
-          "zipp 3.8.1 - pip",
-          "typing-extensions 4.3.0 - pip"
-        ],
-        "importlib-resources 5.8.0 - pip": [
-          "zipp 3.8.1 - pip"
-        ],
-        "django-filter 21.1 - pip": [
-          "django 4.0.4 - pip"
-        ]
-      },
-      "explicitlyReferencedComponentIds": [
-        "sqlparse 0.4.2 - pip",
-        "markupsafe 2.1.1 - pip",
-        "markdown 3.3.6 - pip",
-        "asgiref 3.5.0 - pip",
-        "djangorestframework 3.13.1 - pip",
-        "django 4.0.4 - pip",
-        "django-filter 21.1 - pip"
+  "files": [
+    {
+      "fileName": "./manage.py",
+      "SPDXID": "SPDXRef-File--manage.py-DEF39698DAEAEA88ABA213B6E77218D800A7263C",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "890e90c635078294f78033fd1d31f7367fe7ec7203ddde38b793a7b66367ba03"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "def39698daeaea88aba213b6e77218d800a7263c"
+        }
       ],
-      "developmentDependencies": [],
-      "dependencies": []
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/urls.py",
+      "SPDXID": "SPDXRef-File--plantapi-urls.py-A4A2A681E119F44DADC3CCB4BD37E0EFC11F69AF",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "45b35bcc0d4897547717520788eb3db7d533c9d0ff59e1a321c33be6ff9b403b"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a4a2a681e119f44dadc3ccb4bd37e0efc11f69af"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./__init__.py",
+      "SPDXID": "SPDXRef-File----init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/admin.py",
+      "SPDXID": "SPDXRef-File--plantapi-admin.py-A0B1A2729D5FD2A8A7F3387C2BC053AB98F74B9A",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b2e328e31f08dc907100505521d13ee6a9ea67a240655d051120011ce49cfaf8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a0b1a2729d5fd2a8a7f3387c2bc053ab98f74b9a"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch.db",
+      "SPDXID": "SPDXRef-File--plantwatch.db-649FF865927965B0D6226846169D17349BFBF7AC",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "fc74e1390ff12fd163be6e5c2168ff0681f629feecf452742700efdc1abcf2ce"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "649ff865927965b0d6226846169d17349bfbf7ac"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/migrations/__init__.py",
+      "SPDXID": "SPDXRef-File--plantapi-migrations---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/wsgi.py",
+      "SPDXID": "SPDXRef-File--plantwatch-wsgi.py-5691C4838D2638F69FAD31AE49A9C972D9A138E2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d6bf0a655cdcf9977746a9739924163c661d4a169408e5ba0f19d26ad74398b8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5691c4838d2638f69fad31ae49a9c972d9a138e2"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/__init__.py",
+      "SPDXID": "SPDXRef-File--plantapi---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/urls.py",
+      "SPDXID": "SPDXRef-File--plantwatch-urls.py-D0A3E896D71B6376CDF9D9C76123FC37F6ADCF96",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "53e307d174065354e9136f0d021f00aca99c260036fe6a3ddc06ff41824b8b2d"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d0a3e896d71b6376cdf9d9c76123fc37f6adcf96"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/wsgi.cpython-36.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---wsgi.cpython-36.pyc-4424D6CB0B2DC85EDEDCD6371A4D3A88598BB266",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "14dca4150ce2c53d3fb7d3491fe9d666970aa3b00e42d6bcee84fb2a4edf5b97"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4424d6cb0b2dc85ededcd6371a4d3a88598bb266"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/models.py",
+      "SPDXID": "SPDXRef-File--plantapi-models.py-BB2ADE0B5906D4C34AD5489E26929421FA78CE5E",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "563734a765db00f804e87c9317abe597df00e1e0e103902f690aac738910f404"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "bb2ade0b5906d4c34ad5489e26929421fa78ce5e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/views.py",
+      "SPDXID": "SPDXRef-File--plantapi-views.py-32576EC3C6D7988980BDF7989E8981C403C0FDDE",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dee95df8d234a9aea8b45900f9b7fd5c48bb6f8f3db6207773c3e28974f20325"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "32576ec3c6d7988980bdf7989e8981c403c0fdde"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/settings.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---settings.cpython-313.pyc-3D2BB3F875905EA9E6FB45A73A8CB51FE2F3C9B5",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "151ee096c7519ab4f52492e1ec5e6729c51ddb6d1fef2ccd1cd1952d35e6e260"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "3d2bb3f875905ea9e6fb45a73a8cb51fe2f3c9b5"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/__pycache__/serializers.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantapi---pycache---serializers.cpython-313.pyc-441916E50F4096B656F1CDE5C9B3EFC86458F06D",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cc6970121be7e5f39468a9d09c8c57d10dfd655575ef6eb95bfcc0c92db0a6cc"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "441916e50f4096b656f1cde5c9b3efc86458f06d"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/jinja2.py",
+      "SPDXID": "SPDXRef-File--plantwatch-jinja2.py-33550073EAC15734C27786FB66E42202F8AE1550",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9d008626294fdccbf67872ed19122fc43dc56fcc0ad894eda81b05c80e346a5d"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "33550073eac15734c27786fb66e42202f8ae1550"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/urls.py",
+      "SPDXID": "SPDXRef-File--plantmaster-urls.py-FE3692F9B8440AAB0DD465121B5880403CA5FCEB",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "43bab9bba9cc48871ec06e2e6ff72deb81e535e8110f2194ac19f39cbdf71733"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "fe3692f9b8440aab0dd465121b5880403ca5fceb"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/wsgi.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---wsgi.cpython-313.pyc-BEFB2CA3FC3EBFB0BF52E679B70A31A6DC4E679B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "91eae646dab5bebaaeb1f9764671e82a060220604799edb43a2e10f9d5c93464"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "befb2ca3fc3ebfb0bf52e679b70a31a6dc4e679b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/router.py",
+      "SPDXID": "SPDXRef-File--plantwatch-router.py-F0076BFAC6056569181B90FE52F0103075BEEF4C",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "0d75f0e16d9de26cef3481c475130569b3eb33ef308fb20f110580ee1acceb67"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f0076bfac6056569181b90fe52f0103075beef4c"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templatetags/filters.py",
+      "SPDXID": "SPDXRef-File--plantmaster-templatetags-filters.py-B3803810F7D577ECFDF88E5017D081333C365B20",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "db094bd8f4749f9f4c228487d663ee955dbc9d5ffe697a50770e05b6f5046b99"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b3803810f7d577ecfdf88e5017d081333c365b20"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/models.py",
+      "SPDXID": "SPDXRef-File--plantmaster-models.py-B84ECDDEE41F74EB7B86A1FD3B3F0AFF449360FD",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "214b54842c4cf04bd6716f167aedba1637494010590108329c1a89ba2df9d9dc"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b84ecddee41f74eb7b86a1fd3b3f0aff449360fd"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/urls.cpython-36.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---urls.cpython-36.pyc-B83CE4011B652AFF693E5A1329AA00DD6AF53639",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9ba48938b1d46a4538c4b01220dd763550cba37d239960eb5ff7bcdf435396b8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b83ce4011b652aff693e5a1329aa00dd6af53639"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/serializers.py",
+      "SPDXID": "SPDXRef-File--plantapi-serializers.py-139C22FBF06BEBF1B49094E7F022A9A658BD398A",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a37c9e5ffc892f58af369cef5ba3e1c557e2caa604c18766aba4a0a9d8037e5c"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "139c22fbf06bebf1b49094e7f022a9a658bd398a"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/sources_table.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-sources-table.html-69B46F73AB21E08C8DC766988DC0AFC48E92E10A",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f0c9fd3a733e3dd2b923e5ac6393b1a2035189b57d6858fe11a8ba99ea48808a"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "69b46f73ab21e08c8dc766988dc0afc48e92e10a"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/pollutants.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-pollutants.html-98026E16FCCEC68385E9EE2C5E318D8A4E6BDB37",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "297ed295a7aab1ba0143316454e7b6cff6957a46cec6b878c4e687e4509bd747"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "98026e16fccec68385e9ee2c5e318d8a4e6bdb37"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/elist.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-elist.html-6254FFB770DFEF47CBBCCB94F36355E3C054B544",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1add76945489b643ecb1cb336df7d9b518eea2882247c0a6e25c37c6afc74142"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6254ffb770dfef47cbbccb94f36355e3c054b544"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/__pycache__/views.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantapi---pycache---views.cpython-313.pyc-39320C6C123880AA4E1BE83BCF5C1A93A7489324",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "d659290c36593b18902be5efa7818d485caeb3a06929e6de0bd8e710735fb8d7"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "39320c6c123880aa4e1be83bcf5c1a93a7489324"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/plants_list.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-plants-list.html-F636B9CDC939958D1DC4786A039FBCF1AB6B8613",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2fbd26f7ece7df845677a0102d790beb920d75fb3b98c6e44261337dc93caa35"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f636b9cdc939958d1dc4786a039fbcf1ab6b8613"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/__pycache__/urls.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantapi---pycache---urls.cpython-313.pyc-89081FE167FB0D0D99502E94C4B7A9062155B839",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a438173a1edb9cc6c00a0e228da6ba1233f224d870eb0362221077e03ff6d6d8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "89081fe167fb0d0d99502e94c4b7a9062155b839"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/plant_list.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-plant-list.html-3C4B0C3B258EE1585D7198166F2ED2F3F5F3788E",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "573b5e1f830896cacc641639d1b9fadb9ae17a047408f96a6bdc81c8b6ef95e4"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "3c4b0c3b258ee1585d7198166f2ed2f3f5f3788e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/helpers.py",
+      "SPDXID": "SPDXRef-File--plantmaster-helpers.py-D03F389B4617D68BB8052A026BB98DEF1D3AC352",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ee42431507e82aa61e62a0fe6d9872a218cc1f05bd22f94d0e2c41479b6145f8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d03f389b4617d68bb8052a026bb98def1d3ac352"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/0003_plants_pollutions.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations-0003-plants-pollutions.py-93218494C4B88ADB33E1F8002CEEEB64D239BD11",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3f401e79bcc54e6ee92cb56d0428b95aae398130e3098a3a8409f746c8eb555e"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "93218494c4b88adb33e1f8002ceeeb64d239bd11"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/forms.py",
+      "SPDXID": "SPDXRef-File--plantmaster-forms.py-B402FC16D9D62430EAA7FEABA61CFDC4030B9D71",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "3e8a64a8fc9f4d3822eeb7a2b59aa91f508f275e63560c283549eec1bc65637e"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b402fc16d9d62430eaa7feaba61cfdc4030b9d71"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/filter_form.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-filter-form.html-0A60BFA6B5F49DE9FAEFF5B77FAFB101E10533A0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "85edf41f425ac0d23e104898098a0f639d91d9a33eb9ebd48631727e53250f48"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0a60bfa6b5f49de9faeff5b77fafb101e10533a0"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/0001_initial.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache---0001-initial.cpython-313.pyc-363E95600D13C998CF5B5E1CE9A0464B654ECF8D",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a3426251428d9f98707e1616f365a6acc88acd63a5474b0285fb72d8fa1204e0"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "363e95600d13c998cf5b5e1ce9a0464b654ecf8d"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/forms.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---forms.cpython-313.pyc-16806D20E815DD3FEDD442564896A257B65F1275",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "65efe894ea8debac3236595ef16f6a384632fb46072aa5d4d50faa055e0b9bec"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "16806d20e815dd3fedd442564896a257b65f1275"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__init__.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/0002_addresses.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache---0002-addresses.cpython-313.pyc-AD2C2C1AF69CA206D9E0E2D482789074471A7E34",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "70ed85fc14e53c053db0e2594859f1faf32ab8d7d6e2e4c01e2d47bfb13a58f2"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ad2c2c1af69ca206d9e0e2d482789074471a7e34"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/constants.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---constants.cpython-313.pyc-B6ECDAA2314E48F7C2398B23211289BE43C1B9AE",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6413b58b3112b820eb0f3bce0b00c4fddd6b969ee23fb7cb4b01f5feae85d1d6"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b6ecdaa2314e48f7c2398b23211289be43c1b9ae"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/block.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-block.html-3C2ACABED504074179AAC143E8A3A4C12C6460CC",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c3cd58659a6cfba6a3a5cc1c870530d2f6ab732a12bb15063fc6f4fe2b39d6d2"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "3c2acabed504074179aac143e8a3a4c12c6460cc"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/sliders.js",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-sliders.js-FAD5C160BED07536F6EF464893AD565366375A10",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "242038058fc8efa95b9fa698887bc190c2f8a65a3041112107cc1b2d6a01c741"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "fad5c160bed07536f6ef464893ad565366375a10"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/settings.py",
+      "SPDXID": "SPDXRef-File--plantwatch-settings.py-4C38515CD487C4E713B25D71B2DE53A909EE060B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9e1e357e06e110d3125c49e13d779130902b2c801d59fb2c1c7c9079ea40658c"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4c38515cd487c4e713b25d71b2de53a909ee060b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/plant_list2.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-plant-list2.html-71D5D10372F5FF31DB20C4E2CD71B17BFEFCFA92",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "85a6452b139868667e70cae78acad94d39f2bf255cc5d59f02249ef1eab4b61f"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "71d5d10372f5ff31db20c4e2cd71b17bfefcfa92"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/urls.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---urls.cpython-313.pyc-A48C85C27E05FE91D96CD034C910943C8623A3A3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b6c5ec48295b654929a3c9f1ba5128f2ab4f2c67b54804d3e0bfed756eb4f88d"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a48c85c27e05fe91d96cd034c910943c8623a3a3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/views.py",
+      "SPDXID": "SPDXRef-File--plantmaster-views.py-6D4F471214D8E0F650DA30F37472D00216A562CE",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "6a0a7ed883f803d81dae3b47d582e6318619fb4427988b9c2acc5c16bca64369"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6d4f471214d8e0f650da30f37472d00216a562ce"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/block_table.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-block-table.html-1C1BBB11B59E2B5FB5D71E2B84CAC4653B0C5549",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5e8dd0f748463e4064e23480fea92388dd43434db5dbce51760e298c80dd1bf7"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1c1bbb11b59e2b5fb5d71e2b84cac4653b0c5549"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/blocks_detail.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-blocks-detail.html-4B85BA017146A21D1759AA722D7554D7734AA642",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "40e7ff7c09a898e7b915416052dccb16bbab4705bc6e0fbb9bb2a3c561328c75"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4b85ba017146a21d1759aa722d7554d7734aa642"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/compliance.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-compliance.html-96121D8716AA376162657DAA4477CD5ECD8F0A70",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "65c15413df689474896829b022cfdbd518682c68b54eb6d8e62f3a0e7082f8ff"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "96121d8716aa376162657daa4477cd5ecd8f0a70"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/__init__.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache-----init--.cpython-313.pyc-AB5CC67504D3A878C1AC53042FE7ACAB65DE37CA",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7110d250204f3e46d9567473cc5b5d7ba112818d1166a9af07aa4b06ce9253f5"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ab5cc67504d3a878c1ac53042fe7acab65de37ca"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/models.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---models.cpython-313.pyc-8D48949E46494587AFA06A425DAF5950486E867A",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "25aed14cc64351cb82876fba064f0a5a25b4d4d4edda84c7ab89a1d0b9a89016"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "8d48949e46494587afa06a425daf5950486e867a"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/0006_month.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations-0006-month.py-4178124A693E7137924F991A082EDE4135B673BA",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "53d9c94a990c8adbeb1c0d1d64a01326d9efd50c8738258e190fff75d0aeabb1"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4178124a693e7137924f991a082ede4135b673ba"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/0006_month.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache---0006-month.cpython-313.pyc-8B01E4FB14647FFF0299262A75B7475D08A0C4E2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4c32fc7ba1c27b01f079ecaa1758e2f3e9bab0bce56383c9b04725673fae9b4e"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "8b01e4fb14647fff0299262a75b7475d08a0c4e2"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/admin.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---admin.cpython-313.pyc-A902318C5CECA3EB25860BB2E02B5E339D4D3C3B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2df42c755b7f1add9984f7bc2b9b75f4776bd69d699ce1856baddcd6990d1904"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a902318c5ceca3eb25860bb2e02b5e339d4d3c3b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./auth.db",
+      "SPDXID": "SPDXRef-File--auth.db-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/tests.py",
+      "SPDXID": "SPDXRef-File--plantapi-tests.py-D8BA9A8A1DE20610CA7F80F8C8C6C515ECE66A30",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9ab6c6191360e63c1b4c9b5659aef348a743c9e078be68190917369e4e9563e8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d8ba9a8a1de20610ca7f80f8c8c6c515ece66a30"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/toggle_settings.sh",
+      "SPDXID": "SPDXRef-File--plantwatch-toggle-settings.sh-71FCC29D9FD1F612DB2714EFA57E3443FB571335",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "aadc4e9fa3c65f60e8865d5a3814e585935c853747b93aefbeee5eff2021212a"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "71fcc29d9fd1f612db2714efa57e3443fb571335"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/__init__.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache-----init--.cpython-313.pyc-F50DB8DDE9C0A8F6F92A0C886C560D03C138DE1D",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "99b83b4ff7e5391fdf65500558134c573f643e4dfa68ed381010e2dd72d62b27"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f50db8dde9c0a8f6f92a0c886c560d03c138de1d"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/admin.py",
+      "SPDXID": "SPDXRef-File--plantmaster-admin.py-6507F1CDDDA87D95E75EB91869BE0C04DBD18933",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "226414ed0d1224d4e2823833d68ea68b32701447a96657b925208125785e2ccc"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6507f1cddda87d95e75eb91869be0c04dbd18933"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templatetags/__pycache__/filters.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-templatetags---pycache---filters.cpython-313.pyc-8AEE9DFC0BE2C6563DFA8D2AD4D83D16BD10365B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b5653803069a650bb9371581a60a3dd1a51cf82e20e2dab54169ea69e938ca7b"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "8aee9dfc0be2c6563dfa8d2ad4d83d16bd10365b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/pollutants_year.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-pollutants-year.html-7650A6CA3CD4D1F9B468D57A340C47F73BC4B545",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "8a22ab71e9cf0c2cb65f4081f04d42e1de2c7e7352871cf45d90ed6f800759ec"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7650a6ca3cd4d1f9b468d57a340c47f73bc4b545"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/enemies.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-enemies.html-EF49A63C3A0B8EC04C513A3FD18C8C251DBEE4DE",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "98d5efd69f2990caffcf08feaf54bcaa24fb9e104f322e806e42211cd4f7e554"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ef49a63c3a0b8ec04c513a3fd18c8c251dbee4de"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/0005_power.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations-0005-power.py-DA9C1AE31B7F25D06000DC15190D9A2F0402662C",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ac58a2b62092b928b9c3c743acfacd0399a9824aa89f60a4b4418b19f664b911"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da9c1ae31b7f25d06000dc15190d9a2f0402662c"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/0003_plants_pollutions.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache---0003-plants-pollutions.cpython-313.pyc-AC3E68BD9E43F8D20A3EBDAB31DAC33B9B0B86AB",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "2e7a28e4596eef081499f4f6ecbaa29036b8f6a295a217e8201bfd1e962afae2"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ac3e68bd9e43f8d20a3ebdab31dac33b9b0b86ab"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/urls.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---urls.cpython-313.pyc-AC9CA504F7E48EBA1C7438C90EE3BC2FFF5A1782",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "17b5f8ba6ad2bef5adbc9f92f0ba11c10f82817426b03d127f109f376968dee1"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "ac9ca504f7e48eba1c7438c90ee3bc2fff5a1782"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/apps.py",
+      "SPDXID": "SPDXRef-File--plantapi-apps.py-4684A5C3EB46451E7D97F4F70F0C9E92684FAB87",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9ecf95160794cd8edb84f09b10a4f9b4be3496d5c3a59b7de212f34870ed5840"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "4684a5c3eb46451e7d97f4f70f0c9e92684fab87"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantapi/__pycache__/__init__.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantapi---pycache-----init--.cpython-313.pyc-F1F6FF2A14657E80FC19FD9556C4CA241515CB75",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "79220da364fa0442b2ae3bd8d18bc495698fc0566c03a6e215a4016e56dc73d8"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f1f6ff2a14657e80fc19fd9556c4ca241515cb75"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/settings_deploy.py",
+      "SPDXID": "SPDXRef-File--plantwatch-settings-deploy.py-E37152D632DAAAD4066367317CEFE9D647D27D92",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cc895a57a0fd356f7b7e0af2e39889be0524698a7e2c2ce9234371a382ce4404"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e37152d632daaad4066367317cefe9d647d27d92"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/settings.cpython-36.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---settings.cpython-36.pyc-CD8DA1DFE3CBFCC1ADD675EB435184DD5B1BFDF5",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "02d5c2df84eca251ff7af7e0ab174d1d2125882b0a80ce8f0d6002e6951ee98a"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "cd8da1dfe3cbfcc1add675eb435184dd5b1bfdf5"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/constants.py",
+      "SPDXID": "SPDXRef-File--plantmaster-constants.py-34F95A1CD04F3CFEB94A3D73C6A4BFF0AE16D102",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "846c5b6f0ea60f1266bab116d18a6fec63cc3d2f22d73726b7e185ab0b9fd680"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "34f95a1cd04f3cfeb94a3d73c6a4bff0ae16d102"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plant.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plant.html-D6FDA1B2485D33542B861DD5B82BFF994A440C9E",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1a5344066c2063bd8a43eb90de3b2266659181650b49c6d6f56c75322d754303"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "d6fda1b2485d33542b861dd5b82bff994a440c9e"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/blocks_list.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-blocks-list.html-03BCC0337DD02AB44FEB4E0BE7BCC41453E1AE74",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a41f2f7fa64fbf840f74a17ef1c01f1a5b38d226a7ce01ff31a2c690d19f1fac"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "03bcc0337dd02ab44feb4e0be7bcc41453e1ae74"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/impressum.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-impressum.html-0ECC7F6FECB371C37276AE4094B47DA89783D2F3",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5364d918b6e8dbe1fad38c4d2054d2d07023dac3dd9ee97c82b2617e6c496a7d"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "0ecc7f6fecb371c37276ae4094b47da89783d2f3"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/0004_delete_adresses.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations-0004-delete-adresses.py-B2620E9D5F75FCC6A9C2206F50628B52A60E80FE",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e452026ea725844949121f6c06cefc55d4b6af192f27d7d6f5ade60ad50a7d52"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b2620e9d5f75fcc6a9c2206f50628b52a60e80fe"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/views.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---views.cpython-313.pyc-32FCBB5206EBAC21BE7C3C2065BFFC2730E8B5DB",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "8736c6608672de55af1fa73dd875c9abaadbe921efea05648d415f03db4ef4ea"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "32fcbb5206ebac21be7c3c2065bffc2730e8b5db"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/static/plantmaster/style.css",
+      "SPDXID": "SPDXRef-File--plantmaster-static-plantmaster-style.css-A8B8B00DB987972C94416DE408807107F0E7DE99",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f1299e8eac628930b2e1703f30e60234883b3f007971e71baa515cd9113f13f1"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "a8b8b00db987972c94416de408807107f0e7de99"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__init__.py",
+      "SPDXID": "SPDXRef-File--plantwatch---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantwatch/__pycache__/router.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantwatch---pycache---router.cpython-313.pyc-5733E45F4B3997433EDF2ECFA9D961B0F8E72D2A",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "535d53078c24d7970868d0edee566234ff6cbc591c1a1c7ea1193c9f1ce28696"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5733e45f4b3997433edf2ecfa9d961b0f8e72d2a"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/builders.py",
+      "SPDXID": "SPDXRef-File--plantmaster-builders.py-346E209B6C0F22DBAD3BB34A961B6F161F14FEC0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ddbedef6ba394f116cb55899ad72350bb56640b3e1ca8c3de5b126cdd19db5b9"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "346e209b6c0f22dbad3bb34a961b6f161f14fec0"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plant_table.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plant-table.html-36CBCF6068E5E304C11836DE2CD5C4570EA45C7B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c8cf765eb4f721d1778877671acb56eaf9e1fd5d0af4007e35028eb71bde5d31"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "36cbcf6068e5e304c11836de2cd5c4570ea45c7b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/widmung.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-widmung.html-6654420E4ED22F8C9F4476C4FFE653F5E8B11ED6",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "ce998e3f12e5e3d68b8af4da218dc7e81fc1ec4aa5991048fc51c9429bd054e0"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6654420e4ed22f8c9f4476c4ffe653f5e8b11ed6"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/base.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-base.html-79ADA7280F37E6D3AE207A1D04E9BC54199F2293",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e09195b3a82c3e2887a384a784be64bb2df15e0157526cc370bdd9e14921de26"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "79ada7280f37e6d3ae207a1d04e9bc54199f2293"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/0001_initial.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations-0001-initial.py-59445023210EEFA966E0245301A26FA22167F803",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e19fac96758e73155b6c4c03ab02df5ca1edaa9c4e81c2e0f63a9fdc8bf14d89"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "59445023210eefa966e0245301a26fa22167f803"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/0005_power.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache---0005-power.cpython-313.pyc-273AD0AE37AD557244B71077C3F8F38CFD60E616",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a51ad4c637f18333cc6ed9c8bf0d71af5d1e7dcd324bced8f2401ab7ad5d00e7"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "273ad0ae37ad557244b71077c3f8f38cfd60e616"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/helpers.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---helpers.cpython-313.pyc-5E5E8DF2C51F46AD62A989C9DEFF0DC752408A61",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7486ccc50aa3305ab4199710ffdbc339b429f84938a66b0eceb0940f0f8a2017"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5e5e8df2c51f46ad62a989c9deff0dc752408a61"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/templates/plantmaster/friends.html",
+      "SPDXID": "SPDXRef-File--plantmaster-templates-plantmaster-friends.html-1F74B0DE02D1D287A18A3F430D886ED0B9C0AA32",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "a9d259030507c10a6745c2e96593322f67031d0c0cf2940ee8c5dadc8e162d26"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "1f74b0de02d1d287a18a3f430d886ed0b9c0aa32"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/0002_addresses.py",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations-0002-addresses.py-7FF9677975D0761C7E6532504B472939DAE713AC",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "52bdc47d787e71ceb548abd904a4a64ab53836b0f00dcbad834b7074593b31fe"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "7ff9677975d0761c7e6532504b472939dae713ac"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/migrations/__pycache__/0004_delete_adresses.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster-migrations---pycache---0004-delete-adresses.cpython-313.pyc-CD1CB64D23DDCDCB88C042BF9D3F63F462866E6B",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "af18d7292009c9db5d4245285cc39b23cbeb4549908be2eef1f0a63e050fc055"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "cd1cb64d23ddcdcb88c042bf9d3f63f462866e6b"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./plantmaster/__pycache__/builders.cpython-313.pyc",
+      "SPDXID": "SPDXRef-File--plantmaster---pycache---builders.cpython-313.pyc-799D46EE87C49E9FAA5E94C3A3A5C488E2604FAF",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f5067ac172d77265d7fedcceb89f65dff4ba5f03c573f13e1271298dd83af3aa"
+        },
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "799d46ee87c49e9faa5e94c3a3a5c488e2604faf"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoInFiles": [
+        "NOASSERTION"
+      ],
+      "copyrightText": "NOASSERTION"
     }
+  ],
+  "packages": [
+    {
+      "name": "django",
+      "SPDXID": "SPDXRef-Package-0DCB6460A6B25F498764AB4C3CB415EBB19B1AD2445062D40011344776EC63E1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "5.1.4",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/django@5.1.4"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "sqlparse",
+      "SPDXID": "SPDXRef-Package-B938C7C5AA055E0B12C5B2BF7A618BF3075B05785A895440CBE3B289133D657D",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "0.5.3",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/sqlparse@0.5.3"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "markdown",
+      "SPDXID": "SPDXRef-Package-56BFFDAE0CF26C7CE4AD534C9482060CF35A70E237DE3F735E3E62D3A05F45CF",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "3.7",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/markdown@3.7"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "asgiref",
+      "SPDXID": "SPDXRef-Package-E0B824B10F201A6E114EB41DC5C82C3FBDEA0D08091E30921A25DE86B7FEEBEC",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "3.8.1",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/asgiref@3.8.1"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "djangorestframework",
+      "SPDXID": "SPDXRef-Package-FA75F0D0A0A9C471D49B85F6278B5FBEDF0B6912F25AB20E4D337E49247C758E",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "3.15.2",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/djangorestframework@3.15.2"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "markupsafe",
+      "SPDXID": "SPDXRef-Package-CB0905505D6D66AF996E843D98A56BD66743B54CD30ADA433BC3CC1EB4F976AF",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "3.0.2",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/markupsafe@3.0.2"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "django-filter",
+      "SPDXID": "SPDXRef-Package-ED9944BAA951010B6449E93DF13331FBEEA824093D7A7E382B2695774ADD338B",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "24.3",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/django-filter@24.3"
+        }
+      ],
+      "supplier": "NOASSERTION"
+    },
+    {
+      "name": "plantwatch",
+      "SPDXID": "SPDXRef-RootPackage",
+      "downloadLocation": "NOASSERTION",
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "d4bcc6cbaf9bdb37033ae19bc608a36a586c8928"
+      },
+      "filesAnalyzed": true,
+      "licenseConcluded": "NOASSERTION",
+      "licenseInfoFromFiles": [
+        "NOASSERTION"
+      ],
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "versionInfo": "0.01",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:swid/./spdx.org/plantwatch@0.01?tag_id=effbb385-d40d-451f-b207-a1f232a64f99"
+        }
+      ],
+      "supplier": "Organization: .",
+      "hasFiles": [
+        "SPDXRef-File--plantmaster---pycache---urls.cpython-313.pyc-AC9CA504F7E48EBA1C7438C90EE3BC2FFF5A1782",
+        "SPDXRef-File--plantmaster-migrations---pycache---0003-plants-pollutions.cpython-313.pyc-AC3E68BD9E43F8D20A3EBDAB31DAC33B9B0B86AB",
+        "SPDXRef-File--plantmaster-migrations-0005-power.py-DA9C1AE31B7F25D06000DC15190D9A2F0402662C",
+        "SPDXRef-File--plantmaster-templates-plantmaster-enemies.html-EF49A63C3A0B8EC04C513A3FD18C8C251DBEE4DE",
+        "SPDXRef-File--plantmaster-templates-pollutants-year.html-7650A6CA3CD4D1F9B468D57A340C47F73BC4B545",
+        "SPDXRef-File--plantmaster-templatetags---pycache---filters.cpython-313.pyc-8AEE9DFC0BE2C6563DFA8D2AD4D83D16BD10365B",
+        "SPDXRef-File--plantmaster-admin.py-6507F1CDDDA87D95E75EB91869BE0C04DBD18933",
+        "SPDXRef-File--plantwatch---pycache-----init--.cpython-313.pyc-F50DB8DDE9C0A8F6F92A0C886C560D03C138DE1D",
+        "SPDXRef-File--plantwatch-toggle-settings.sh-71FCC29D9FD1F612DB2714EFA57E3443FB571335",
+        "SPDXRef-File--plantapi-tests.py-D8BA9A8A1DE20610CA7F80F8C8C6C515ECE66A30",
+        "SPDXRef-File--auth.db-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+        "SPDXRef-File--plantmaster---pycache---constants.cpython-313.pyc-B6ECDAA2314E48F7C2398B23211289BE43C1B9AE",
+        "SPDXRef-File--plantmaster-migrations---pycache---0002-addresses.cpython-313.pyc-AD2C2C1AF69CA206D9E0E2D482789074471A7E34",
+        "SPDXRef-File--plantmaster-migrations---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+        "SPDXRef-File--plantmaster-templates-plantmaster-plants-list.html-F636B9CDC939958D1DC4786A039FBCF1AB6B8613",
+        "SPDXRef-File--plantmaster-templates-elist.html-6254FFB770DFEF47CBBCCB94F36355E3C054B544",
+        "SPDXRef-File--plantmaster-templates-sources-table.html-69B46F73AB21E08C8DC766988DC0AFC48E92E10A",
+        "SPDXRef-File--plantmaster-models.py-B84ECDDEE41F74EB7B86A1FD3B3F0AFF449360FD",
+        "SPDXRef-File--plantwatch---pycache---wsgi.cpython-313.pyc-BEFB2CA3FC3EBFB0BF52E679B70A31A6DC4E679B",
+        "SPDXRef-File--plantwatch-jinja2.py-33550073EAC15734C27786FB66E42202F8AE1550",
+        "SPDXRef-File--plantapi-views.py-32576EC3C6D7988980BDF7989E8981C403C0FDDE",
+        "SPDXRef-File--plantwatch.db-649FF865927965B0D6226846169D17349BFBF7AC",
+        "SPDXRef-File--plantmaster---pycache---helpers.cpython-313.pyc-5E5E8DF2C51F46AD62A989C9DEFF0DC752408A61",
+        "SPDXRef-File--plantmaster-migrations---pycache---0005-power.cpython-313.pyc-273AD0AE37AD557244B71077C3F8F38CFD60E616",
+        "SPDXRef-File--plantmaster-migrations-0001-initial.py-59445023210EEFA966E0245301A26FA22167F803",
+        "SPDXRef-File--plantmaster-templates-plantmaster-base.html-79ADA7280F37E6D3AE207A1D04E9BC54199F2293",
+        "SPDXRef-File--plantmaster-templates-plantmaster-widmung.html-6654420E4ED22F8C9F4476C4FFE653F5E8B11ED6",
+        "SPDXRef-File--plantmaster-templates-plant-table.html-36CBCF6068E5E304C11836DE2CD5C4570EA45C7B",
+        "SPDXRef-File--plantmaster-builders.py-346E209B6C0F22DBAD3BB34A961B6F161F14FEC0",
+        "SPDXRef-File--plantwatch---pycache---router.cpython-313.pyc-5733E45F4B3997433EDF2ECFA9D961B0F8E72D2A",
+        "SPDXRef-File--plantwatch---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+        "SPDXRef-File--plantapi---pycache---views.cpython-313.pyc-39320C6C123880AA4E1BE83BCF5C1A93A7489324",
+        "SPDXRef-File--plantapi-admin.py-A0B1A2729D5FD2A8A7F3387C2BC053AB98F74B9A",
+        "SPDXRef-File--plantmaster---pycache---forms.cpython-313.pyc-16806D20E815DD3FEDD442564896A257B65F1275",
+        "SPDXRef-File--plantmaster-migrations---pycache---0001-initial.cpython-313.pyc-363E95600D13C998CF5B5E1CE9A0464B654ECF8D",
+        "SPDXRef-File--plantmaster-migrations-0003-plants-pollutions.py-93218494C4B88ADB33E1F8002CEEEB64D239BD11",
+        "SPDXRef-File--plantmaster-templates-plantmaster-plant-list.html-3C4B0C3B258EE1585D7198166F2ED2F3F5F3788E",
+        "SPDXRef-File--plantmaster-templates-pollutants.html-98026E16FCCEC68385E9EE2C5E318D8A4E6BDB37",
+        "SPDXRef-File--plantmaster-templatetags-filters.py-B3803810F7D577ECFDF88E5017D081333C365B20",
+        "SPDXRef-File--plantmaster-urls.py-FE3692F9B8440AAB0DD465121B5880403CA5FCEB",
+        "SPDXRef-File--plantwatch---pycache---settings.cpython-313.pyc-3D2BB3F875905EA9E6FB45A73A8CB51FE2F3C9B5",
+        "SPDXRef-File--plantwatch-urls.py-D0A3E896D71B6376CDF9D9C76123FC37F6ADCF96",
+        "SPDXRef-File--plantapi---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+        "SPDXRef-File--manage.py-DEF39698DAEAEA88ABA213B6E77218D800A7263C",
+        "SPDXRef-File--plantmaster---pycache---admin.cpython-313.pyc-A902318C5CECA3EB25860BB2E02B5E339D4D3C3B",
+        "SPDXRef-File--plantmaster-migrations---pycache---0006-month.cpython-313.pyc-8B01E4FB14647FFF0299262A75B7475D08A0C4E2",
+        "SPDXRef-File--plantmaster-migrations-0006-month.py-4178124A693E7137924F991A082EDE4135B673BA",
+        "SPDXRef-File--plantmaster-templates-plantmaster-plant-list2.html-71D5D10372F5FF31DB20C4E2CD71B17BFEFCFA92",
+        "SPDXRef-File--plantmaster-templates-sliders.js-FAD5C160BED07536F6EF464893AD565366375A10",
+        "SPDXRef-File--plantmaster-templates-block.html-3C2ACABED504074179AAC143E8A3A4C12C6460CC",
+        "SPDXRef-File--plantmaster-forms.py-B402FC16D9D62430EAA7FEABA61CFDC4030B9D71",
+        "SPDXRef-File--plantwatch---pycache---wsgi.cpython-36.pyc-4424D6CB0B2DC85EDEDCD6371A4D3A88598BB266",
+        "SPDXRef-File--plantwatch-wsgi.py-5691C4838D2638F69FAD31AE49A9C972D9A138E2",
+        "SPDXRef-File--plantapi-migrations---init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709",
+        "SPDXRef-File--plantapi-urls.py-A4A2A681E119F44DADC3CCB4BD37E0EFC11F69AF",
+        "SPDXRef-File--plantmaster---pycache---models.cpython-313.pyc-8D48949E46494587AFA06A425DAF5950486E867A",
+        "SPDXRef-File--plantmaster-migrations---pycache-----init--.cpython-313.pyc-AB5CC67504D3A878C1AC53042FE7ACAB65DE37CA",
+        "SPDXRef-File--plantmaster-templates-plantmaster-compliance.html-96121D8716AA376162657DAA4477CD5ECD8F0A70",
+        "SPDXRef-File--plantmaster-templates-plantmaster-blocks-detail.html-4B85BA017146A21D1759AA722D7554D7734AA642",
+        "SPDXRef-File--plantmaster-templates-block-table.html-1C1BBB11B59E2B5FB5D71E2B84CAC4653B0C5549",
+        "SPDXRef-File--plantmaster-views.py-6D4F471214D8E0F650DA30F37472D00216A562CE",
+        "SPDXRef-File--plantwatch---pycache---urls.cpython-313.pyc-A48C85C27E05FE91D96CD034C910943C8623A3A3",
+        "SPDXRef-File--plantwatch-settings.py-4C38515CD487C4E713B25D71B2DE53A909EE060B",
+        "SPDXRef-File--plantapi---pycache---urls.cpython-313.pyc-89081FE167FB0D0D99502E94C4B7A9062155B839",
+        "SPDXRef-File--plantapi-serializers.py-139C22FBF06BEBF1B49094E7F022A9A658BD398A",
+        "SPDXRef-File--plantmaster-static-plantmaster-style.css-A8B8B00DB987972C94416DE408807107F0E7DE99",
+        "SPDXRef-File--plantmaster---pycache---views.cpython-313.pyc-32FCBB5206EBAC21BE7C3C2065BFFC2730E8B5DB",
+        "SPDXRef-File--plantmaster-migrations-0004-delete-adresses.py-B2620E9D5F75FCC6A9C2206F50628B52A60E80FE",
+        "SPDXRef-File--plantmaster-templates-plantmaster-impressum.html-0ECC7F6FECB371C37276AE4094B47DA89783D2F3",
+        "SPDXRef-File--plantmaster-templates-plantmaster-blocks-list.html-03BCC0337DD02AB44FEB4E0BE7BCC41453E1AE74",
+        "SPDXRef-File--plantmaster-templates-plant.html-D6FDA1B2485D33542B861DD5B82BFF994A440C9E",
+        "SPDXRef-File--plantmaster-constants.py-34F95A1CD04F3CFEB94A3D73C6A4BFF0AE16D102",
+        "SPDXRef-File--plantwatch---pycache---settings.cpython-36.pyc-CD8DA1DFE3CBFCC1ADD675EB435184DD5B1BFDF5",
+        "SPDXRef-File--plantwatch-settings-deploy.py-E37152D632DAAAD4066367317CEFE9D647D27D92",
+        "SPDXRef-File--plantapi---pycache-----init--.cpython-313.pyc-F1F6FF2A14657E80FC19FD9556C4CA241515CB75",
+        "SPDXRef-File--plantapi-apps.py-4684A5C3EB46451E7D97F4F70F0C9E92684FAB87",
+        "SPDXRef-File--plantmaster---pycache---builders.cpython-313.pyc-799D46EE87C49E9FAA5E94C3A3A5C488E2604FAF",
+        "SPDXRef-File--plantmaster-migrations---pycache---0004-delete-adresses.cpython-313.pyc-CD1CB64D23DDCDCB88C042BF9D3F63F462866E6B",
+        "SPDXRef-File--plantmaster-migrations-0002-addresses.py-7FF9677975D0761C7E6532504B472939DAE713AC",
+        "SPDXRef-File--plantmaster-templates-plantmaster-friends.html-1F74B0DE02D1D287A18A3F430D886ED0B9C0AA32",
+        "SPDXRef-File--plantmaster-templates-filter-form.html-0A60BFA6B5F49DE9FAEFF5B77FAFB101E10533A0",
+        "SPDXRef-File--plantmaster-helpers.py-D03F389B4617D68BB8052A026BB98DEF1D3AC352",
+        "SPDXRef-File--plantwatch---pycache---urls.cpython-36.pyc-B83CE4011B652AFF693E5A1329AA00DD6AF53639",
+        "SPDXRef-File--plantwatch-router.py-F0076BFAC6056569181B90FE52F0103075BEEF4C",
+        "SPDXRef-File--plantapi---pycache---serializers.cpython-313.pyc-441916E50F4096B656F1CDE5C9B3EFC86458F06D",
+        "SPDXRef-File--plantapi-models.py-BB2ADE0B5906D4C34AD5489E26929421FA78CE5E",
+        "SPDXRef-File----init--.py-DA39A3EE5E6B4B0D3255BFEF95601890AFD80709"
+      ]
+    }
+  ],
+  "externalDocumentRefs": [],
+  "relationships": [
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-CB0905505D6D66AF996E843D98A56BD66743B54CD30ADA433BC3CC1EB4F976AF",
+      "spdxElementId": "SPDXRef-RootPackage"
+    },
+    {
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-RootPackage",
+      "spdxElementId": "SPDXRef-DOCUMENT"
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-ED9944BAA951010B6449E93DF13331FBEEA824093D7A7E382B2695774ADD338B",
+      "spdxElementId": "SPDXRef-RootPackage"
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-FA75F0D0A0A9C471D49B85F6278B5FBEDF0B6912F25AB20E4D337E49247C758E",
+      "spdxElementId": "SPDXRef-RootPackage"
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-B938C7C5AA055E0B12C5B2BF7A618BF3075B05785A895440CBE3B289133D657D",
+      "spdxElementId": "SPDXRef-Package-0DCB6460A6B25F498764AB4C3CB415EBB19B1AD2445062D40011344776EC63E1"
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-E0B824B10F201A6E114EB41DC5C82C3FBDEA0D08091E30921A25DE86B7FEEBEC",
+      "spdxElementId": "SPDXRef-Package-0DCB6460A6B25F498764AB4C3CB415EBB19B1AD2445062D40011344776EC63E1"
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-56BFFDAE0CF26C7CE4AD534C9482060CF35A70E237DE3F735E3E62D3A05F45CF",
+      "spdxElementId": "SPDXRef-RootPackage"
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-0DCB6460A6B25F498764AB4C3CB415EBB19B1AD2445062D40011344776EC63E1",
+      "spdxElementId": "SPDXRef-Package-ED9944BAA951010B6449E93DF13331FBEEA824093D7A7E382B2695774ADD338B"
+    }
+  ],
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "plantwatch 0.01",
+  "documentNamespace": "https://spdx.org/spdxdocs/sbom-tool-3.1.1-preview.0.1-636b5999-29ef-453d-a7c4-e51eadfd5236/plantwatch/0.01/Ul_2qtALEUCOxsKAp6-TOA",
+  "creationInfo": {
+    "created": "2025-02-14T17:49:37Z",
+    "creators": [
+      "Organization: .",
+      "Tool: Microsoft.SBOMTool-3.1.1-preview.0.1"
+    ]
   },
-  "componentsFound": [
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "backports.zoneinfo",
-        "version": "0.2.1",
-        "type": "Pip",
-        "id": "backports.zoneinfo 0.2.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "backports.zoneinfo",
-          "Version": "0.2.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "sqlparse",
-        "version": "0.4.2",
-        "type": "Pip",
-        "id": "sqlparse 0.4.2 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "sqlparse",
-          "Version": "0.4.2",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "sqlparse",
-          "version": "0.4.2",
-          "type": "Pip",
-          "id": "sqlparse 0.4.2 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "sqlparse",
-            "Version": "0.4.2",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "typing-extensions",
-        "version": "4.3.0",
-        "type": "Pip",
-        "id": "typing-extensions 4.3.0 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "typing-extensions",
-          "Version": "4.3.0",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "asgiref",
-          "version": "3.5.0",
-          "type": "Pip",
-          "id": "asgiref 3.5.0 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "asgiref",
-            "Version": "3.5.0",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "Markdown",
-          "version": "3.3.6",
-          "type": "Pip",
-          "id": "markdown 3.3.6 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "markdown",
-            "Version": "3.3.6",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "MarkupSafe",
-        "version": "2.1.1",
-        "type": "Pip",
-        "id": "markupsafe 2.1.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "markupsafe",
-          "Version": "2.1.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "MarkupSafe",
-          "version": "2.1.1",
-          "type": "Pip",
-          "id": "markupsafe 2.1.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "markupsafe",
-            "Version": "2.1.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "Markdown",
-        "version": "3.3.6",
-        "type": "Pip",
-        "id": "markdown 3.3.6 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "markdown",
-          "Version": "3.3.6",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Markdown",
-          "version": "3.3.6",
-          "type": "Pip",
-          "id": "markdown 3.3.6 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "markdown",
-            "Version": "3.3.6",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "tzdata",
-        "version": "2022.1",
-        "type": "Pip",
-        "id": "tzdata 2022.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "tzdata",
-          "Version": "2022.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "asgiref",
-        "version": "3.5.0",
-        "type": "Pip",
-        "id": "asgiref 3.5.0 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "asgiref",
-          "Version": "3.5.0",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "asgiref",
-          "version": "3.5.0",
-          "type": "Pip",
-          "id": "asgiref 3.5.0 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "asgiref",
-            "Version": "3.5.0",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "djangorestframework",
-        "version": "3.13.1",
-        "type": "Pip",
-        "id": "djangorestframework 3.13.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "djangorestframework",
-          "Version": "3.13.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "zipp",
-        "version": "3.8.1",
-        "type": "Pip",
-        "id": "zipp 3.8.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "zipp",
-          "Version": "3.8.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Markdown",
-          "version": "3.3.6",
-          "type": "Pip",
-          "id": "markdown 3.3.6 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "markdown",
-            "Version": "3.3.6",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "Django",
-        "version": "4.0.4",
-        "type": "Pip",
-        "id": "django 4.0.4 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "django",
-          "Version": "4.0.4",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "pytz",
-        "version": "2022.1",
-        "type": "Pip",
-        "id": "pytz 2022.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "pytz",
-          "Version": "2022.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "importlib-metadata",
-        "version": "4.12.0",
-        "type": "Pip",
-        "id": "importlib-metadata 4.12.0 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "importlib-metadata",
-          "Version": "4.12.0",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Markdown",
-          "version": "3.3.6",
-          "type": "Pip",
-          "id": "markdown 3.3.6 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "markdown",
-            "Version": "3.3.6",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "importlib-resources",
-        "version": "5.8.0",
-        "type": "Pip",
-        "id": "importlib-resources 5.8.0 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "importlib-resources",
-          "Version": "5.8.0",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "Django",
-          "version": "4.0.4",
-          "type": "Pip",
-          "id": "django 4.0.4 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django",
-            "Version": "4.0.4",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        },
-        {
-          "name": "djangorestframework",
-          "version": "3.13.1",
-          "type": "Pip",
-          "id": "djangorestframework 3.13.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "djangorestframework",
-            "Version": "3.13.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    },
-    {
-      "locationsFoundAt": [
-        "/requirements.txt"
-      ],
-      "component": {
-        "name": "django-filter",
-        "version": "21.1",
-        "type": "Pip",
-        "id": "django-filter 21.1 - pip",
-        "packageUrl": {
-          "Scheme": "pkg",
-          "Type": "pypi",
-          "Namespace": null,
-          "Name": "django-filter",
-          "Version": "21.1",
-          "Qualifiers": null,
-          "Subpath": null
-        }
-      },
-      "detectorId": "Pip",
-      "isDevelopmentDependency": null,
-      "dependencyScope": null,
-      "topLevelReferrers": [
-        {
-          "name": "django-filter",
-          "version": "21.1",
-          "type": "Pip",
-          "id": "django-filter 21.1 - pip",
-          "packageUrl": {
-            "Scheme": "pkg",
-            "Type": "pypi",
-            "Namespace": null,
-            "Name": "django-filter",
-            "Version": "21.1",
-            "Qualifiers": null,
-            "Subpath": null
-          }
-        }
-      ],
-      "containerDetailIds": [],
-      "containerLayerIds": {}
-    }
-  ],
-  "detectorsInScan": [
-    {
-      "detectorId": "Yarn",
-      "isExperimental": false,
-      "version": 6,
-      "supportedComponentTypes": [
-        "Npm"
-      ]
-    },
-    {
-      "detectorId": "RustCrateDetector",
-      "isExperimental": false,
-      "version": 7,
-      "supportedComponentTypes": [
-        "Cargo"
-      ]
-    },
-    {
-      "detectorId": "RustCrateV2Detector",
-      "isExperimental": false,
-      "version": 6,
-      "supportedComponentTypes": [
-        "Cargo"
-      ]
-    },
-    {
-      "detectorId": "Ruby",
-      "isExperimental": false,
-      "version": 3,
-      "supportedComponentTypes": [
-        "RubyGems"
-      ]
-    },
-    {
-      "detectorId": "Poetry",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Pip"
-      ]
-    },
-    {
-      "detectorId": "Pnpm",
-      "isExperimental": false,
-      "version": 5,
-      "supportedComponentTypes": [
-        "Npm"
-      ]
-    },
-    {
-      "detectorId": "Pip",
-      "isExperimental": false,
-      "version": 5,
-      "supportedComponentTypes": [
-        "Pip"
-      ]
-    },
-    {
-      "detectorId": "NuGet",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "NuGet"
-      ]
-    },
-    {
-      "detectorId": "NuGetProjectCentric",
-      "isExperimental": false,
-      "version": 1,
-      "supportedComponentTypes": [
-        "NuGet"
-      ]
-    },
-    {
-      "detectorId": "Npm",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Npm"
-      ]
-    },
-    {
-      "detectorId": "NpmWithRoots",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Npm"
-      ]
-    },
-    {
-      "detectorId": "MvnCli",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Maven"
-      ]
-    },
-    {
-      "detectorId": "Linux",
-      "isExperimental": false,
-      "version": 4,
-      "supportedComponentTypes": [
-        "Linux"
-      ]
-    },
-    {
-      "detectorId": "Ivy",
-      "isExperimental": true,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Maven"
-      ]
-    },
-    {
-      "detectorId": "Gradle",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Maven"
-      ]
-    },
-    {
-      "detectorId": "Go",
-      "isExperimental": false,
-      "version": 6,
-      "supportedComponentTypes": [
-        "Go"
-      ]
-    },
-    {
-      "detectorId": "CocoaPods",
-      "isExperimental": false,
-      "version": 2,
-      "supportedComponentTypes": [
-        "Pod",
-        "Git"
-      ]
-    }
-  ],
-  "containerDetailsMap": {},
-  "resultCode": "Success",
-  "sourceDirectory": "/home/simon/code/current/plantwatch/"
+  "documentDescribes": [
+    "SPDXRef-RootPackage"
+  ]
 }
