@@ -62,7 +62,7 @@ SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"),
               ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000,
-                    "Kernenergie": 6700, OIL: 1000}
+                    "Kernenergie": 0, OIL: 1000}
 FULL_YEAR = 8760
 
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning",
