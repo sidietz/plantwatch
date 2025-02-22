@@ -45,7 +45,7 @@ FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg',
                   'Saarland', 'Sachsen', 'Sachsen-Anhalt',
                   'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", OIL]
-OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'bnBm', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
+OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'bnBm', 'vorläufig stillgelegt', 'stillgelegt']
 
 
 #
