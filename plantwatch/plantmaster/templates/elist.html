@@ -1,4 +1,5 @@
-{% if elist %}
+<div>
+    {% if elist %}
 
     {% load filters %}
 
@@ -27,3 +28,35 @@
         </tr>
     </tbody> 
 {% endif %}
+
+{% if elist2 %}
+
+    {% load filters %}
+
+    <table class="table table-bordered table-hover table-striped table-sm">
+    <caption>Efficiency</caption>
+    {% for header in elist2.0 %}
+        <th id="elistentry{{ forloop.counter0 }}">{{ header }}</th>
+    {% endfor %}
+    {% for row in elist2.1 %}
+        <tr>
+        {% for e in row %}
+            <td> {{ e |myround:2}} </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+<table class="table table-bordered table-hover table-striped table-sm">
+    <caption>Powerproduction</caption>
+    <tbody>
+        <tr class="table">
+            <th id="powerproduction">Stromproduktion</th>
+        </tr>
+        <tr>
+            <th id="nopowerdata">Keine Daten vorhaden.</th>
+        </tr>
+    </tbody>
+{% endif %}
+
+</div>

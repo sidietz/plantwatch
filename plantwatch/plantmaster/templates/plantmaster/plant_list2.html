@@ -36,7 +36,7 @@
 
 <div>
     <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
-    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
+    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksübersicht</a></span>
 </div>
 
 <div stye=“width:100%; style="height:3em;"> </div>
@@ -54,7 +54,7 @@
 <h3>Jahresproduktion</h3>
 <div id="yearprod"></div>
 
-<h3>Gesamtproduktion aller Blöcke 2015 - 2022</h3>
+<h3>Gesamtproduktion aller Blöcke 2015 - 2024</h3>
 <div id="chart3"></div>
 
 {% for key, value in charts.items %}
