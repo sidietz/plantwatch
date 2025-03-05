@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import PlantsList, PlantList, PlantList2, BlocksList, BlockView, impressum, random_plant, compliance, widmung, enemies, friends
+from .views import PlantsList, PlantList, PlantList2, PlantList4, BlocksList, BlockView, impressum, random_plant, compliance, widmung, enemies, friends
 
 urlpatterns = [
     path('', PlantsList.as_view(), name='index'),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('friends', friends, name="friends"),
     path('Freunde', friends, name="Freunde"),
     path('block/<str:pk>/', BlockView.as_view(), name='block'),
+    path('plant/<str:plantid>/<str:plantid2>', PlantList4.as_view(), name='plant4'),
     path('plant/', random_plant, name="random_plant"),
     path('blocks/', BlocksList.as_view(), name='blocks'),
     path('plants/', PlantsList.as_view(), name="plants"),
