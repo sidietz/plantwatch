@@ -1,3 +1,4 @@
+<div style="display: flex">
 {% if pollutants_dict %}
 
     {% load filters %}
@@ -18,3 +19,25 @@
         {% endfor %}
     </table>
 {% endif %}
+
+{% if pollutants_dict2 %}
+
+    {% load filters %}
+
+    <table class="table table-bordered table-hover table-striped table-sm">
+        <caption>Pollutants overview</caption>
+        {% for header in pol_header_list %}
+            <th id="pollutants_year{{ forloop.counter0 }}"> {{ header }}</th>
+        {% endfor %}
+                    
+        {% for block, block_rows in pollutants_dict2.items %}
+            <tr class="table">
+            <th id="block{{ forloop.counter0 }}">{{ block.1 }} </th>
+            {% for column in block_rows %}
+                <td> {{ column |myround:3  }} </td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+</div>

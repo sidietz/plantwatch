@@ -29,6 +29,8 @@ from .builders import initialize_form, get_ss, get_pollutant_dict, get_elist, ge
                         get_chart_data_m, get_chart_data_whole_y, get_chart_data_b,\
                         get_percentages_from_yearprod2, get_percentages_from_yearprod3
 
+from .helpers import get_pollutants_from_yearprod3, get_pollutants_chart_data
+
 
 class BlocksList(ListView):
     model = Blocks
@@ -241,6 +243,92 @@ class PlantList2(ListView):
                 percentages2 = []
             else:
                 percentages2 = get_percentages_from_yearprod3(plant)
+                guage = [[str(percentages2[0][-1]), percentages2[1][-1]]]
+        except KeyError:
+            pass
+
+        context['yearprod'] = yearprod
+        context['percentages'] = percentages
+        context['percentages2'] = percentages2
+        context['powers2'] = powers2
+        context['powers3'] = powers3
+        context['charts'] = chart_dict
+        context['guage'] = guage
+
+        return context
+
+    def get_queryset(self):
+        self.plantid = self.kwargs['plantid']
+        return Blocks.objects.filter(plantid=self.plantid).order_by('initialop')
+
+class PlantList3(ListView):
+    model = Blocks
+    context_object_name = 'blocks'
+    template_name = "plantmaster/plant_list2.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+
+        plant = get_object_or_404(Plants, pk=self.plantid)
+        blocks = Blocks.objects.filter(plantid=self.plantid).order_by("initialop" + "")
+
+
+        data_list = [plant.plantid, plant.plantname, plant.company, plant.blockcount,
+                        plant.latestexpanded, plant.totalpower, plant.activepower]
+        header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme',
+                        'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
+        pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl',
+                    'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
+        pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
+
+
+        ss = get_ss(plant)
+
+        pollutants_dict = get_pollutant_dict(self.plantid, blocks)
+        elist = get_elist(self.plantid, plant)
+
+        pollutions2 = get_pollutants_any_year(self.plantid, "Air")
+        pollutions3 = get_pollutants_any_year(self.plantid, "Water")
+
+        context['plant_id'] = self.plantid
+        context['data_list'] = zip(pl_list, data_list)
+        context['header_list'] = header_list
+        context['rto1'] = 'Luft'
+        context['rto2'] = 'Wasser'
+        context['ss'] = ss
+        context['API'] = API_KEY
+        context['pollutions2'] = pollutions2
+        context['pollutions3'] = pollutions3
+
+        context['pollutants_dict'] = pollutants_dict
+        context['pol_header_list'] = pol_header_list
+
+        context['elist'] = elist
+
+        blocknames = blocks
+        guage, percentages, yearprod = [], [], []
+        chart_dict = {}
+
+        try:
+            power = query_for_month_many(blocknames, "2022", "1")
+
+            powers3 = get_chart_data_m(blocknames, YEARS)
+            yearprod = get_chart_data_whole_y(blocknames, YEARS)
+
+            years = YEARS[::-1]
+            POLS = ["CO2", "NO2", "N2O", "CO", "PM10"]
+            diaglist = [get_pollutants_chart_data(self.plantid, pol) for pol in POLS]
+
+            for idx, diag in enumerate(diaglist):
+                chart_dict[years[idx]] = diag
+
+            powers2 = diaglist[0]
+            percentages = get_percentages_from_yearprod2(yearprod, blocks)
+
+            if power == 0:
+                percentages2 = []
+            else:
+                percentages2 = get_pollutants_from_yearprod3(plant)
                 guage = [[str(percentages2[0][-1]), percentages2[1][-1]]]
         except KeyError:
             pass

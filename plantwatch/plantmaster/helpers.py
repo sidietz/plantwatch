@@ -86,6 +86,20 @@ def get_chart_data_m(blocknames, years):
         powers.append(p)
     return powers
 
+def query_for_pollutants(plantid, year, pollutant):
+    try:
+        q = Pollutions.objects.get(plantid=plantid, year=year, pollutant=pollutant).amount2
+    except:
+        q = 0
+    return q
+
+def get_pollutants_chart_data(plantid, pollutant):
+    pollutants = []
+    p = [pollutant] + [query_for_pollutants(plantid, i, pollutant) for i in YEARS[:-2]]
+    pollutants.append(p)
+    return pollutants
+
+
 
 def get_chart_data_b(blocknames, year):
     powers = []
@@ -134,7 +148,17 @@ def get_percentages_from_yearprod3(plant):
 
     return result
 
+def get_pollutants_from_yearprod3(plant):
 
+    energies = [get_co2_for_plant_by_year(plant, x) for x in YEARS]
+    energies.insert(0, plant.plantid)
+    result = [energies]
+
+    head = ['x'] + YEARS
+    result.insert(0, head)
+
+    return result
+    
 def get_percentages_from_yearprod2(yearprod, blocks):
 
     data = yearprod[1:]
