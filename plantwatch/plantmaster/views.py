@@ -361,15 +361,11 @@ class PlantList4(ListView):
                         plant.latestexpanded, plant.totalpower, plant.activepower]
         data_list2 = [plant2.plantid, plant2.plantname, plant2.company, plant2.blockcount,
                         plant2.latestexpanded, plant2.totalpower, plant2.activepower]
-        
         header_list = ['BlockID', 'Kraftwerksname', 'Blockname', 'Inbetriebnahme',
                         'Abschaltung', 'KWK', 'Status', 'Bundesland', 'Nennleistung [in MW]']
-        
-        
         pl_list = ['KraftwerkID', 'Kraftwerkname', 'Unternehmen', 'Blockzahl',
                     'zuletzt erweitert', 'Gesamtleistung', 'Aktive Leistung']
         pol_header_list = ['Schadstoff', 'Jahr', 'Wert', 'Einheit']
-
 
         ss = get_ss(plant)
 
