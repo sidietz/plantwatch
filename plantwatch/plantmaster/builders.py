@@ -201,13 +201,17 @@ def annotate_plants(plants):
         When(co2_2021=0, then=0),
         default=(F('co2_2021') / F('energy_2021')), output_field=FloatField()),
     eff22=Case(
-        When(energy_2021=0, then=0),
-        When(co2_2021=0, then=0),
+        When(energy_2022=0, then=0),
+        When(co2_2022=0, then=0),
         default=(F('co2_2022') / F('energy_2022')), output_field=FloatField()),
+    eff23=Case(
+        When(energy_2023=0, then=0),
+        When(co2_2023=0, then=0),
+        default=(F('co2_2023') / F('energy_2023')), output_field=FloatField()),
     eff=Case(
-        When(energy_2021=0, then=0),
-        When(co2_2021=0, then=0),
-        default=(F('co2_2022') / F('energy_2022')), output_field=FloatField()),
+        When(energy_2023=0, then=0),
+        When(co2_2023=0, then=0),
+        default=(F('co2_2023') / F('energy_2023')), output_field=FloatField()),
     workload15=Case(
         When(energy_2015=0, then=0),
         default=(F('energy_2015') / (F(power_type) * HOURS_IN_YEAR) * 100),
@@ -240,16 +244,20 @@ def annotate_plants(plants):
         When(energy_2022=0, then=0),
         default=(F('energy_2022') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
+    workload23=Case(
+        When(energy_2023=0, then=0),
+        default=(F('energy_2023') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        output_field=FloatField()),
     workload=Case(
-        When(energy_2022=0, then=0),
-        default=(F('energy_2022') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        When(energy_2023=0, then=0),
+        default=(F('energy_2023') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
     energy=Case(
-        When(energy_2022=0, then=0),
-        default=(F('energy_2022') / float(10**6)), output_field=FloatField()),
+        When(energy_2023=0, then=0),
+        default=(F('energy_2023') / float(10**6)), output_field=FloatField()),
     co2=Case(
-        When(co2_2021=0, then=0),
-        default=(F('co2_2022') / float(10**9)), output_field=FloatField()),
+        When(co2_2023=0, then=0),
+        default=(F('co2_2023') / float(10**9)), output_field=FloatField()),
     )
 
     return plants2
