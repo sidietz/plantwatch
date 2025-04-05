@@ -20,7 +20,8 @@
         {% else %}
             <tr class="table">
         {% endif %}
-        <td><a class="btn btn-outline-secondary" href="{% url 'plant' plant.plantid %}">{{ plant.plantid }} </a></td>
+        <td>
+            <a class="btn btn-outline-secondary" href="{% url 'plant' plant.plantid %}{{comp_plant}}?plant={{comp_plant}}">{{ plant.plantid }} </a></td>
             <td> {{ plant.plantname }}</td> <td> {{ plant.company }}</td>
             <td> {{ plant.initialop }}</td> <td> {{ plant.latestexpanded }}</td>
             <td> {{ plant.state }}</td> <td> {{ plant.federalstate }}</td>

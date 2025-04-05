@@ -31,7 +31,7 @@ SL_2b = [250, 1500, 0, 1500, 250]
 SL_2p = [250, 4500, 0, 4500, 250]
 
 HOURS_IN_YEAR = 365 * 24
-PRTR_YEARS = list(range(2007, 2023))
+PRTR_YEARS = list(range(2007, 2024))
 ENERGY_YEARS = list(range(2015, 2025))
 YEARS = ENERGY_YEARS
 YEAR = ENERGY_YEARS[-1]
@@ -45,7 +45,7 @@ FEDERAL_STATES = ['Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg',
                   'Saarland', 'Sachsen', 'Sachsen-Anhalt',
                   'Schleswig-Holstein', 'Thüringen']
 SOURCES_LIST = ['Erdgas', 'Braunkohle', "Steinkohle", "Kernenergie", OIL]
-OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'bnBm', 'vorläufig stillgelegt', 'stillgelegt §13b EnWG', 'stillgelegt KVBG', 'stillgelegt']
+OPSTATES = ['in Betrieb', 'Kapazitätsreserve', 'Netzreserve', 'Strommarktrückkehr', 'bnBm','KVBG', 'vorläufig stillgelegt', 'stillgelegt']
 
 
 #
@@ -62,7 +62,7 @@ SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"),
               ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000,
-                    "Kernenergie": 6700, OIL: 1000}
+                    "Kernenergie": 0, OIL: 1000}
 FULL_YEAR = 8760
 
 PLANT_COLOR_MAPPING = {"Steinkohle": "table-danger", "Braunkohle": "table-warning",

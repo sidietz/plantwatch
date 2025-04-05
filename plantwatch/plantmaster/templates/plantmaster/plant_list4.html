@@ -3,10 +3,10 @@
 
 {% block content %}
 
-{% include "plant.html" with data_list=data_list %}
-
-{% include "block_table.html" with header=header_list list=blocks short=header_list%}
-
+<div style="display: flex;">
+    {% include "plant.html" with data_list=data_list %}
+    {% include "plant.html" with data_list=data_list2 %}
+</div>
 
 <div>
     <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
@@ -18,26 +18,15 @@
 
 
 <div>
-    <span style="float: left">
-        <iframe
-            title="Google Maps"
-            width="900"
-            height="675"
-            style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key={{API}}
-            &q={{ss}}&maptype=satellite&zoom=16" allowfullscreen>
-        </iframe>
-    </span>
-
     <span>
         <div>
-            <span style="float: left">
+            <span>
 
                 {% include "pollutants_year.html" %}
             
             </span>
             
-            <span style="float: left">
+            <span>
                 
                 {% include "elist.html" %}
 
@@ -48,6 +37,8 @@
 
 {% include "pollutants.html" with pollutions2=pollutions2 rto=rto1 %}
 {% include "pollutants.html" with pollutions2=pollutions3 rto=rto2 %}
+{% include "pollutants.html" with pollutions2=pollutions4 rto=rto1 %}
+{% include "pollutants.html" with pollutions2=pollutions5 rto=rto2 %}
 
 
 {% endblock %}

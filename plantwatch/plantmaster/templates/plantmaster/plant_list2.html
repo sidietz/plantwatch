@@ -2,10 +2,11 @@
 {% load static %}
 
 {% block head %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" crossorigin="anonymous">
-{% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/billboard.js/3.14.3/billboard.min.js" integrity="sha512-xM26fmR2IozMkGheDIWdWNI+JcLmTrs+tmHBAD6tbbV3nODZumfpxLis5Jpe8xzLcRmlGQeI/Lj2NmIwx5yl+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/billboard.js/3.14.3/billboard.min.css" integrity="sha512-+iioEOUqup3ddDw5CE3m87DWYtXSJrYphQzP5sYHdJCcvMULwEelaPgWBV4TFu+XQmL9ZEhfPUvgFWgbQ0hocQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   {% endblock %}
+
 
 {% block content %}
 
@@ -35,7 +36,7 @@
 
 <div>
     <span style="float: left"><a class="button btn btn-primary" href="{% url 'plants' %}">Kraftwerke</a></span>
-    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksauslastung</a></span>
+    <span style="float: right"><a class="button btn btn-primary" href="{% url 'plant2' plant_id %}">Kraftwerksübersicht</a></span>
 </div>
 
 <div stye=“width:100%; style="height:3em;"> </div>
@@ -53,7 +54,7 @@
 <h3>Jahresproduktion</h3>
 <div id="yearprod"></div>
 
-<h3>Gesamtproduktion aller Blöcke 2015 - 2022</h3>
+<h3>Gesamtproduktion aller Blöcke 2015 - 2024</h3>
 <div id="chart3"></div>
 
 {% for key, value in charts.items %}
@@ -69,7 +70,7 @@
 {% block js %}
 
 
-var gauge = c3.generate({
+var gauge = bb.generate({
     bindto: '#gauge',
     data: {
         columns: {{ guage |safe }},
@@ -88,7 +89,7 @@ var gauge = c3.generate({
     }
 });
 
-var percentages = c3.generate({
+var percentages = bb.generate({
     bindto: '#percentages',
     data: {
         x: 'x',
@@ -103,7 +104,7 @@ var percentages = c3.generate({
     }
 });
 
-var percentages2 = c3.generate({
+var percentages2 = bb.generate({
     bindto: '#percentages2',
     data: {
         x: 'x',
@@ -118,7 +119,7 @@ var percentages2 = c3.generate({
     }
 });
 
-var yearprod = c3.generate({
+var yearprod = bb.generate({
     bindto: '#yearprod',
     data: {
         x: 'x',
@@ -131,7 +132,7 @@ var yearprod = c3.generate({
     }
 });
 
-var chart3 = c3.generate({
+var chart3 = bb.generate({
     bindto: '#chart3',
     data: {
         columns:         {{ powers3 |safe }}
@@ -149,7 +150,7 @@ var chart3 = c3.generate({
 });
 
 {% for key, value in charts.items %}
-var chart3 = c3.generate({
+var chart3 = bb.generate({
     bindto: '#chart{{ key }}',
     data: {
         columns:         {{ value |safe }}
