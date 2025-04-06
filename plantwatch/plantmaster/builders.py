@@ -147,8 +147,8 @@ def forge_sources_plant(annotated_plants):
         count = filtered.count()
         effective_power = filtered.aggregate(Sum('totalpower'))\
         ['totalpower__sum'] or 0
-        energy = filtered.aggregate(Sum('energy_2022'))['energy_2022__sum'] or 0
-        co2 = filtered.aggregate(Sum('co2_2022'))['co2_2022__sum'] or 0
+        energy = filtered.aggregate(Sum('energy_2023'))['energy_2023__sum'] or 0
+        co2 = filtered.aggregate(Sum('co2_2023'))['co2_2023__sum'] or 0
         workload = calc_workload(energy, effective_power)
         ophours = divide_safe(energy, effective_power)
         efficiency = divide_safe(co2, energy)
