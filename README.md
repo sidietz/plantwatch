@@ -1,8 +1,7 @@
 # plantwatch
-[![Requirements Status](https://requires.io/github/sidietz/plantwatch/requirements.svg?branch=master)](https://requires.io/github/sidietz/plantwatch/requirements/?branch=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sidietz_plantwatch&metric=alert_status)](https://sonarcloud.io/dashboard?id=sidietz_plantwatch)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b71f209cb1d74890b386b183924097be)](https://www.codacy.com/manual/sidietz/plantwatch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sidietz/plantwatch&amp;utm_campaign=Badge_Grade)
-[![Maintainability](https://api.codeclimate.com/v1/badges/555b3f164b4c67843731/maintainability)](https://codeclimate.com/github/sidietz/plantwatch/maintainability)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b71f209cb1d74890b386b183924097be)](https://app.codacy.com/gh/sidietz/plantwatch/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Maintainability](https://qlty.sh/badges/68afa3cd-d6b3-4c45-94e6-20cd6a5038f7/maintainability.svg)](https://qlty.sh/gh/sidietz/projects/plantwatch)
 
 ## Was ist plantwatch?
 Plantwatch visualisiert die Kraftwerksliste der Bundesnetzagentur und zeigt somit alle konventionellen Kraftwerke in Deutschland.
