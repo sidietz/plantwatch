@@ -4,7 +4,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.1.16] - 2023-05-27
+## [0.1.16-a] - 2025-04-06
+### Added
+- sort by PlantID
+- bnBm state
+- comparasion view
+- prtr data 2023
+
+### Changed
+- slider range 1950 - 2030
+- c3 to billboard js
+- django to version 5.2
+- dedication and other text stuff
+- compliance
+
+### Fixed
+- workload consistency
+- load of nuclear power plants
+
+## [0.1.15-l] - 2023-05-27
 ### Added
 - support for most recent BNetzA plant list spec
 
