@@ -98,10 +98,17 @@ class PlantsList(ListView):
         self.form = form
         self.slider = slider
 
-        plants = Plants.objects.order_by('-totalpower').filter(initialop__range=(slider[0][0], slider[0][1]))\
+        if sort_method == '-':
+            plants = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1]))\
                                                         .filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate)\
                                                         .filter(chp__in=search_chp).filter(energysource__in=search_power)\
-                                                        .order_by(sort_method + sort_criteria)
+                                                        .order_by(F(sort_criteria).desc(nulls_last=True))
+        else:
+            plants = Plants.objects.filter(initialop__range=(slider[0][0], slider[0][1]))\
+                                                        .filter(totalpower__range=(slider[1][0], slider[1][1])).filter(federalstate__in=search_federalstate).filter(state__in=search_opstate)\
+                                                        .filter(chp__in=search_chp).filter(energysource__in=search_power)\
+                                                        .order_by(F(sort_criteria).asc(nulls_last=True))
+
         return annotate_plants(plants)
 
 
