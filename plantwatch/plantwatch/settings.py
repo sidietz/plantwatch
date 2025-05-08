@@ -95,6 +95,30 @@ DATABASES = {
     }
 }
 
+'''
+'plantwatch': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'plantwatch', # database name
+        'USER': 'plantwatch',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'OPTIONS' : {
+            'passfile': '.my_pgpass'
+            },
+    }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'auth.db'),
+    },
+    'plantwatch': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'plantwatch.db'),
+    }
+}
+'''
+
 DATABASE_ROUTERS = ['plantwatch.router.DefaultRouter', 'plantwatch.router.PlantwatchRouter']
 
 

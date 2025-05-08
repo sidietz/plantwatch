@@ -67,7 +67,6 @@ class Blocks(models.Model):
     state = models.TextField(blank=True, null=True)
     endop = models.IntegerField(blank=True, null=True)
     company = models.TextField(blank=True, null=True)
-    reserveyear = models.IntegerField(null=True)
     
     class Meta:
         managed = False
