@@ -25,7 +25,8 @@ echo -e '.separator "," \n.import stammdaten_nh_new.csv addresses  \n.import pla
 
 sqlite3 plantwatch.db "UPDATE plants SET co2_2023 = NULL WHERE co2_2023 = '';"
 sqlite3 plantwatch.db "UPDATE plants SET energy_2023 = NULL WHERE energy_2023 = '';"
-
+sqlite3 plantwatch.db "UPDATE plants SET profit = NULL WHERE profit = '';"
+sqlite3 plantwatch.db "UPDATE plants SET revenue = NULL WHERE revenue = '';"
 #\n. import produced_power_pg.csv power
 
 # 	year 	plantid 	pollutant 	releases_to 	amount 	potency 	unit_2 	amount_2

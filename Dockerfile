@@ -1,5 +1,7 @@
 # Use the official Python runtime image
 FROM python:alpine
+
+RUN apk add py3-psycopg2
  
 # Create the app directory
 RUN mkdir /app
