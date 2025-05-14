@@ -18,16 +18,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 with open(BASE_DIR + "/pw_file") as f:
     PASSWORD = f.read().strip()
 
+try:
+    with open(BASE_DIR + "/secretkey.txt") as f:
+        SECRET_KEY = f.read().strip()
+except FileNotFoundError:
+    SECRET_KEY = 'ha+)t*@si11zo-_-@m$lo7!*6h80x5lx^-v@wv%wm0e+s&%oe1'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ha+)t*@si11zo-_-@m$lo7!*6h80x5lx^-v@wv%wm0e+s&%oe1'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://127.0.0.1:8000"]
 
 
 # Application definition

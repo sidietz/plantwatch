@@ -1,54 +1,65 @@
-{%  load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>plantwatch</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
 
     <link rel="shortcut icon" type="image/png" href="{%  static '/plantmaster/favicon.ico' %}">
 
     {% block head %}
     {% endblock %}
 </head>
+
 <body>
 
-<h1>Aus Liebe zum Planeten Erde - plantwatch.de</h1>
-<h2>Eine Transparenzwebseite der #NiemehrRWE</h2>
+    <h1>Aus Liebe zum Planeten Erde - plantwatch.de</h1>
+    <h2>Eine Transparenzwebseite der #NiemehrRWE</h2>
 
-<nav class="navbar navbar-expand-sm bg-light">
+    <nav class="navbar navbar-expand-sm bg-light">
 
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'index' %}">Startseite</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'blocks' %}">Blöcke</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'plants' %}">Kraftwerke</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'random_plant' %}">Zufallskraftwerk</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'impressum' %}">Impressum</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'compliance' %}">Compliance</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'widmung' %}">Widmung</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'friends' %}">Freunde der NieMehrRWE</a>
-    </li>
-  </ul>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Startseite</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blocks' %}">Blöcke</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'plants' %}">Kraftwerke</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'random_plant' %}">Zufallskraftwerk</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'impressum' %}">Impressum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'calculations' %}">Berechnungsgrundlagen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'downloads' %}">Daten herunterladen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'compliance' %}">Compliance</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'widmung' %}">Widmung</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'friends' %}">Freunde der NieMehrRWE</a>
+            </li>
+        </ul>
 
-</nav>
+    </nav>
 
     {% block content %}
     {% endblock %}

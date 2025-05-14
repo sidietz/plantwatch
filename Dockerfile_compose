@@ -1,0 +1,24 @@
+# Use the official Python runtime image
+FROM python:alpine
+
+RUN apk add py3-psycopg2 py3-gunicorn-pyc # nginx nano #openrc
+
+RUN mkdir /app
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1 
+
+RUN pip install --upgrade pip 
+
+COPY .  /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN cp /app/plantwatch/plantwatch/settings_docker.py /app/plantwatch/plantwatch/settings.py
+WORKDIR /app/plantwatch
+EXPOSE 8080
+RUN head -c 500 /dev/urandom | tr -dc 'a-zA-Z0-9~!@#$%^&*_-' > /app/plantwatch/secretkey.txt
+CMD gunicorn plantwatch.wsgi --bind 0.0.0.0:8080
+
+#CMD ["nginx", '-g', 'pid /tmp/nginx.pid; ; ', "gunicorn", "plantwatch.wsgi", "--bind 0.0.0.0:8000"]
+#CMD gunicorn plantwatch.wsgi --bind unix:/run/gunicorn.sock ; nginx

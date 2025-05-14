@@ -6,3 +6,4 @@ Markdown==3.7
 MarkupSafe==3.0.2
 sqlparse==0.5.3
 psycopg2-binary==2.9.10
+gunicorn==23.0.0
