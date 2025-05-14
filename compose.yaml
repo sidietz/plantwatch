@@ -1,8 +1,15 @@
 services:
   web:
-    build: .
-    ports:
-      - "8000:8000"
+    build:
+      context: .
+      dockerfile: Dockerfile_compose
+    expose:
+      - 8080
+    networks:
+      - nginx_network
+      - db_network
+    depends_on:
+      - db
   db:
     image: postgres
     restart: always
@@ -18,3 +25,21 @@ services:
     hostname: db
     ports:
       - "8015:8015"
+    networks:
+      - db_network
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 8000:80
+    depends_on:
+      - web
+    volumes:
+      - ./plantwatch_nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
+  db_network:
+    driver: bridge
