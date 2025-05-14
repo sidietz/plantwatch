@@ -38,9 +38,11 @@ COPY month
 FROM '/docker-entrypoint-initdb.d/ml2.csv'
 WITH (FORMAT CSV, DELIMITER ',', NULL '');
 
+/*
 psql plantwatch -c "\copy addresses FROM 'stammdaten_nh_new.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy plants FROM 'plants_with_profit.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy blocks FROM 'blocks_new_nh.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy yearly FROM 'yearly_pg.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy pollutions FROM 'pollutants_pg.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy month FROM 'ml2.csv' WITH (FORMAT CSV)"
+*/

@@ -437,5 +437,10 @@ def enemies(request):
 def friends(request):
     return render(request, "plantmaster/friends.html", {})
 
+def calculations(request):
+    return render(request, "plantmaster/calculations.html", {})
+
+def downloads(request):
+    return render(request, "plantmaster/downloads.html", {})
 
 
