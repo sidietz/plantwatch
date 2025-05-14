@@ -15,16 +15,14 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+with open(BASE_DIR + "/pw_file") as f:
+    PASSWORD = f.read().strip()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-try:
-    with open(BASE_DIR + "/secretkey.txt") as f:
-        SECRET_KEY = f.read().strip()
-except FileNotFoundError:
-    SECRET_KEY = 'ha+)t*@si11zo-_-@m$lo7!*6h80x5lx^-v@wv%wm0e+s&%oe1'
+SECRET_KEY = 'ha+)t*@si11zo-_-@m$lo7!*6h80x5lx^-v@wv%wm0e+s&%oe1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -93,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'auth.db'),
     },
-    'plantwatch': {
+'plantwatch': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'plantwatch.db'),
     }
@@ -102,14 +100,16 @@ DATABASES = {
 '''
 'plantwatch': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'plantwatch', # database name
+        'NAME': 'plantwatch',
         'USER': 'plantwatch',
-        'HOST': 'localhost',
+        'HOST': 'ep-raspy-king-a2q5t0u5.eu-central-1.aws.neon.tech',
         'PORT': '5432',
         'OPTIONS' : {
             'passfile': '.my_pgpass'
             },
     }
+
+postgresql://plantwatch:/plantwatch?sslmode=require
 
 DATABASES = {
     'default': {
@@ -162,6 +162,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = "/tmp/static/"
-
+STATIC_URL = '/static/'

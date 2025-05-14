@@ -1,0 +1,26 @@
+{% extends "plantmaster/base.html" %}
+{% block content %}
+
+{% load static %}
+
+<div>
+    <h2>Daten herunterladen</h2>
+    <p>
+        Falls Sie eine eigene plantwatch-Instanz betreiben möchten, ohne plantwatch-data zu benutzen, finden Sie die nötigen Dateien hier zum Download:
+    </p>
+    <ul>
+        <li>
+             <a href="{% static 'plantmaster/plantwatch.db' %}" download>plantwatch.db</a> 
+        </li>
+        <li>
+             <a href="{% static 'plantmaster/data.zip' %}" download>data.zip</a> 
+        </li>
+    </ul>
+
+    <p>
+        Wünschen Sie eine postgres-basierte Installation, benötigen Sie data.zip, wobei Sie die enthaltenen Dateien in den db-Ordner kopieren müssen.<br>
+        Wünschen Sie eine sqlite-basierte Installation, benötigen Sie plantwatch.db, wobei Sie diese in den Ordner plantwatch (den mit manage.py) kopieren müssen.
+    </p>
+</div>
+
+{% endblock %}
