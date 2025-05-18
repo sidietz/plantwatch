@@ -78,7 +78,7 @@ class PlantsList(ListView):
         context['form'] = self.form
         context['slider'] = self.slider
         sources_dict = forge_sources_plant(context['plants'])
-        header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'CO2 Ausstoß [Mio. t]', 'Auslastung [%]', 'Effizienz [g/kWh]']
+        header_list = ['Kraftwerk', 'Name', 'Unternehmen', 'Inbetrieb-nahme', 'zuletzt erweitert', 'Status', 'Bundesland', 'Gesamt-leistung [MW]', 'Energie [TWh]', 'CO2 Ausstoß [Mio. t]', 'Auslastung [%]', 'Effizienz [g/kWh]', 'Umsatz [Mio. €]', 'Profit [Mio. €]']
         context['sources_dict'] = sources_dict
         context['sources_header'] = SOURCES_PLANTS
         context['header_list'] = header_list

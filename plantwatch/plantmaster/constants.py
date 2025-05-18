@@ -10,8 +10,11 @@ SORT_CRITERIA_PLANTS = ([('plantid', 'PlantID'),
                          ('totalpower', 'Gesamtleistung'),
                          ('initialop', 'Inbetriebnahme'),
                          ('latestexpanded', 'Zuletzt erweitert'),
-                         ('co2_2022', 'CO2 Ausstoß'),
-                         ('energy_2022', 'Energie')], "totalpower")
+                         ('co2_2023', 'CO2 Ausstoß'),
+                         ('energy_2023', 'Energie'),
+                         ('revenue', 'Umsatz'),
+                         ('profit', 'Profit'),
+                         ], "co2_2023")
 SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'),
                              ('totalpower', 'Gesamtleistung'),
                              ('initialop', 'Inbetriebnahme'),
