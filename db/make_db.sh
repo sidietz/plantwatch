@@ -23,6 +23,10 @@ sqlite3 plantwatch.db  "CREATE TABLE pollutions(pollutionsid INTEGER NOT NULL, y
 
 echo -e '.separator "," \n.import stammdaten_nh_new.csv addresses  \n.import plants_with_profit.csv plants \n.import blocks_new_nh.csv blocks\n.import yearly_pg.csv yearly\n. import monthly.csv month\n. import pollutants_pg.csv pollutions' | sqlite3 plantwatch.db
 
+sqlite3 plantwatch.db "UPDATE plants SET co2_2023 = NULL WHERE co2_2023 = '';"
+sqlite3 plantwatch.db "UPDATE plants SET energy_2023 = NULL WHERE energy_2023 = '';"
+sqlite3 plantwatch.db "UPDATE plants SET profit = NULL WHERE profit = '';"
+sqlite3 plantwatch.db "UPDATE plants SET revenue = NULL WHERE revenue = '';"
 #\n. import produced_power_pg.csv power
 
 # 	year 	plantid 	pollutant 	releases_to 	amount 	potency 	unit_2 	amount_2

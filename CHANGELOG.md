@@ -1,8 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [0.1.16-d] - 2025-05-18
+### Fixed
+- None values in endop
+
+## [0.1.16-c] - 2025-05-14
+### Added
+- docker and docker compose support
+- data download option
+
+## [0.1.16-b] - 2025-05-08
+### Fixed
+- null value handling when sorting
 
 ## [0.1.16-a] - 2025-04-06
 ### Added

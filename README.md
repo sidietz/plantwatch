@@ -11,7 +11,7 @@ Plantwatch visualisiert die Kraftwerksliste der Bundesnetzagentur und zeigt somi
 Datenquellen sind die Kraftwerksliste der Bundesnetzagentur, die unter SMARD veröffentlichten produzierten Strommengen sowie Daten des europäischen Emissionsregisters PRTR, welche unter Thruu veröffentlicht sind.
 
 ## Nutzung
-Einfach [plantwatch.de](https://plantwatch.de) aufrufen.
+Einfach [plantwatch.de](https://plantwatch.de) aufrufen. Alternativ können auch Docker für eine Test-/Entwicklungsumgebung bzw. Docker compose für eine Produktivumgebung genutzt werden.
 
 ## Fehler
 Plantwatch ist nicht zuende entwickelt und kann daher Fehler enthalten. Über Meldungen solcher Fehler würde ich mich freuen.

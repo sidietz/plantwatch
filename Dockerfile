@@ -1,37 +1,19 @@
 # Use the official Python runtime image
-FROM python:3.13  
- 
-# Create the app directory
+FROM python:alpine
+
+RUN apk add py3-psycopg2 py3-gunicorn-pyc
+
 RUN mkdir /app
- 
-# Set the working directory inside the container
 WORKDIR /app
- 
-# Set environment variables 
-# Prevents Python from writing pyc files to disk
+
 ENV PYTHONDONTWRITEBYTECODE=1
-#Prevents Python from buffering stdout and stderr
 ENV PYTHONUNBUFFERED=1 
- 
-# Upgrade pip
+
 RUN pip install --upgrade pip 
- 
-# Copy the Django project  and install dependencies
+
 COPY .  /app/
-
-#CMD ["ls"]
-#CMD ["pwd"]
-
-#COPY requirements.txt /app/requirements.txt
- 
-# run this command to install all dependencies 
 RUN pip install --no-cache-dir -r requirements.txt
- 
-# Copy the Django project to the container
-# COPY . /app/
- 
-# Expose the Django port
+RUN cp /app/plantwatch/plantwatch/settings_dev.py /app/plantwatch/plantwatch/settings.py
 EXPOSE 8000
 
-# Run Django’s development server
 CMD ["python", "plantwatch/manage.py", "runserver", "0.0.0.0:8000"]
