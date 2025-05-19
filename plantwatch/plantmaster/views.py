@@ -125,7 +125,7 @@ class BlockView(DetailView):
         except:
             myplantid = ""
         data_list = [myplantid, block.blockid, block.blockname, block.company, address.plz, address.place,
-                        address.street + " " + address.street_number, address.federalstate, block.netpower]
+                        (address.street or "") + " " + (address.street_number or ""), address.federalstate, block.netpower]
         header_list = ['KraftwerkID', 'BlockID', 'Blockname', 'Unternehmen', 'PLZ',
                         'Ort', 'Anschrift', 'Bundesland', 'Nennleistung']
         context['data_list'] = zip(header_list, data_list)
