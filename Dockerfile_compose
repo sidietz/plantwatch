@@ -1,7 +1,7 @@
 # Use the official Python runtime image
 FROM python:alpine
 
-RUN apk add py3-psycopg2 py3-gunicorn-pyc # nginx nano #openrc
+RUN apk add py3-psycopg py3-gunicorn-pyc # nginx nano #openrc
 
 RUN mkdir /app
 WORKDIR /app
