@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.16-e] - 2025-05-18
 ### Fixed
 - None values in street num in addresses
+- docker compose setup
 
 ## [0.1.16-d] - 2025-05-18
 ### Fixed
