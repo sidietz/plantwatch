@@ -3,7 +3,7 @@
     {% for key, value in data_list %}
     <tr>
         <th id="block{{ forloop.counter0 }}">{{ key }}</th>
-        <td>{{ value }}</td>
+        <td>{{ value |default:"" }}</td>
     </tr>
 {% endfor %}
 </table>
