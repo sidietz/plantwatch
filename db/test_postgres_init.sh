@@ -7,6 +7,10 @@ psql plantwatch -c "\copy yearly FROM 'yearly_pg.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy pollutions FROM 'pollutants_pg.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy month FROM 'ml2.csv' WITH (FORMAT CSV)"
 
+psql plantwatch -c "UPDATE plants SET chp = 'Nein' WHERE chp IS NULL;"
+psql plantwatch -c "CREATE UNIQUE INDEX plants_idx ON plants(plantid);"
+psql plantwatch -c "CREATE INDEX blocks_idx ON blocks(blockid, plantid);"
+
 #CREATE TABLE addresses(blockid TEXT NOT NULL PRIMARY KEY, plz INTEGER, place TEXT, street TEXT, street_number TEXT, federalstate TEXT);
 
 #CREATE TABLE blocks(blockid TEXT NOT NULL PRIMARY KEY, plantid TEXT, blockname TEXT, federalstate TEXT, energysource TEXT, initialop INTEGER, chp TEXT, netpower REAL, state TEXT, endop INT, company TEXT, FOREIGN KEY (blockid) REFERENCES addresses(blockid) ON DELETE CASCADE);
