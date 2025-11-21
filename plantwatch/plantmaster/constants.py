@@ -62,7 +62,7 @@ DEFAULT_OPSTATES = ACTIVE_OPS
 #['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall', 'Kohlestromvermarktungsverbot']
 DEFAULT_OPS = DEFAULT_OPSTATES
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"),
-              ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
+              ("Ja", "Kraft-Wärme-Kopplung"), (None, "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000,
                     "Kernenergie": 0, OIL: 1000}
