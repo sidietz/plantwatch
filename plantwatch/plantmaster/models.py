@@ -49,6 +49,8 @@ class Plants(models.Model):
     co2_2021 = models.IntegerField(blank=True, null=True)
     co2_2022 = models.IntegerField(blank=True, null=True)
     co2_2023 = models.IntegerField(blank=True, null=True)
+    revenue = models.FloatField(blank=True, null=True)
+    profit = models.FloatField(blank=True, null=True)
 
     class Meta:
         managed = False

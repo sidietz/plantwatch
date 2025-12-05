@@ -11,7 +11,10 @@ SORT_CRITERIA_PLANTS = ([('plantid', 'PlantID'),
                          ('initialop', 'Inbetriebnahme'),
                          ('latestexpanded', 'Zuletzt erweitert'),
                          ('co2_2023', 'CO2 Ausstoß'),
-                         ('energy_2023', 'Energie')], "co2_2023")
+                         ('energy_2023', 'Energie'),
+                         ('revenue', 'Umsatz'),
+                         ('profit', 'Profit'),
+                         ], "co2_2023")
 SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'),
                              ('totalpower', 'Gesamtleistung'),
                              ('initialop', 'Inbetriebnahme'),
@@ -59,7 +62,7 @@ DEFAULT_OPSTATES = ACTIVE_OPS
 #['in Betrieb', 'Gesetzlich an Stilllegung gehindert', 'Sicherheitsbereitschaft', 'Netzreserve', 'Sonderfall', 'Kohlestromvermarktungsverbot']
 DEFAULT_OPS = DEFAULT_OPSTATES
 SELECT_CHP = [("Nein", "keine Kraft-Wärme-Kopplung"),
-              ("Ja", "Kraft-Wärme-Kopplung"), ("", "unbekannt")]
+              ("Ja", "Kraft-Wärme-Kopplung"), (None, "unbekannt")]
 SELECT_CHP_LIST = ["Ja", "Nein", ""]
 SOURCES_DICT = {'Erdgas': 1220, 'Braunkohle': 6625, "Steinkohle": 3000,
                     "Kernenergie": 0, OIL: 1000}
