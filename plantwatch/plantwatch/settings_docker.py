@@ -28,7 +28,7 @@ except FileNotFoundError:
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://127.0.0.1:8000", "http://127.0.0.1:8000"]
