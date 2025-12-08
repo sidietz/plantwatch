@@ -28,7 +28,7 @@ except FileNotFoundError:
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://127.0.0.1:8000", "http://127.0.0.1:8000"]
@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'plantwatch',
         'USER': 'plantwatch',
-        'HOST': 'db',
+        'HOST': 'db2',
         'PORT': '8015',
         'PASSWORD': 'PASSWORD'
     }

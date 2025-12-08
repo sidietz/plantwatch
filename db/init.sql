@@ -16,7 +16,7 @@ CREATE TABLE test(tid INTEGER, name TEXT, value REAL, value2 INT, value3 INT, va
 
 COPY addresses
 FROM '/docker-entrypoint-initdb.d/stammdaten_nh_new.csv'
-DELIMITER ',';
+WITH (FORMAT CSV, DELIMITER ',', NULL '');
 
 COPY plants
 FROM '/docker-entrypoint-initdb.d/plants_with_profit.csv'
