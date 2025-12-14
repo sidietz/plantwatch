@@ -39,6 +39,7 @@ FROM '/docker-entrypoint-initdb.d/ml2.csv'
 WITH (FORMAT CSV, DELIMITER ',', NULL '');
 
 UPDATE plants SET chp = 'Nein' WHERE chp IS NULL;
+UPDATE blocks SET state = 'stillgelegt' WHERE state IS NULL;
 CREATE UNIQUE INDEX plants_idx ON plants(plantid);
 CREATE INDEX blocks_idx ON blocks(blockid, plantid);
 
