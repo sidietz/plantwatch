@@ -16,7 +16,7 @@ CREATE TABLE test(tid INTEGER, name TEXT, value REAL, value2 INT, value3 INT, va
 
 COPY addresses
 FROM '/docker-entrypoint-initdb.d/stammdaten_nh_new.csv'
-DELIMITER ',';
+WITH (FORMAT CSV, DELIMITER ',', NULL '');
 
 COPY plants
 FROM '/docker-entrypoint-initdb.d/plants_with_profit.csv'
@@ -39,6 +39,7 @@ FROM '/docker-entrypoint-initdb.d/ml2.csv'
 WITH (FORMAT CSV, DELIMITER ',', NULL '');
 
 UPDATE plants SET chp = 'Nein' WHERE chp IS NULL;
+UPDATE blocks SET state = 'stillgelegt' WHERE state IS NULL;
 CREATE UNIQUE INDEX plants_idx ON plants(plantid);
 CREATE INDEX blocks_idx ON blocks(blockid, plantid);
 

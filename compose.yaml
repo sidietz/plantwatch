@@ -1,5 +1,6 @@
+
 services:
-  web:
+  web2:
     build:
       context: .
       dockerfile: Dockerfile_compose
@@ -9,8 +10,8 @@ services:
       - nginx_network
       - db_network
     depends_on:
-      - db
-  db:
+      - db2
+  db2:
     image: postgres
     restart: always
     environment:
@@ -22,17 +23,17 @@ services:
       - ./db:/docker-entrypoint-initdb.d/
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    hostname: db
+    hostname: db2
     ports:
       - "8015:8015"
     networks:
       - db_network
-  nginx:
+  nginx2:
     image: nginx:alpine
     ports:
       - 8000:80
     depends_on:
-      - web
+      - web2
     volumes:
       - ./plantwatch_nginx.conf:/etc/nginx/conf.d/default.conf
     networks:

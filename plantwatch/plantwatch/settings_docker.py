@@ -31,7 +31,7 @@ except FileNotFoundError:
 DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
-CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://127.0.0.1:8000", "http://127.0.0.1:8000"]
+CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://127.0.0.1:8000", "http://127.0.0.1:8000", "https://127.0.0.1:8080", "https://127.0.0.1:8080"]
 
 
 # Application definition
@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'plantwatch',
         'USER': 'plantwatch',
-        'HOST': 'db',
+        'HOST': 'db2',
         'PORT': '8015',
         'PASSWORD': 'PASSWORD'
     }
