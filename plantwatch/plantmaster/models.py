@@ -32,6 +32,7 @@ class Plants(models.Model):
     energy_2022 = models.IntegerField(blank=True, null=True)
     energy_2023 = models.IntegerField(blank=True, null=True)
     energy_2024 = models.IntegerField(blank=True, null=True)
+    energy_2025 = models.IntegerField(blank=True, null=True)
     co2_2007 = models.IntegerField(blank=True, null=True)
     co2_2008 = models.IntegerField(blank=True, null=True)
     co2_2009 = models.IntegerField(blank=True, null=True)
