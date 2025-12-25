@@ -431,8 +431,8 @@ def compliance(request):
 def widmung(request):
     return render(request, "plantmaster/widmung.html", {})
 
-def enemies(request):
-    return render(request, "plantmaster/enemies.html", {})
+def niemehrrwe(request):
+    return render(request, "plantmaster/nrwe.html", {})
 
 def friends(request):
     return render(request, "plantmaster/friends.html", {})
