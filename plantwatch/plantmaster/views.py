@@ -232,7 +232,7 @@ class PlantList2(ListView):
         chart_dict = {}
 
         try:
-            power = query_for_month_many(blocknames, "2022", "1")
+            power = query_for_month_many(blocknames, "2023", "1")
 
             powers3 = get_chart_data_m(blocknames, YEARS)
             yearprod = get_chart_data_whole_y(blocknames, YEARS)
@@ -431,8 +431,8 @@ def compliance(request):
 def widmung(request):
     return render(request, "plantmaster/widmung.html", {})
 
-def enemies(request):
-    return render(request, "plantmaster/enemies.html", {})
+def niemehrrwe(request):
+    return render(request, "plantmaster/nrwe.html", {})
 
 def friends(request):
     return render(request, "plantmaster/friends.html", {})

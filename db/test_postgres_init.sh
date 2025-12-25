@@ -5,7 +5,7 @@ psql plantwatch -c "\copy plants FROM 'plants_with_profit.csv' WITH (FORMAT CSV)
 psql plantwatch -c "\copy blocks FROM 'blocks_new_nh.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy yearly FROM 'yearly_pg.csv' WITH (FORMAT CSV)"
 psql plantwatch -c "\copy pollutions FROM 'pollutants_pg.csv' WITH (FORMAT CSV)"
-psql plantwatch -c "\copy month FROM 'ml2.csv' WITH (FORMAT CSV)"
+psql plantwatch -c "\copy month FROM 'monthly.csv' WITH (FORMAT CSV)"
 
 psql plantwatch -c "UPDATE plants SET chp = 'Nein' WHERE chp IS NULL;"
 psql plantwatch -c "CREATE UNIQUE INDEX plants_idx ON plants(plantid);"

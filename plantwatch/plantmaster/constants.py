@@ -10,11 +10,11 @@ SORT_CRITERIA_PLANTS = ([('plantid', 'PlantID'),
                          ('totalpower', 'Gesamtleistung'),
                          ('initialop', 'Inbetriebnahme'),
                          ('latestexpanded', 'Zuletzt erweitert'),
-                         ('co2_2023', 'CO2 Ausstoß'),
-                         ('energy_2023', 'Energie'),
+                         ('co2_2024', 'CO2 Ausstoß'),
+                         ('energy_2024', 'Energie'),
                          ('revenue', 'Umsatz'),
                          ('profit', 'Profit'),
-                         ], "co2_2023")
+                         ], "co2_2024")
 SORT_CRITERIA_PLANTS_OLD = ([('plantname', 'Name'),
                              ('totalpower', 'Gesamtleistung'),
                              ('initialop', 'Inbetriebnahme'),
@@ -34,8 +34,8 @@ SL_2b = [250, 1500, 0, 1500, 250]
 SL_2p = [250, 4500, 0, 4500, 250]
 
 HOURS_IN_YEAR = 365 * 24
-PRTR_YEARS = list(range(2007, 2024))
-ENERGY_YEARS = list(range(2015, 2025))
+PRTR_YEARS = list(range(2007, 2025))
+ENERGY_YEARS = list(range(2015, 2026))
 YEARS = ENERGY_YEARS
 YEAR = ENERGY_YEARS[-1]
 LATEST_YEAR = ENERGY_YEARS[-1]

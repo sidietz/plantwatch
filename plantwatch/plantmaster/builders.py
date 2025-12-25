@@ -147,8 +147,8 @@ def forge_sources_plant(annotated_plants):
         count = filtered.count()
         effective_power = filtered.aggregate(Sum('totalpower'))\
         ['totalpower__sum'] or 0
-        energy = filtered.aggregate(Sum('energy_2023'))['energy_2023__sum'] or 0
-        co2 = filtered.aggregate(Sum('co2_2023'))['co2_2023__sum'] or 0
+        energy = filtered.aggregate(Sum('energy_2024'))['energy_2024__sum'] or 0
+        co2 = filtered.aggregate(Sum('co2_2024'))['co2_2024__sum'] or 0
         workload = calc_workload(energy, effective_power)
         ophours = divide_safe(energy, effective_power)
         efficiency = divide_safe(co2, energy)
@@ -208,10 +208,14 @@ def annotate_plants(plants):
         When(energy_2023=0, then=0),
         When(co2_2023=0, then=0),
         default=(F('co2_2023') / F('energy_2023')), output_field=FloatField()),
+    eff24=Case(
+        When(energy_2024=0, then=0),
+        When(co2_2024=0, then=0),
+        default=(F('co2_2024') / F('energy_2024')), output_field=FloatField()),
     eff=Case(
-        When(energy_2023=0, then=0),
-        When(co2_2023=0, then=0),
-        default=(F('co2_2023') / F('energy_2023')), output_field=FloatField()),
+        When(energy_2024=0, then=0),
+        When(co2_2024=0, then=0),
+        default=(F('co2_2024') / F('energy_2024')), output_field=FloatField()),
     workload15=Case(
         When(energy_2015=0, then=0),
         default=(F('energy_2015') / (F(power_type) * HOURS_IN_YEAR) * 100),
@@ -248,16 +252,20 @@ def annotate_plants(plants):
         When(energy_2023=0, then=0),
         default=(F('energy_2023') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
+    workload24=Case(
+        When(energy_2024=0, then=0),
+        default=(F('energy_2024') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        output_field=FloatField()),
     workload=Case(
-        When(energy_2023=0, then=0),
-        default=(F('energy_2023') / (F(power_type) * HOURS_IN_YEAR) * 100),
+        When(energy_2024=0, then=0),
+        default=(F('energy_2024') / (F(power_type) * HOURS_IN_YEAR) * 100),
         output_field=FloatField()),
     energy=Case(
-        When(energy_2023=0, then=0),
-        default=(F('energy_2023') / float(10**6)), output_field=FloatField()),
+        When(energy_2024=0, then=0),
+        default=(F('energy_2024') / float(10**6)), output_field=FloatField()),
     co2=Case(
-        When(co2_2023=0, then=0),
-        default=(F('co2_2023') / float(10**9)), output_field=FloatField()),
+        When(co2_2024=0, then=0),
+        default=(F('co2_2024') / float(10**9)), output_field=FloatField()),
     )
 
     return plants2
