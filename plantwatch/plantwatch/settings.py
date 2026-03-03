@@ -100,6 +100,13 @@ DATABASES = {
 }
 
 '''
+    'plantwatch': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'plantwatch.db'),
+    }
+'''
+
+'''
 'plantwatch': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'plantwatch', # database name
