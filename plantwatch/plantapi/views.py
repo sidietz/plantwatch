@@ -11,6 +11,7 @@ class PlantViewSet(viewsets.ModelViewSet):
     """
     queryset = Plants.objects.all().order_by('-totalpower')
     serializer_class = PlantSerializer
+    lookup_value_regex = '[^/]+'
 
 
 class BlockViewSet(viewsets.ModelViewSet):
@@ -19,20 +20,15 @@ class BlockViewSet(viewsets.ModelViewSet):
     """
     queryset = Blocks.objects.all().order_by('-netpower')
     serializer_class = BlockSerializer
+    lookup_value_regex = '[^/]+'
 
 class PollutionViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows blocks to be viewed.
+    API endpoint that allows pollutions to be viewed.
     """
     queryset = Pollutions.objects.all().order_by('-year').order_by('plantid').order_by('pollutant')
     serializer_class = PollutantSerializer
-
-class PollutionViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows blocks to be viewed.
-    """
-    queryset = Pollutions.objects.all().order_by('-year').order_by('plantid').order_by('pollutant')
-    serializer_class = PollutantSerializer
+    lookup_value_regex = '[^/]+'
 
 def pollution_by_plantid(request, pk):
     queryset = Pollutions.objects.filter(plantid=pk).order_by('-year').order_by('plantid').order_by('pollutant')

@@ -29,13 +29,14 @@ except FileNotFoundError:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testserver', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'plantmaster',
+    'plantapi',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -96,6 +97,9 @@ DATABASES = {
     'plantwatch': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'plantwatch.db'),
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'test_plantwatch.db'),
+        },
     }
 }
 
@@ -171,4 +175,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = "/tmp/static/"
+
+TEST_RUNNER = 'plantwatch.test_runner.PlantwatchTestRunner'
+
 
