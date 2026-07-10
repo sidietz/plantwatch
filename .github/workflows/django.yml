@@ -25,6 +25,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Download db
+      run: |
+        wget https://plantwatch.de/static/plantmaster/plantwatch.db
+    - name: copy db
+      run: |
+        cp plantwatch.db plantwatch/plantwatch.db
     - name: Run Tests
       run: |
         pytest
