@@ -1,11 +1,11 @@
-asgiref==3.11.1
+asgiref==3.12.1
 Django==6.1.0
-django-filter==25.2
+django-filter==26.1
 djangorestframework==3.18.0
-Markdown==3.10.2
+Markdown==3.10.3
 MarkupSafe==3.0.3
-sqlparse==0.5.5
-psycopg[binary]==3.3.3
+sqlparse==0.6.0
+psycopg[binary]==3.3.4
 gunicorn==26.0.0
 pytest==9.1.1
-pytest-django==4.12.0
+pytest-django==4.14.0
