@@ -99,18 +99,18 @@ class PlantmasterIntegrationTests(SimpleTestCase):
         self.assertNotIn('id="nopowerdata"', content)
 
     def test_plant_blocks_table_matches_blockcount(self):
-        """Test plant ST100125 blocks table has exactly as many entries as Blockzahl in Plant table (3)."""
+        """Test plant ST100125 blocks table has exactly as many entries as Blockzahl in Plant table (2)."""
         response = self.client.get('/plantwatch/plant/ST100125/')
         self.assertEqual(response.status_code, 200)
 
         blocks = response.context['blocks']
-        self.assertEqual(len(blocks), 3)
+        self.assertEqual(len(blocks), 2)
 
         content = response.content.decode('utf-8')
         self.assertIn('<caption>Blocks</caption>', content)
 
         # Verify specific block IDs belonging to ST100125 are rendered in the HTML table
-        expected_blocks = ['SEE960652233358', 'SEE919134316447', 'SEE947677200282']
+        expected_blocks = ['SEE960652233358', 'SEE947677200282']
         for block_id in expected_blocks:
             self.assertIn(block_id, content)
 

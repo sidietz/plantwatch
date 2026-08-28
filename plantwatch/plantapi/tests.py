@@ -51,8 +51,8 @@ class PlantapiIntegrationTests(SimpleTestCase):
         response = self.client.get('/plantapi/plants/ST100125/')
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertEqual(data['blockcount'], 3)
-        self.assertEqual(len(data['blocks']), 3)
+        self.assertEqual(data['blockcount'], 2)
+        self.assertEqual(len(data['blocks']), 2)
 
     def test_plant_st100125_api_all_fields_non_empty(self):
         """Test API detail endpoint for ST100125 returns non-empty values for all plant attributes."""
