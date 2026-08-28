@@ -21,7 +21,7 @@ sqlite3 plantwatch.db "CREATE TABLE mtp(mtpid INTEGER NOT NULL PRIMARY KEY, plan
 
 sqlite3 plantwatch.db  "CREATE TABLE pollutions(pollutionsid INTEGER NOT NULL, year INTEGER, plantid  TEXT NOT NULL, pollutant TEXT NOT NULL, releasesto TEXT NOT NULL, amount REAL, potency INTEGER NOT NULL, unit2 TEXT NOT NULL, amount2 REAL, pollutant2 TEXT, PRIMARY KEY(plantid, releasesto, pollutant, year), FOREIGN KEY (plantid) REFERENCES plants(plantid) ON DELETE CASCADE);"
 
-echo -e '.separator "," \n.import stammdaten_nh_new.csv addresses  \n.import plants_with_profit.csv plants \n.import blocks_new_nh.csv blocks\n.import yearly_pg.csv yearly\n. import monthly.csv month\n. import pollutants_pg.csv pollutions' | sqlite3 plantwatch.db
+echo -e '.separator "," \n.import stammdaten_nh_new.csv addresses  \n.import plants_with_profit_v2.csv plants \n.import blocks_new_nh.csv blocks\n.import yearly_pg.csv yearly\n. import monthly.csv month\n. import pollutants_pg.csv pollutions' | sqlite3 plantwatch.db
 
 sqlite3 plantwatch.db "UPDATE plants SET co2_2023 = NULL WHERE co2_2023 = '';"
 sqlite3 plantwatch.db "UPDATE plants SET energy_2023 = NULL WHERE energy_2023 = '';"
